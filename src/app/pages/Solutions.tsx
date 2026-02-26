@@ -151,7 +151,7 @@ export function Solutions() {
             </span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover the perfect products for your specific acne type. Each solution is carefully 
+            Discover the perfect products for your specific acne type. Each solution is carefully
             curated to address your unique skin concerns.
           </p>
         </motion.div>
@@ -190,7 +190,7 @@ export function Solutions() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: productIndex * 0.1 }}
+                    transition={{ duration: 0.2 }}
                     whileHover={{ y: -8 }}
                     className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow"
                   >

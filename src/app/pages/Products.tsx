@@ -175,7 +175,7 @@ export function Products() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
+          transition={{ duration: 0.2 }}
           className="mb-8"
         >
           <div className="relative max-w-2xl mx-auto">
@@ -194,7 +194,7 @@ export function Products() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
+          transition={{ duration: 0.2 }}
           className="mb-12"
         >
           <div className="flex flex-wrap justify-center gap-3">
@@ -204,11 +204,10 @@ export function Products() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setSelectedSkinType(filter.id)}
-                className={`flex items-center gap-2 px-6 py-3 rounded-full transition-all ${
-                  selectedSkinType === filter.id
+                className={`flex items-center gap-2 px-6 py-3 rounded-full transition-all ${selectedSkinType === filter.id
                     ? "bg-gradient-to-r from-pink-500 to-purple-500 text-white shadow-lg"
                     : "bg-white text-gray-600 hover:bg-pink-50 shadow-md"
-                }`}
+                  }`}
               >
                 <filter.icon className="w-4 h-4" />
                 {filter.label}
@@ -239,7 +238,7 @@ export function Products() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ delay: index * 0.05 }}
+                transition={{ duration: 0.2 }}
                 whileHover={{ y: -8 }}
                 className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all"
               >
@@ -337,7 +336,7 @@ export function Products() {
           <Sparkles className="w-12 h-12 mx-auto mb-4 opacity-90" />
           <h3 className="text-3xl mb-4">Build Your Perfect Routine</h3>
           <p className="text-pink-100 max-w-2xl mx-auto leading-relaxed">
-            Remember, everyone's skin is unique! Start with the basics (cleanser, moisturizer, sunscreen) 
+            Remember, everyone's skin is unique! Start with the basics (cleanser, moisturizer, sunscreen)
             and gradually introduce new products one at a time to see what works best for you.
           </p>
         </motion.div>

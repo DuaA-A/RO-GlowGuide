@@ -135,39 +135,39 @@ export function SkinTypes() {
 
   const getColorClasses = (color: string) => {
     const colors: { [key: string]: { bg: string; text: string; border: string; gradient: string } } = {
-      green: { 
-        bg: "bg-green-100", 
-        text: "text-green-600", 
+      green: {
+        bg: "bg-green-100",
+        text: "text-green-600",
         border: "border-green-300",
         gradient: "from-green-400 to-green-600"
       },
-      blue: { 
-        bg: "bg-blue-100", 
-        text: "text-blue-600", 
+      blue: {
+        bg: "bg-blue-100",
+        text: "text-blue-600",
         border: "border-blue-300",
         gradient: "from-blue-400 to-blue-600"
       },
-      yellow: { 
-        bg: "bg-yellow-100", 
-        text: "text-yellow-600", 
+      yellow: {
+        bg: "bg-yellow-100",
+        text: "text-yellow-600",
         border: "border-yellow-300",
         gradient: "from-yellow-400 to-yellow-600"
       },
-      orange: { 
-        bg: "bg-orange-100", 
-        text: "text-orange-600", 
+      orange: {
+        bg: "bg-orange-100",
+        text: "text-orange-600",
         border: "border-orange-300",
         gradient: "from-orange-400 to-orange-600"
       },
-      red: { 
-        bg: "bg-red-100", 
-        text: "text-red-600", 
+      red: {
+        bg: "bg-red-100",
+        text: "text-red-600",
         border: "border-red-300",
         gradient: "from-red-400 to-red-600"
       },
-      purple: { 
-        bg: "bg-purple-100", 
-        text: "text-purple-600", 
+      purple: {
+        bg: "bg-purple-100",
+        text: "text-purple-600",
         border: "border-purple-300",
         gradient: "from-purple-400 to-purple-600"
       },
@@ -199,21 +199,19 @@ export function SkinTypes() {
           <div className="inline-flex bg-white rounded-full p-1 shadow-lg">
             <button
               onClick={() => setActiveTab("skin")}
-              className={`px-8 py-3 rounded-full transition-all ${
-                activeTab === "skin"
+              className={`px-8 py-3 rounded-full transition-all ${activeTab === "skin"
                   ? "bg-gradient-to-r from-pink-500 to-purple-500 text-white shadow-md"
                   : "text-gray-600 hover:text-gray-800"
-              }`}
+                }`}
             >
               Skin Types
             </button>
             <button
               onClick={() => setActiveTab("acne")}
-              className={`px-8 py-3 rounded-full transition-all ${
-                activeTab === "acne"
+              className={`px-8 py-3 rounded-full transition-all ${activeTab === "acne"
                   ? "bg-gradient-to-r from-pink-500 to-purple-500 text-white shadow-md"
                   : "text-gray-600 hover:text-gray-800"
-              }`}
+                }`}
             >
               Acne Types
             </button>
@@ -232,7 +230,7 @@ export function SkinTypes() {
                 key={skin.name}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ duration: 0.2 }}
                 whileHover={{ scale: 1.02 }}
                 className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow"
               >
@@ -283,7 +281,7 @@ export function SkinTypes() {
                 key={acne.name}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ duration: 0.2 }}
                 whileHover={{ scale: 1.02 }}
                 className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow"
               >
@@ -335,8 +333,8 @@ export function SkinTypes() {
           <AlertCircle className="w-12 h-12 mx-auto mb-4 opacity-90" />
           <h3 className="text-2xl mb-3">Important Note</h3>
           <p className="text-pink-100 max-w-3xl mx-auto leading-relaxed">
-            While identifying your skin type and acne concerns can help guide your skincare choices, 
-            severe or persistent skin issues should be evaluated by a dermatologist. This information 
+            While identifying your skin type and acne concerns can help guide your skincare choices,
+            severe or persistent skin issues should be evaluated by a dermatologist. This information
             is for educational purposes only and not a substitute for professional medical advice.
           </p>
         </motion.div>

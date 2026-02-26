@@ -4,70 +4,92 @@ import { Link } from "react-router";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
 export function Home() {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.05,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 15 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.4 } }
+  };
+
   const fadeInUp = {
-    initial: { opacity: 0, y: 40 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 },
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.5 } }
   };
 
   const stagger = {
     animate: {
       transition: {
-        staggerChildren: 0.1,
-      },
-    },
+        staggerChildren: 0.1
+      }
+    }
   };
 
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center">
-        <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div
             className="absolute -top-40 -right-40 w-96 h-96 bg-pink-300 rounded-full blur-3xl opacity-30"
             animate={{
-              scale: [1, 1.2, 1],
-              x: [0, 50, 0],
-              y: [0, 30, 0],
+              scale: [1, 1.1, 1],
+              x: [0, 30, 0],
+              y: [0, 20, 0],
             }}
-            transition={{ duration: 8, repeat: Infinity }}
+            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
           />
           <motion.div
             className="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-300 rounded-full blur-3xl opacity-30"
             animate={{
-              scale: [1, 1.3, 1],
-              x: [0, -50, 0],
-              y: [0, -30, 0],
+              scale: [1, 1.2, 1],
+              x: [0, -30, 0],
+              y: [0, -20, 0],
             }}
-            transition={{ duration: 10, repeat: Infinity }}
+            transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
           />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div {...fadeInUp}>
+            <motion.div
+              variants={container}
+              initial="hidden"
+              animate="show"
+            >
               <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ type: "spring", duration: 0.8 }}
+                variants={item}
                 className="inline-flex items-center gap-2 px-4 py-2 bg-pink-100 rounded-full mb-6"
               >
                 <Sparkles className="w-4 h-4 text-pink-500" />
-                <span className="text-sm text-pink-700">Your Skincare Journey Starts Here</span>
+                <span className="text-sm text-pink-700 font-medium">Your Skincare Journey Starts Here</span>
               </motion.div>
 
-              <h1 className="text-5xl md:text-6xl lg:text-7xl mb-6">
-                <span className="block bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl mb-6 font-bold tracking-tight leading-[1.1] text-gray-900">
+                <motion.span variants={item} className="block mb-2 bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
                   Discover Your
-                </span>
-                <span className="block text-gray-800 mt-2">Perfect Glow</span>
+                </motion.span>
+                <motion.span variants={item} className="block">
+                  Perfect Glow
+                </motion.span>
               </h1>
 
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Welcome to <strong>GlowGuide</strong> – your personalized skincare companion. 
-                We help you understand your unique skin type, identify concerns, and discover 
+              <motion.p
+                variants={item}
+                className="text-xl text-gray-600 mb-8 leading-relaxed max-w-xl"
+              >
+                Welcome to <strong>GlowGuide</strong> – your personalized skincare companion.
+                We help you understand your unique skin type, identify concerns, and discover
                 the perfect products tailored just for you.
-              </p>
+              </motion.p>
 
               <div className="flex flex-wrap gap-4">
                 <Link to="/skin-types">
@@ -105,7 +127,7 @@ export function Home() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-pink-500/20 to-transparent" />
               </div>
-              
+
               {/* Floating elements */}
               <motion.div
                 className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4"
@@ -134,8 +156,8 @@ export function Home() {
               </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We believe everyone deserves to feel confident in their skin. GlowGuide empowers 
-              you with knowledge and personalized product recommendations to achieve your healthiest, 
+              We believe everyone deserves to feel confident in their skin. GlowGuide empowers
+              you with knowledge and personalized product recommendations to achieve your healthiest,
               most radiant complexion.
             </p>
           </motion.div>
@@ -174,11 +196,10 @@ export function Home() {
                 className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow"
               >
                 <div
-                  className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${
-                    feature.color === "pink"
-                      ? "from-pink-400 to-pink-600"
-                      : "from-purple-400 to-purple-600"
-                  } flex items-center justify-center mb-6`}
+                  className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.color === "pink"
+                    ? "from-pink-400 to-pink-600"
+                    : "from-purple-400 to-purple-600"
+                    } flex items-center justify-center mb-6`}
                 >
                   <feature.icon className="w-8 h-8 text-white" />
                 </div>
@@ -220,7 +241,7 @@ export function Home() {
                 <div>
                   <h3 className="text-2xl mb-3 text-gray-800">Skin Type Education</h3>
                   <p className="text-gray-600 leading-relaxed">
-                    Learn about different skin types (normal, dry, oily, combination, sensitive) 
+                    Learn about different skin types (normal, dry, oily, combination, sensitive)
                     and various acne types to better understand your skin's unique needs.
                   </p>
                 </div>
@@ -240,7 +261,7 @@ export function Home() {
                 <div>
                   <h3 className="text-2xl mb-3 text-gray-800">Targeted Solutions</h3>
                   <p className="text-gray-600 leading-relaxed">
-                    Discover effective solutions for each acne type with curated product 
+                    Discover effective solutions for each acne type with curated product
                     recommendations that address your specific concerns.
                   </p>
                 </div>
@@ -260,7 +281,7 @@ export function Home() {
                 <div>
                   <h3 className="text-2xl mb-3 text-gray-800">Product Discovery</h3>
                   <p className="text-gray-600 leading-relaxed">
-                    Browse our curated collection of skincare products with detailed information 
+                    Browse our curated collection of skincare products with detailed information
                     about their benefits and which skin types they're best suited for.
                   </p>
                 </div>
@@ -280,7 +301,7 @@ export function Home() {
                 <div>
                   <h3 className="text-2xl mb-3 text-gray-800">Expert Guidance</h3>
                   <p className="text-gray-600 leading-relaxed">
-                    Our team of skincare enthusiasts has researched and compiled the best 
+                    Our team of skincare enthusiasts has researched and compiled the best
                     information to guide you toward healthier, happier skin.
                   </p>
                 </div>
