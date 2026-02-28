@@ -101,10 +101,19 @@ export function Layout() {
       {/* ── Navigation ───────────────────────────────────────────────────── */}
       <nav
         ref={navRef}
-        className={`sticky top-0 z-50 transition-all duration-300 ${scrolled
-          ? "bg-cream/95 backdrop-blur-md shadow-[0_1px_20px_rgba(61,43,31,0.08)]"
-          : "bg-cream/80 backdrop-blur-sm"
-          } border-b border-warm-beige/60`}
+        className={`sticky top-0 z-50 transition-all duration-500 border-b ${scrolled
+            ? "backdrop-blur-xl border-[rgba(190,155,120,0.25)] shadow-[0_2px_24px_rgba(150,110,80,0.10)]"
+            : location.pathname === "/"
+              ? "backdrop-blur-sm border-transparent"
+              : "backdrop-blur-md border-warm-beige/40"
+          }`}
+        style={{
+          background: scrolled
+            ? "rgba(210,178,148,0.40)"
+            : location.pathname === "/"
+              ? "rgba(255,255,255,0.04)"
+              : "rgba(253,249,246,0.90)",
+        }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
@@ -118,7 +127,7 @@ export function Layout() {
                 className="font-heading text-espresso text-xl tracking-wide"
                 style={{ fontStyle: "italic" }}
               >
-                LumeGuide
+                RO
               </span>
             </Link>
 
@@ -250,7 +259,7 @@ export function Layout() {
       </main>
 
       {/* ── Footer ───────────────────────────────────────────────────────── */}
-      <footer className="bg-espresso text-cream/70 mt-24">
+      <footer className="mt-24 border-t border-warm-beige" style={{ background: "#F8F3ED" }}>
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
           <div className="grid md:grid-cols-4 gap-10 mb-12">
 
@@ -260,20 +269,20 @@ export function Layout() {
                 <div className="w-6 h-6 rounded-full border border-gold flex items-center justify-center">
                   <span className="text-gold text-xs">✦</span>
                 </div>
-                <span className="font-heading text-cream text-lg italic">LumeGuide</span>
+                <span className="font-heading text-espresso text-lg italic">RO</span>
               </div>
-              <p className="text-sm leading-relaxed text-cream/50">
+              <p className="text-sm leading-relaxed text-taupe">
                 Your expert companion for skincare and haircare — evidence-based, beautifully curated.
               </p>
             </div>
 
             {/* Skincare */}
             <div>
-              <h4 className="font-body text-xs uppercase tracking-[0.2em] text-cream/40 mb-4">Skincare</h4>
+              <h4 className="font-body text-xs uppercase tracking-[0.2em] text-sand mb-4">Skincare</h4>
               <ul className="space-y-2.5">
                 {skincareItems.map((item) => (
                   <li key={item.path}>
-                    <Link to={item.path} className="text-sm text-cream/60 hover:text-gold transition-colors">
+                    <Link to={item.path} className="text-sm text-mink hover:text-gold transition-colors">
                       {item.label}
                     </Link>
                   </li>
@@ -283,11 +292,11 @@ export function Layout() {
 
             {/* Haircare */}
             <div>
-              <h4 className="font-body text-xs uppercase tracking-[0.2em] text-cream/40 mb-4">Haircare</h4>
+              <h4 className="font-body text-xs uppercase tracking-[0.2em] text-sand mb-4">Haircare</h4>
               <ul className="space-y-2.5">
                 {haircareItems.map((item) => (
                   <li key={item.path}>
-                    <Link to={item.path} className="text-sm text-cream/60 hover:text-gold transition-colors">
+                    <Link to={item.path} className="text-sm text-mink hover:text-gold transition-colors">
                       {item.label}
                     </Link>
                   </li>
@@ -297,10 +306,10 @@ export function Layout() {
 
             {/* Company */}
             <div>
-              <h4 className="font-body text-xs uppercase tracking-[0.2em] text-cream/40 mb-4">Company</h4>
+              <h4 className="font-body text-xs uppercase tracking-[0.2em] text-sand mb-4">Company</h4>
               <ul className="space-y-2.5">
                 <li>
-                  <Link to="/about" className="text-sm text-cream/60 hover:text-gold transition-colors">
+                  <Link to="/about" className="text-sm text-mink hover:text-gold transition-colors">
                     About Us
                   </Link>
                 </li>
@@ -309,11 +318,11 @@ export function Layout() {
           </div>
 
           {/* Divider */}
-          <div className="border-t border-cream/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-xs text-cream/30">
-              © 2026 LumeGuide. For educational purposes only — not a substitute for professional medical advice.
+          <div className="border-t border-warm-beige pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-xs text-taupe">
+              © 2026 RO Beauty Guide. For educational purposes only — not a substitute for professional medical advice.
             </p>
-            <div className="w-16 h-px bg-gold/40" />
+            <div className="w-16 h-px bg-gold/50" />
           </div>
         </div>
       </footer>
