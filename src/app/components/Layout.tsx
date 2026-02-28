@@ -1,152 +1,319 @@
 import { Outlet, Link, useLocation } from "react-router";
 import { motion, AnimatePresence, useScroll, useSpring } from "motion/react";
-import { Sparkles, Menu, X } from "lucide-react";
-import { useState, useEffect } from "react";
+import { Menu, X, ChevronDown } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
 
 function ScrollProgressBar() {
   const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 70,
-    damping: 20,
-    restDelta: 0.001
-  });
-
+  const scaleX = useSpring(scrollYProgress, { stiffness: 70, damping: 20, restDelta: 0.001 });
   return (
     <motion.div
-      className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-pink-500 to-purple-500 z-[100] origin-left"
+      className="scroll-progress"
       style={{ scaleX }}
     />
   );
 }
 
+interface NavDropdownItem {
+  label: string;
+  path: string;
+  description: string;
+}
+
+interface NavGroup {
+  label: string;
+  items: NavDropdownItem[];
+}
+
+const skincareItems: NavDropdownItem[] = [
+  { label: "Skin Types & Conditions", path: "/skincare/types", description: "Understand your skin" },
+  { label: "Skincare Routines", path: "/skincare/solutions", description: "Step-by-step guidance" },
+  { label: "Skincare Products", path: "/skincare/products", description: "Explore our catalogue" },
+];
+
+const haircareItems: NavDropdownItem[] = [
+  { label: "Hair Types & Conditions", path: "/haircare/types", description: "Know your hair" },
+  { label: "Hair Routines", path: "/haircare/solutions", description: "Care plans by type" },
+  { label: "Haircare Products", path: "/haircare/products", description: "Hair-specific formulas" },
+];
+
+function DropdownMenu({ items, isOpen }: { items: NavDropdownItem[]; isOpen: boolean }) {
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: 8, scale: 0.97 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 8, scale: 0.97 }}
+          transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 bg-cream border border-warm-beige rounded-xl shadow-[0_8px_40px_rgba(61,43,31,0.12)] py-2 z-50"
+        >
+          {items.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              className="block px-5 py-3 group hover:bg-linen transition-colors"
+            >
+              <p className="text-sm text-espresso font-medium group-hover:text-gold transition-colors">{item.label}</p>
+              <p className="text-xs text-taupe mt-0.5">{item.description}</p>
+            </Link>
+          ))}
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
 export function Layout() {
   const location = useLocation();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
+  const navRef = useRef<HTMLDivElement>(null);
 
-  // Scroll to top on navigation
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
+    setMobileOpen(false);
   }, [location.pathname]);
 
-  const navItems = [
-    { path: "/", label: "Home" },
-    { path: "/skin-types", label: "Skin & Acne Types" },
-    { path: "/solutions", label: "Solutions" },
-    { path: "/products", label: "Products" },
-    { path: "/team", label: "Our Team" },
-  ];
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setOpenDropdown(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const isActive = (paths: string[]) => paths.some((p) => location.pathname.startsWith(p));
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-pink-100">
+    <div className="min-h-screen bg-cream">
       <ScrollProgressBar />
 
-      {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
+      {/* ── Navigation ───────────────────────────────────────────────────── */}
+      <nav
+        ref={navRef}
+        className={`sticky top-0 z-50 transition-all duration-300 ${scrolled
+          ? "bg-cream/95 backdrop-blur-md shadow-[0_1px_20px_rgba(61,43,31,0.08)]"
+          : "bg-cream/80 backdrop-blur-sm"
+          } border-b border-warm-beige/60`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
+
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2 group">
-              <motion.div
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.5 }}
+            <Link to="/" className="flex items-center gap-3 group flex-shrink-0">
+              <div className="w-7 h-7 rounded-full border border-gold flex items-center justify-center group-hover:bg-gold transition-colors duration-300">
+                <span className="text-gold group-hover:text-cream text-xs transition-colors duration-300">✦</span>
+              </div>
+              <span
+                className="font-heading text-espresso text-xl tracking-wide"
+                style={{ fontStyle: "italic" }}
               >
-                <Sparkles className="w-6 h-6 text-pink-500" />
-              </motion.div>
-              <span className="text-xl font-semibold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
-                GlowGuide
+                LumeGuide
               </span>
             </Link>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex gap-1">
-              {navItems.map((item) => (
-                <Link key={item.path} to={item.path}>
-                  <motion.div
-                    className={`px-4 py-2 rounded-full transition-colors relative ${location.pathname === item.path
-                      ? "text-pink-600"
-                      : "text-gray-600 hover:bg-pink-50"
-                      }`}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    {location.pathname === item.path && (
-                      <motion.div
-                        layoutId="nav-pill"
-                        className="absolute inset-0 bg-pink-100 rounded-full -z-10"
-                        transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                      />
-                    )}
-                    {item.label}
-                  </motion.div>
-                </Link>
-              ))}
+            {/* Desktop Nav */}
+            <div className="hidden md:flex items-center gap-1">
+
+              {/* Skincare Dropdown */}
+              <div className="relative">
+                <button
+                  onMouseEnter={() => setOpenDropdown("skincare")}
+                  onMouseLeave={() => setOpenDropdown(null)}
+                  onClick={() => setOpenDropdown(openDropdown === "skincare" ? null : "skincare")}
+                  className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm transition-all duration-200 ${isActive(["/skincare"])
+                    ? "text-gold bg-linen"
+                    : "text-mink hover:text-espresso hover:bg-linen"
+                    }`}
+                >
+                  Skincare
+                  <ChevronDown
+                    className={`w-3 h-3 transition-transform duration-200 ${openDropdown === "skincare" ? "rotate-180" : ""}`}
+                  />
+                </button>
+                <div
+                  onMouseEnter={() => setOpenDropdown("skincare")}
+                  onMouseLeave={() => setOpenDropdown(null)}
+                >
+                  <DropdownMenu items={skincareItems} isOpen={openDropdown === "skincare"} />
+                </div>
+              </div>
+
+              {/* Haircare Dropdown */}
+              <div className="relative">
+                <button
+                  onMouseEnter={() => setOpenDropdown("haircare")}
+                  onMouseLeave={() => setOpenDropdown(null)}
+                  onClick={() => setOpenDropdown(openDropdown === "haircare" ? null : "haircare")}
+                  className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm transition-all duration-200 ${isActive(["/haircare"])
+                    ? "text-gold bg-linen"
+                    : "text-mink hover:text-espresso hover:bg-linen"
+                    }`}
+                >
+                  Haircare
+                  <ChevronDown
+                    className={`w-3 h-3 transition-transform duration-200 ${openDropdown === "haircare" ? "rotate-180" : ""}`}
+                  />
+                </button>
+                <div
+                  onMouseEnter={() => setOpenDropdown("haircare")}
+                  onMouseLeave={() => setOpenDropdown(null)}
+                >
+                  <DropdownMenu items={haircareItems} isOpen={openDropdown === "haircare"} />
+                </div>
+              </div>
+
+              {/* About */}
+              <Link
+                to="/about"
+                className={`px-4 py-2 rounded-full text-sm transition-all duration-200 ${location.pathname === "/about"
+                  ? "text-gold bg-linen"
+                  : "text-mink hover:text-espresso hover:bg-linen"
+                  }`}
+              >
+                About Us
+              </Link>
             </div>
 
-            {/* Mobile menu button */}
+            {/* Mobile toggle */}
             <button
-              className="md:hidden p-2 rounded-lg hover:bg-pink-50"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 rounded-lg hover:bg-linen transition-colors"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? (
-                <X className="w-6 h-6 text-gray-600" />
+              {mobileOpen ? (
+                <X className="w-5 h-5 text-espresso" />
               ) : (
-                <Menu className="w-6 h-6 text-gray-600" />
+                <Menu className="w-5 h-5 text-espresso" />
               )}
             </button>
           </div>
 
-          {/* Mobile Navigation */}
+          {/* Mobile Nav */}
           <AnimatePresence>
-            {mobileMenuOpen && (
+            {mobileOpen && (
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                className="md:hidden py-4 space-y-2 overflow-hidden"
+                className="md:hidden overflow-hidden border-t border-warm-beige"
               >
-                {navItems.map((item) => (
-                  <Link
-                    key={item.path}
-                    to={item.path}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <div
-                      className={`px-4 py-2 rounded-lg ${location.pathname === item.path
-                        ? "bg-pink-100 text-pink-600"
-                        : "text-gray-600 hover:bg-pink-50"
-                        }`}
+                <div className="py-4 space-y-1">
+                  <p className="text-xs uppercase tracking-[0.2em] text-sand px-4 py-2">Skincare</p>
+                  {skincareItems.map((item) => (
+                    <Link
+                      key={item.path}
+                      to={item.path}
+                      className="block px-6 py-2.5 text-sm text-mink hover:text-gold hover:bg-linen rounded-lg transition-colors"
                     >
                       {item.label}
-                    </div>
+                    </Link>
+                  ))}
+                  <div className="my-2 border-t border-warm-beige" />
+                  <p className="text-xs uppercase tracking-[0.2em] text-sand px-4 py-2">Haircare</p>
+                  {haircareItems.map((item) => (
+                    <Link
+                      key={item.path}
+                      to={item.path}
+                      className="block px-6 py-2.5 text-sm text-mink hover:text-gold hover:bg-linen rounded-lg transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                  <div className="my-2 border-t border-warm-beige" />
+                  <Link
+                    to="/about"
+                    className="block px-6 py-2.5 text-sm text-mink hover:text-gold hover:bg-linen rounded-lg transition-colors"
+                  >
+                    About Us
                   </Link>
-                ))}
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
         </div>
       </nav>
 
-      {/* Page Content */}
+      {/* ── Main Content ─────────────────────────────────────────────────── */}
       <main>
         <Outlet />
       </main>
 
-      {/* Footer */}
-      <footer className="bg-white/50 backdrop-blur-sm border-t border-pink-100 mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="text-center">
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <Sparkles className="w-5 h-5 text-pink-500" />
-              <span className="text-lg bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
-                GlowGuide
-              </span>
+      {/* ── Footer ───────────────────────────────────────────────────────── */}
+      <footer className="bg-espresso text-cream/70 mt-24">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
+          <div className="grid md:grid-cols-4 gap-10 mb-12">
+
+            {/* Brand */}
+            <div className="md:col-span-1">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-6 h-6 rounded-full border border-gold flex items-center justify-center">
+                  <span className="text-gold text-xs">✦</span>
+                </div>
+                <span className="font-heading text-cream text-lg italic">LumeGuide</span>
+              </div>
+              <p className="text-sm leading-relaxed text-cream/50">
+                Your expert companion for skincare and haircare — evidence-based, beautifully curated.
+              </p>
             </div>
-            <p className="text-gray-600 text-sm">
-              Your personalized skincare companion. Discover the right products for your unique skin.
+
+            {/* Skincare */}
+            <div>
+              <h4 className="font-body text-xs uppercase tracking-[0.2em] text-cream/40 mb-4">Skincare</h4>
+              <ul className="space-y-2.5">
+                {skincareItems.map((item) => (
+                  <li key={item.path}>
+                    <Link to={item.path} className="text-sm text-cream/60 hover:text-gold transition-colors">
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Haircare */}
+            <div>
+              <h4 className="font-body text-xs uppercase tracking-[0.2em] text-cream/40 mb-4">Haircare</h4>
+              <ul className="space-y-2.5">
+                {haircareItems.map((item) => (
+                  <li key={item.path}>
+                    <Link to={item.path} className="text-sm text-cream/60 hover:text-gold transition-colors">
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Company */}
+            <div>
+              <h4 className="font-body text-xs uppercase tracking-[0.2em] text-cream/40 mb-4">Company</h4>
+              <ul className="space-y-2.5">
+                <li>
+                  <Link to="/about" className="text-sm text-cream/60 hover:text-gold transition-colors">
+                    About Us
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="border-t border-cream/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-xs text-cream/30">
+              © 2026 LumeGuide. For educational purposes only — not a substitute for professional medical advice.
             </p>
-            <p className="text-gray-400 text-xs mt-4">
-              © 2026 GlowGuide. Educational purposes only - not for medical advice.
-            </p>
+            <div className="w-16 h-px bg-gold/40" />
           </div>
         </div>
       </footer>
