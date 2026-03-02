@@ -20,11 +20,6 @@ interface NavDropdownItem {
   description: string;
 }
 
-interface NavGroup {
-  label: string;
-  items: NavDropdownItem[];
-}
-
 const skincareItems: NavDropdownItem[] = [
   { label: "Skin Types & Conditions", path: "/skincare/types", description: "Understand your skin" },
   { label: "Skincare Routines", path: "/skincare/solutions", description: "Step-by-step guidance" },
@@ -71,13 +66,15 @@ export function Layout() {
   const [scrolled, setScrolled] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
 
+  const isHome = location.pathname === "/";
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
     setMobileOpen(false);
   }, [location.pathname]);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -94,6 +91,26 @@ export function Layout() {
 
   const isActive = (paths: string[]) => paths.some((p) => location.pathname.startsWith(p));
 
+  // Nav state logic:
+  //  - Home + not scrolled → fully transparent, no border, no shadow (blends with hero)
+  //  - Home + scrolled → semi-transparent warm bg + blur + shadow
+  //  - Other pages → solid warm background
+  const navBg = isHome
+    ? scrolled
+      ? "rgba(253,248,243,0.82)"
+      : "rgba(255,255,255,0.00)"
+    : "rgba(253,248,243,0.96)";
+
+  const navBorder = isHome
+    ? scrolled
+      ? "1px solid rgba(190,155,120,0.22)"
+      : "1px solid transparent"
+    : "1px solid rgba(229,216,203,0.5)";
+
+  const navShadow = scrolled
+    ? "0 4px 32px rgba(100,60,40,0.10), 0 1px 0 rgba(190,155,120,0.12)"
+    : "none";
+
   return (
     <div className="min-h-screen bg-cream">
       <ScrollProgressBar />
@@ -101,31 +118,37 @@ export function Layout() {
       {/* ── Navigation ───────────────────────────────────────────────────── */}
       <nav
         ref={navRef}
-        className={`sticky top-0 z-50 transition-all duration-500 border-b ${scrolled
-            ? "backdrop-blur-xl border-[rgba(190,155,120,0.25)] shadow-[0_2px_24px_rgba(150,110,80,0.10)]"
-            : location.pathname === "/"
-              ? "backdrop-blur-sm border-transparent"
-              : "backdrop-blur-md border-warm-beige/40"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled || !isHome ? "backdrop-blur-xl" : ""
           }`}
         style={{
-          background: scrolled
-            ? "rgba(210,178,148,0.40)"
-            : location.pathname === "/"
-              ? "rgba(255,255,255,0.04)"
-              : "rgba(253,249,246,0.90)",
+          background: navBg,
+          borderBottom: navBorder,
+          boxShadow: navShadow,
         }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Inner width matches hero content alignment: max-w-7xl with matching px */}
+        <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 xl:px-20">
           <div className="flex justify-between items-center h-16">
 
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group flex-shrink-0">
-              <div className="w-7 h-7 rounded-full border border-gold flex items-center justify-center group-hover:bg-gold transition-colors duration-300">
-                <span className="text-gold group-hover:text-cream text-xs transition-colors duration-300">✦</span>
+              <div
+                className="w-7 h-7 rounded-full border flex items-center justify-center group-hover:bg-gold transition-colors duration-300"
+                style={{ borderColor: isHome && !scrolled ? "rgba(201,168,124,0.7)" : "#C9A87C" }}
+              >
+                <span
+                  className="text-xs transition-colors duration-300 group-hover:text-cream"
+                  style={{ color: isHome && !scrolled ? "rgba(201,168,124,0.85)" : "#C9A87C" }}
+                >
+                  ✦
+                </span>
               </div>
               <span
-                className="font-heading text-espresso text-xl tracking-wide"
-                style={{ fontStyle: "italic" }}
+                className="font-heading text-xl tracking-wide transition-colors duration-300"
+                style={{
+                  fontStyle: "italic",
+                  color: isHome && !scrolled ? "#4A3728" : "#4A3728",
+                }}
               >
                 RO
               </span>
@@ -141,8 +164,8 @@ export function Layout() {
                   onMouseLeave={() => setOpenDropdown(null)}
                   onClick={() => setOpenDropdown(openDropdown === "skincare" ? null : "skincare")}
                   className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm transition-all duration-200 ${isActive(["/skincare"])
-                    ? "text-gold bg-linen"
-                    : "text-mink hover:text-espresso hover:bg-linen"
+                      ? "text-gold bg-linen"
+                      : "text-mink hover:text-espresso hover:bg-linen/60"
                     }`}
                 >
                   Skincare
@@ -165,8 +188,8 @@ export function Layout() {
                   onMouseLeave={() => setOpenDropdown(null)}
                   onClick={() => setOpenDropdown(openDropdown === "haircare" ? null : "haircare")}
                   className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm transition-all duration-200 ${isActive(["/haircare"])
-                    ? "text-gold bg-linen"
-                    : "text-mink hover:text-espresso hover:bg-linen"
+                      ? "text-gold bg-linen"
+                      : "text-mink hover:text-espresso hover:bg-linen/60"
                     }`}
                 >
                   Haircare
@@ -186,8 +209,8 @@ export function Layout() {
               <Link
                 to="/about"
                 className={`px-4 py-2 rounded-full text-sm transition-all duration-200 ${location.pathname === "/about"
-                  ? "text-gold bg-linen"
-                  : "text-mink hover:text-espresso hover:bg-linen"
+                    ? "text-gold bg-linen"
+                    : "text-mink hover:text-espresso hover:bg-linen/60"
                   }`}
               >
                 About Us
@@ -196,7 +219,7 @@ export function Layout() {
 
             {/* Mobile toggle */}
             <button
-              className="md:hidden p-2 rounded-lg hover:bg-linen transition-colors"
+              className="md:hidden p-2 rounded-lg hover:bg-linen/60 transition-colors"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >
@@ -253,36 +276,52 @@ export function Layout() {
         </div>
       </nav>
 
-      {/* ── Main Content ─────────────────────────────────────────────────── */}
-      <main>
+      {/* ── Main Content — push down by navbar height on non-home pages ──── */}
+      <main className={isHome ? "" : "pt-16"}>
         <Outlet />
       </main>
 
-      {/* ── Footer ───────────────────────────────────────────────────────── */}
-      <footer className="mt-24 border-t border-warm-beige" style={{ background: "#F8F3ED" }}>
+      {/* ── Footer — deep wine-plum feminine dark break ────────────────────── */}
+      <footer
+        style={{
+          background: "#3D1A26",
+          borderTop: "1px solid rgba(201,168,124,0.25)",
+        }}
+      >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
           <div className="grid md:grid-cols-4 gap-10 mb-12">
 
             {/* Brand */}
             <div className="md:col-span-1">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-6 h-6 rounded-full border border-gold flex items-center justify-center">
+                <div className="w-6 h-6 rounded-full border border-gold/60 flex items-center justify-center">
                   <span className="text-gold text-xs">✦</span>
                 </div>
-                <span className="font-heading text-espresso text-lg italic">RO</span>
+                <span className="font-heading text-lg italic" style={{ color: "#E8D5C0" }}>RO</span>
               </div>
-              <p className="text-sm leading-relaxed text-taupe">
+              <p className="text-sm leading-relaxed" style={{ color: "rgba(232,213,192,0.65)" }}>
                 Your expert companion for skincare and haircare — evidence-based, beautifully curated.
               </p>
             </div>
 
             {/* Skincare */}
             <div>
-              <h4 className="font-body text-xs uppercase tracking-[0.2em] text-sand mb-4">Skincare</h4>
+              <h4
+                className="font-body text-xs uppercase tracking-[0.22em] mb-4"
+                style={{ color: "rgba(201,168,124,0.70)" }}
+              >
+                Skincare
+              </h4>
               <ul className="space-y-2.5">
                 {skincareItems.map((item) => (
                   <li key={item.path}>
-                    <Link to={item.path} className="text-sm text-mink hover:text-gold transition-colors">
+                    <Link
+                      to={item.path}
+                      className="text-sm transition-colors duration-200"
+                      style={{ color: "rgba(232,213,192,0.65)" }}
+                      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#C9A87C"; }}
+                      onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(232,213,192,0.65)"; }}
+                    >
                       {item.label}
                     </Link>
                   </li>
@@ -292,11 +331,22 @@ export function Layout() {
 
             {/* Haircare */}
             <div>
-              <h4 className="font-body text-xs uppercase tracking-[0.2em] text-sand mb-4">Haircare</h4>
+              <h4
+                className="font-body text-xs uppercase tracking-[0.22em] mb-4"
+                style={{ color: "rgba(201,168,124,0.70)" }}
+              >
+                Haircare
+              </h4>
               <ul className="space-y-2.5">
                 {haircareItems.map((item) => (
                   <li key={item.path}>
-                    <Link to={item.path} className="text-sm text-mink hover:text-gold transition-colors">
+                    <Link
+                      to={item.path}
+                      className="text-sm transition-colors duration-200"
+                      style={{ color: "rgba(232,213,192,0.65)" }}
+                      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#C9A87C"; }}
+                      onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(232,213,192,0.65)"; }}
+                    >
                       {item.label}
                     </Link>
                   </li>
@@ -306,10 +356,21 @@ export function Layout() {
 
             {/* Company */}
             <div>
-              <h4 className="font-body text-xs uppercase tracking-[0.2em] text-sand mb-4">Company</h4>
+              <h4
+                className="font-body text-xs uppercase tracking-[0.22em] mb-4"
+                style={{ color: "rgba(201,168,124,0.70)" }}
+              >
+                Company
+              </h4>
               <ul className="space-y-2.5">
                 <li>
-                  <Link to="/about" className="text-sm text-mink hover:text-gold transition-colors">
+                  <Link
+                    to="/about"
+                    className="text-sm transition-colors duration-200"
+                    style={{ color: "rgba(232,213,192,0.65)" }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#C9A87C"; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(232,213,192,0.65)"; }}
+                  >
                     About Us
                   </Link>
                 </li>
@@ -317,12 +378,15 @@ export function Layout() {
             </div>
           </div>
 
-          {/* Divider */}
-          <div className="border-t border-warm-beige pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-xs text-taupe">
+          {/* Divider + copyright */}
+          <div
+            className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
+            style={{ borderTop: "1px solid rgba(201,168,124,0.15)" }}
+          >
+            <p className="text-xs" style={{ color: "rgba(232,213,192,0.40)" }}>
               © 2026 RO Beauty Guide. For educational purposes only — not a substitute for professional medical advice.
             </p>
-            <div className="w-16 h-px bg-gold/50" />
+            <div className="w-16 h-px" style={{ background: "rgba(201,168,124,0.35)" }} />
           </div>
         </div>
       </footer>

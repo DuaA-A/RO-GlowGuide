@@ -4,412 +4,398 @@ import { Link } from "react-router";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface HeroSlide {
-  id: string;
-  eyebrow: string;
-  heading: string;
-  subheading: string;
-  description: string;
-  ctaLabel: string;
-  ctaPath: string;
-  secondaryLabel: string;
-  secondaryPath: string;
-  accentColor: string;
-  bgFrom: string;
-  bgTo: string;
-  // 📸 NOTE FOR USER: Changed back to Unsplash as previous HTML page URLs were invalid/broken.
-  photo: string;
-  icons: { emoji: string; label: string }[];
+    id: string;
+    eyebrow: string;
+    heading: string;
+    headingItalic: string;
+    description: string;
+    ctaLabel: string;
+    ctaPath: string;
+    secondaryLabel: string;
+    secondaryPath: string;
+    accentColor: string;
+    // ─────────────────────────────────────────────────────────────────────
+    // 📸 TO ADD YOUR PHOTO: place your image in /public/images/ and
+    //    set the `photo` field to "/images/your-filename.jpg"
+    // ─────────────────────────────────────────────────────────────────────
+    photo?: string;
 }
 
 const slides: HeroSlide[] = [
-  {
-    id: "skincare",
-    eyebrow: "Skincare",
-    heading: "Your Skin,",
-    subheading: "Perfected.",
-    description:
-      "Discover your skin type, understand your skin's unique needs, and explore science-backed products crafted for your complexion.",
-    ctaLabel: "Discover Your Skin Type",
-    ctaPath: "/skincare/types",
-    secondaryLabel: "Explore Products",
-    secondaryPath: "/skincare/products",
-    accentColor: "#C9A87C",
-    bgFrom: "#FDF9F6",
-    bgTo: "#FAF0E8",
-    photo:
-      "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=700&q=85&fit=crop&crop=face,center",
-    icons: [
-      { emoji: "💧", label: "Hydration" },
-      { emoji: "🌿", label: "Natural" },
-      { emoji: "✨", label: "Glow" },
-      { emoji: "🌸", label: "Gentle" },
-      { emoji: "🔬", label: "Science" },
-      { emoji: "🍯", label: "Nourish" },
-    ],
-  },
-  {
-    id: "haircare",
-    eyebrow: "Haircare",
-    heading: "Your Hair,",
-    subheading: "Transformed.",
-    description:
-      "Understand your hair type and scalp health, unlock targeted routines, and find professional-grade products tailored to your strands.",
-    ctaLabel: "Discover Your Hair Type",
-    ctaPath: "/haircare/types",
-    secondaryLabel: "Explore Products",
-    secondaryPath: "/haircare/products",
-    accentColor: "#A8907E",
-    bgFrom: "#FDF9F6",
-    bgTo: "#F2EDE7",
-    photo:
-      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=700&q=85&fit=crop&crop=face,center",
-    icons: [
-      { emoji: "🌿", label: "Botanical" },
-      { emoji: "💆", label: "Scalp Care" },
-      { emoji: "✨", label: "Shine" },
-      { emoji: "🌺", label: "Floral" },
-      { emoji: "💎", label: "Luxury" },
-      { emoji: "🧴", label: "Treatment" },
-    ],
-  },
+    {
+        id: "skincare",
+        eyebrow: "Skincare",
+        heading: "Radiant Skin Is",
+        headingItalic: "Within Reach.",
+        description:
+            "Understand your unique skin type, build an expert-crafted routine, and discover products formulated to deliver real, visible results.",
+        ctaLabel: "Discover Your Skin Type",
+        ctaPath: "/skincare/types",
+        secondaryLabel: "Explore Products",
+        secondaryPath: "/skincare/products",
+        accentColor: "#C9A87C",
+        photo: "/images/heroSkinCareModel.jpg",
+    },
+    {
+        id: "haircare",
+        eyebrow: "Haircare",
+        heading: "Beautiful Hair,",
+        headingItalic: "By Design.",
+        description:
+            "Know your hair type, treat your scalp, and follow targeted routines with professional-grade products chosen for your strands.",
+        ctaLabel: "Discover Your Hair Type",
+        ctaPath: "/haircare/types",
+        secondaryLabel: "Explore Products",
+        secondaryPath: "/haircare/products",
+        accentColor: "#A8907E",
+        photo: "/images/hero-haircare.jpg",
+    },
 ];
 
 const INTERVAL_MS = 9000;
 
-// Positions where icons orbit around the photo circle
-const ORBIT_POSITIONS = [
-  { angle: 30, radius: 0.56 },
-  { angle: 100, radius: 0.54 },
-  { angle: 160, radius: 0.57 },
-  { angle: 220, radius: 0.55 },
-  { angle: 280, radius: 0.56 },
-  { angle: 340, radius: 0.54 },
-];
-
-function FloatingBeautyIcon({
-  emoji,
-  label,
-  posX,
-  posY,
-  delay,
-  accentColor,
-}: {
-  emoji: string;
-  label: string;
-  posX: string;
-  posY: string;
-  delay: number;
-  accentColor: string;
-}) {
-  return (
-    <motion.div
-      className="absolute flex flex-col items-center gap-1 pointer-events-none"
-      style={{ left: posX, top: posY, transform: "translate(-50%, -50%)" }}
-      initial={{ opacity: 0, scale: 0 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0 }}
-      transition={{ delay, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-    >
-      <motion.div
-        className="w-11 h-11 rounded-full flex items-center justify-center shadow-md text-xl backdrop-blur-sm"
-        style={{
-          background: "rgba(255,255,255,0.92)",
-          border: `1.5px solid ${accentColor}40`,
-          boxShadow: `0 4px 20px ${accentColor}25`,
-        }}
-        animate={{ y: [0, -7, 0], rotate: [-3, 3, -3] }}
-        transition={{ duration: 3.5 + delay, repeat: Infinity, ease: "easeInOut", delay }}
-      >
-        {emoji}
-      </motion.div>
-      <motion.span
-        className="text-[9px] uppercase tracking-[0.12em] font-body"
-        style={{ color: accentColor, opacity: 0.8 }}
-        animate={{ opacity: [0.6, 0.9, 0.6] }}
-        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay }}
-      >
-        {label}
-      </motion.span>
-    </motion.div>
-  );
-}
-
-function SlidePhoto({ slide }: { slide: HeroSlide }) {
-  const panelW = 450;
-  const panelH = 580;
-  const cx = panelW / 2;
-  const cy = panelH / 2 - 20;
-  const maxR = Math.min(panelW, panelH) * 0.5;
-
-  return (
-    <div className="relative" style={{ width: panelW, height: panelH }}>
-      <motion.div
-        className="absolute rounded-full pointer-events-none"
-        style={{
-          width: maxR * 1.6,
-          height: maxR * 1.6,
-          top: cy - maxR * 0.8,
-          left: cx - maxR * 0.8,
-          background: `radial-gradient(circle, ${slide.accentColor}22 0%, transparent 70%)`,
-        }}
-        animate={{ scale: [1, 1.08, 1] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute rounded-full pointer-events-none"
-        style={{
-          width: maxR * 1.3,
-          height: maxR * 1.3,
-          top: cy - maxR * 0.65,
-          left: cx - maxR * 0.65,
-          border: `1px dashed ${slide.accentColor}50`,
-        }}
-        animate={{ rotate: 360 }}
-        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-      />
-      <motion.div
-        className="absolute rounded-full pointer-events-none"
-        style={{
-          width: maxR * 1.1,
-          height: maxR * 1.1,
-          top: cy - maxR * 0.55,
-          left: cx - maxR * 0.55,
-          border: `1.5px solid ${slide.accentColor}30`,
-        }}
-        animate={{ rotate: -360 }}
-        transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-      />
-      <div
-        className="absolute overflow-hidden rounded-full shadow-[0_20px_80px_rgba(0,0,0,0.10)]"
-        style={{
-          width: maxR * 0.92,
-          height: maxR * 0.92,
-          top: cy - maxR * 0.46,
-          left: cx - maxR * 0.46,
-          border: `3px solid rgba(255,255,255,0.9)`,
-        }}
-      >
-        <img
-          src={slide.photo}
-          alt={slide.eyebrow}
-          className="w-full h-full object-cover object-top"
-        />
-        <div
-          className="absolute inset-0 rounded-full"
-          style={{
-            background: `radial-gradient(circle at 50% 80%, ${slide.accentColor}18 0%, transparent 60%)`,
-          }}
-        />
-      </div>
-      <AnimatePresence mode="wait">
-        {slide.icons.map((icon, i) => {
-          const { angle, radius } = ORBIT_POSITIONS[i] || { angle: i * 60, radius: 0.55 };
-          const rad = (angle * Math.PI) / 180;
-          const px = cx + Math.cos(rad) * maxR * radius;
-          const py = cy + Math.sin(rad) * maxR * radius;
-          return (
-            <FloatingBeautyIcon
-              key={`${slide.id}-${i}`}
-              emoji={icon.emoji}
-              label={icon.label}
-              posX={`${(px / panelW) * 100}%`}
-              posY={`${(py / panelH) * 100}%`}
-              delay={i * 0.12}
-              accentColor={slide.accentColor}
-            />
-          );
-        })}
-      </AnimatePresence>
-      {[...Array(8)].map((_, i) => {
-        const angle = (i / 8) * 360;
-        const rad = (angle * Math.PI) / 180;
-        const r = maxR * 0.68;
-        return (
-          <motion.div
-            key={i}
-            className="absolute rounded-full pointer-events-none"
-            style={{
-              width: 4,
-              height: 4,
-              background: slide.accentColor,
-              opacity: 0.35,
-              left: cx + Math.cos(rad) * r - 2,
-              top: cy + Math.sin(rad) * r - 2,
-            }}
-            animate={{ opacity: [0.2, 0.6, 0.2], scale: [1, 1.4, 1] }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
-          />
-        );
-      })}
-    </div>
-  );
-}
-
 export function HeroSlider() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const [direction, setDirection] = useState<1 | -1>(1);
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [isPaused, setIsPaused] = useState(false);
+    const [direction, setDirection] = useState<1 | -1>(1);
 
-  const goTo = useCallback((idx: number, dir: 1 | -1 = 1) => {
-    setDirection(dir);
-    setActiveIndex(idx);
-  }, []);
+    const goTo = useCallback((idx: number, dir: 1 | -1 = 1) => {
+        setDirection(dir);
+        setActiveIndex(idx);
+    }, []);
 
-  const advance = useCallback(() => {
-    setDirection(1);
-    setActiveIndex((prev) => (prev + 1) % slides.length);
-  }, []);
+    const advance = useCallback(() => {
+        setDirection(1);
+        setActiveIndex((prev) => (prev + 1) % slides.length);
+    }, []);
 
-  useEffect(() => {
-    if (isPaused) return;
-    const timer = setTimeout(advance, INTERVAL_MS);
-    return () => clearTimeout(timer);
-  }, [activeIndex, isPaused, advance]);
+    useEffect(() => {
+        if (isPaused) return;
+        const t = setTimeout(advance, INTERVAL_MS);
+        return () => clearTimeout(t);
+    }, [activeIndex, isPaused, advance]);
 
-  const slide = slides[activeIndex];
+    const slide = slides[activeIndex];
 
-  const contentVariants = {
-    enter: (dir: number) => ({ opacity: 0, x: dir > 0 ? 48 : -48 }),
-    center: { opacity: 1, x: 0 },
-    exit: (dir: number) => ({ opacity: 0, x: dir > 0 ? -32 : 32 }),
-  };
+    const textVariants = {
+        enter: (d: number) => ({ opacity: 0, y: d > 0 ? 28 : -28 }),
+        center: { opacity: 1, y: 0 },
+        exit: (d: number) => ({ opacity: 0, y: d > 0 ? -18 : 18 }),
+    };
 
-  return (
-    <section
-      className="relative min-h-[105vh] flex items-center overflow-hidden"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
-      <AnimatePresence initial={false}>
-        <motion.div
-          key={`bg-${slide.id}`}
-          className="absolute inset-0"
-          style={{
-            background: `linear-gradient(135deg, ${slide.bgFrom} 0%, ${slide.bgTo} 60%, #F5EDE5 100%)`,
-          }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1.2 }}
-        />
-      </AnimatePresence>
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.04]"
-        style={{
-          backgroundImage: "radial-gradient(circle, #4A3728 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
-        }}
-      />
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full pt-20">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-6">
-          <div className="flex-1 min-w-0 lg:max-w-[52%]">
-            <AnimatePresence mode="wait" custom={direction}>
-              <motion.div
-                key={`text-${slide.id}`}
-                custom={direction}
-                variants={contentVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="h-px w-8" style={{ background: slide.accentColor }} />
-                  <p
-                    className="text-xs uppercase tracking-[0.35em] font-body font-medium"
-                    style={{ color: slide.accentColor }}
-                  >
-                    {slide.eyebrow}
-                  </p>
-                </div>
-                <h1
-                  className="font-heading text-espresso mb-1"
-                  style={{ fontSize: "clamp(3rem, 7vw, 6rem)", lineHeight: 1.04, fontWeight: 300 }}
-                >
-                  {slide.heading}
-                </h1>
-                <h1
-                  className="font-heading mb-7"
-                  style={{
-                    fontSize: "clamp(3rem, 7vw, 6rem)",
-                    lineHeight: 1.04,
-                    fontWeight: 400,
-                    fontStyle: "italic",
-                    color: slide.accentColor,
-                  }}
-                >
-                  {slide.subheading}
-                </h1>
-                <p className="text-base leading-relaxed mb-10 max-w-md" style={{ color: "#836B58" }}>
-                  {slide.description}
-                </p>
-                <div className="flex flex-wrap gap-4 mb-14">
-                  <Link to={slide.ctaPath} className="btn-gold">
-                    {slide.ctaLabel}
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                  <Link to={slide.secondaryPath} className="btn-outline">
-                    {slide.secondaryLabel}
-                  </Link>
-                </div>
-                <div className="flex items-center gap-4">
-                  <button
-                    onClick={() => goTo((activeIndex - 1 + slides.length) % slides.length, -1)}
-                    className="w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-200 hover:scale-105"
-                    style={{ borderColor: `${slide.accentColor}60`, color: slide.accentColor }}
-                  >
-                    <ChevronLeft className="w-4 h-4" />
-                  </button>
-                  <div className="flex items-center gap-2">
-                    {slides.map((s, i) => (
-                      <button
-                        key={s.id}
-                        onClick={() => goTo(i, i > activeIndex ? 1 : -1)}
-                        className="relative h-0.5 rounded-full overflow-hidden transition-all duration-400"
+    return (
+        <section
+            className="relative overflow-hidden"
+            style={{
+                minHeight: "100vh",
+                /* ONE unified warm nude gradient — no split */
+                background: "linear-gradient(135deg, #FDF8F3 0%, #F5EAE0 35%, #EDE0D4 65%, #E5D4C4 100%)",
+            }}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+        >
+            {/* ── Full-page subtle dot texture ──────────────────────────────────── */}
+            <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                    backgroundImage: `radial-gradient(circle, ${slide.accentColor}18 1px, transparent 1px)`,
+                    backgroundSize: "40px 40px",
+                }}
+            />
+
+            {/* ── Ambient background glows (float over unified bg, no hard edges) ── */}
+            {/* Top-left warm glow */}
+            <motion.div
+                className="absolute rounded-full blur-3xl pointer-events-none"
+                style={{ width: 500, height: 500, top: "-120px", left: "-100px", background: "rgba(240,218,195,0.55)" }}
+                animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.8, 0.5] }}
+                transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+            />
+            {/* Bottom-right warm glow */}
+            <motion.div
+                className="absolute rounded-full blur-3xl pointer-events-none"
+                style={{ width: 420, height: 420, bottom: "-80px", right: "-60px", background: "rgba(210,175,145,0.45)" }}
+                animate={{ scale: [1, 1.12, 1], opacity: [0.45, 0.75, 0.45] }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+            />
+            {/* Centre atmospheric glow */}
+            <motion.div
+                className="absolute rounded-full blur-3xl pointer-events-none"
+                style={{ width: 600, height: 400, top: "50%", left: "50%", transform: "translate(-50%,-50%)", background: "rgba(255,245,235,0.35)" }}
+                animate={{ scale: [1, 1.08, 1], opacity: [0.3, 0.55, 0.3] }}
+                transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            />
+
+            {/* ── Decorative rings — centred on the RIGHT half, not a separate panel ── */}
+            <div
+                className="absolute hidden lg:flex items-center justify-center pointer-events-none"
+                style={{ top: 0, bottom: 0, right: 0, width: "48%" }}
+            >
+                {/* Outer ring */}
+                <motion.div
+                    className="absolute rounded-full"
+                    style={{ width: 480, height: 480, border: `1.5px solid ${slide.accentColor}40` }}
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+                />
+                {/* Tick marks on outer ring */}
+                {[0, 90, 180, 270].map((angle, i) => (
+                    <motion.div
+                        key={i}
+                        className="absolute"
                         style={{
-                          width: i === activeIndex ? 40 : 16,
-                          background: i === activeIndex ? "transparent" : `${slide.accentColor}30`,
+                            width: 6, height: 6,
+                            borderRadius: "1px",
+                            background: slide.accentColor,
+                            opacity: 0.6,
+                            top: "50%", left: "50%",
+                            transformOrigin: "0 0",
+                            transform: `rotate(${angle}deg) translate(237px, -3px)`,
                         }}
-                      >
-                        {i === activeIndex && (
-                          <motion.div
-                            key={`prog-${activeIndex}`}
-                            className="absolute inset-y-0 left-0 rounded-full"
+                    />
+                ))}
+
+                {/* Mid ring */}
+                <motion.div
+                    className="absolute rounded-full"
+                    style={{ width: 320, height: 320, border: `1px solid ${slide.accentColor}35` }}
+                    animate={{ rotate: -360 }}
+                    transition={{ duration: 34, repeat: Infinity, ease: "linear" }}
+                />
+
+                {/* Inner ring */}
+                <motion.div
+                    className="absolute rounded-full"
+                    style={{ width: 200, height: 200, border: `1px solid ${slide.accentColor}28` }}
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
+                />
+
+                {/* Pulsing centre jewel */}
+                <motion.div
+                    className="absolute rounded-full"
+                    style={{
+                        width: 14, height: 14,
+                        background: slide.accentColor,
+                        boxShadow: `0 0 0 8px ${slide.accentColor}28, 0 0 36px 10px ${slide.accentColor}35`,
+                    }}
+                    animate={{ scale: [1, 1.5, 1], opacity: [0.7, 1, 0.7] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                />
+
+                {/* Floating orbs — with generous padding inside the ring area */}
+                <motion.div
+                    className="absolute rounded-full"
+                    style={{ width: 72, height: 72, background: `${slide.accentColor}50`, top: "18%", right: "22%" }}
+                    animate={{ y: [0, -20, 0], scale: [1, 1.1, 1] }}
+                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                />
+                <motion.div
+                    className="absolute rounded-full"
+                    style={{ width: 44, height: 44, background: `${slide.accentColor}40`, bottom: "22%", right: "30%" }}
+                    animate={{ y: [0, -14, 0], scale: [1, 1.12, 1] }}
+                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                />
+                <motion.div
+                    className="absolute rounded-full"
+                    style={{ width: 28, height: 28, background: `${slide.accentColor}35`, top: "58%", right: "14%" }}
+                    animate={{ y: [0, -10, 0] }}
+                    transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                />
+
+                {/* Sparkle dots */}
+                {[
+                    { x: "20%", y: "14%", s: 5, d: 0 },
+                    { x: "78%", y: "20%", s: 4, d: 0.8 },
+                    { x: "8%", y: "68%", s: 5, d: 1.4 },
+                    { x: "82%", y: "70%", s: 4, d: 2.1 },
+                    { x: "50%", y: "88%", s: 5, d: 0.4 },
+                    { x: "35%", y: "8%", s: 4, d: 1.8 },
+                    { x: "65%", y: "40%", s: 3, d: 2.6 },
+                ].map((dot, i) => (
+                    <motion.div
+                        key={i}
+                        className="absolute rounded-full pointer-events-none"
+                        style={{ width: dot.s, height: dot.s, left: dot.x, top: dot.y, background: slide.accentColor }}
+                        animate={{ opacity: [0, 1, 0], scale: [0.5, 1.8, 0.5] }}
+                        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: dot.d }}
+                    />
+                ))}
+
+                {/* Shimmer lines */}
+                <motion.div
+                    className="absolute pointer-events-none"
+                    style={{
+                        height: "1px", left: "10%", right: "10%", top: "30%",
+                        background: `linear-gradient(90deg, transparent, ${slide.accentColor}65, transparent)`,
+                        transformOrigin: "left",
+                    }}
+                    animate={{ scaleX: [0, 1, 0], opacity: [0, 1, 0] }}
+                    transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+                />
+                <motion.div
+                    className="absolute pointer-events-none"
+                    style={{
+                        height: "1px", left: "18%", right: "18%", bottom: "28%",
+                        background: `linear-gradient(90deg, transparent, ${slide.accentColor}50, transparent)`,
+                        transformOrigin: "left",
+                    }}
+                    animate={{ scaleX: [0, 1, 0], opacity: [0, 1, 0] }}
+                    transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1.8 }}
+                />
+
+                {/* Photo — sits on top of decorations when provided */}
+                {slide.photo && (
+                    <AnimatePresence mode="wait">
+                        <motion.img
+                            key={`photo-${slide.id}`}
+                            src={slide.photo}
+                            alt={`${slide.eyebrow} model`}
+                            className="absolute select-none"
+                            style={{
+                                inset: 0,
+                                width: "100%",
+                                height: "100%",
+                                objectFit: "contain",
+                                objectPosition: "center",
+                                padding: "5rem 3rem",
+                                zIndex: 10,
+                                filter: `drop-shadow(0 32px 60px rgba(0,0,0,0.10)) drop-shadow(0 6px 18px ${slide.accentColor}30)`,
+                            }}
+                            initial={{ opacity: 0, scale: 0.94, y: 24 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                            draggable={false}
+                        />
+                    </AnimatePresence>
+                )}
+
+                {/* Category badge */}
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={`tag-${slide.id}`}
+                        className="absolute bottom-12 right-10 z-30 flex items-center gap-2 px-5 py-2.5 rounded-full"
+                        style={{
+                            background: "rgba(255,252,248,0.80)",
+                            border: `1px solid ${slide.accentColor}45`,
+                            backdropFilter: "blur(12px)",
+                        }}
+                        initial={{ opacity: 0, y: 12 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ delay: 0.5 }}
+                    >
+                        <motion.span
+                            className="w-2 h-2 rounded-full"
                             style={{ background: slide.accentColor }}
-                            initial={{ width: "0%" }}
-                            animate={{ width: "100%" }}
-                            transition={{ duration: INTERVAL_MS / 1000, ease: "linear" }}
-                          />
-                        )}
-                      </button>
-                    ))}
-                  </div>
-                  <button
-                    onClick={() => goTo((activeIndex + 1) % slides.length, 1)}
-                    className="w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-200 hover:scale-105"
-                    style={{ borderColor: `${slide.accentColor}60`, color: slide.accentColor }}
-                  >
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
+                            animate={{ scale: [1, 1.5, 1] }}
+                            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                        />
+                        <span className="text-xs uppercase tracking-[0.18em] font-medium font-body" style={{ color: slide.accentColor }}>
+                            {slide.eyebrow}
+                        </span>
+                    </motion.div>
+                </AnimatePresence>
+            </div>
+
+            {/* ── Content: centred within the full-width single background ──────── */}
+            <div className="relative z-10 flex items-center justify-center min-h-screen">
+                <div className="w-full max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 xl:px-20">
+                    <div className="flex flex-col lg:flex-row items-center gap-16 pt-24 pb-16">
+
+                        {/* Text block — centred on mobile, left-aligned on desktop */}
+                        <div className="flex-1 flex justify-center lg:justify-start">
+                            <AnimatePresence mode="wait" custom={direction}>
+                                <motion.div
+                                    key={`text-${slide.id}`}
+                                    custom={direction}
+                                    variants={{
+                                        enter: (d: number) => ({ opacity: 0, y: d > 0 ? 28 : -28 }),
+                                        center: { opacity: 1, y: 0 },
+                                        exit: (d: number) => ({ opacity: 0, y: d > 0 ? -18 : 18 }),
+                                    }}
+                                    initial="enter"
+                                    animate="center"
+                                    exit="exit"
+                                    transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+                                    className="max-w-lg text-center lg:text-left"
+                                >
+                                    {/* Eyebrow */}
+                                    <div className="flex items-center justify-center lg:justify-start gap-3 mb-6">
+                                        <motion.div
+                                            style={{ height: "1px", background: slide.accentColor, width: 32, originX: 0 }}
+                                            initial={{ scaleX: 0 }}
+                                            animate={{ scaleX: 1 }}
+                                            transition={{ duration: 0.5, delay: 0.15 }}
+                                        />
+                                        <span className="text-xs uppercase tracking-[0.3em] font-body font-medium" style={{ color: slide.accentColor }}>
+                                            {slide.eyebrow}
+                                        </span>
+                                    </div>
+
+                                    <h1 className="font-heading text-espresso mb-1"
+                                        style={{ fontSize: "clamp(2.8rem, 5.5vw, 5rem)", lineHeight: 1.06, fontWeight: 300 }}>
+                                        {slide.heading}
+                                    </h1>
+                                    <h1 className="font-heading mb-7"
+                                        style={{ fontSize: "clamp(2.8rem, 5.5vw, 5rem)", lineHeight: 1.06, fontWeight: 500, fontStyle: "italic", color: slide.accentColor }}>
+                                        {slide.headingItalic}
+                                    </h1>
+
+                                    <p className="text-mink text-base leading-relaxed mb-10 max-w-sm mx-auto lg:mx-0">
+                                        {slide.description}
+                                    </p>
+
+                                    {/* CTAs */}
+                                    <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-12">
+                                        <Link to={slide.ctaPath} className="btn-gold">
+                                            {slide.ctaLabel} <ArrowRight className="w-4 h-4" />
+                                        </Link>
+                                        <Link to={slide.secondaryPath} className="btn-outline">
+                                            {slide.secondaryLabel}
+                                        </Link>
+                                    </div>
+
+                                    {/* Slide controls */}
+                                    <div className="flex items-center justify-center lg:justify-start gap-4">
+                                        <button onClick={() => goTo((activeIndex - 1 + slides.length) % slides.length, -1)}
+                                            className="w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-200 hover:scale-105"
+                                            style={{ borderColor: `${slide.accentColor}60`, color: slide.accentColor }} aria-label="Previous">
+                                            <ChevronLeft className="w-4 h-4" />
+                                        </button>
+                                        <div className="flex items-center gap-2">
+                                            {slides.map((s, i) => (
+                                                <button key={s.id} onClick={() => goTo(i, i > activeIndex ? 1 : -1)}
+                                                    className="relative h-0.5 rounded-full overflow-hidden transition-all duration-300"
+                                                    style={{ width: i === activeIndex ? 36 : 14, background: `${slide.accentColor}28` }}
+                                                    aria-label={`Slide ${i + 1}`}>
+                                                    {i === activeIndex && (
+                                                        <motion.div key={`prog-${activeIndex}`}
+                                                            className="absolute inset-y-0 left-0 rounded-full"
+                                                            style={{ background: slide.accentColor }}
+                                                            initial={{ width: "0%" }} animate={{ width: "100%" }}
+                                                            transition={{ duration: INTERVAL_MS / 1000, ease: "linear" }} />
+                                                    )}
+                                                </button>
+                                            ))}
+                                        </div>
+                                        <button onClick={() => goTo((activeIndex + 1) % slides.length, 1)}
+                                            className="w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-200 hover:scale-105"
+                                            style={{ borderColor: `${slide.accentColor}60`, color: slide.accentColor }} aria-label="Next">
+                                            <ChevronRight className="w-4 h-4" />
+                                        </button>
+                                    </div>
+                                </motion.div>
+                            </AnimatePresence>
+                        </div>
+
+                        {/* Right visual area placeholder — decorative rings live in the absolute layer above */}
+                        {/* This spacer keeps the two-column layout balanced on desktop */}
+                        <div className="hidden lg:block flex-shrink-0" style={{ width: "44%" }} />
+                    </div>
                 </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-          <div className="flex-shrink-0 hidden lg:flex items-center justify-center">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`photo-${slide.id}`}
-                initial={{ opacity: 0, scale: 0.92, x: 30 }}
-                animate={{ opacity: 1, scale: 1, x: 0 }}
-                exit={{ opacity: 0, scale: 0.95, x: -20 }}
-                transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <SlidePhoto slide={slide} />
-              </motion.div>
-            </AnimatePresence>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+            </div>
+        </section>
+    );
 }

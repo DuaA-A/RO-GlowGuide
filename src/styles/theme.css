@@ -35,6 +35,14 @@
   /* haircare accent – brighter sage */
   --peach: #F5E4D8;
   /* warm peach tint */
+  --deep-rose: #5C2D3E;
+  /* feminine dark wine-mauve — the palette breaker */
+  --deep-rose-mid: #7A3F52;
+  /* hover / mid shade */
+  --footer-dark: #3D1A26;
+  /* footer background — very dark wine-plum */
+  --footer-text: #E8D5C0;
+  /* warm off-white for footer text */
   --white: #FFFFFF;
 
   /* Shadcn/UI tokens mapped to brand */
@@ -137,6 +145,10 @@
   --color-rose-soft: #EDD5C8;
   --color-sage: #D0DAC9;
   --color-peach: #F5E4D8;
+  --color-deep-rose: #5C2D3E;
+  --color-deep-rose-mid: #7A3F52;
+  --color-footer-dark: #3D1A26;
+  --color-footer-text: #E8D5C0;
   --font-family-heading: "Cormorant Garamond", "Playfair Display", Georgia, serif;
   --font-family-body: "Inter", system-ui, sans-serif;
 }
