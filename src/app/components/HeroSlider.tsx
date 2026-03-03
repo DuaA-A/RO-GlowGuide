@@ -34,7 +34,7 @@ const slides: HeroSlide[] = [
         secondaryLabel: "Explore Products",
         secondaryPath: "/skincare/products",
         accentColor: "#C9A87C",
-        photo: "/images/heroSkinCareModel.jpg",
+        photo: "/images/heroSkinCareModel.png",
     },
     {
         id: "haircare",
@@ -48,7 +48,7 @@ const slides: HeroSlide[] = [
         secondaryLabel: "Explore Products",
         secondaryPath: "/haircare/products",
         accentColor: "#A8907E",
-        photo: "/images/hero-haircare2.jpg",
+        photo: "/images/hero-haircare2.png",
     },
 ];
 
