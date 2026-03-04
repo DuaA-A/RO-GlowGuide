@@ -14,10 +14,6 @@ interface HeroSlide {
     secondaryLabel: string;
     secondaryPath: string;
     accentColor: string;
-    // ─────────────────────────────────────────────────────────────────────
-    // 📸 TO ADD YOUR PHOTO: place your image in /public/images/ and
-    //    set the `photo` field to "/images/your-filename.jpg"
-    // ─────────────────────────────────────────────────────────────────────
     photo?: string;
 }
 
@@ -33,7 +29,7 @@ const slides: HeroSlide[] = [
         ctaPath: "/skincare/types",
         secondaryLabel: "Explore Products",
         secondaryPath: "/skincare/products",
-        accentColor: "#C9A87C",
+        accentColor: "#5C2D3E",
         photo: "/images/heroSkinCareModel.png",
     },
     {
@@ -47,7 +43,7 @@ const slides: HeroSlide[] = [
         ctaPath: "/haircare/types",
         secondaryLabel: "Explore Products",
         secondaryPath: "/haircare/products",
-        accentColor: "#A8907E",
+        accentColor: "#7A3F52",
         photo: "/images/hero-haircare2.png",
     },
 ];
@@ -212,13 +208,20 @@ export function HeroSlider() {
                     { x: "50%", y: "88%", s: 5, d: 0.4 },
                     { x: "35%", y: "8%", s: 4, d: 1.8 },
                     { x: "65%", y: "40%", s: 3, d: 2.6 },
+                    { x: "42%", y: "55%", s: 3, d: 1.1 },
+                    { x: "72%", y: "55%", s: 4, d: 3.2 },
                 ].map((dot, i) => (
                     <motion.div
                         key={i}
-                        className="absolute rounded-full pointer-events-none"
-                        style={{ width: dot.s, height: dot.s, left: dot.x, top: dot.y, background: slide.accentColor }}
-                        animate={{ opacity: [0, 1, 0], scale: [0.5, 1.8, 0.5] }}
-                        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: dot.d }}
+                        className="absolute rounded-full pointer-events-none sparkle-blink"
+                        style={{
+                            width: dot.s,
+                            height: dot.s,
+                            left: dot.x,
+                            top: dot.y,
+                            background: slide.accentColor,
+                            animationDelay: `${dot.d}s`,
+                        }}
                     />
                 ))}
 
@@ -349,7 +352,7 @@ export function HeroSlider() {
 
                                     {/* CTAs */}
                                     <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-12">
-                                        <Link to={slide.ctaPath} className="btn-gold">
+                                        <Link to={slide.ctaPath} className="btn-wine">
                                             {slide.ctaLabel} <ArrowRight className="w-4 h-4" />
                                         </Link>
                                         <Link to={slide.secondaryPath} className="btn-outline">

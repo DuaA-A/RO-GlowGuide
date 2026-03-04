@@ -11,36 +11,36 @@ const features = [
     title: "Science-Backed",
     description:
       "Every recommendation is grounded in peer-reviewed dermatological and trichological research — not trends.",
-    color: "#9E7B4F",
-    bg: "rgba(190,155,112,0.18)",
-    hoverBg: "rgba(190,155,112,0.34)",
+    color: "#5C2D3E",
+    bg: "rgba(92,45,62,0.10)",
+    hoverBg: "rgba(92,45,62,0.20)",
   },
   {
     icon: Shield,
     title: "Safety First",
     description:
       "We prioritise gentle, effective formulas with transparent ingredient profiling and medical contraindication data.",
-    color: "#B87070",
-    bg: "rgba(215,155,140,0.18)",
-    hoverBg: "rgba(215,155,140,0.36)",
+    color: "#7A3F52",
+    bg: "rgba(122,63,82,0.10)",
+    hoverBg: "rgba(122,63,82,0.20)",
   },
   {
     icon: Leaf,
     title: "Holistic Approach",
     description:
       "We address skin and hair holistically — types, conditions, routines, and targeted products in one place.",
-    color: "#6B8C6B",
-    bg: "rgba(150,180,150,0.18)",
-    hoverBg: "rgba(150,180,150,0.34)",
+    color: "#9E7B4F",
+    bg: "rgba(158,123,79,0.12)",
+    hoverBg: "rgba(158,123,79,0.24)",
   },
   {
     icon: Sparkle,
     title: "Expert Curated",
     description:
       "Our multidisciplinary team curates content that bridges medical accuracy with practical everyday use.",
-    color: "#A87850",
-    bg: "rgba(200,165,120,0.20)",
-    hoverBg: "rgba(200,165,120,0.38)",
+    color: "#A05870",
+    bg: "rgba(160,88,112,0.10)",
+    hoverBg: "rgba(160,88,112,0.20)",
   },
 ];
 
@@ -51,9 +51,9 @@ const offers = [
     description:
       "Detailed guides on skin types, acne conditions, hair types, and scalp conditions — with characteristics and care tips for each.",
     link: "/skincare/types",
-    accent: "#9E7B4F",
-    bg: "rgba(190,155,112,0.14)",
-    hoverBg: "rgba(190,155,112,0.28)",
+    accent: "#5C2D3E",
+    bg: "rgba(92,45,62,0.08)",
+    hoverBg: "rgba(92,45,62,0.18)",
   },
   {
     number: "02",
@@ -61,9 +61,9 @@ const offers = [
     description:
       "Step-by-step morning and evening routines for every skin and hair type, from basic maintenance to intensive care.",
     link: "/skincare/solutions",
-    accent: "#B87070",
-    bg: "rgba(210,150,140,0.14)",
-    hoverBg: "rgba(210,150,140,0.28)",
+    accent: "#7A3F52",
+    bg: "rgba(122,63,82,0.08)",
+    hoverBg: "rgba(122,63,82,0.18)",
   },
   {
     number: "03",
@@ -71,9 +71,9 @@ const offers = [
     description:
       "A curated, searchable catalogue of skincare and haircare products with complete ingredient, benefit, and medical detail pages.",
     link: "/skincare/products",
-    accent: "#6B8C6B",
-    bg: "rgba(145,175,145,0.14)",
-    hoverBg: "rgba(145,175,145,0.28)",
+    accent: "#9E7B4F",
+    bg: "rgba(158,123,79,0.08)",
+    hoverBg: "rgba(158,123,79,0.18)",
   },
   {
     number: "04",
@@ -81,9 +81,9 @@ const offers = [
     description:
       "Every product includes an expandable clinical section with mechanism of action, contraindications, and safety data for professionals.",
     link: "/about",
-    accent: "#A87850",
-    bg: "rgba(195,158,112,0.14)",
-    hoverBg: "rgba(195,158,112,0.28)",
+    accent: "#A05870",
+    bg: "rgba(160,88,112,0.08)",
+    hoverBg: "rgba(160,88,112,0.18)",
   },
 ];
 
@@ -106,8 +106,9 @@ function MarqueeTicker() {
         {TICKER.map((item, i) => (
           <span
             key={i}
-            className={`text-xs uppercase tracking-[0.22em] flex-shrink-0 ${item === "✦" ? "text-gold" : "text-taupe"
+            className={`text-xs uppercase tracking-[0.22em] flex-shrink-0 ${item === "✦" ? "sparkle-blink" : "text-taupe"
               }`}
+            style={item === "✦" ? { color: "#5C2D3E", display: "inline-block" } : {}}
           >
             {item}
           </span>
@@ -318,14 +319,19 @@ export function Home() {
           ].map((stat, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 20, scale: 0.85 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.08, duration: 0.6 }}
+              transition={{ delay: i * 0.1, duration: 0.55, type: "spring", stiffness: 180, damping: 18 }}
             >
               <p
-                className="font-heading text-espresso mb-1"
-                style={{ fontSize: "clamp(2rem, 4vw, 2.8rem)", fontStyle: "italic", fontWeight: 300 }}
+                className="font-heading mb-1"
+                style={{
+                  fontSize: "clamp(2rem, 4vw, 2.8rem)",
+                  fontStyle: "italic",
+                  fontWeight: 300,
+                  color: i % 2 === 0 ? "#5C2D3E" : "#4A3728",
+                }}
               >
                 {stat.value}
               </p>
@@ -434,7 +440,7 @@ export function Home() {
               Start with understanding your skin type or hair type, then build your personalised routine from science-backed foundations.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/skincare/types" className="btn-gold">
+              <Link to="/skincare/types" className="btn-wine">
                 Explore Skincare
                 <ArrowRight className="w-4 h-4" />
               </Link>
