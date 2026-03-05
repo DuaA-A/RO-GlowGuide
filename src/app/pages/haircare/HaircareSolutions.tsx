@@ -47,7 +47,7 @@ export function HaircareSolutions() {
                                         <span className="badge-haircare">{routine.targetType} hair</span>
                                     </div>
                                     <h3 className="font-heading text-espresso mb-3">{routine.name}</h3>
-                                    <p className="text-mink text-sm leading-relaxed mb-6">{routine.description}</p>
+                                    <p className="text-espresso/90 text-sm md:text-base leading-relaxed mb-6">{routine.description}</p>
 
                                     <div className="flex items-center gap-4 text-xs text-taupe">
                                         <span className="flex items-center gap-1.5"><Layers className="w-3.5 h-3.5" />{routine.steps.length} steps</span>
@@ -67,8 +67,8 @@ export function HaircareSolutions() {
                                                 </div>
                                                 <h4 className="text-sm font-medium text-espresso">{step.name}</h4>
                                             </div>
-                                            <p className="text-xs text-taupe leading-relaxed mb-2">{step.description}</p>
-                                            <span className="inline-block text-xs bg-linen border border-warm-beige text-mink px-2.5 py-1 rounded-full">
+                                            <p className="text-sm text-espresso/80 leading-relaxed mb-2">{step.description}</p>
+                                            <span className="inline-block text-xs bg-wine/5 border border-wine/10 text-wine-dark px-2.5 py-1 rounded-full font-medium">
                                                 {step.timing}
                                             </span>
                                         </div>

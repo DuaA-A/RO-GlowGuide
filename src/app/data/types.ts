@@ -21,6 +21,7 @@ export interface SkinCondition {
   severity: "Mild" | "Moderate" | "Severe";
   description: string;
   causes: string[];
+  tips?: string[];
   image: string;
   color: string;
 }
@@ -42,6 +43,7 @@ export interface ScalpCondition {
   severity: "Mild" | "Moderate" | "Severe";
   description: string;
   causes: string[];
+  tips?: string[];
   image: string;
   color: string;
 }

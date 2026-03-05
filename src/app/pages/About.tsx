@@ -59,21 +59,24 @@ export function About() {
                     initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mt-24 bg-linen border border-warm-beige rounded-2xl p-10 md:p-14"
+                    className="mt-24 bg-espresso border border-gold/20 rounded-2xl p-10 md:p-14 shadow-2xl relative overflow-hidden"
                 >
-                    <div className="max-w-3xl mx-auto text-center">
-                        <p className="text-xs uppercase tracking-[0.25em] text-gold mb-6">Our Story</p>
-                        <h2 className="font-heading text-espresso mb-6" style={{ fontSize: "clamp(1.8rem, 3vw, 2.5rem)" }}>
+                    {/* Subtle decorative glow */}
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 blur-[100px] -mr-32 -mt-32 rounded-full" />
+
+                    <div className="max-w-3xl mx-auto text-center relative z-10">
+                        <p className="text-xs uppercase tracking-[0.25em] text-gold-light mb-6 font-medium">Our Story</p>
+                        <h2 className="font-heading text-cream mb-6" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
                             Why We Built LumeGuide
                         </h2>
-                        <div className="section-divider mx-auto mb-8" />
-                        <p className="text-mink leading-relaxed mb-5 text-sm">
+                        <div className="section-divider mx-auto mb-10 w-24 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent" />
+                        <p className="text-cream/90 leading-relaxed mb-6 text-base md:text-lg">
                             We noticed that navigating skincare and haircare can be genuinely overwhelming — conflicting advice, ingredient confusion, and a market driven by aesthetics over science.
                         </p>
-                        <p className="text-mink leading-relaxed mb-5 text-sm">
-                            <strong className="font-medium text-espresso">LumeGuide</strong> was built to change that. We combine clinical precision with elegant, accessible design to create a resource that anyone can use — whether you're discovering your skin type for the first time, or a medical professional seeking detailed ingredient data.
+                        <p className="text-cream/90 leading-relaxed mb-6 text-base md:text-lg">
+                            <strong className="font-medium text-gold-light">LumeGuide</strong> was built to change that. We combine clinical precision with elegant, accessible design to create a resource that anyone can use — whether you're discovering your skin type for the first time, or a medical professional seeking detailed ingredient data.
                         </p>
-                        <p className="text-mink leading-relaxed text-sm">
+                        <p className="text-cream/90 leading-relaxed text-base md:text-lg">
                             Every guide, product profile, and routine we publish is reviewed for accuracy and presented honestly. Our mission is to empower, not to sell.
                         </p>
                     </div>
@@ -84,7 +87,7 @@ export function About() {
                     initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mt-16"
+                    className="mt-28"
                 >
                     <SectionHeader
                         label="What We Stand For"
@@ -92,7 +95,7 @@ export function About() {
                         titleHighlight="Values."
                     />
 
-                    <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
                         {values.map((value, i) => (
                             <motion.div
                                 key={i}
@@ -100,13 +103,13 @@ export function About() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.1, duration: 0.5 }}
-                                className="luxury-card p-7 text-center"
+                                className="luxury-card p-8 text-center bg-ivory border-sand/30"
                             >
-                                <div className="w-10 h-10 rounded-xl bg-espresso mx-auto mb-5 flex items-center justify-center">
-                                    <span className="text-gold text-sm">✦</span>
+                                <div className="w-12 h-12 rounded-2xl bg-wine mx-auto mb-6 flex items-center justify-center shadow-lg shadow-wine/20">
+                                    <span className="text-gold-light text-xl">✦</span>
                                 </div>
-                                <h4 className="font-heading text-espresso text-xl mb-3">{value.title}</h4>
-                                <p className="text-taupe text-sm leading-relaxed">{value.description}</p>
+                                <h4 className="font-heading text-espresso text-2xl mb-4 font-medium">{value.title}</h4>
+                                <p className="text-espresso/80 text-base leading-relaxed">{value.description}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -117,19 +120,26 @@ export function About() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mt-20 bg-espresso rounded-2xl p-10 md:p-14 text-center"
+                    className="mt-32 bg-wine-dark rounded-3xl p-12 md:p-20 text-center relative overflow-hidden shadow-2xl"
                 >
-                    <p className="text-xs uppercase tracking-[0.25em] text-cream/40 mb-4">Get in Touch</p>
-                    <h3 className="font-heading text-cream mb-4">Have Questions or Feedback?</h3>
-                    <p className="text-cream/60 text-sm mb-8 max-w-lg mx-auto leading-relaxed">
-                        We love hearing from our community — whether you have a question, a collaboration idea, or simply want to share your experience.
-                    </p>
-                    <a
-                        href="mailto:hello@lumeguide.com"
-                        className="btn-gold inline-flex items-center gap-2"
-                    >
-                        Contact Us
-                    </a>
+                    {/* Animated background element */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-wine/20 via-transparent to-espresso/20 opacity-50" />
+
+                    <div className="relative z-10">
+                        <p className="text-xs uppercase tracking-[0.3em] text-gold/60 mb-6 font-semibold">Get in Touch</p>
+                        <h3 className="font-heading text-cream mb-6 leading-tight" style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)" }}>
+                            Have Questions or Feedback?
+                        </h3>
+                        <p className="text-cream/80 text-base md:text-lg mb-10 max-w-xl mx-auto leading-relaxed font-light">
+                            We love hearing from our community — whether you have a question, a collaboration idea, or simply want to share your experience.
+                        </p>
+                        <a
+                            href="mailto:hello@lumeguide.com"
+                            className="btn-wine scale-110 hover:scale-115 transition-transform duration-300"
+                        >
+                            Contact Us
+                        </a>
+                    </div>
                 </motion.div>
 
             </div>

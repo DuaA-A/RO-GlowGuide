@@ -112,15 +112,21 @@ export const hairTypes: HairType[] = [
 export const scalpConditions: ScalpCondition[] = [
     {
         id: "dandruff",
-        name: "Dandruff (Seborrhoeic Dermatitis)",
-        severity: "Mild",
+        name: "Dandruff (Seborrheic Dermatitis)",
+        severity: "Moderate",
         description:
-            "A chronic, relapsing scalp condition characterised by flaking and mild inflammation, associated with Malassezia yeast overgrowth. Placeholder: replace with clinical description.",
+            "A common scalp condition characterized by white flakes, persistent itching, and sometimes localized redness. It is often linked to the overgrowth of the Malassezia fungus.",
         causes: [
-            "Malassezia globosa yeast activity",
-            "Increased sebum production",
-            "Disrupted scalp microbiome",
-            "Stress and immune changes",
+            "Overgrowth of Malassezia fungus",
+            "Excess scalp oil (sebum) production",
+            "Dry scalp or infrequent washing",
+            "Stress and hormonal fluctuations",
+        ],
+        tips: [
+            "Use medicated shampoos with Ketoconazole or Zinc Pyrithione",
+            "Selenium Sulfide and Salicylic Acid help remove persistent flakes",
+            "Leave treatment on the scalp for 3–5 minutes before rinsing",
+            "Maintain frequency of 2–3 times weekly for at least 4 weeks",
         ],
         image: "",
         color: "sand",
@@ -156,16 +162,22 @@ export const scalpConditions: ScalpCondition[] = [
         color: "blush",
     },
     {
-        id: "alopecia",
-        name: "Alopecia / Hair Loss",
-        severity: "Severe",
+        id: "split-ends",
+        name: "Split Ends (Trichoptilosis)",
+        severity: "Moderate",
         description:
-            "A range of conditions causing partial or complete hair loss — from androgenetic alopecia (genetic pattern loss) to alopecia areata (autoimmune). Placeholder: replace with clinical description.",
+            "Split ends occur when the protective outer layer of the hair shaft (the cuticle) is damaged, causing the fiber to split into two or more fragments. This is a sign of structural hair damage.",
         causes: [
-            "DHT-mediated follicle miniaturisation (AGA)",
-            "Autoimmune follicle attack (alopecia areata)",
-            "Nutritional deficiencies (iron, biotin)",
-            "Hormonal imbalances (thyroid, PCOS)",
+            "Frequent heat styling (dryers, straighteners)",
+            "Chemical treatments and hair dyes",
+            "Lack of moisture and environmental exposure (sun)",
+            "Physical stress from frequent or rough brushing",
+        ],
+        tips: [
+            "Regular trimming every 6–8 weeks is the only permanent cure",
+            "Apply hair serums or leave-in conditioners to seal the cuticle",
+            "Always use heat protectant before styling",
+            "Use deep conditioning hair masks 1–2 times weekly",
         ],
         image: "",
         color: "mink",
@@ -221,16 +233,30 @@ export const haircareRoutines: Routine[] = [
         image: "",
     },
     {
-        id: "scalp-treatment-routine",
-        name: "Scalp Treatment Routine",
+        id: "general-routine",
+        name: "Complete Hair Health Routine",
         description:
-            "A targeted routine for managing scalp conditions like dandruff or seborrhoeic dermatitis. Placeholder: replace with full routine rationale.",
+            "A foundation-level routine to maintain scalp health, moisture balance, and improve hair strength and shine.",
         targetType: "all",
         steps: [
-            { step: 1, name: "Scalp Exfoliator", description: "Placeholder: Salicylic acid scalp scrub.", timing: "Weekly" },
-            { step: 2, name: "Medicated Shampoo", description: "Placeholder: Zinc pyrithione or ketoconazole formula.", timing: "2–3×/week" },
-            { step: 3, name: "Scalp Serum", description: "Placeholder: Targeted active serum for your condition.", timing: "Daily" },
-            { step: 4, name: "Lightweight Conditioner", description: "Placeholder: Ends only, avoid scalp.", timing: "Every wash" },
+            { step: 1, name: "Shampoo", description: "Wash 2–3 times weekly to clear excess oil and buildup. Choose by scalp type.", timing: "Every 2–3 days" },
+            { step: 2, name: "Conditioner", description: "Apply after every wash to restore moisture and reduce frizz. Apply mid-length to ends only.", timing: "Every wash" },
+            { step: 3, name: "Hair Mask", description: "Deep nourishment with proteins or argan oil for structural repair.", timing: "1–2×/week" },
+            { step: 4, name: "Serum / Leave-in", description: "Protects from heat and controls frizz on damp hair.", timing: "Daily / After wash" },
+            { step: 5, name: "Heat Protection", description: "Crucial step before using any dryers or straighteners.", timing: "Before styling" },
+        ],
+        image: "",
+    },
+    {
+        id: "scalp-treatment-routine",
+        name: "Anti-Dandruff Treatment Routine",
+        description:
+            "A targeted therapeutic routine for managing dandruff and seborrheic dermatitis through medical-grade scalp care.",
+        targetType: "all",
+        steps: [
+            { step: 1, name: "Medicated Shampoo", description: "Use Nizoral or Selsun Blue. Massage into scalp and leave for 3–5 minutes.", timing: "2–3×/week" },
+            { step: 2, name: "Gentle Conditioner", description: "Apply to ends only to prevent lengths from drying out during treatment.", timing: "Every wash" },
+            { step: 3, name: "Maintenance Wash", description: "Once improvement is seen, reduce to once weekly to prevent relapse.", timing: "Weekly" },
         ],
         image: "",
     },
@@ -251,7 +277,7 @@ export const haircareProducts: Product[] = [
             "Wet hair thoroughly. Apply a generous amount and work into a lather from roots to ends. Rinse thoroughly. Repeat if necessary.",
         mainIngredients: ["Sodium Lauroyl Methyl Isethionate", "Argan Oil", "Panthenol (Vitamin B5)", "Glycerin"],
         benefits: ["Sulphate-free gentle cleanse", "Adds moisture and shine", "Reduces breakage"],
-        image: "https://m.media-amazon.com/images/I/71Y97B-6yPL._AC_SL1500_.jpg",
+        image: "",
         targetTypes: ["dry", "curly", "coily", "damaged"],
         medicalDetails: {
             mechanismOfAction:
@@ -273,7 +299,7 @@ export const haircareProducts: Product[] = [
             "Use medicated shampoo 2–3 times weekly. Leave on scalp for 3–5 minutes before rinsing. Continue for 4 weeks minimum.",
         mainIngredients: ["Ketoconazole (2%)", "Zinc Pyrithione", "Salicylic Acid"],
         benefits: ["Eliminates flaking", "Controls fungus growth", "Soothes scalp itching"],
-        image: "https://nizoral.com/wp-content/uploads/2021/01/nizoral-bottle.png",
+        image: "",
         targetTypes: ["dandruff", "all", "oily-scalp", "seborrheic-dermatitis"],
         medicalDetails: {
             mechanismOfAction:
@@ -293,7 +319,7 @@ export const haircareProducts: Product[] = [
         usage: "Use 2-3 times weekly on wet hair. Leave for 2 minutes then rinse.",
         mainIngredients: ["Selenium Sulfide", "Salicylic Acid", "Ceramides"],
         benefits: ["Removes 100% visible flakes", "6-week anti-relapse action", "Soothes scalp discomfort"],
-        image: "https://images.unsplash.com/photo-1585232351009-aa87416fca90?q=80&w=1974&auto=format&fit=crop",
+        image: "",
         targetTypes: ["all"],
         medicalDetails: {
             mechanismOfAction: "Selenium Sulfide slows skin cell turnover and treats the Malassezia fungus.",
@@ -308,7 +334,7 @@ export const haircareProducts: Product[] = [
         usage: "Apply serum on damp hair focusing on ends. Do not rinse.",
         mainIngredients: ["6 Precious Flower Oils", "Argan Oil", "Vitamin E"],
         benefits: ["Nourishes without weighing down", "Adds remarkable shine", "Prevents split ends"],
-        image: "https://images.unsplash.com/photo-1626015093744-84d50980a377?q=80&w=2072&auto=format&fit=crop",
+        image: "",
         targetTypes: ["dry", "straight", "wavy", "curly", "coily"],
         medicalDetails: {
             mechanismOfAction: "Forms a protective layer over the hair shaft, sealing the cuticle to prevent moisture loss and physical split damage.",
@@ -324,7 +350,7 @@ export const haircareProducts: Product[] = [
         usage: "Use as a mask 1-2 times weekly. Apply on damp hair focusing on ends.",
         mainIngredients: ["Banana Extract", "Shea Butter", "Coconut Oil"],
         benefits: ["Intense nourishment", "98% natural origin ingredients", "No silicones"],
-        image: "https://m.media-amazon.com/images/I/71X8k7+7F6L._AC_SL1500_.jpg",
+        image: "",
         targetTypes: ["dry", "curly", "coily", "damaged"],
         medicalDetails: {
             mechanismOfAction: "Deeply penetrates the hair fibre with nourishing triglycerides from shea and coconut.",
@@ -340,7 +366,7 @@ export const haircareProducts: Product[] = [
         usage: "Apply half a capful once daily to the scalp in the hair loss area. Massage into scalp with fingers.",
         mainIngredients: ["Minoxidil 5%"],
         benefits: ["Clinically proven regrowth", "Easy-to-use foam", "Revitalizes follicles"],
-        image: "https://www.rogaine.com/on/demandware.static/-/Sites-rogaine-master-catalog/default/dw86a7d6e4/product-images/men-foam-3mo.jpg",
+        image: "",
         targetTypes: ["hair-loss", "alopecia", "thinning"],
         medicalDetails: {
             mechanismOfAction: "Increases blood flow to hair follicles, widening blood vessels and shortening the telogen phase to push hair into the anagen phase.",
@@ -359,7 +385,7 @@ export const haircareProducts: Product[] = [
         usage: "Take one tablet (1mg) daily as directed by a healthcare professional.",
         mainIngredients: ["Finasteride 1mg"],
         benefits: ["Blocks DHT", "Prevents further loss", "Effective for pattern baldness"],
-        image: "https://www.propecia.com/images/propecia-pack.png",
+        image: "",
         targetTypes: ["hair-loss", "male-pattern-baldness", "thinning"],
         medicalDetails: {
             mechanismOfAction: "A 5-alpha reductase inhibitor that blocks the conversion of testosterone to DHT, the hormone responsible for follicle miniaturization.",
@@ -378,12 +404,76 @@ export const haircareProducts: Product[] = [
         usage: "Swap your regular shampoo for this power wash once a week or as needed.",
         mainIngredients: ["Salicylic Acid", "Activated Charcoal", "K18Peptide"],
         benefits: ["Deeply detoxifies", "Removes metals", "Perfect prep for treatments"],
-        image: "https://www.k18hair.com/cdn/shop/files/Detox_Shampoo_250ml_Front_Transparent.png",
+        image: "",
         targetTypes: ["oily-scalp", "buildup", "all", "fine"],
         medicalDetails: {
             mechanismOfAction: "Activated charcoal absorbs excess oil and impurities; Salicylic acid exfoliates the scalp and unclogs pores.",
             sideEffects: ["Possible dryness if overused; follow with conditioner."],
             clinicalNotes: "pH-balanced (3.8-4.2) to maintain hair health and color stability.",
+            pregnancySafety: "Safe."
+        }
+    },
+    {
+        id: "hc-009",
+        name: "Head & Shoulders Clinical Strength",
+        brand: "Head & Shoulders",
+        category: "Shampoo",
+        description: "Maximum strength formula to treat stubborn dandruff and seborrheic dermatitis.",
+        usage: "Apply to wet hair, massage into scalp, leave for several minutes, then rinse.",
+        mainIngredients: ["Selenium Sulfide (1%)"],
+        benefits: ["Prescription strength flaking relief", "Removes excess oil", "Soothes itching"],
+        image: "",
+        targetTypes: ["dandruff", "seborrheic-dermatitis"],
+        medicalDetails: {
+            mechanismOfAction: "Selenium sulfide is a cytostatic agent that reduces the rate of skin cell turnover on the scalp.",
+            pregnancySafety: "Consult physician."
+        }
+    },
+    {
+        id: "hc-010",
+        name: "Selsun Blue Medicated Shampoo",
+        brand: "Selsun Blue",
+        category: "Shampoo",
+        description: "Specifically formulated to control the scaling, flaking and itching of the scalp associated with dandruff.",
+        usage: "Shake well. Wet hair, massage onto scalp, rinse. Repeat if desired.",
+        mainIngredients: ["Selenium Sulfide (1%)"],
+        benefits: ["Tough on dandruff", "Menthol for cooling sensation", "Relieves scalp itch"],
+        image: "",
+        targetTypes: ["dandruff"],
+        medicalDetails: {
+            mechanismOfAction: "Antifungal activity against Malassezia yeast and reduces scalp cell proliferation.",
+            pregnancySafety: "Consult physician."
+        }
+    },
+    {
+        id: "hc-011",
+        name: "Vichy Dercos Nourishing Conditioner",
+        brand: "Vichy",
+        category: "Conditioner",
+        description: "Intensive nourishing conditioner for dry, damaged hair that repairs and strengthens the hair fiber.",
+        usage: "Apply after shampooing on towel-dried hair. Leave for 1 minute then rinse.",
+        mainIngredients: ["Ceramides", "Omega 3-6-9"],
+        benefits: ["Repairs hair fiber", "Smooths ends", "Adds shine and soft feel"],
+        image: "",
+        targetTypes: ["dry", "damaged"],
+        medicalDetails: {
+            mechanismOfAction: "Ceramides fill in the gaps in the hair cuticle to restore smoothness and strength.",
+            pregnancySafety: "Safe."
+        }
+    },
+    {
+        id: "hc-012",
+        name: "Pantene Repair & Protect Serum",
+        brand: "Pantene",
+        category: "Oil Treatment",
+        description: "A lightweight serum that visibly repairs damage and seals split ends for a healthy look.",
+        usage: "Apply a small amount to damp or dry hair, focusing on the ends. Do not rinse.",
+        mainIngredients: ["Pro-V Nutrients", "Vitamin E"],
+        benefits: ["Instantly repairs damage", "Prevents split ends", "Adds brilliant shine"],
+        image: "",
+        targetTypes: ["damaged", "split-ends"],
+        medicalDetails: {
+            mechanismOfAction: "Concentrated conditioning agents coat the hair shaft to protect from breakage and heat.",
             pregnancySafety: "Safe."
         }
     }

@@ -8,7 +8,7 @@ export const skinTypes: SkinType[] = [
         id: "normal",
         name: "Normal Skin",
         description:
-            "Balanced and well-regulated, normal skin maintains an ideal equilibrium of moisture and sebum production. Placeholder: replace with detailed clinical description.",
+            "Balanced and well-regulated, normal skin maintains an ideal equilibrium of moisture and sebum production. It feels comfortable, looks clear, and has fine, barely visible pores.",
         characteristics: [
             "Balanced sebum and moisture levels",
             "Fine, barely visible pores",
@@ -20,24 +20,25 @@ export const skinTypes: SkinType[] = [
             "Use a broad-spectrum SPF 30+ daily",
             "Incorporate a lightweight antioxidant serum",
         ],
-        image: "", // PLACEHOLDER: add path or URL to a skincare model image
+        image: "",
         color: "warm-beige",
     },
     {
         id: "dry",
         name: "Dry Skin",
         description:
-            "Dry skin produces insufficient sebum leading to a compromised moisture barrier. Placeholder: replace with detailed clinical description.",
+            "Dry skin produces insufficient sebum, leading to a tight feeling and rough texture. It often exhibits visible flaking and may even itch due to a compromised moisture barrier.",
         characteristics: [
-            "Persistent feeling of tightness or roughness",
+            "Tight feeling especially after washing",
+            "Rough, uneven texture",
             "Visible flaking or dull, matte surface",
-            "Fine lines appear more pronounced",
-            "Prone to irritation and sensitivity",
+            "Prone to itching and irritation",
         ],
         tips: [
-            "Cleanse with cream or oil-based formulas",
-            "Apply moisturizer while skin is still damp",
-            "Use occlusives such as squalane or shea butter as last step",
+            "Use humectants like Hyaluronic Acid and Glycerin",
+            "Incorporate Ceramides and Shea Butter to restore barrier",
+            "Apply moisturizer while skin is still damp, 2–3 times daily",
+            "Panthenol helps soothe and hydrate deeply",
         ],
         image: "",
         color: "blush",
@@ -46,17 +47,18 @@ export const skinTypes: SkinType[] = [
         id: "oily",
         name: "Oily Skin",
         description:
-            "Characterized by overactive sebaceous glands, oily skin maintains a persistent shine and enlarged pores. Placeholder: replace with detailed clinical description.",
+            "Characterized by overactive sebaceous glands, oily skin is persistently shiny and prone to enlarged pores and acne. It requires oil-regulation rather than just stripping.",
         characteristics: [
-            "Persistently shiny or greasy appearance",
+            "Persistent shine or greasy appearance",
             "Enlarged, clearly visible pores",
-            "Prone to blackheads and breakouts",
-            "Makeup tends to wear off quickly",
+            "Prone to blackheads and inflammatory acne",
+            "Makeup tends to wear off or slide quickly",
         ],
         tips: [
-            "Use salicylic acid or gel cleansers twice daily",
-            "Avoid heavy, occlusive moisturizers",
-            "Niacinamide helps regulate sebum production",
+            "Niacinamide helps control oil and redness",
+            "Use lightweight Hyaluronic Acid for hydration without grease",
+            "Opt for oil-free, non-comedogenic formulas",
+            "Wash face twice daily with targeted gel cleansers",
         ],
         image: "",
         color: "sand",
@@ -65,17 +67,18 @@ export const skinTypes: SkinType[] = [
         id: "combination",
         name: "Combination Skin",
         description:
-            "Combination skin exhibits differing characteristics across zones — typically an oily T-zone with normal to dry cheeks. Placeholder: replace with detailed clinical description.",
+            "Exhibits differing characteristics across zones—typically an oily T-zone (forehead, nose, chin) and normal to dry cheeks. It requires zoning techniques in product application.",
         characteristics: [
             "Oily forehead, nose, and chin (T-zone)",
-            "Normal to dry cheeks and temples",
-            "Varying pore sizes by zone",
-            "Requires zone-specific product application",
+            "Dry or normal cheeks and temples",
+            "Varying pore sizes across different facial zones",
+            "Periodic breakouts mostly on the T-zone",
         ],
         tips: [
-            "Use a balanced, pH-correct cleanser",
-            "Apply lighter moisturizer on T-zone, richer on dry areas",
-            "Clay masks can be applied selectively to oily zones",
+            "Use lightweight gel moisturizers across the whole face",
+            "Spot-treat dry areas with richer creams if needed",
+            "Niacinamide and Hyaluronic Acid are ideal core ingredients",
+            "Balance the T-zone with gentle exfoliating toners",
         ],
         image: "",
         color: "taupe",
@@ -84,17 +87,18 @@ export const skinTypes: SkinType[] = [
         id: "sensitive",
         name: "Sensitive Skin",
         description:
-            "Sensitive skin has a weakened barrier function that reacts readily to environmental triggers and cosmetic ingredients. Placeholder: replace with detailed clinical description.",
+            "Sensitive skin has a weakened barrier that reacts readily to triggers with redness and burning. It requires minimal, soothing formulations without fragrance or alcohol.",
         characteristics: [
-            "Visible redness and reactive flushing",
+            "Frequent redness and reactive flushing",
             "Burning, stinging, or itching sensations",
-            "Easily triggered by products or environmental factors",
-            "May be associated with rosacea, eczema, or contact dermatitis",
+            "Reacts easily to products, fragrance, or weather",
+            "Thin or transparent-looking skin with visible capillaries",
         ],
         tips: [
-            "Patch test all new products before full application",
-            "Opt for fragrance-free, minimal-ingredient formulations",
-            "Centella asiatica and panthenol help calm reactivity",
+            "Use Panthenol and Ceramides to strengthen the barrier",
+            "Thermal spring water is ideal for instant calming",
+            "Avoid fragrance, alcohol, and harsh exfoliating acids",
+            "Madecassoside helps repair and soothe reactive zones",
         ],
         image: "",
         color: "blush",
@@ -111,12 +115,12 @@ export const skinConditions: SkinCondition[] = [
         type: "Non-inflammatory",
         severity: "Mild",
         description:
-            "Characterised by open comedones (blackheads) and closed comedones (whiteheads) caused by follicular blockage. Placeholder: replace with clinical description.",
+            "Characterized by whiteheads and blackheads without significant redness. This occurs when pores are clogged by sebum and dead skin cells but haven't become infected by bacteria.",
         causes: [
             "Excess sebum production",
-            "Accumulation of dead skin cells",
-            "Use of occlusive cosmetics",
-            "Hormonal fluctuations",
+            "Accumulation of dead skin cells (clogged pores)",
+            "Hormonal changes",
+            "Oily or occlusive cosmetics",
         ],
         image: "",
         color: "sand",
@@ -127,12 +131,12 @@ export const skinConditions: SkinCondition[] = [
         type: "Papules & Pustules",
         severity: "Moderate",
         description:
-            "Red, raised papules and pus-filled pustules resulting from bacterial proliferation and immune response. Placeholder: replace with clinical description.",
+            "Involves red, swollen pimples (papules) and pus-filled lesions (pustules). This stage involves bacterial growth (Cutibacterium acnes) and a visible immune inflammatory response.",
         causes: [
-            "Cutibacterium acnes overgrowth",
-            "Immune-mediated inflammatory response",
-            "Hormonal fluctuations",
-            "Stress and dietary factors",
+            "Bacterial growth (C. acnes)",
+            "Immune-mediated inflammation",
+            "Poor skincare routine / lack of cleansing",
+            "High glycemic diet and stress",
         ],
         image: "",
         color: "taupe",
@@ -209,16 +213,15 @@ export const skincareRoutines: Routine[] = [
     },
     {
         id: "oily-routine",
-        name: "Oily Skin Balancing Routine",
+        name: "Oily & Acne-Prone Recovery Routine",
         description:
-            "A sebum-control focused routine that hydrates without adding shine. Placeholder: replace with full routine rationale.",
+            "A clinical routine designed to clear acne, control excess oil, and maintain a healthy skin barrier without adding shine.",
         targetType: "oily",
         steps: [
-            { step: 1, name: "Gel Cleanser", description: "Placeholder: BHA or salicylic acid cleanser.", timing: "AM & PM" },
-            { step: 2, name: "Exfoliating Toner", description: "Placeholder: BHA toner.", timing: "PM (3–4×/week)" },
-            { step: 3, name: "Niacinamide Serum", description: "Placeholder: 10% niacinamide serum.", timing: "AM & PM" },
-            { step: 4, name: "Oil-Free Moisturiser", description: "Placeholder: lightweight gel moisturiser.", timing: "AM & PM" },
-            { step: 5, name: "Sunscreen", description: "Placeholder: matte-finish sunscreen.", timing: "AM" },
+            { step: 1, name: "Cleanser", description: "Wash twice daily with a targeted gel like Effaclar Gel or Shaan Gel. Avoid harsh soaps.", timing: "AM & PM" },
+            { step: 2, name: "Active Treatment", description: "Apply a treatment with Salicylic Acid or Adapalene to regulate turnover and kill bacteria.", timing: "PM (Start slowly)" },
+            { step: 3, name: "Moisturiser", description: "Use oil-free hydration like Effaclar H or CeraVe Lotion to prevent dehydration markings.", timing: "AM & PM" },
+            { step: 4, name: "Sunscreen", description: "Essential protection to prevent post-inflammatory hyperpigmentation (acne marks).", timing: "AM" },
         ],
         image: "",
     },
@@ -253,7 +256,7 @@ export const skincareProducts: Product[] = [
             "Apply a small amount to damp skin, massage in circular motions for 60 seconds, and rinse thoroughly with lukewarm water. Use morning and evening.",
         mainIngredients: ["Zinc PCA", "La Roche-Posay Thermal Spring Water", "Citric Acid"],
         benefits: ["Purifies skin", "Reduces excess sebum", "Maintains skin pH"],
-        image: "https://www.laroche-posay.us/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-lrp-master-catalog/default/dw1062b146/product-images/effaclar-purifying-foaming-gel-cleanser-3337872411991-1.jpg",
+        image: "",
         targetTypes: ["oily", "sensitive", "acne-prone", "combination"],
         medicalDetails: {
             mechanismOfAction:
@@ -272,7 +275,7 @@ export const skincareProducts: Product[] = [
         usage: "Apply to damp face, massage gently, and rinse. Use twice daily.",
         mainIngredients: ["Vitamin C", "Vitamin E", "Glycerin"],
         benefits: ["Gentle cleansing", "Antioxidant protection", "Brightens complexion"],
-        image: "http://46.101.78.230:8069/web/image/product.template/22276/image_1920?unique=c78bfd6",
+        image: "",
         targetTypes: ["dry", "normal", "sensitive"],
         medicalDetails: {
             mechanismOfAction: "Antioxidants C and E protect against free radical damage while glycerin maintains hydration.",
@@ -287,7 +290,7 @@ export const skincareProducts: Product[] = [
         usage: "Wet skin with lukewarm water. Massage cleanser into skin in a gentle, circular motion. Rinse.",
         mainIngredients: ["Ceramides (1, 3, 6-II)", "Hyaluronic Acid", "Niacinamide"],
         benefits: ["Non-drying", "Fragrance-free", "Restores skin barrier"],
-        image: "https://images.unsplash.com/photo-1616391182219-e080b4d1043a?q=80&w=2023&auto=format&fit=crop",
+        image: "",
         targetTypes: ["oily", "normal"],
         medicalDetails: {
             mechanismOfAction: "Ceramides help restore the skin barrier. Niacinamide calms the skin. Hyaluronic acid retains moisture.",
@@ -302,7 +305,7 @@ export const skincareProducts: Product[] = [
         usage: "Apply to the entire face morning and/or evening after cleansing.",
         mainIngredients: ["Salicylic Acid", "LHA", "Niacinamide", "Procerad"],
         benefits: ["Clears breakouts", "Reduces red and brown marks", "24h hydration"],
-        image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=1974&auto=format&fit=crop",
+        image: "",
         targetTypes: ["oily", "combination"],
         medicalDetails: {
             mechanismOfAction: "Salicylic acid and LHA exfoliate the surface. Niacinamide reduces inflammation. Procerad helps protect against the appearance of marks.",
@@ -317,7 +320,7 @@ export const skincareProducts: Product[] = [
         usage: "Apply liberally as often as needed, or as directed by a physician.",
         mainIngredients: ["Ceramides", "Hyaluronic Acid"],
         benefits: ["Moisturises for 24 hours", "MVE Technology for controlled release", "Non-comedogenic"],
-        image: "https://www.cerave.com/-/media/project/loreal/brand-sites/cerave/americas/us/products-v3/daily-moisturizing-lotion/cerave_daily_moisturizing_lotion_12oz_front-v2.jpg",
+        image: "",
         targetTypes: ["dry", "normal", "combination"],
         medicalDetails: {
             mechanismOfAction: "Ceramides replenish skin's essential lipids. MVE technology ensures efficient delivery within the skin's barrier.",
@@ -333,7 +336,7 @@ export const skincareProducts: Product[] = [
         usage: "Apply once daily to affected areas. For external use only.",
         mainIngredients: ["Roflumilast"],
         benefits: ["Steroid-free", "Once-daily application", "Rapid itch relief"],
-        image: "https://www.zoryve.com/images/zoryve-tube.png",
+        image: "",
         targetTypes: ["eczema", "sensitive", "atopic-dermatitis", "dry"],
         medicalDetails: {
             mechanismOfAction: "A potent and selective PDE4 inhibitor that reduces the production of pro-inflammatory mediators.",
@@ -352,7 +355,7 @@ export const skincareProducts: Product[] = [
         usage: "Apply at night to clean face and neck. Always follow with SPF during the day.",
         mainIngredients: ["Encapsulated Retinol", "Ceramides", "Hyaluronic Acid"],
         benefits: ["Reduces fine lines", "Encapsulated delivery", "Barrier supporting"],
-        image: "https://www.cerave.com/-/media/project/loreal/brand-sites/cerave/americas/us/products-v3/skin-renewing-retinol-serum/cerave_skin_renewing_retinol_serum_30ml_front-v2.jpg",
+        image: "",
         targetTypes: ["anti-aging", "normal", "fine-lines", "wrinkles"],
         medicalDetails: {
             mechanismOfAction: "Retinol accelerates cell turnover, while encapsulated delivery minimizes irritation.",
@@ -371,12 +374,239 @@ export const skincareProducts: Product[] = [
         usage: "Apply and massage, then rinse or remove with a soft cloth.",
         mainIngredients: ["Glycerin", "Panthenol", "Niacinamide"],
         benefits: ["Hypoallergenic", "Fragrance-free", "Soap-free"],
-        image: "https://www.cetaphil.com/dw/image/v2/BDFS_PRD/on/demandware.static/-/Sites-cetaphil-master-catalog/default/dw693a4055/products/Gentle_Skin_Cleanser_20oz.jpg",
+        image: "",
         targetTypes: ["normal", "sensitive", "eczema-prone"],
         medicalDetails: {
             mechanismOfAction: "Utilizes Micellar Technology to gently remove dirt while preserving the natural skin barrier.",
             sideEffects: ["Virtually none"],
             clinicalNotes: "Dermatologist tested and clinically proven to be gentle on sensitive skin.",
+            pregnancySafety: "Safe."
+        }
+    },
+    {
+        id: "sk-009",
+        name: "Dermactive Acti-Clean Cleanser",
+        brand: "Dermactive",
+        category: "Cleanser",
+        description: "Purifying cleanser specifically designed for oily and acne-prone skin to remove impurities and balance sebum.",
+        usage: "Apply to wet skin, massage gently, and rinse thoroughly. Use morning and night.",
+        mainIngredients: ["Salicylic Acid", "Zinc"],
+        benefits: ["Deeply cleanses", "Removes excess oil", "Reduces breakouts"],
+        image: "",
+        targetTypes: ["oily", "acne-prone"],
+        medicalDetails: {
+            mechanismOfAction: "Salicylic acid exfoliates within the pores while zinc regulates oil production.",
+            pregnancySafety: "Consult physician."
+        }
+    },
+    {
+        id: "sk-010",
+        name: "Skinoren Cream",
+        brand: "Leo Pharma",
+        category: "Treatment",
+        description: "Topical treatment for acne and rosacea, also effective in reducing post-inflammatory hyperpigmentation.",
+        usage: "Apply a thin layer to affected areas twice daily after cleansing.",
+        mainIngredients: ["Azelaic Acid (20%)"],
+        benefits: ["Antibacterial", "Anti-inflammatory", "Brightens marks"],
+        image: "",
+        targetTypes: ["acne-prone", "hyperpigmentation", "sensitive"],
+        medicalDetails: {
+            mechanismOfAction: "Inhibits the growth of acne bacteria and reduces the production of keratin which blocks pores.",
+            sideEffects: ["Skin irritation", "burning", "itching"],
+            clinicalNotes: "Very effective for papulopustular rosacea as well.",
+            pregnancySafety: "Safe (Category B)."
+        }
+    },
+    {
+        id: "sk-011",
+        name: "Benzac AC Gel",
+        brand: "Galderma",
+        category: "Treatment",
+        description: "Powerful antibacterial gel designed to treat inflammatory acne by killing surface bacteria.",
+        usage: "Apply once or twice daily to affected areas. Start with a test patch.",
+        mainIngredients: ["Benzoyl Peroxide"],
+        benefits: ["Kills 94% of acne bacteria", "Unclogs pores", "Reduces inflammation"],
+        image: "",
+        targetTypes: ["acne-prone"],
+        medicalDetails: {
+            mechanismOfAction: "Provides oxygen to the pores which kills the anaerobic acne bacteria.",
+            sideEffects: ["Dryness", "peeling", "may bleach fabrics"],
+            pregnancySafety: "Safe if used sparingly; consult physician."
+        }
+    },
+    {
+        id: "sk-012",
+        name: "Effaclar H Iso-Biome",
+        brand: "La Roche-Posay",
+        category: "Moisturiser",
+        description: "Ultra-soothing and hydrating moisturizer for oily skin that has been dried out by acne treatments.",
+        usage: "Apply morning and evening after cleansing.",
+        mainIngredients: ["MP-Lipids", "Niacinamide", "Orellana Extract"],
+        benefits: ["Soothes skin discomfort", "Restores moisture barrier", "Reduces redness"],
+        image: "",
+        targetTypes: ["oily", "acne-prone", "sensitive"],
+        medicalDetails: {
+            mechanismOfAction: "MP-Lipids help rebuild the skin's protective barrier while Niacinamide calms inflammation.",
+            pregnancySafety: "Safe."
+        }
+    },
+    {
+        id: "sk-013",
+        name: "Lipikar Baume AP+M",
+        brand: "La Roche-Posay",
+        category: "Moisturiser",
+        description: "Triple-action lipid-replenishing balm that immediately soothes eczema-prone skin.",
+        usage: "Apply once daily to very dry and irritated skin on the face and/or body.",
+        mainIngredients: ["Aqua Posae Filiformis", "Shea Butter", "Niacinamide"],
+        benefits: ["Anti-scratching", "Anti-flare up", "Restores microbiome"],
+        image: "",
+        targetTypes: ["dry", "sensitive", "eczema"],
+        medicalDetails: {
+            mechanismOfAction: "Rebalances the skin microbiome and restores the barrier to prevent allergen penetration.",
+            pregnancySafety: "Safe."
+        }
+    },
+    {
+        id: "sk-014",
+        name: "Atoderm Cream",
+        brand: "Bioderma",
+        category: "Moisturiser",
+        description: "Ultra-nourishing daily cream for sensitive dry skin that provides long-lasting hydration.",
+        usage: "Apply once or twice daily to skin after cleansing.",
+        mainIngredients: ["Skin Protect Complex", "Glycerin"],
+        benefits: ["Immediately hydrates", "Strengthens skin barrier", "Softens skin"],
+        image: "",
+        targetTypes: ["dry", "sensitive"],
+        medicalDetails: {
+            mechanismOfAction: "Stimulates the production of hyaluronic acid and ceramides to naturally moisturize the skin.",
+            pregnancySafety: "Safe."
+        }
+    },
+    {
+        id: "sk-015",
+        name: "Effaclar Mat",
+        brand: "La Roche-Posay",
+        category: "Moisturiser",
+        description: "Oil-free mattifying moisturizer that targets excess sebum to mattify skin and refine pores.",
+        usage: "Apply morning and/or evening to the whole face.",
+        mainIngredients: ["Sebulyse", "Zinc Pidolate"],
+        benefits: ["Anti-shine", "Anti-enlarged pores", "Excellent makeup base"],
+        image: "",
+        targetTypes: ["oily", "combination"],
+        medicalDetails: {
+            mechanismOfAction: "Sebulyse targets excess sebum to mattify at the source and tighten pores.",
+            pregnancySafety: "Safe."
+        }
+    },
+    {
+        id: "sk-016",
+        name: "CeraVe Resurfacing Retinol Serum",
+        brand: "CeraVe",
+        category: "Treatment",
+        description: "Post-acne marks and skin texture treatment. Developed with dermatologists, this formula helps reduce the appearance of post-acne marks.",
+        usage: "Apply evenly to face daily. Avoid contact with eyes and lips. Use sunscreen during the day.",
+        mainIngredients: ["Encapsulated Retinol", "Licorice Root Extract", "Ceramides"],
+        benefits: ["Reduces post-acne marks", "Refines skin texture", "Restores skin barrier"],
+        image: "",
+        targetTypes: ["acne-prone", "oily"],
+        medicalDetails: {
+            mechanismOfAction: "Encapsulated retinol helps resurface skin while Licorice root extract brightens.",
+            pregnancySafety: "Avoid."
+        }
+    },
+    {
+        id: "sk-017",
+        name: "Infinity Clear Skin Cream",
+        brand: "Infinity",
+        category: "Moisturiser",
+        description: "Targeted moisturizer for oily and acne-prone skin, providing deep hydration without clogging pores.",
+        usage: "Apply twice daily to clean skin.",
+        mainIngredients: ["Salicylic Acid", "Tea Tree Oil", "Niacinamide"],
+        benefits: ["Non-comedogenic", "Oil-control", "Soothes inflammation"],
+        image: "",
+        targetTypes: ["oily", "acne-prone"],
+        medicalDetails: {
+            mechanismOfAction: "Combination of anti-inflammatory and oil-regulating ingredients to balance problematic skin.",
+            pregnancySafety: "Consult physician."
+        }
+    },
+    {
+        id: "sk-018",
+        name: "CeraVe Moisturizing Cream",
+        brand: "CeraVe",
+        category: "Moisturiser",
+        description: "A rich, non-greasy, fast-absorbing moisturizer for normal to dry skin on the face and body.",
+        usage: "Apply liberally as often as needed, or as directed by a physician.",
+        mainIngredients: ["Ceramides (1, 3, 6-II)", "Hyaluronic Acid"],
+        benefits: ["24-hour hydration", "Non-comedogenic", "Fragrance-free"],
+        image: "",
+        targetTypes: ["dry", "sensitive", "normal"],
+        medicalDetails: {
+            mechanismOfAction: "MVE Delivery Technology provides a steady stream of nourishment throughout the day and night.",
+            pregnancySafety: "Safe."
+        }
+    },
+    {
+        id: "sk-019",
+        name: "Eva Skin Clinic Moisturizing Cream",
+        brand: "Eva Cosmetics",
+        category: "Moisturiser",
+        description: "Hydrating cream designed to nourish dry skin and improve texture.",
+        usage: "Apply morning and evening.",
+        mainIngredients: ["Hyaluronic Acid", "Ceramides"],
+        benefits: ["Rich hydration", "Softens skin", "Budget-friendly"],
+        image: "",
+        targetTypes: ["dry"],
+        medicalDetails: {
+            mechanismOfAction: "Deep hydration through multi-weight hyaluronic acid.",
+            pregnancySafety: "Safe."
+        }
+    },
+    {
+        id: "sk-020",
+        name: "CeraVe PM Facial Moisturizing Lotion",
+        brand: "CeraVe",
+        category: "Moisturiser",
+        description: "Ultra-lightweight night cream that hydrates throughout the night and helps restore the protective skin barrier.",
+        usage: "Apply liberally to the face and neck at night, or as directed by a physician.",
+        mainIngredients: ["Ceramides", "Hyaluronic Acid", "Niacinamide"],
+        benefits: ["Overnight hydration", "Soothes skin", "Oil-free"],
+        image: "",
+        targetTypes: ["oily", "normal", "combination"],
+        medicalDetails: {
+            mechanismOfAction: "Niacinamide helps calm skin while ceramides restore the barrier overnight.",
+            pregnancySafety: "Safe."
+        }
+    },
+    {
+        id: "sk-021",
+        name: "Hydraphase Light",
+        brand: "La Roche-Posay",
+        category: "Moisturiser",
+        description: "Intense 24-hour rehydrating skincare for dehydrated combination skin.",
+        usage: "Apply every morning and/or evening to the face and neck.",
+        mainIngredients: ["Fragmented Hyaluronic Acid", "Thermal Spring Water"],
+        benefits: ["Long-lasting hydration", "Lightweight texture", "Refreshing"],
+        image: "",
+        targetTypes: ["combination", "normal"],
+        medicalDetails: {
+            mechanismOfAction: "Reinforces cell cohesion to lock water into the skin for long-lasting hydration.",
+            pregnancySafety: "Safe."
+        }
+    },
+    {
+        id: "sk-022",
+        name: "Infinity Hydrating Gel",
+        brand: "Infinity",
+        category: "Moisturiser",
+        description: "Refreshing gel moisturizer for combination and oily skin types.",
+        usage: "Apply to clean skin twice daily.",
+        mainIngredients: ["Hyaluronic Acid", "Aloe Vera"],
+        benefits: ["Instant absorption", "Non-greasy", "Soothes skin"],
+        image: "",
+        targetTypes: ["combination", "oily"],
+        medicalDetails: {
+            mechanismOfAction: "Provides immediate cooling hydration without adding oil.",
             pregnancySafety: "Safe."
         }
     }

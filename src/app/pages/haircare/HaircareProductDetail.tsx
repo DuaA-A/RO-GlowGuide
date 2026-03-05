@@ -3,9 +3,8 @@ import { useParams, Link, useNavigate } from "react-router";
 import { ArrowLeft, Check, Wind, BookOpen } from "lucide-react";
 import { MedicalDetailsPanel } from "../../components/MedicalDetailsPanel";
 import { haircareProducts } from "../../data/haircare";
-import { getProductById } from "../../services/productDiscovery";
 import { Product } from "../../data/types";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function PlaceholderProductImage({ name }: { name: string }) {
     return (
@@ -21,30 +20,9 @@ function PlaceholderProductImage({ name }: { name: string }) {
 export function HaircareProductDetail() {
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
-    const [product, setProduct] = useState<Product | undefined>(
+    const [product] = useState<Product | undefined>(
         haircareProducts.find((p) => p.id === id)
     );
-    const [isLoading, setIsLoading] = useState(!product);
-
-    useEffect(() => {
-        const fetchExternal = async () => {
-            if (!product && id) {
-                setIsLoading(true);
-                const external = await getProductById(id, "haircare");
-                if (external) setProduct(external);
-                setIsLoading(false);
-            }
-        };
-        fetchExternal();
-    }, [id, product]);
-
-    if (isLoading) {
-        return (
-            <div className="min-h-[60vh] flex items-center justify-center">
-                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gold"></div>
-            </div>
-        );
-    }
 
     if (!product) {
         return (

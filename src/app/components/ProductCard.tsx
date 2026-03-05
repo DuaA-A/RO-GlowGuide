@@ -76,7 +76,7 @@ export function ProductCard({ product, category }: ProductCardProps) {
                     <h3 className="font-heading text-espresso text-xl mb-2 leading-tight group-hover:text-gold transition-colors duration-200">
                         {product.name}
                     </h3>
-                    <p className="text-sm text-taupe line-clamp-2 mb-4 leading-relaxed">
+                    <p className="text-sm text-espresso/90 line-clamp-2 mb-4 leading-relaxed">
                         {product.description}
                     </p>
 
@@ -85,7 +85,7 @@ export function ProductCard({ product, category }: ProductCardProps) {
                         {product.benefits.slice(0, 3).map((benefit, i) => (
                             <span
                                 key={i}
-                                className="text-xs bg-linen text-mink px-2.5 py-1 rounded-full border border-warm-beige"
+                                className="text-xs bg-wine/5 text-wine-dark px-2.5 py-1 rounded-full border border-wine/10"
                             >
                                 {benefit}
                             </span>
@@ -94,7 +94,7 @@ export function ProductCard({ product, category }: ProductCardProps) {
 
                     {/* Main ingredients preview */}
                     <div className="pt-4 border-t border-warm-beige flex items-center justify-between">
-                        <p className="text-xs text-taupe line-clamp-1 flex-1 mr-2">
+                        <p className="text-xs text-espresso/70 line-clamp-1 flex-1 mr-2 font-medium">
                             {product.mainIngredients.slice(0, 2).join(", ")}
                             {product.mainIngredients.length > 2 && "…"}
                         </p>

@@ -50,7 +50,7 @@ function DropdownMenu({ items, isOpen }: { items: NavDropdownItem[]; isOpen: boo
               className="block px-5 py-3 group hover:bg-linen transition-colors"
             >
               <p className="text-sm text-espresso font-medium group-hover:text-gold transition-colors">{item.label}</p>
-              <p className="text-xs text-taupe mt-0.5">{item.description}</p>
+              <p className="text-xs text-espresso/60 mt-0.5">{item.description}</p>
             </Link>
           ))}
         </motion.div>
@@ -164,8 +164,8 @@ export function Layout() {
                   onMouseLeave={() => setOpenDropdown(null)}
                   onClick={() => setOpenDropdown(openDropdown === "skincare" ? null : "skincare")}
                   className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm transition-all duration-200 ${isActive(["/skincare"])
-                      ? "text-gold bg-linen"
-                      : "text-mink hover:text-espresso hover:bg-linen/60"
+                    ? "text-gold bg-linen"
+                    : "text-mink hover:text-espresso hover:bg-linen/60"
                     }`}
                 >
                   Skincare
@@ -188,8 +188,8 @@ export function Layout() {
                   onMouseLeave={() => setOpenDropdown(null)}
                   onClick={() => setOpenDropdown(openDropdown === "haircare" ? null : "haircare")}
                   className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm transition-all duration-200 ${isActive(["/haircare"])
-                      ? "text-gold bg-linen"
-                      : "text-mink hover:text-espresso hover:bg-linen/60"
+                    ? "text-gold bg-linen"
+                    : "text-mink hover:text-espresso hover:bg-linen/60"
                     }`}
                 >
                   Haircare
@@ -209,8 +209,8 @@ export function Layout() {
               <Link
                 to="/about"
                 className={`px-4 py-2 rounded-full text-sm transition-all duration-200 ${location.pathname === "/about"
-                    ? "text-gold bg-linen"
-                    : "text-mink hover:text-espresso hover:bg-linen/60"
+                  ? "text-gold bg-linen"
+                  : "text-mink hover:text-espresso hover:bg-linen/60"
                   }`}
               >
                 About Us

@@ -202,7 +202,7 @@ export function Home() {
                   >
                     Radiant, Healthy Skin
                   </h3>
-                  <p className="text-mink text-sm leading-relaxed max-w-sm">
+                  <p className="text-espresso/90 text-sm md:text-base leading-relaxed max-w-sm">
                     From skin types and conditions to targeted solutions and product discoveries — your complete skincare companion.
                   </p>
                 </div>
@@ -248,7 +248,7 @@ export function Home() {
                   >
                     Thriving, Beautiful Hair
                   </h3>
-                  <p className="text-mink text-sm leading-relaxed max-w-sm">
+                  <p className="text-espresso/90 text-sm md:text-base leading-relaxed max-w-sm">
                     Hair types, scalp conditions, targeted routines, and expertly chosen products — everything your hair needs.
                   </p>
                 </div>
@@ -382,7 +382,8 @@ export function Home() {
                         <h4 className="font-heading text-espresso text-xl mb-3 hover:text-gold transition-colors duration-200">
                           {offer.title}
                         </h4>
-                        <p className="text-mink text-sm leading-relaxed">{offer.description}</p>
+                        <p className="text-espresso/80 text-sm leading-relaxed">
+                          {offer.description}</p>
                         <div className="mt-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.12em]" style={{ color: offer.accent }}>
                           Learn more <ArrowRight className="w-3 h-3" />
                         </div>
@@ -427,7 +428,7 @@ export function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <p className="text-xs uppercase tracking-[0.3em] text-taupe mb-5">Begin Your Journey</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-wine-dark/60 mb-5">Begin Your Journey</p>
             <h2
               className="font-heading text-espresso mb-6"
               style={{ fontWeight: 300, letterSpacing: "0.02em" }}
@@ -436,7 +437,7 @@ export function Home() {
               <span className="italic" style={{ color: "#9E7B4F" }}>Skin & Hair</span>{" "}
               Truly Needs
             </h2>
-            <p className="text-mink text-lg leading-relaxed mb-10">
+            <p className="text-espresso/90 text-lg md:text-xl leading-relaxed mb-10">
               Start with understanding your skin type or hair type, then build your personalised routine from science-backed foundations.
             </p>
             <div className="flex flex-wrap justify-center gap-4">

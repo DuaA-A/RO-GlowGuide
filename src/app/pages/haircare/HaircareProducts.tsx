@@ -5,17 +5,13 @@ import { useSearchParams } from "react-router";
 import { SectionHeader } from "../../components/SectionHeader";
 import { ProductCard } from "../../components/ProductCard";
 import { haircareProducts } from "../../data/haircare";
-import { Product } from "../../data/types";
-import { discoverProducts } from "../../services/productDiscovery";
 
 const CATEGORIES = ["All", "Shampoo", "Conditioner", "Treatment", "Styling", "Scalp Treatment", "Oil Treatment"];
 
 export function HaircareProducts() {
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams] = useSearchParams();
     const [search, setSearch] = useState("");
     const [activeCategory, setActiveCategory] = useState("All");
-    const [externalProducts, setExternalProducts] = useState<Product[]>([]);
-    const [isLoadingExternal, setIsLoadingExternal] = useState(false);
 
     useEffect(() => {
         const typeParam = searchParams.get("type");
@@ -43,15 +39,6 @@ export function HaircareProducts() {
 
     const handleCategoryClick = (cat: string) => {
         setActiveCategory(cat);
-        setSearchParams({ category: cat });
-        setExternalProducts([]); // Reset external on category change
-    };
-
-    const handleDiscoverMore = async () => {
-        setIsLoadingExternal(true);
-        const results = await discoverProducts(search || activeCategory, "haircare");
-        setExternalProducts(results);
-        setIsLoadingExternal(false);
     };
 
     return (
@@ -112,36 +99,6 @@ export function HaircareProducts() {
                             <Search className="w-8 h-8 text-sand" />
                         </div>
                         <p className="text-taupe">No curated products found.</p>
-                    </div>
-                )}
-
-                {/* Discover More Call to Action */}
-                <div className="mt-20 text-center border-t border-warm-beige pt-20">
-                    <h3 className="text-2xl font-serif text-espresso mb-4">Explore the Global Collection</h3>
-                    <p className="text-taupe max-w-lg mx-auto mb-8">
-                        Looking for something specific? Search the open world database for thousands of haircare formulations and brands.
-                    </p>
-                    <button
-                        onClick={handleDiscoverMore}
-                        disabled={isLoadingExternal || !search}
-                        className="btn-wine disabled:opacity-50"
-                    >
-                        {isLoadingExternal ? "Searching Global Database..." : "Search Global Database"}
-                    </button>
-                    {!search && !isLoadingExternal && (
-                        <p className="text-xs text-taupe mt-3">Enter a search term above to enable global hair discovery.</p>
-                    )}
-                </div>
-
-                {/* External Results */}
-                {externalProducts.length > 0 && (
-                    <div className="mt-20">
-                        <h3 className="text-xl font-serif text-espresso mb-8 border-l-4 border-gold pl-4">Global Haircare Discovery</h3>
-                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                            {externalProducts.map((product) => (
-                                <ProductCard key={product.id} product={product} category="haircare" />
-                            ))}
-                        </div>
                     </div>
                 )}
             </div>

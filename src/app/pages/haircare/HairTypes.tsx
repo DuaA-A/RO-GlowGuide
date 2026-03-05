@@ -89,16 +89,16 @@ export function HairTypes() {
                                             )}
                                         </div>
                                         <div className="md:col-span-3 p-8 md:p-10">
-                                            <p className="text-xs uppercase tracking-[0.15em] text-taupe mb-1">{hair.pattern}</p>
+                                            <p className="text-xs uppercase tracking-[0.15em] text-espresso/70 mb-1">{hair.pattern}</p>
                                             <h3 className="font-heading text-espresso mb-3">{hair.name}</h3>
-                                            <p className="text-mink text-sm leading-relaxed mb-6">{hair.description}</p>
+                                            <p className="text-espresso/90 text-sm leading-relaxed mb-6">{hair.description}</p>
 
                                             <div className="grid sm:grid-cols-2 gap-6">
                                                 <div>
                                                     <p className="text-xs uppercase tracking-[0.15em] text-gold mb-3">Characteristics</p>
                                                     <ul className="space-y-2">
                                                         {hair.characteristics.map((c, idx) => (
-                                                            <li key={idx} className="flex items-start gap-2 text-sm text-mink">
+                                                            <li key={idx} className="flex items-start gap-2 text-sm md:text-base text-espresso/80">
                                                                 <Check className="w-3.5 h-3.5 text-gold flex-shrink-0 mt-0.5" />
                                                                 {c}
                                                             </li>
@@ -109,7 +109,7 @@ export function HairTypes() {
                                                     <p className="text-xs uppercase tracking-[0.15em] text-gold mb-3">Care Tips</p>
                                                     <ul className="space-y-2">
                                                         {hair.tips.map((t, idx) => (
-                                                            <li key={idx} className="flex items-start gap-2 text-sm text-mink">
+                                                            <li key={idx} className="flex items-start gap-2 text-sm md:text-base text-espresso/80">
                                                                 <ChevronRight className="w-3.5 h-3.5 text-sand flex-shrink-0 mt-0.5" />
                                                                 {t}
                                                             </li>
@@ -167,18 +167,33 @@ export function HairTypes() {
                                             </div>
                                             <div className="md:col-span-3 p-8 md:p-10">
                                                 <h3 className="font-heading text-espresso mb-3">{condition.name}</h3>
-                                                <p className="text-mink text-sm leading-relaxed mb-6">{condition.description}</p>
+                                                <p className="text-espresso/90 text-sm md:text-base leading-relaxed mb-6">{condition.description}</p>
 
-                                                <div>
-                                                    <p className="text-xs uppercase tracking-[0.15em] text-gold mb-3">Common Causes</p>
-                                                    <ul className="space-y-2">
-                                                        {condition.causes.map((c, idx) => (
-                                                            <li key={idx} className="flex items-start gap-2 text-sm text-mink">
-                                                                <ChevronRight className="w-3.5 h-3.5 text-sand flex-shrink-0 mt-0.5" />
-                                                                {c}
-                                                            </li>
-                                                        ))}
-                                                    </ul>
+                                                <div className="grid sm:grid-cols-2 gap-6">
+                                                    <div>
+                                                        <p className="text-xs uppercase tracking-[0.15em] text-gold mb-3">Common Causes</p>
+                                                        <ul className="space-y-2">
+                                                            {condition.causes.map((c, idx) => (
+                                                                <li key={idx} className="flex items-start gap-2 text-sm md:text-base text-espresso/80">
+                                                                    <ChevronRight className="w-3.5 h-3.5 text-sand flex-shrink-0 mt-0.5" />
+                                                                    {c}
+                                                                </li>
+                                                            ))}
+                                                        </ul>
+                                                    </div>
+                                                    {condition.tips && condition.tips.length > 0 && (
+                                                        <div>
+                                                            <p className="text-xs uppercase tracking-[0.15em] text-gold mb-3">Clinical Tips</p>
+                                                            <ul className="space-y-2">
+                                                                {condition.tips.map((t, idx) => (
+                                                                    <li key={idx} className="flex items-start gap-2 text-sm md:text-base text-espresso/80">
+                                                                        <Check className="w-3.5 h-3.5 text-gold flex-shrink-0 mt-0.5" />
+                                                                        {t}
+                                                                    </li>
+                                                                ))}
+                                                            </ul>
+                                                        </div>
+                                                    )}
                                                 </div>
 
                                                 <div className="mt-6 pt-5 border-t border-warm-beige">
