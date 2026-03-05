@@ -21,12 +21,12 @@
   /* body text */
   --espresso: #4A3728;
   /* headings / dark text – softer warm brown */
-  --gold: #C9A87C;
-  /* accent – warmer, rosier gold */
-  --gold-light: #E2C99A;
-  /* hover gold – bright champagne */
-  --gold-dark: #9E7B4F;
-  /* pressed gold */
+  --gold: var(--wine-mid);
+  /* accent – shifted from gold to wine-mid */
+  --gold-light: var(--wine-light);
+  /* hover – shifted from gold to wine-light */
+  --gold-dark: var(--wine-dark);
+  /* pressed – shifted from gold to wine-dark */
   --blush: #F0DDD1;
   /* skincare accent – bright soft rose-nude */
   --rose-soft: #EDD5C8;
@@ -416,8 +416,8 @@
     background-clip: text;
   }
 
-  .gold-shimmer {
-    background: linear-gradient(90deg, #B8965E 0%, #D4B483 40%, #B8965E 60%, #8B6E3F 100%);
+  .wine-shimmer {
+    background: linear-gradient(90deg, var(--wine-dark) 0%, var(--wine-mid) 40%, var(--wine-dark) 60%, var(--wine-light) 100%);
     background-size: 200% auto;
     animation: shimmer 3s linear infinite;
     -webkit-background-clip: text;
@@ -556,9 +556,9 @@
   }
 
   .badge-skincare {
-    background: #F0E8E0;
-    color: #7A5C48;
-    border: 1px solid #D9CFC3;
+    background: var(--wine-pale);
+    color: var(--wine-dark);
+    border: 1px solid var(--wine-light);
     padding: 0.25rem 0.75rem;
     border-radius: 9999px;
     font-size: 0.75rem;
@@ -567,9 +567,9 @@
   }
 
   .badge-haircare {
-    background: #E5EBE4;
-    color: #4A5E48;
-    border: 1px solid #C5CEC0;
+    background: var(--linen);
+    color: var(--wine);
+    border: 1px solid var(--wine-pale);
     padding: 0.25rem 0.75rem;
     border-radius: 9999px;
     font-size: 0.75rem;

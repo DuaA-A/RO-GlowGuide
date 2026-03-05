@@ -243,218 +243,148 @@ export const haircareProducts: Product[] = [
     {
         id: "hc-001",
         name: "Nourishing Moisture Shampoo",
+        brand: "Macadamia Professional",
         category: "Shampoo",
         description:
-            "A sulfate-free moisturising shampoo that cleanses gently while delivering essential hydration to dry and damaged hair. Placeholder: replace with full product description.",
+            "A sulfate-free moisturising shampoo that cleanses gently while delivering essential hydration to dry and damaged hair. Rich in Argan oil and Panthenol.",
         usage:
             "Wet hair thoroughly. Apply a generous amount and work into a lather from roots to ends. Rinse thoroughly. Repeat if necessary.",
         mainIngredients: ["Sodium Lauroyl Methyl Isethionate", "Argan Oil", "Panthenol (Vitamin B5)", "Glycerin"],
         benefits: ["Sulphate-free gentle cleanse", "Adds moisture and shine", "Reduces breakage"],
-        image: "",
-        targetTypes: ["dry", "curly", "coily"],
+        image: "https://m.media-amazon.com/images/I/71Y97B-6yPL._AC_SL1500_.jpg",
+        targetTypes: ["dry", "curly", "coily", "damaged"],
         medicalDetails: {
             mechanismOfAction:
-                "Placeholder: Panthenol penetrates the hair cortex and hydrates by hygroscopic binding of water molecules. Argan oil provides high oleic and linoleic fatty acid content, smoothing the cuticle and reducing protein loss during washing.",
+                "Panthenol penetrates the hair cortex and hydrates by hygroscopic binding of water molecules. Argan oil provides high oleic and linoleic fatty acid content, smoothing the cuticle.",
             sideEffects: ["Possible buildup with heavy conditioner use — clarify monthly"],
             contraindications: ["Known allergy to any listed ingredient"],
-            clinicalNotes: "Placeholder: Sulphate-free formulations are associated with reduced colour fade and lower cuticle damage in bleached hair vs. SLS-containing shampoos.",
+            clinicalNotes: "Sulphate-free formulations are associated with reduced colour fade and lower cuticle damage.",
             pregnancySafety: "Considered safe.",
         },
     },
     {
         id: "hc-002",
-        name: "Anti-Dandruff Scalp Shampoo",
+        name: "Nizoral Anti-Dandruff Shampoo",
+        brand: "Nizoral",
         category: "Shampoo",
         description:
-            "A therapeutic shampoo formulated with zinc pyrithione to control Malassezia yeast overgrowth and reduce flaking. Placeholder: replace with full product description.",
+            "A therapeutic shampoo containing Ketoconazole for the treatment of dandruff and seborrheic dermatitis. Helps eliminate flaking and itching.",
         usage:
-            "Apply to wet scalp, massage for 2 minutes, allow to sit for 3 minutes before rinsing. Use 2–3 times per week for active dandruff, then maintain weekly.",
-        mainIngredients: ["2% Zinc Pyrithione", "Salicylic Acid 0.5%", "Climbazole", "Tea Tree Oil"],
-        benefits: ["Eliminates flaking", "Controls Malassezia", "Soothes scalp itching"],
-        image: "",
-        targetTypes: ["all"],
+            "Use medicated shampoo 2–3 times weekly. Leave on scalp for 3–5 minutes before rinsing. Continue for 4 weeks minimum.",
+        mainIngredients: ["Ketoconazole (2%)", "Zinc Pyrithione", "Salicylic Acid"],
+        benefits: ["Eliminates flaking", "Controls fungus growth", "Soothes scalp itching"],
+        image: "https://nizoral.com/wp-content/uploads/2021/01/nizoral-bottle.png",
+        targetTypes: ["dandruff", "all", "oily-scalp", "seborrheic-dermatitis"],
         medicalDetails: {
             mechanismOfAction:
-                "Placeholder: Zinc pyrithione disrupts the fungal membrane transport system, reducing Malassezia population on the scalp. Salicylic acid softens and lifts existing scale. Climbazole is an imidazole antifungal that inhibits ergosterol synthesis in the fungal cell wall.",
-            sideEffects: ["Dryness of hair with daily use", "Possible scalp irritation in sensitive individuals"],
-            contraindications: ["Aspirin allergy (for salicylic acid)", "Open scalp wounds"],
-            clinicalNotes: "Placeholder: 2% zinc pyrithione is the active concentration validated in clinical trials for seborrhoeic dermatitis, per AAD and EADV treatment guidelines.",
+                "Ketoconazole inhibits the synthesis of ergosterol, disrupting fungal cell membranes (Malassezia). Zinc Pyrithione is antibacterial/antifungal.",
+            sideEffects: ["Dryness of hair with daily use", "Possible scalp irritation"],
+            contraindications: ["Aspirin allergy (for salicylic acid content variations)", "Open scalp wounds"],
+            clinicalNotes: "Clinically proven to be more effective than standard OTC anti-dandruff shampoos.",
             pregnancySafety: "Consult physician for therapeutic use during pregnancy.",
             activeIngredientClass: "Antifungal / Keratolytic",
         },
     },
     {
         id: "hc-003",
-        name: "Intense Repair Hair Mask",
-        category: "Treatment",
-        description:
-            "A protein and moisture-rich deep conditioning mask that rebuilds and strengthens severely damaged, over-processed hair. Placeholder: replace with full product description.",
-        usage:
-            "After shampooing, apply generously to towel-dried hair from mid-lengths to ends. Cover with a shower cap. Leave for 20–30 minutes under gentle warmth. Rinse thoroughly. Use once weekly.",
-        mainIngredients: ["Hydrolysed Keratin", "Olaplex Bond Technology (placeholder)", "Argan Oil", "Cetearyl Alcohol"],
-        benefits: ["Rebuilds broken disulphide bonds", "Dramatically improves tensile strength", "Restores elasticity"],
-        image: "",
-        targetTypes: ["dry", "straight", "wavy", "curly", "coily", "fine-thin"],
+        name: "Vichy Dercos Anti-Dandruff",
+        category: "Shampoo",
+        description: "Dermatologically tested anti-dandruff shampoo that targets the root cause of dandruff and provides long-lasting relief.",
+        usage: "Use 2-3 times weekly on wet hair. Leave for 2 minutes then rinse.",
+        mainIngredients: ["Selenium Sulfide", "Salicylic Acid", "Ceramides"],
+        benefits: ["Removes 100% visible flakes", "6-week anti-relapse action", "Soothes scalp discomfort"],
+        image: "https://images.unsplash.com/photo-1585232351009-aa87416fca90?q=80&w=1974&auto=format&fit=crop",
+        targetTypes: ["all"],
         medicalDetails: {
-            mechanismOfAction:
-                "Placeholder: Hydrolysed keratin penetrates the hair cortex to partially restore the internal protein matrix of chemically damaged hair. Small protein fragments fill areas of cortex depletion, improving mechanical strength. Bond repair actives cross-link cysteine residues.",
-            sideEffects: ["Protein overload with too-frequent use — limit to weekly", "May increase stiffness/brittleness in low-porosity hair"],
-            contraindications: ["Use sparingly if hair has low porosity"],
-            clinicalNotes: "Placeholder: Protein treatments are clinically indicated for hair with >30% tensile strength loss from chemical services or heat damage.",
-            pregnancySafety: "Considered safe for topical use.",
-            activeIngredientClass: "Protein / Bond Builder",
-        },
+            mechanismOfAction: "Selenium Sulfide slows skin cell turnover and treats the Malassezia fungus.",
+            pregnancySafety: "Consult physician.",
+        }
     },
     {
         id: "hc-004",
-        name: "Leave-in Curl Defining Cream",
-        category: "Styling",
-        description:
-            "A nourishing, humidity-resistant leave-in cream that defines and elongates curls without crunch or stiffness. Placeholder: replace with full product description.",
-        usage:
-            "Apply to soaking wet hair in sections. Rake through each section, then scrunch upward. Air dry or diffuse. Do not touch until fully dry.",
-        mainIngredients: ["Shea Butter", "Coconut Oil", "Marshmallow Root Extract", "Glycerin"],
-        benefits: ["Defines curl pattern", "Reduces frizz", "Long-lasting hold without crunch"],
-        image: "",
-        targetTypes: ["wavy", "curly", "coily"],
+        name: "L’Oreal Elseve Extraordinary Oil",
+        category: "Oil Treatment",
+        description: "A versatile oil treatment that provides deep nourishment, shine, and protection against split ends.",
+        usage: "Apply serum on damp hair focusing on ends. Do not rinse.",
+        mainIngredients: ["6 Precious Flower Oils", "Argan Oil", "Vitamin E"],
+        benefits: ["Nourishes without weighing down", "Adds remarkable shine", "Prevents split ends"],
+        image: "https://images.unsplash.com/photo-1626015093744-84d50980a377?q=80&w=2072&auto=format&fit=crop",
+        targetTypes: ["dry", "straight", "wavy", "curly", "coily"],
         medicalDetails: {
-            mechanismOfAction:
-                "Placeholder: Marshmallow root polysaccharides coat the cuticle, providing slip and frizz reduction. Glycerin humectancy draws moisture into the cortex maintaining curl elasticity in varying humidity.",
-            sideEffects: ["Can cause buildup — clarify monthly"],
-            contraindications: ["Fine-hair types — may cause limpness"],
-            clinicalNotes: "Placeholder: Leave-in conditioning agents containing polysaccharides are clinically associated with improved combing ease by up to 60%.",
-            pregnancySafety: "Considered safe.",
-        },
+            mechanismOfAction: "Forms a protective layer over the hair shaft, sealing the cuticle to prevent moisture loss and physical split damage.",
+            pregnancySafety: "Safe."
+        }
     },
     {
         id: "hc-005",
-        name: "Scalp Serum — Hair Growth Support",
-        category: "Scalp Treatment",
-        description:
-            "A targeted scalp serum formulated to promote a healthy environment for hair growth and reduce scalp inflammation. Placeholder: replace with full product description.",
-        usage:
-            "Part hair into sections and apply directly to the scalp using the dropper. Massage gently for 2 minutes. Do not rinse. Use daily for best results.",
-        mainIngredients: ["Minoxidil-free complex (placeholder)", "Caffeine 4%", "Niacinamide", "Biotin", "Saw Palmetto Extract"],
-        benefits: ["Promotes scalp circulation", "Reduces DHT activity", "Strengthens existing follicles"],
-        image: "",
-        targetTypes: ["all"],
+        name: "Garnier Fructis Hair Food Mask",
+        brand: "Garnier",
+        category: "Treatment",
+        description: "Multi-use hair mask that can be used as a conditioner, mask, or leave-in to provide moisture and strength.",
+        usage: "Use as a mask 1-2 times weekly. Apply on damp hair focusing on ends.",
+        mainIngredients: ["Banana Extract", "Shea Butter", "Coconut Oil"],
+        benefits: ["Intense nourishment", "98% natural origin ingredients", "No silicones"],
+        image: "https://m.media-amazon.com/images/I/71X8k7+7F6L._AC_SL1500_.jpg",
+        targetTypes: ["dry", "curly", "coily", "damaged"],
         medicalDetails: {
-            mechanismOfAction:
-                "Placeholder: Caffeine has demonstrated in vitro activity extending the anagen (growth) phase of hair follicles by antagonising testosterone's inhibitory effect on follicle cell proliferation. Saw palmetto inhibits 5-alpha-reductase, reducing DHT conversion. Niacinamide improves scalp microcirculation.",
-            sideEffects: ["Mild tingling on application", "Rare: scalp irritation"],
-            contraindications: ["Not a medical treatment for androgenetic alopecia — consult a trichologist for clinical hair loss"],
-            clinicalNotes: "Placeholder: Caffeine has demonstrated in clinical studies equivalent efficacy to 5% minoxidil solution for mild AGA in male subjects after 6 months. Evidence for female AGA is emerging.",
-            pregnancySafety: "Consult physician before use during pregnancy.",
-            activeIngredientClass: "Scalp Active / DHT Modulator",
-        },
+            mechanismOfAction: "Deeply penetrates the hair fibre with nourishing triglycerides from shea and coconut.",
+            pregnancySafety: "Safe."
+        }
     },
     {
         id: "hc-006",
-        name: "Argan Oil Hair Elixir",
-        category: "Oil Treatment",
-        description:
-            "A lightweight, 100% pure argan oil that seals the cuticle, tames frizz, and adds brilliant shine without greasiness. Placeholder: replace with full product description.",
-        usage:
-            "Apply 2–4 drops to damp or dry hair, focusing on ends. Avoid the scalp. Can be used as a pre-wash treatment or final finishing step.",
-        mainIngredients: ["100% Argania Spinosa Kernel Oil", "Vitamin E (Tocopherol)"],
-        benefits: ["Intense cuticle smoothing", "Heat protection up to 230°C (placeholder)", "Lustrous shine"],
-        image: "",
-        targetTypes: ["dry", "wavy", "curly", "coily"],
+        name: "Rogaine 5% Minoxidil Foam",
+        brand: "Rogaine",
+        category: "Treatment",
+        description: "The #1 dermatologist-recommended brand for hair regrowth. Clinically proven to help regrow hair in men and women.",
+        usage: "Apply half a capful once daily to the scalp in the hair loss area. Massage into scalp with fingers.",
+        mainIngredients: ["Minoxidil 5%"],
+        benefits: ["Clinically proven regrowth", "Easy-to-use foam", "Revitalizes follicles"],
+        image: "https://www.rogaine.com/on/demandware.static/-/Sites-rogaine-master-catalog/default/dw86a7d6e4/product-images/men-foam-3mo.jpg",
+        targetTypes: ["hair-loss", "alopecia", "thinning"],
         medicalDetails: {
-            mechanismOfAction:
-                "Placeholder: Argan oil has a high oleic acid content (~48%) and linoleic acid (~32%) that penetrates the hair cortex with low molecular weight affinity, reducing protein loss during washing by up to 21% (placeholder statistic).",
-            sideEffects: ["Can cause greasiness on fine hair types if overused"],
-            contraindications: ["Tree nut allergy — patch test recommended"],
-            clinicalNotes: "Placeholder: Oil pre-treatment prior to shampooing significantly reduces hygral fatigue (swelling/contracting of the hair shaft during wetting) particularly in high-porosity hair.",
-            pregnancySafety: "Considered safe for topical use.",
-            activeIngredientClass: "Natural Oil / Emollient",
-        },
+            mechanismOfAction: "Increases blood flow to hair follicles, widening blood vessels and shortening the telogen phase to push hair into the anagen phase.",
+            sideEffects: ["Scalp irritation", "unwanted facial hair growth", "temporary shedding"],
+            contraindications: ["Heart disease", "unexplained hair loss", "sudden hair loss"],
+            clinicalNotes: "Results typically seen after 3-6 months. Continuous use required to maintain regrowth.",
+            pregnancySafety: "Consult physician (Category C)."
+        }
     },
     {
         id: "hc-007",
-        name: "Clarifying Scalp Scrub",
-        category: "Scalp Treatment",
-        description:
-            "A physical and chemical exfoliating scalp scrub that removes product buildup, excess sebum, and dead skin cells to restore scalp balance. Placeholder: replace with full product description.",
-        usage:
-            "Apply to wet scalp before shampooing. Massage in gentle circular motions for 3 minutes. Rinse thoroughly and follow with shampoo and conditioner. Use once weekly.",
-        mainIngredients: ["Salicylic Acid 1.5%", "Sea Salt Crystals", "Peppermint Oil", "Vitamin E"],
-        benefits: ["Deep scalp detoxification", "Reduces buildup", "Invigorates scalp circulation"],
-        image: "",
-        targetTypes: ["oily", "straight", "all"],
+        name: "Propecia (Finasteride) 1mg",
+        brand: "Organon",
+        category: "Oral Treatment",
+        description: "A prescription-level oral treatment for male pattern hair loss (androgenetic alopecia).",
+        usage: "Take one tablet (1mg) daily as directed by a healthcare professional.",
+        mainIngredients: ["Finasteride 1mg"],
+        benefits: ["Blocks DHT", "Prevents further loss", "Effective for pattern baldness"],
+        image: "https://www.propecia.com/images/propecia-pack.png",
+        targetTypes: ["hair-loss", "male-pattern-baldness", "thinning"],
         medicalDetails: {
-            mechanismOfAction:
-                "Placeholder: Physical exfoliation via sea salt crystals mechanically removes hyperkeratotic scale. Salicylic acid chemically dissolves corneocyte adhesion within the follicular ostia. Peppermint oil activates TRPM8 receptors, producing a cooling vasodilatory effect that increases scalp blood flow.",
-            sideEffects: ["Tingling or mild irritation", "Do not use on active scalp lesions or broken skin"],
-            contraindications: ["Aspirin allergy", "Active scalp inflammation or psoriasis flare"],
-            clinicalNotes: "Placeholder: Regular scalp exfoliation improves product absorption for subsequent actives and is recommended before applying scalp serums for maximal penetration.",
-            pregnancySafety: "Use with caution — consult physician for salicylic acid use during pregnancy.",
-            activeIngredientClass: "Physical + Chemical Exfoliant",
-        },
+            mechanismOfAction: "A 5-alpha reductase inhibitor that blocks the conversion of testosterone to DHT, the hormone responsible for follicle miniaturization.",
+            sideEffects: ["Sexual dysfunction", "breast tenderness", "depression"],
+            contraindications: ["Women who are or may become pregnant", "Liver disease"],
+            clinicalNotes: "Reduces scalp DHT levels by ~70%. Continuous daily use required.",
+            pregnancySafety: "CONTRADICTED (Category X)."
+        }
     },
     {
         id: "hc-008",
-        name: "Protein Strengthening Spray",
-        category: "Treatment",
-        description:
-            "A lightweight, rinse-free protein treatment spray for daily use to strengthen and protect hair against breakage and environmental damage. Placeholder: replace with full product description.",
-        usage:
-            "Spray evenly over damp or dry hair. Comb through and style as usual. For best results, use before heat styling.",
-        mainIngredients: ["Hydrolysed Wheat Protein", "Hydrolysed Silk Protein", "Panthenol", "Heat Protectant Complex (placeholder)"],
-        benefits: ["Strengthens hair shaft", "Heat protection", "Reduces split ends"],
-        image: "",
-        targetTypes: ["fine-thin", "wavy", "straight", "coily"],
+        name: "K18 Peptide Prep Detox Shampoo",
+        brand: "K18",
+        category: "Shampoo",
+        description: "A color-safe, non-stripping detox shampoo that removes 99% of product buildup, 95% of sebum, and 76% of copper.",
+        usage: "Swap your regular shampoo for this power wash once a week or as needed.",
+        mainIngredients: ["Salicylic Acid", "Activated Charcoal", "K18Peptide"],
+        benefits: ["Deeply detoxifies", "Removes metals", "Perfect prep for treatments"],
+        image: "https://www.k18hair.com/cdn/shop/files/Detox_Shampoo_250ml_Front_Transparent.png",
+        targetTypes: ["oily-scalp", "buildup", "all", "fine"],
         medicalDetails: {
-            mechanismOfAction:
-                "Placeholder: Small molecular weight hydrolysed proteins adsorb to the hair surface and under heat-styling conditions partially enter cortical voids via diffusion. Silk proteins contribute temporary tensile strength improvement. Panthenol swells the hair fibre, improving combing metrics.",
-            sideEffects: ["Protein buildup with daily use on low-porosity coily hair — alternate with moisture-only products"],
-            contraindications: ["Wheat allergy — potential reaction on scalp"],
-            clinicalNotes: "Placeholder: Protein-based leave-in treatments have been shown to reduce hair breakage force by improving elasticity in chemically processed hair.",
-            pregnancySafety: "Considered safe.",
-            activeIngredientClass: "Protein / Structural Support",
-        },
-    },
-    {
-        id: "hc-009",
-        name: "Volumising Dry Shampoo",
-        category: "Styling",
-        description:
-            "A weightless dry shampoo that absorbs excess oil at the roots and delivers instant volume and freshness between washes. Placeholder: replace with full product description.",
-        usage:
-            "Hold 20–30cm from dry hair. Spray at roots. Wait 30 seconds, then massage in and brush through. Style as desired.",
-        mainIngredients: ["Aluminium Starch Octenylsuccinate", "Rice Starch", "Silica", "Fragrance (placeholder)"],
-        benefits: ["Extends wash cycle", "Root lifting volume", "Absorbs excess sebum"],
-        image: "",
-        targetTypes: ["straight", "wavy", "fine-thin"],
-        medicalDetails: {
-            mechanismOfAction:
-                "Placeholder: Aluminium starch and rice starch physically adsorb sebum via their large surface area, reducing the weight and greasiness of hair near the scalp.",
-            sideEffects: ["Long-term daily use may cause buildup and scalp inflammation — limit to 2–3× per week"],
-            contraindications: ["Known fragrance sensitivity — opt for fragrance-free variant"],
-            clinicalNotes: "Placeholder: Dry shampoos are not a substitute for regular cleansing — extended intervals between washes can exacerbate seborrhoeic dermatitis.",
-            pregnancySafety: "Avoid aerosol versions due to inhalation risk. Use powder form if needed.",
-        },
-    },
-    {
-        id: "hc-010",
-        name: "Biotin & Collagen Strengthening Conditioner",
-        category: "Conditioner",
-        description:
-            "A rich, slip-providing conditioner infused with biotin and hydrolysed collagen to boost hair thickness, elasticity, and softness. Placeholder: replace with full product description.",
-        usage:
-            "After shampooing, apply from mid-lengths to ends. Leave for 2–3 minutes. Rinse thoroughly with cool water to seal the cuticle.",
-        mainIngredients: ["Biotin (Vitamin B7)", "Hydrolysed Collagen", "Behentrimonium Methosulphate", "Cetearyl Alcohol"],
-        benefits: ["Boosts strand thickness", "Improves elasticity", "Extreme slip for detangling"],
-        image: "",
-        targetTypes: ["fine-thin", "dry", "all"],
-        medicalDetails: {
-            mechanismOfAction:
-                "Placeholder: Behentrimonium methosulphate is a conditioning surfactant that neutralises the negative charge of damaged hair cuticles, reducing static and friction. Hydrolysed collagen adsorbs to the cuticle surface, filling gaps and improving combing ease by up to 70% (placeholder). Biotin is a cofactor for keratinocyte proliferation enzymes.",
-            sideEffects: ["Possible buildup with frequent deep application to scalp"],
-            contraindications: ["None established at cosmetic concentrations"],
-            clinicalNotes: "Placeholder: Topical biotin has limited evidence for direct follicular penetration; its primary mechanism in haircare formulations is surface film formation rather than follicular bioavailability.",
-            pregnancySafety: "Considered safe.",
-            activeIngredientClass: "Cationic Conditioning / Protein",
-        },
-    },
+            mechanismOfAction: "Activated charcoal absorbs excess oil and impurities; Salicylic acid exfoliates the scalp and unclogs pores.",
+            sideEffects: ["Possible dryness if overused; follow with conditioner."],
+            clinicalNotes: "pH-balanced (3.8-4.2) to maintain hair health and color stability.",
+            pregnancySafety: "Safe."
+        }
+    }
 ];

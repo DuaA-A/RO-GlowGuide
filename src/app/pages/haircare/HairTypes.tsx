@@ -120,7 +120,7 @@ export function HairTypes() {
 
                                             <div className="mt-6 pt-5 border-t border-warm-beige">
                                                 <Link
-                                                    to="/haircare/products"
+                                                    to={`/haircare/products?type=${hair.name.split(' ')[0].toLowerCase()}`}
                                                     className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-gold hover:text-gold-dark transition-colors"
                                                 >
                                                     View products for {hair.name.toLowerCase()} →
@@ -183,10 +183,10 @@ export function HairTypes() {
 
                                                 <div className="mt-6 pt-5 border-t border-warm-beige">
                                                     <Link
-                                                        to="/haircare/solutions"
+                                                        to={`/haircare/products?type=${condition.id}`}
                                                         className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-gold hover:text-gold-dark transition-colors"
                                                     >
-                                                        View treatment routines →
+                                                        View treatment products →
                                                     </Link>
                                                 </div>
                                             </div>

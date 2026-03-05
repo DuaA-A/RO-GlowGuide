@@ -244,227 +244,140 @@ export const skincareRoutines: Routine[] = [
 export const skincareProducts: Product[] = [
     {
         id: "sk-001",
-        name: "Gentle Hydrating Cleanser",
+        name: "Effaclar Purifying Foaming Gel",
+        brand: "La Roche-Posay",
         category: "Cleanser",
         description:
-            "A mild, creamy cleanser formulated to remove impurities without disrupting the skin's natural moisture barrier. Placeholder: replace with full product description.",
+            "A gentle yet effective foaming cleanser specifically formulated for oily and sensitive skin. It eliminates impurities and excess sebum while leaving the skin clean and fresh.",
         usage:
             "Apply a small amount to damp skin, massage in circular motions for 60 seconds, and rinse thoroughly with lukewarm water. Use morning and evening.",
-        mainIngredients: ["Ceramides NP, AP, EOP", "Hyaluronic Acid", "Glycerin", "Niacinamide"],
-        benefits: ["Maintains moisture barrier", "Non-stripping formula", "Suitable for sensitive skin"],
-        image: "", // PLACEHOLDER
-        targetTypes: ["dry", "sensitive", "normal"],
+        mainIngredients: ["Zinc PCA", "La Roche-Posay Thermal Spring Water", "Citric Acid"],
+        benefits: ["Purifies skin", "Reduces excess sebum", "Maintains skin pH"],
+        image: "https://www.laroche-posay.us/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-lrp-master-catalog/default/dw1062b146/product-images/effaclar-purifying-foaming-gel-cleanser-3337872411991-1.jpg",
+        targetTypes: ["oily", "sensitive", "acne-prone", "combination"],
         medicalDetails: {
             mechanismOfAction:
-                "Placeholder: Ceramides integrate into the lipid bilayer of the stratum corneum, restoring barrier function and reducing transepidermal water loss (TEWL).",
-            sideEffects: ["Placeholder: Rare hypersensitivity reactions in ceramide-sensitive individuals."],
-            contraindications: ["Placeholder: Known allergy to any listed ingredient."],
-            clinicalNotes:
-                "Placeholder: Studies show ceramide-containing cleansers significantly reduce TEWL vs. standard surfactant cleansers in atopic dermatitis patients.",
-            pregnancySafety: "Considered safe during pregnancy and lactation.",
+                "Zinc PCA helps to regulate sebum production and provides antimicrobial properties. Thermal spring water soothes and reduces irritation.",
+            sideEffects: ["Very rare skin irritation or dryness in extremely sensitive individuals."],
+            contraindications: ["Known allergy to Zinc PCA or any listed ingredient."],
+            clinicalNotes: "Physiological pH 5.5. Soap-free, alcohol-free, and non-comedogenic. Ideal for patients on drying acne treatments.",
+            pregnancySafety: "Considered safe.",
         },
     },
     {
         id: "sk-002",
-        name: "BHA Clarifying Toner",
-        category: "Toner",
-        description:
-            "An oil-control toner formulated with Beta Hydroxy Acid to exfoliate within the pore and reduce breakouts. Placeholder: replace with full product description.",
-        usage:
-            "Apply to a cotton pad and sweep over clean skin, avoiding the eye area. Use 3–4 times per week in the evening.",
-        mainIngredients: ["2% Salicylic Acid", "Witch Hazel", "Niacinamide", "Aloe Vera"],
-        benefits: ["Unclogs pores", "Reduces blackheads", "Controls excess sebum"],
-        image: "",
-        targetTypes: ["oily", "combination"],
+        name: "SHAAN Facial Cleanser Gel",
+        category: "Cleanser",
+        description: "A gentle, hydrating gel cleanser enriched with Vitamin C and E to brighten and refresh the skin.",
+        usage: "Apply to damp face, massage gently, and rinse. Use twice daily.",
+        mainIngredients: ["Vitamin C", "Vitamin E", "Glycerin"],
+        benefits: ["Gentle cleansing", "Antioxidant protection", "Brightens complexion"],
+        image: "http://46.101.78.230:8069/web/image/product.template/22276/image_1920?unique=c78bfd6",
+        targetTypes: ["dry", "normal", "sensitive"],
         medicalDetails: {
-            mechanismOfAction:
-                "Placeholder: Salicylic acid is lipophilic, allowing it to penetrate the sebaceous follicle and dissolve the cohesive lipids within comedones. It also has mild anti-inflammatory properties via inhibition of prostaglandin synthesis.",
-            sideEffects: ["Dryness and peeling with overuse", "Photosensitivity — use SPF", "Possible irritation on sensitive skin"],
-            contraindications: ["Aspirin (salicylate) allergy", "Not recommended in pregnancy", "Avoid on broken or inflamed skin"],
-            clinicalNotes:
-                "Placeholder: At 2%, salicylic acid is among the most evidence-backed topical actives for comedonal acne according to AAD guidelines.",
-            pregnancySafety: "Avoid — salicylates may be absorbed systemically. Consult physician.",
-            activeIngredientClass: "Beta Hydroxy Acid (BHA) / Keratolytic",
-        },
+            mechanismOfAction: "Antioxidants C and E protect against free radical damage while glycerin maintains hydration.",
+            pregnancySafety: "Safe."
+        }
     },
     {
         id: "sk-003",
-        name: "Vitamin C Brightening Serum",
-        category: "Serum",
-        description:
-            "A potent antioxidant serum that brightens the complexion, reduces dark spots, and defends against oxidative stress. Placeholder: replace with full product description.",
-        usage:
-            "After cleansing and toning, apply 3–4 drops to face and neck. Allow to absorb before applying moisturiser. Use in the morning only and always follow with SPF.",
-        mainIngredients: ["15% L-Ascorbic Acid", "Ferulic Acid", "Vitamin E (Tocopherol)", "Hyaluronic Acid"],
-        benefits: ["Brightens uneven tone", "Reduces hyperpigmentation", "Antioxidant defence"],
-        image: "",
-        targetTypes: ["normal", "dry", "combination", "oily"],
+        name: "CeraVe Foaming Facial Cleanser",
+        category: "Cleanser",
+        description: "Developed with dermatologists, this formula cleanses and removes oil without disrupting the protective skin barrier.",
+        usage: "Wet skin with lukewarm water. Massage cleanser into skin in a gentle, circular motion. Rinse.",
+        mainIngredients: ["Ceramides (1, 3, 6-II)", "Hyaluronic Acid", "Niacinamide"],
+        benefits: ["Non-drying", "Fragrance-free", "Restores skin barrier"],
+        image: "https://images.unsplash.com/photo-1616391182219-e080b4d1043a?q=80&w=2023&auto=format&fit=crop",
+        targetTypes: ["oily", "normal"],
         medicalDetails: {
-            mechanismOfAction:
-                "Placeholder: L-Ascorbic acid inhibits tyrosinase, the rate-limiting enzyme in melanin synthesis. As an antioxidant, it quenches reactive oxygen species generated by UV exposure. Ferulic acid doubles its photostability and efficacy.",
-            sideEffects: ["Mild tingling on first use", "Possible oxidation discolouration of the formula over time", "Rarely: contact dermatitis"],
-            contraindications: ["High sensitivity to vitamin C or ascorbic acid", "Avoid layering with retinoids without guidance"],
-            clinicalNotes:
-                "Placeholder: The combination of 15% ascorbic acid, 1% tocopherol, and 0.5% ferulic acid has been demonstrated to reduce UV-induced erythema and pigmentation in controlled trials.",
-            pregnancySafety: "Considered safe; consult physician for high-concentration formulations.",
-            activeIngredientClass: "Antioxidant / Skin Brightener",
-        },
+            mechanismOfAction: "Ceramides help restore the skin barrier. Niacinamide calms the skin. Hyaluronic acid retains moisture.",
+            pregnancySafety: "Safe."
+        }
     },
     {
         id: "sk-004",
-        name: "Niacinamide 10% + Zinc Serum",
-        category: "Serum",
-        description:
-            "Regulates sebum production and visibly minimises the appearance of pores with a dual-active formula. Placeholder: replace with full product description.",
-        usage:
-            "Apply 2–3 drops to cleansed skin twice daily. Can be layered with other water-based serums; apply before heavier creams.",
-        mainIngredients: ["10% Niacinamide (Vitamin B3)", "1% Zinc PCA", "Hyaluronic Acid"],
-        benefits: ["Minimises pore appearance", "Regulates sebum", "Improves skin texture"],
-        image: "",
-        targetTypes: ["oily", "combination", "normal"],
+        name: "Effaclar Duo (+)",
+        category: "Treatment",
+        description: "A dual-action acne treatment that reduces pimples and prevents their recurrence, while also targeting dark spots.",
+        usage: "Apply to the entire face morning and/or evening after cleansing.",
+        mainIngredients: ["Salicylic Acid", "LHA", "Niacinamide", "Procerad"],
+        benefits: ["Clears breakouts", "Reduces red and brown marks", "24h hydration"],
+        image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=1974&auto=format&fit=crop",
+        targetTypes: ["oily", "combination"],
         medicalDetails: {
-            mechanismOfAction:
-                "Placeholder: Niacinamide inhibits the transfer of melanosomes from melanocytes to keratinocytes, reducing pigmentation. It also strengthens the epidermal barrier via increased ceramide synthesis. Zinc PCA exerts antimicrobial and sebostatic effects.",
-            sideEffects: ["Rare: flushing (more common at concentrations >20%)", "Mild purging in the first 2–3 weeks"],
-            contraindications: ["Known niacin allergy"],
-            clinicalNotes:
-                "Placeholder: Meta-analyses support niacinamide's role in reducing sebum excretion rate, pore size visibility, and post-inflammatory hyperpigmentation.",
-            pregnancySafety: "Considered safe during pregnancy and lactation.",
-            activeIngredientClass: "Vitamin B3 Derivative / Sebostatic",
-        },
+            mechanismOfAction: "Salicylic acid and LHA exfoliate the surface. Niacinamide reduces inflammation. Procerad helps protect against the appearance of marks.",
+            pregnancySafety: "Avoid high concentrations of salicylates; consult doctor."
+        }
     },
     {
         id: "sk-005",
-        name: "Hyaluronic Acid Hydrating Serum",
-        category: "Serum",
-        description:
-            "Multi-molecular weight hyaluronic acid delivers deep and surface-level hydration for visibly plumped skin. Placeholder: replace with full product description.",
-        usage:
-            "Apply 3–4 drops to damp skin morning and evening before moisturiser. For best results, apply to slightly damp skin to maximise humectant uptake.",
-        mainIngredients: ["Multi-weight Hyaluronic Acid", "Provitamin B5 (Panthenol)", "Sodium PCA"],
-        benefits: ["Intense lasting hydration", "Plumps fine lines", "Strengthens moisture barrier"],
-        image: "",
-        targetTypes: ["dry", "normal", "sensitive", "combination"],
+        name: "CeraVe Moisturizing Lotion",
+        category: "Moisturiser",
+        description: "A lightweight, oil-free moisturizer that helps hydrate the skin and restore its natural barrier.",
+        usage: "Apply liberally as often as needed, or as directed by a physician.",
+        mainIngredients: ["Ceramides", "Hyaluronic Acid"],
+        benefits: ["Moisturises for 24 hours", "MVE Technology for controlled release", "Non-comedogenic"],
+        image: "https://www.cerave.com/-/media/project/loreal/brand-sites/cerave/americas/us/products-v3/daily-moisturizing-lotion/cerave_daily_moisturizing_lotion_12oz_front-v2.jpg",
+        targetTypes: ["dry", "normal", "combination"],
         medicalDetails: {
-            mechanismOfAction:
-                "Placeholder: Hyaluronic acid is a glycosaminoglycan capable of binding up to 1000× its weight in water. Low molecular weight forms penetrate the epidermis; high MW forms create a protective film at the surface. Panthenol converts to pantothenic acid, promoting keratinocyte proliferation and barrier repair.",
-            sideEffects: ["Paradoxical dryness in very low-humidity environments (draw moisture from dermis)"],
-            contraindications: ["None established at cosmetic concentrations"],
-            clinicalNotes: "Placeholder: Clinical trials demonstrate statistically significant improvement in skin hydration and elasticity vs. placebo after 4 weeks of use.",
-            pregnancySafety: "Considered safe.",
-            activeIngredientClass: "Humectant / Glycosaminoglycan",
-        },
+            mechanismOfAction: "Ceramides replenish skin's essential lipids. MVE technology ensures efficient delivery within the skin's barrier.",
+            pregnancySafety: "Safe."
+        }
     },
     {
         id: "sk-006",
-        name: "Retinol 0.5% Night Treatment",
+        name: "Zoryve (Roflumilast) 0.15%",
+        brand: "Arcutis Biotherapeutics",
         category: "Treatment",
-        description:
-            "A clinically validated retinol formula to accelerate cell turnover, reduce fine lines, and improve overall skin texture overnight. Placeholder: replace with full product description.",
-        usage:
-            "Apply a pea-sized amount to clean, dry skin 2–3 nights per week. Gradually increase to nightly use as tolerated. Always use SPF the following morning.",
-        mainIngredients: ["0.5% Retinol", "Squalane", "Peptide Complex", "Ceramides"],
-        benefits: ["Boosts cell turnover", "Reduces visible wrinkles", "Improves skin texture"],
-        image: "",
-        targetTypes: ["normal", "combination", "oily"],
+        description: "A non-steroidal topical cream approved for the treatment of mild to moderate atopic dermatitis (eczema) in adults and children.",
+        usage: "Apply once daily to affected areas. For external use only.",
+        mainIngredients: ["Roflumilast"],
+        benefits: ["Steroid-free", "Once-daily application", "Rapid itch relief"],
+        image: "https://www.zoryve.com/images/zoryve-tube.png",
+        targetTypes: ["eczema", "sensitive", "atopic-dermatitis", "dry"],
         medicalDetails: {
-            mechanismOfAction:
-                "Placeholder: Retinol is converted to retinoic acid by skin enzymes. Retinoic acid binds nuclear retinoid receptors (RAR/RXR), upregulating genes for collagen synthesis and accelerating desquamation. It also inhibits matrix metalloproteinases (MMPs) that degrade collagen.",
-            sideEffects: ["Retinoid dermatitis: dryness, peeling, redness", "Photosensitivity", "Paradoxical acne purging initial weeks"],
-            contraindications: ["Pregnancy and breastfeeding (contraindicated)", "Active rosacea or eczema flare", "Concurrent use of abrasive exfoliants and acids without physician guidance"],
-            clinicalNotes:
-                "Placeholder: Retinol 0.5% is considered a mid-strength formulation with a well-established clinical record of efficacy for photoageing improvement over 12–24 weeks.",
-            pregnancySafety: "CONTRAINDICATED. Do not use during pregnancy.",
-            activeIngredientClass: "Retinoid",
-        },
+            mechanismOfAction: "A potent and selective PDE4 inhibitor that reduces the production of pro-inflammatory mediators.",
+            sideEffects: ["Application site reactions", "diarrhea", "headache"],
+            contraindications: ["Moderate to severe liver impairment."],
+            clinicalNotes: "Provides effective clearance of eczema lesions without the side effects of chronic topical steroids.",
+            pregnancySafety: "Consult physician; benefit must outweigh risk."
+        }
     },
     {
         id: "sk-007",
-        name: "Rich Repair Moisturiser",
-        category: "Moisturiser",
-        description:
-            "An ultra-nourishing barrier repair cream designed for dry, compromised, and sensitive skin. Placeholder: replace with full product description.",
-        usage:
-            "Apply generously to face and neck as the penultimate step in your routine (before occlusive/SPF). Use morning and evening.",
-        mainIngredients: ["Ceramides NP, AP, EOP", "Shea Butter", "Colloidal Oatmeal", "Cholesterol"],
-        benefits: ["Restores lipid barrier", "Deep, sustained hydration", "Soothes irritation"],
-        image: "",
-        targetTypes: ["dry", "sensitive"],
+        name: "Skin Renewing Retinol Serum",
+        brand: "CeraVe",
+        category: "Treatment",
+        description: "An anti-aging treatment formulated with encapsulated retinol to reduce the appearance of fine lines and wrinkles.",
+        usage: "Apply at night to clean face and neck. Always follow with SPF during the day.",
+        mainIngredients: ["Encapsulated Retinol", "Ceramides", "Hyaluronic Acid"],
+        benefits: ["Reduces fine lines", "Encapsulated delivery", "Barrier supporting"],
+        image: "https://www.cerave.com/-/media/project/loreal/brand-sites/cerave/americas/us/products-v3/skin-renewing-retinol-serum/cerave_skin_renewing_retinol_serum_30ml_front-v2.jpg",
+        targetTypes: ["anti-aging", "normal", "fine-lines", "wrinkles"],
         medicalDetails: {
-            mechanismOfAction:
-                "Placeholder: Ceramides reconstitute the stratum corneum lipid matrix alongside cholesterol and fatty acids. Colloidal oatmeal (avenanthramides) suppresses pro-inflammatory cytokine release. Shea butter provides occlusion via triglycerides.",
-            sideEffects: ["Possible milia with overuse in those prone to congestion"],
-            contraindications: ["Oat sensitivity or allergy"],
-            clinicalNotes: "Placeholder: Ceramide-dominant moisturisers are recommended by European dermatological guidelines as first-line maintenance therapy in atopic dermatitis.",
-            pregnancySafety: "Considered safe.",
-            activeIngredientClass: "Barrier Repair / Emollient",
-        },
+            mechanismOfAction: "Retinol accelerates cell turnover, while encapsulated delivery minimizes irritation.",
+            sideEffects: ["Redness", "flaking", "increased sun sensitivity"],
+            contraindications: ["Pregnancy (typical precaution for retinoids)"],
+            clinicalNotes: "Non-comedogenic and fragrance-free. Suitable for sensitive skin.",
+            pregnancySafety: "Contraindicated (Retinoids)."
+        }
     },
     {
         id: "sk-008",
-        name: "Oil-Free Gel Moisturiser",
-        category: "Moisturiser",
-        description:
-            "A weightless, non-comedogenic gel that delivers lightweight hydration without adding shine or clogging pores. Placeholder: replace with full product description.",
-        usage:
-            "Apply a pea-sized amount to cleansed skin in the morning and evening. Pat gently until absorbed.",
-        mainIngredients: ["Hyaluronic Acid", "Green Tea Extract (EGCG)", "Aloe Vera", "Niacinamide"],
-        benefits: ["Lightweight hydration", "Non-comedogenic", "Mattifying effect"],
-        image: "",
-        targetTypes: ["oily", "combination", "normal"],
+        name: "Gentle Skin Cleanser",
+        brand: "Cetaphil",
+        category: "Cleanser",
+        description: "A clinical-grade, soap-free formula perfect for daily cleansing of sensitive and normal skin types.",
+        usage: "Apply and massage, then rinse or remove with a soft cloth.",
+        mainIngredients: ["Glycerin", "Panthenol", "Niacinamide"],
+        benefits: ["Hypoallergenic", "Fragrance-free", "Soap-free"],
+        image: "https://www.cetaphil.com/dw/image/v2/BDFS_PRD/on/demandware.static/-/Sites-cetaphil-master-catalog/default/dw693a4055/products/Gentle_Skin_Cleanser_20oz.jpg",
+        targetTypes: ["normal", "sensitive", "eczema-prone"],
         medicalDetails: {
-            mechanismOfAction:
-                "Placeholder: EGCG from green tea inhibits sebaceous gland lipogenesis via PPARγ suppression. Hyaluronic acid provides humectancy without occlusion. Formula is non-comedogenic tested.",
-            sideEffects: ["None established at typical use concentrations"],
-            contraindications: ["None established"],
-            clinicalNotes: "Placeholder: Non-comedogenicity tested under dermatological supervision.",
-            pregnancySafety: "Considered safe.",
-        },
-    },
-    {
-        id: "sk-009",
-        name: "Mineral SPF 50+ Sunscreen",
-        category: "Sunscreen",
-        description:
-            "A broad-spectrum physical sunscreen offering superior UVA/UVB protection with a transparent, skin-comfortable finish. Placeholder: replace with full product description.",
-        usage:
-            "Apply as the final step in your morning routine. Use a generous amount (1/4 teaspoon for face) and reapply every 2 hours when in direct sunlight.",
-        mainIngredients: ["Zinc Oxide 15%", "Titanium Dioxide 5%", "Vitamin E", "Bisabolol"],
-        benefits: ["Broad-spectrum UVA/UVB", "Mineral / reef-safe formula", "No white cast"],
-        image: "",
-        targetTypes: ["normal", "dry", "sensitive", "oily", "combination"],
-        medicalDetails: {
-            mechanismOfAction:
-                "Placeholder: Zinc oxide and titanium dioxide scatter and absorb UV photons across the UV spectrum without generating reactive oxygen species (unlike organic filters). Provides both UVA1/UVA2 and UVB protection.",
-            sideEffects: ["Possible slight white cast on very deep skin tones with older formulations"],
-            contraindications: ["Allergy to zinc or titanium compounds (rare)"],
-            clinicalNotes:
-                "Placeholder: Mineral filters are the preferred option for sensitive and post-procedure skin. SPF 50+ is recommended by the AAD and ESF for daily photoprotection.",
-            pregnancySafety: "Preferred sunscreen type during pregnancy and lactation.",
-            activeIngredientClass: "Inorganic UV Filter / Photoprotectant",
-        },
-    },
-    {
-        id: "sk-010",
-        name: "AHA/BHA Exfoliating Peel Pad",
-        category: "Treatment",
-        description:
-            "A weekly chemical exfoliation treatment combining glycolic, lactic, and salicylic acids to resurface and renew skin texture. Placeholder: replace with full product description.",
-        usage:
-            "Use once weekly on cleansed, dry skin. Sweep the pad over the face and neck, avoiding the eye area. Do not rinse. Follow with moisturiser. Always use SPF the next day.",
-        mainIngredients: ["10% Glycolic Acid", "2% Lactic Acid", "1% Salicylic Acid", "Aloe Vera"],
-        benefits: ["Deep surface exfoliation", "Improves texture and radiance", "Reduces post-inflammatory marks"],
-        image: "",
-        targetTypes: ["normal", "oily", "combination"],
-        medicalDetails: {
-            mechanismOfAction:
-                "Placeholder: AHAs (glycolic, lactic) disrupt desmosomes between corneocytes, promoting desquamation of the stratum corneum. Glycolic acid has the smallest molecular weight, enabling deeper penetration. Combined with salicylic acid's lipophilic pore-clearing action, this provides a dual-layer exfoliation.",
-            sideEffects: ["Stinging on application", "Erythema in first uses", "Significant photosensitivity — strict SPF required", "Purging possible"],
-            contraindications: ["Active inflammatory acne (may worsen)", "Sensitive or rosacea-prone skin", "Avoid within 1 week of laser/chemical peel procedures", "Aspirin allergy (for salicylic acid)"],
-            clinicalNotes:
-                "Placeholder: Combined AHA/BHA formulations are used in dermatological practice to treat photoageing, post-inflammatory hyperpigmentation, and mild to moderate acne. Start weekly and progress based on tolerance.",
-            pregnancySafety: "Avoid high-concentration AHA/BHA products during pregnancy. Consult physician.",
-            activeIngredientClass: "Chemical Exfoliant / Alpha & Beta Hydroxy Acids",
-        },
-    },
+            mechanismOfAction: "Utilizes Micellar Technology to gently remove dirt while preserving the natural skin barrier.",
+            sideEffects: ["Virtually none"],
+            clinicalNotes: "Dermatologist tested and clinically proven to be gentle on sensitive skin.",
+            pregnancySafety: "Safe."
+        }
+    }
 ];

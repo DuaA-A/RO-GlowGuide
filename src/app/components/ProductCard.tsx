@@ -51,11 +51,16 @@ export function ProductCard({ product, category }: ProductCardProps) {
                     ) : (
                         <PlaceholderImage name={product.name} category={category} />
                     )}
-                    {/* Category badge */}
-                    <div className="absolute top-3 left-3">
+                    {/* Category & Status badges */}
+                    <div className="absolute top-3 left-3 flex flex-col gap-2">
                         <span className={isSkincare ? "badge-skincare" : "badge-haircare"}>
                             {product.category}
                         </span>
+                        {!product.isExternal && (
+                            <span className="bg-espresso text-cream text-[10px] uppercase tracking-widest px-2 py-0.5 rounded backdrop-blur-sm bg-opacity-80 border border-gold/30">
+                                Verified
+                            </span>
+                        )}
                     </div>
                     {/* Hover overlay */}
                     <div className="absolute inset-0 bg-espresso/0 group-hover:bg-espresso/10 transition-colors duration-300" />
@@ -63,6 +68,11 @@ export function ProductCard({ product, category }: ProductCardProps) {
 
                 {/* Content */}
                 <div className="p-5">
+                    {product.brand && (
+                        <p className="text-[10px] uppercase tracking-[0.2em] text-gold mb-1 font-medium">
+                            {product.brand}
+                        </p>
+                    )}
                     <h3 className="font-heading text-espresso text-xl mb-2 leading-tight group-hover:text-gold transition-colors duration-200">
                         {product.name}
                     </h3>

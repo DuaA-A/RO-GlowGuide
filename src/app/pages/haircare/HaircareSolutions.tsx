@@ -77,7 +77,7 @@ export function HaircareSolutions() {
 
                                 <div className="mt-6 pt-6 border-t border-warm-beige">
                                     <Link
-                                        to="/haircare/products"
+                                        to={`/haircare/products?type=${routine.targetType}`}
                                         className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-gold hover:text-gold-dark transition-colors"
                                     >
                                         Find products for this routine
@@ -100,7 +100,7 @@ export function HaircareSolutions() {
                     <p className="text-cream/60 text-sm mb-7 max-w-lg mx-auto leading-relaxed">
                         Browse our carefully curated catalogue of haircare formulas designed for every hair type and scalp condition.
                     </p>
-                    <Link to="/haircare/products" className="btn-gold">
+                    <Link to="/haircare/products?type=all" className="btn-wine">
                         Browse Haircare Products <ArrowRight className="w-4 h-4" />
                     </Link>
                 </motion.div>

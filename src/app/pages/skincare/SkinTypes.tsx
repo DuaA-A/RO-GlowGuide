@@ -44,8 +44,8 @@ export function SkinTypes() {
                                 key={tab}
                                 onClick={() => setActiveTab(tab)}
                                 className={`relative px-7 py-2.5 rounded-full text-sm transition-all duration-300 ${activeTab === tab
-                                        ? "text-cream shadow-sm"
-                                        : "text-taupe hover:text-espresso"
+                                    ? "text-cream shadow-sm"
+                                    : "text-taupe hover:text-espresso"
                                     }`}
                             >
                                 {activeTab === tab && (
@@ -127,7 +127,7 @@ export function SkinTypes() {
 
                                             <div className="mt-6 pt-5 border-t border-warm-beige">
                                                 <Link
-                                                    to="/skincare/products"
+                                                    to={`/skincare/products?type=${skin.name.toLowerCase()}`}
                                                     className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-gold hover:text-gold-dark transition-colors"
                                                 >
                                                     View products for {skin.name.toLowerCase()} →
@@ -195,10 +195,10 @@ export function SkinTypes() {
 
                                                 <div className="mt-6 pt-5 border-t border-warm-beige">
                                                     <Link
-                                                        to="/skincare/solutions"
+                                                        to={`/skincare/products?type=${condition.name.toLowerCase()}`}
                                                         className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-gold hover:text-gold-dark transition-colors"
                                                     >
-                                                        View treatment routines →
+                                                        View treatment products →
                                                     </Link>
                                                 </div>
                                             </div>

@@ -58,6 +58,7 @@ export interface MedicalDetails {
 export interface Product {
   id: string;
   name: string;
+  brand?: string;
   category: string;
   subcategory?: string;
   description: string;
@@ -67,6 +68,7 @@ export interface Product {
   image: string; // placeholder
   targetTypes: string[]; // skin or hair type IDs it targets
   medicalDetails?: MedicalDetails;
+  isExternal?: boolean; // Flag for API results
 }
 
 export interface RoutineStep {

@@ -1,24 +1,58 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { Search } from "lucide-react";
+import { useSearchParams } from "react-router";
 import { SectionHeader } from "../../components/SectionHeader";
 import { ProductCard } from "../../components/ProductCard";
 import { haircareProducts } from "../../data/haircare";
+import { Product } from "../../data/types";
+import { discoverProducts } from "../../services/productDiscovery";
 
 const CATEGORIES = ["All", "Shampoo", "Conditioner", "Treatment", "Styling", "Scalp Treatment", "Oil Treatment"];
 
 export function HaircareProducts() {
+    const [searchParams, setSearchParams] = useSearchParams();
     const [search, setSearch] = useState("");
     const [activeCategory, setActiveCategory] = useState("All");
+    const [externalProducts, setExternalProducts] = useState<Product[]>([]);
+    const [isLoadingExternal, setIsLoadingExternal] = useState(false);
+
+    useEffect(() => {
+        const typeParam = searchParams.get("type");
+        const catParam = searchParams.get("category");
+        if (catParam && CATEGORIES.includes(catParam)) {
+            setActiveCategory(catParam);
+        }
+        if (typeParam) {
+            setSearch(typeParam);
+        }
+    }, [searchParams]);
 
     const filtered = haircareProducts.filter((p) => {
+        const query = search.toLowerCase().trim();
         const matchesSearch =
-            p.name.toLowerCase().includes(search.toLowerCase()) ||
-            p.description.toLowerCase().includes(search.toLowerCase()) ||
-            p.mainIngredients.some((i) => i.toLowerCase().includes(search.toLowerCase()));
+            p.name.toLowerCase().includes(query) ||
+            p.description.toLowerCase().includes(query) ||
+            p.mainIngredients.some((i) => i.toLowerCase().includes(query)) ||
+            p.targetTypes.some((t) => t.toLowerCase().includes(query)) ||
+            (p.brand && p.brand.toLowerCase().includes(query));
+
         const matchesCategory = activeCategory === "All" || p.category === activeCategory;
         return matchesSearch && matchesCategory;
     });
+
+    const handleCategoryClick = (cat: string) => {
+        setActiveCategory(cat);
+        setSearchParams({ category: cat });
+        setExternalProducts([]); // Reset external on category change
+    };
+
+    const handleDiscoverMore = async () => {
+        setIsLoadingExternal(true);
+        const results = await discoverProducts(search || activeCategory, "haircare");
+        setExternalProducts(results);
+        setIsLoadingExternal(false);
+    };
 
     return (
         <div className="py-20">
@@ -37,7 +71,7 @@ export function HaircareProducts() {
                         <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-taupe" />
                         <input
                             type="text"
-                            placeholder="Search by name or ingredient…"
+                            placeholder="Search by name, ingredient, or hair type…"
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
                             className="w-full pl-11 pr-5 py-3.5 bg-ivory border border-warm-beige rounded-full text-sm text-espresso placeholder-taupe focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/10 transition-all"
@@ -50,10 +84,10 @@ export function HaircareProducts() {
                     {CATEGORIES.map((cat) => (
                         <button
                             key={cat}
-                            onClick={() => setActiveCategory(cat)}
+                            onClick={() => handleCategoryClick(cat)}
                             className={`px-5 py-2 rounded-full text-xs uppercase tracking-[0.1em] border transition-all duration-200 ${activeCategory === cat
-                                    ? "bg-espresso text-cream border-espresso"
-                                    : "bg-ivory text-taupe border-warm-beige hover:border-taupe hover:text-espresso"
+                                ? "bg-espresso text-cream border-espresso"
+                                : "bg-ivory text-taupe border-warm-beige hover:border-taupe hover:text-espresso"
                                 }`}
                         >
                             {cat}
@@ -62,24 +96,54 @@ export function HaircareProducts() {
                 </div>
 
                 <p className="text-center text-sm text-taupe mb-8">
-                    Showing {filtered.length} product{filtered.length !== 1 ? "s" : ""}
+                    Showing {filtered.length} curated product{filtered.length !== 1 ? "s" : ""}
                 </p>
 
-                {filtered.length > 0 ? (
-                    <motion.div layout className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                        {filtered.map((product) => (
-                            <ProductCard key={product.id} product={product} category="haircare" />
-                        ))}
-                    </motion.div>
-                ) : (
+                {/* Grid */}
+                <motion.div layout className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    {filtered.map((product) => (
+                        <ProductCard key={product.id} product={product} category="haircare" />
+                    ))}
+                </motion.div>
+
+                {filtered.length === 0 && (
                     <div className="text-center py-20">
                         <div className="w-16 h-16 rounded-full bg-linen flex items-center justify-center mx-auto mb-4">
                             <Search className="w-8 h-8 text-sand" />
                         </div>
-                        <p className="text-taupe">No products found. Try adjusting your search.</p>
+                        <p className="text-taupe">No curated products found.</p>
                     </div>
                 )}
 
+                {/* Discover More Call to Action */}
+                <div className="mt-20 text-center border-t border-warm-beige pt-20">
+                    <h3 className="text-2xl font-serif text-espresso mb-4">Explore the Global Collection</h3>
+                    <p className="text-taupe max-w-lg mx-auto mb-8">
+                        Looking for something specific? Search the open world database for thousands of haircare formulations and brands.
+                    </p>
+                    <button
+                        onClick={handleDiscoverMore}
+                        disabled={isLoadingExternal || !search}
+                        className="btn-wine disabled:opacity-50"
+                    >
+                        {isLoadingExternal ? "Searching Global Database..." : "Search Global Database"}
+                    </button>
+                    {!search && !isLoadingExternal && (
+                        <p className="text-xs text-taupe mt-3">Enter a search term above to enable global hair discovery.</p>
+                    )}
+                </div>
+
+                {/* External Results */}
+                {externalProducts.length > 0 && (
+                    <div className="mt-20">
+                        <h3 className="text-xl font-serif text-espresso mb-8 border-l-4 border-gold pl-4">Global Haircare Discovery</h3>
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                            {externalProducts.map((product) => (
+                                <ProductCard key={product.id} product={product} category="haircare" />
+                            ))}
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );

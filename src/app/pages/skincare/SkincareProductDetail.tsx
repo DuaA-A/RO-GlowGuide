@@ -3,6 +3,9 @@ import { useParams, Link, useNavigate } from "react-router";
 import { ArrowLeft, Check, Droplets, BookOpen } from "lucide-react";
 import { MedicalDetailsPanel } from "../../components/MedicalDetailsPanel";
 import { skincareProducts } from "../../data/skincare";
+import { getProductById } from "../../services/productDiscovery";
+import { Product } from "../../data/types";
+import { useState, useEffect } from "react";
 
 function PlaceholderProductImage({ name }: { name: string }) {
     return (
@@ -18,7 +21,30 @@ function PlaceholderProductImage({ name }: { name: string }) {
 export function SkincareProductDetail() {
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
-    const product = skincareProducts.find((p) => p.id === id);
+    const [product, setProduct] = useState<Product | undefined>(
+        skincareProducts.find((p) => p.id === id)
+    );
+    const [isLoading, setIsLoading] = useState(!product);
+
+    useEffect(() => {
+        const fetchExternal = async () => {
+            if (!product && id) {
+                setIsLoading(true);
+                const external = await getProductById(id, "skincare");
+                if (external) setProduct(external);
+                setIsLoading(false);
+            }
+        };
+        fetchExternal();
+    }, [id, product]);
+
+    if (isLoading) {
+        return (
+            <div className="min-h-[60vh] flex items-center justify-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gold"></div>
+            </div>
+        );
+    }
 
     if (!product) {
         return (
@@ -65,11 +91,23 @@ export function SkincareProductDetail() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
                     >
-                        {/* Category badge */}
-                        <span className="badge-skincare">{product.category}</span>
+                        {/* Category & Status badges */}
+                        <div className="flex items-center gap-3">
+                            <span className="badge-skincare">{product.category}</span>
+                            {!product.isExternal && (
+                                <span className="bg-espresso text-cream text-[10px] uppercase tracking-widest px-2 py-0.5 rounded border border-gold/30">
+                                    Verified
+                                </span>
+                            )}
+                        </div>
 
                         {/* Name */}
-                        <h1 className="font-heading text-espresso mt-4 mb-4" style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)" }}>
+                        {product.brand && (
+                            <p className="text-xs uppercase tracking-[0.2em] text-gold mt-6 mb-1 font-medium">
+                                {product.brand}
+                            </p>
+                        )}
+                        <h1 className="font-heading text-espresso mt-2 mb-4" style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)" }}>
                             {product.name}
                         </h1>
 

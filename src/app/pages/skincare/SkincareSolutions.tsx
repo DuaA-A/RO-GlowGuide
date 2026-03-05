@@ -79,7 +79,7 @@ export function SkincareSolutions() {
 
                                 <div className="mt-6 pt-6 border-t border-warm-beige flex justify-between items-center">
                                     <Link
-                                        to="/skincare/products"
+                                        to={`/skincare/products?type=${routine.targetType}`}
                                         className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-gold hover:text-gold-dark transition-colors"
                                     >
                                         Find products for this routine
@@ -103,7 +103,7 @@ export function SkincareSolutions() {
                     <p className="text-cream/60 text-sm mb-7 max-w-lg mx-auto leading-relaxed">
                         Explore our curated skincare product catalogue and find the exact formulas recommended in each routine step.
                     </p>
-                    <Link to="/skincare/products" className="btn-gold">
+                    <Link to="/skincare/products?type=all" className="btn-wine">
                         Browse Skincare Products <ArrowRight className="w-4 h-4" />
                     </Link>
                 </motion.div>
