@@ -1,5 +1,6 @@
+import { useEffect, useRef } from "react";
 import { motion } from "motion/react";
-import { Link } from "react-router";
+import { Link, useSearchParams } from "react-router";
 import { Clock, Layers, ArrowRight } from "lucide-react";
 import { SectionHeader } from "../../components/SectionHeader";
 import { skincareRoutines } from "../../data/skincare";
@@ -13,6 +14,25 @@ function PlaceholderImage({ label }: { label: string }) {
 }
 
 export function SkincareSolutions() {
+    const [searchParams] = useSearchParams();
+    const routineRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+
+    useEffect(() => {
+        const typeId = searchParams.get("type");
+        const conditionId = searchParams.get("condition");
+        const targetId = typeId || conditionId;
+
+        if (targetId) {
+            // Find the routine that matches the targetType or condition
+            const targetRoutine = skincareRoutines.find(r => r.targetType === targetId || r.id.includes(targetId));
+            if (targetRoutine && routineRefs.current[targetRoutine.id]) {
+                setTimeout(() => {
+                    routineRefs.current[targetRoutine.id]?.scrollIntoView({ behavior: "smooth", block: "center" });
+                }, 100);
+            }
+        }
+    }, [searchParams]);
+
     return (
         <div className="py-20">
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
@@ -28,6 +48,7 @@ export function SkincareSolutions() {
                     {skincareRoutines.map((routine, i) => (
                         <motion.div
                             key={routine.id}
+                            ref={(el) => (routineRefs.current[routine.id] = el)}
                             initial={{ opacity: 0, y: 28 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-60px" }}
@@ -105,7 +126,7 @@ export function SkincareSolutions() {
                     <p className="text-cream/60 text-sm mb-7 max-w-lg mx-auto leading-relaxed">
                         Explore our curated skincare product catalogue and find the exact formulas recommended in each routine step.
                     </p>
-                    <Link to="/skincare/products?type=all" className="btn-wine">
+                    <Link to="/skincare/products" className="btn-wine">
                         Browse Skincare Products <ArrowRight className="w-4 h-4" />
                     </Link>
                 </motion.div>

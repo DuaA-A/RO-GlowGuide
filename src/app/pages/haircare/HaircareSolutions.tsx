@@ -1,5 +1,6 @@
+import { useEffect, useRef } from "react";
 import { motion } from "motion/react";
-import { Link } from "react-router";
+import { Link, useSearchParams } from "react-router";
 import { Clock, Layers, ArrowRight } from "lucide-react";
 import { SectionHeader } from "../../components/SectionHeader";
 import { haircareRoutines } from "../../data/haircare";
@@ -13,6 +14,25 @@ function PlaceholderImage({ label }: { label: string }) {
 }
 
 export function HaircareSolutions() {
+    const [searchParams] = useSearchParams();
+    const routineRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+
+    useEffect(() => {
+        const typeId = searchParams.get("type");
+        const conditionId = searchParams.get("condition");
+        const targetId = typeId || conditionId;
+
+        if (targetId) {
+            // Find the routine that matches the targetType or condition
+            const targetRoutine = haircareRoutines.find(r => r.targetType === targetId || r.id.includes(targetId));
+            if (targetRoutine && routineRefs.current[targetRoutine.id]) {
+                setTimeout(() => {
+                    routineRefs.current[targetRoutine.id]?.scrollIntoView({ behavior: "smooth", block: "center" });
+                }, 100);
+            }
+        }
+    }, [searchParams]);
+
     return (
         <div className="py-20">
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
@@ -28,6 +48,7 @@ export function HaircareSolutions() {
                     {haircareRoutines.map((routine, i) => (
                         <motion.div
                             key={routine.id}
+                            ref={(el) => (routineRefs.current[routine.id] = el)}
                             initial={{ opacity: 0, y: 28 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-60px" }}
@@ -100,7 +121,7 @@ export function HaircareSolutions() {
                     <p className="text-cream/60 text-sm mb-7 max-w-lg mx-auto leading-relaxed">
                         Browse our carefully curated catalogue of haircare formulas designed for every hair type and scalp condition.
                     </p>
-                    <Link to="/haircare/products?type=all" className="btn-wine">
+                    <Link to="/haircare/products" className="btn-wine">
                         Browse Haircare Products <ArrowRight className="w-4 h-4" />
                     </Link>
                 </motion.div>

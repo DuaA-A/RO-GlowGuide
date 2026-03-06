@@ -17,10 +17,10 @@
   /* muted elements */
   --taupe: #A8907E;
   /* secondary text */
-  --mink: #836B58;
-  /* body text */
-  --espresso: #4A3728;
-  /* headings / dark text – softer warm brown */
+  --mink: #705848;
+  /* body text - darkened from #836B58 for contrast */
+  --espresso: #2D1E12;
+  /* headings / dark text – deeper warm brown from #4A3728 */
   --gold: var(--wine-mid);
   /* accent – shifted from gold to wine-mid */
   --gold-light: var(--wine-light);
@@ -57,8 +57,8 @@
   /* very light tint for backgrounds */
   --wine-glow: rgba(92, 45, 62, 0.18);
   /* glow/shadow in wine tone */
-  --wine-text: #E8D5C0;
-  /* text on wine backgrounds */
+  --wine-text: #FDF9F6;
+  /* text on wine backgrounds - changed to cream for maximum clarity */
   --white: #FFFFFF;
 
   /* Shadcn/UI tokens mapped to brand */

@@ -128,10 +128,10 @@ export function SkinTypes() {
 
                                             <div className="mt-6 pt-5 border-t border-warm-beige">
                                                 <Link
-                                                    to={`/skincare/products?type=${skin.name.toLowerCase()}`}
-                                                    className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-gold hover:text-gold-dark transition-colors"
+                                                    to={`/skincare/solutions?type=${skin.id}`}
+                                                    className="btn-wine text-[10px] py-2 px-6"
                                                 >
-                                                    View products for {skin.name.toLowerCase()} →
+                                                    View routine for {skin.name.toLowerCase()} →
                                                 </Link>
                                             </div>
                                         </div>
@@ -211,10 +211,10 @@ export function SkinTypes() {
 
                                                 <div className="mt-6 pt-5 border-t border-warm-beige">
                                                     <Link
-                                                        to={`/skincare/products?type=${condition.name.toLowerCase()}`}
-                                                        className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-gold hover:text-gold-dark transition-colors"
+                                                        to={`/skincare/solutions?condition=${condition.id}`}
+                                                        className="btn-wine text-[10px] py-2 px-6"
                                                     >
-                                                        View treatment products →
+                                                        View treatment routine →
                                                     </Link>
                                                 </div>
                                             </div>

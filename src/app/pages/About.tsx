@@ -59,7 +59,7 @@ export function About() {
                     initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mt-24 bg-espresso border border-gold/20 rounded-2xl p-10 md:p-14 shadow-2xl relative overflow-hidden"
+                    className="mt-24 bg-wine-dark border border-gold/20 rounded-2xl p-10 md:p-14 shadow-2xl relative overflow-hidden"
                 >
                     {/* Subtle decorative glow */}
                     <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 blur-[100px] -mr-32 -mt-32 rounded-full" />
@@ -108,8 +108,8 @@ export function About() {
                                 <div className="w-12 h-12 rounded-2xl bg-wine mx-auto mb-6 flex items-center justify-center shadow-lg shadow-wine/20">
                                     <span className="text-gold-light text-xl">✦</span>
                                 </div>
-                                <h4 className="font-heading text-espresso text-2xl mb-4 font-medium">{value.title}</h4>
-                                <p className="text-espresso/80 text-base leading-relaxed">{value.description}</p>
+                                <h4 className="font-heading text-wine-dark text-2xl mb-4 font-medium">{value.title}</h4>
+                                <p className="text-espresso/90 text-base leading-relaxed">{value.description}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -120,10 +120,10 @@ export function About() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mt-32 bg-wine-dark rounded-3xl p-12 md:p-20 text-center relative overflow-hidden shadow-2xl"
+                    className="mt-32 bg-wine border border-wine-light/10 rounded-3xl p-12 md:p-20 text-center relative overflow-hidden shadow-2xl"
                 >
                     {/* Animated background element */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-wine/20 via-transparent to-espresso/20 opacity-50" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-wine-dark/40 via-transparent to-wine/40 opacity-50" />
 
                     <div className="relative z-10">
                         <p className="text-xs uppercase tracking-[0.3em] text-gold/60 mb-6 font-semibold">Get in Touch</p>

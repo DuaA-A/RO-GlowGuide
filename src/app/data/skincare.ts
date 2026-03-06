@@ -1,7 +1,8 @@
 import type { SkinType, SkinCondition, Product, Routine } from "./types";
 
 // ── Skin Types ────────────────────────────────────────────────────────────────
-// PLACEHOLDER: Replace descriptions, characteristics, tips, and images with real content
+// LOCAL IMAGES: Place images in `/public/assets/images/skincare/`
+// and update 'image' property with the path: `/assets/images/skincare/your-image.jpg`
 
 export const skinTypes: SkinType[] = [
     {
@@ -239,6 +240,57 @@ export const skincareRoutines: Routine[] = [
         ],
         image: "",
     },
+    {
+        id: "acne-routine",
+        name: "Acne Management Routine",
+        description: "A clinical routine focusing on clearing inflammation, killing acne bacteria, and restoring the barrier.",
+        targetType: "acne",
+        steps: [
+            { step: 1, name: "Salicylic Cleanser", description: "Use a gel cleanser with BHA to penetrate pores.", timing: "AM & PM" },
+            { step: 2, name: "Azelaic Acid", description: "Apply to inflamed areas to reduce redness and bacteria.", timing: "AM" },
+            { step: 3, name: "Retinoid / Adapalene", description: "Primary treatment to regulate cell turnover.", timing: "PM" },
+            { step: 4, name: "Oil-Free Moisturiser", description: "Non-comedogenic hydration to support the barrier.", timing: "AM & PM" },
+        ],
+        image: "",
+    },
+    {
+        id: "rosacea-routine",
+        name: "Rosacea Calming Routine",
+        description: "A specialized routine to reduce redness, strengthen capillaries, and soothe hypersensitive skin.",
+        targetType: "rosacea",
+        steps: [
+            { step: 1, name: "Gentle Milky Cleanser", description: "Avoid foaming agents that can trigger flushing.", timing: "AM & PM" },
+            { step: 2, name: "Soothing Toner", description: "Thermal water or rose water to cool the skin.", timing: "As needed" },
+            { step: 3, name: "Azelaic Acid (10-15%)", description: "Dermatologist gold-standard for rosacea redness.", timing: "PM" },
+            { step: 4, name: "Barrier Cream", description: "Rich in ceramides and panthenol to shield skin.", timing: "AM & PM" },
+        ],
+        image: "",
+    },
+    {
+        id: "eczema-routine",
+        name: "Eczema Flare-Up Routine",
+        description: "A high-lipid routine to restore the skin's moisture barrier and stop the itch-scratch cycle.",
+        targetType: "eczema",
+        steps: [
+            { step: 1, name: "Soap-Free Wash", description: "Use ultra-gentle, lipid-replenishing washes.", timing: "Daily" },
+            { step: 2, name: "Healing Balm", description: "Apply thick, oily balms (AP+M) to damp skin.", timing: "As needed" },
+            { step: 3, name: "Anti-Itch Serum", description: "Calming agents like Niacinamide or Oats.", timing: "PM" },
+        ],
+        image: "",
+    },
+    {
+        id: "hyperpigmentation-routine",
+        name: "Pigment Correction Routine",
+        description: "A brightening routine targeting dark spots, melasma, and post-acne marks (PIH).",
+        targetType: "hyperpigmentation",
+        steps: [
+            { step: 1, name: "Exfoliating Cleanser", description: "Alpha-hydroxy acids to boost cell turnover.", timing: "PM (3x weekly)" },
+            { step: 2, name: "Vitamin C Serum", description: "Antioxidant to brighten and prevent UV damage.", timing: "AM" },
+            { step: 3, name: "Tranexamic / Kojic Acid", description: "Inhibits melanin production at the source.", timing: "PM" },
+            { step: 4, name: "Broad Spectrum SPF", description: "Crucial! Pigment will return without protection.", timing: "AM (Every 2h)" },
+        ],
+        image: "",
+    },
 ];
 
 // ── Skincare Products ─────────────────────────────────────────────────────────
@@ -256,7 +308,7 @@ export const skincareProducts: Product[] = [
             "Apply a small amount to damp skin, massage in circular motions for 60 seconds, and rinse thoroughly with lukewarm water. Use morning and evening.",
         mainIngredients: ["Zinc PCA", "La Roche-Posay Thermal Spring Water", "Citric Acid"],
         benefits: ["Purifies skin", "Reduces excess sebum", "Maintains skin pH"],
-        image: "",
+        image: "https://www.laroche-posay.me/getmedia/8c7e6e5a-4b3d-4c2d-9b5e-0b9f0b9f0b9f/effaclar-cleansing-foaming-gel-400ml.aspx",
         targetTypes: ["oily", "sensitive", "acne-prone", "combination"],
         medicalDetails: {
             mechanismOfAction:
@@ -275,7 +327,7 @@ export const skincareProducts: Product[] = [
         usage: "Apply to damp face, massage gently, and rinse. Use twice daily.",
         mainIngredients: ["Vitamin C", "Vitamin E", "Glycerin"],
         benefits: ["Gentle cleansing", "Antioxidant protection", "Brightens complexion"],
-        image: "",
+        image: "https://elegantstoreeg.com/cdn/shop/files/shaan-facial-cleanser-gel-200ml-1.jpg?v=1701198592",
         targetTypes: ["dry", "normal", "sensitive"],
         medicalDetails: {
             mechanismOfAction: "Antioxidants C and E protect against free radical damage while glycerin maintains hydration.",
@@ -290,7 +342,7 @@ export const skincareProducts: Product[] = [
         usage: "Wet skin with lukewarm water. Massage cleanser into skin in a gentle, circular motion. Rinse.",
         mainIngredients: ["Ceramides (1, 3, 6-II)", "Hyaluronic Acid", "Niacinamide"],
         benefits: ["Non-drying", "Fragrance-free", "Restores skin barrier"],
-        image: "",
+        image: "https://www.cerave.com/-/media/project/loreal/brand-sites/cerave/americas/us/products-v3/foaming-facial-cleanser/foaming-facial-cleanser_16oz_front-v2.png",
         targetTypes: ["oily", "normal"],
         medicalDetails: {
             mechanismOfAction: "Ceramides help restore the skin barrier. Niacinamide calms the skin. Hyaluronic acid retains moisture.",
@@ -305,7 +357,7 @@ export const skincareProducts: Product[] = [
         usage: "Apply to the entire face morning and/or evening after cleansing.",
         mainIngredients: ["Salicylic Acid", "LHA", "Niacinamide", "Procerad"],
         benefits: ["Clears breakouts", "Reduces red and brown marks", "24h hydration"],
-        image: "",
+        image: "https://www.laroche-posay.me/getmedia/d7f8e3a2-2c3b-4c2d-9b5e-0b9f0b9f0b9f/Effaclar-Duo-Plus-40ml.aspx",
         targetTypes: ["oily", "combination"],
         medicalDetails: {
             mechanismOfAction: "Salicylic acid and LHA exfoliate the surface. Niacinamide reduces inflammation. Procerad helps protect against the appearance of marks.",
@@ -319,8 +371,8 @@ export const skincareProducts: Product[] = [
         description: "A lightweight, oil-free moisturizer that helps hydrate the skin and restore its natural barrier.",
         usage: "Apply liberally as often as needed, or as directed by a physician.",
         mainIngredients: ["Ceramides", "Hyaluronic Acid"],
-        benefits: ["Moisturises for 24 hours", "MVE Technology for controlled release", "Non-comedogenic"],
-        image: "",
+        benefits: ["Moisturses for 24 hours", "MVE Technology for controlled release", "Non-comedogenic"],
+        image: "https://www.cerave.com/-/media/project/loreal/brand-sites/cerave/americas/us/products-v3/daily-moisturizing-lotion/daily-moisturizing-lotion_12oz_front-v2.png",
         targetTypes: ["dry", "normal", "combination"],
         medicalDetails: {
             mechanismOfAction: "Ceramides replenish skin's essential lipids. MVE technology ensures efficient delivery within the skin's barrier.",
@@ -408,7 +460,7 @@ export const skincareProducts: Product[] = [
         usage: "Apply a thin layer to affected areas twice daily after cleansing.",
         mainIngredients: ["Azelaic Acid (20%)"],
         benefits: ["Antibacterial", "Anti-inflammatory", "Brightens marks"],
-        image: "",
+        image: "https://elegantstoreeg.com/cdn/shop/files/skinoren-cream-30gm-1.jpg?v=1701198592",
         targetTypes: ["acne-prone", "hyperpigmentation", "sensitive"],
         medicalDetails: {
             mechanismOfAction: "Inhibits the growth of acne bacteria and reduces the production of keratin which blocks pores.",
@@ -426,7 +478,7 @@ export const skincareProducts: Product[] = [
         usage: "Apply once or twice daily to affected areas. Start with a test patch.",
         mainIngredients: ["Benzoyl Peroxide"],
         benefits: ["Kills 94% of acne bacteria", "Unclogs pores", "Reduces inflammation"],
-        image: "",
+        image: "https://elegantstoreeg.com/cdn/shop/files/benzac-ac-5-gel-60gm-1.jpg?v=1701198547",
         targetTypes: ["acne-prone"],
         medicalDetails: {
             mechanismOfAction: "Provides oxygen to the pores which kills the anaerobic acne bacteria.",
@@ -443,7 +495,7 @@ export const skincareProducts: Product[] = [
         usage: "Apply morning and evening after cleansing.",
         mainIngredients: ["MP-Lipids", "Niacinamide", "Orellana Extract"],
         benefits: ["Soothes skin discomfort", "Restores moisture barrier", "Reduces redness"],
-        image: "",
+        image: "https://www.laroche-posay.me/getmedia/e7f8e3a2-2c3b-4c2d-9b5e-0b9f0b9f0b9f/Effaclar-H-Iso-Biome-40ml.aspx",
         targetTypes: ["oily", "acne-prone", "sensitive"],
         medicalDetails: {
             mechanismOfAction: "MP-Lipids help rebuild the skin's protective barrier while Niacinamide calms inflammation.",
@@ -475,7 +527,7 @@ export const skincareProducts: Product[] = [
         usage: "Apply once or twice daily to skin after cleansing.",
         mainIngredients: ["Skin Protect Complex", "Glycerin"],
         benefits: ["Immediately hydrates", "Strengthens skin barrier", "Softens skin"],
-        image: "",
+        image: "https://www.bioderma.com/-/media/project/naos/bioderma/na/products/atoderm/cream/atoderm-cream-500ml-white-bg.png",
         targetTypes: ["dry", "sensitive"],
         medicalDetails: {
             mechanismOfAction: "Stimulates the production of hyaluronic acid and ceramides to naturally moisturize the skin.",
@@ -491,7 +543,7 @@ export const skincareProducts: Product[] = [
         usage: "Apply morning and/or evening to the whole face.",
         mainIngredients: ["Sebulyse", "Zinc Pidolate"],
         benefits: ["Anti-shine", "Anti-enlarged pores", "Excellent makeup base"],
-        image: "",
+        image: "https://www.laroche-posay.me/getmedia/c1f8e3a2-2c3b-4c2d-9b5e-0b9f0b9f0b9f/effaclar-mat-40ml.aspx",
         targetTypes: ["oily", "combination"],
         medicalDetails: {
             mechanismOfAction: "Sebulyse targets excess sebum to mattify at the source and tighten pores.",
@@ -507,7 +559,7 @@ export const skincareProducts: Product[] = [
         usage: "Apply evenly to face daily. Avoid contact with eyes and lips. Use sunscreen during the day.",
         mainIngredients: ["Encapsulated Retinol", "Licorice Root Extract", "Ceramides"],
         benefits: ["Reduces post-acne marks", "Refines skin texture", "Restores skin barrier"],
-        image: "",
+        image: "https://www.cerave.com/-/media/project/loreal/brand-sites/cerave/americas/us/products-v3/resurfacing-retinol-serum/resurfacing-retinol-serum_30ml_front.png",
         targetTypes: ["acne-prone", "oily"],
         medicalDetails: {
             mechanismOfAction: "Encapsulated retinol helps resurface skin while Licorice root extract brightens.",
@@ -523,7 +575,7 @@ export const skincareProducts: Product[] = [
         usage: "Apply twice daily to clean skin.",
         mainIngredients: ["Salicylic Acid", "Tea Tree Oil", "Niacinamide"],
         benefits: ["Non-comedogenic", "Oil-control", "Soothes inflammation"],
-        image: "",
+        image: "https://elegantstoreeg.com/cdn/shop/files/infinity-clear-skin-cream-60ml-1.jpg?v=1701198592",
         targetTypes: ["oily", "acne-prone"],
         medicalDetails: {
             mechanismOfAction: "Combination of anti-inflammatory and oil-regulating ingredients to balance problematic skin.",
@@ -539,7 +591,7 @@ export const skincareProducts: Product[] = [
         usage: "Apply liberally as often as needed, or as directed by a physician.",
         mainIngredients: ["Ceramides (1, 3, 6-II)", "Hyaluronic Acid"],
         benefits: ["24-hour hydration", "Non-comedogenic", "Fragrance-free"],
-        image: "",
+        image: "https://www.cerave.com/-/media/project/loreal/brand-sites/cerave/americas/us/products-v3/moisturizing-cream/cerave_moisturizing_cream_16oz_front-v2.png",
         targetTypes: ["dry", "sensitive", "normal"],
         medicalDetails: {
             mechanismOfAction: "MVE Delivery Technology provides a steady stream of nourishment throughout the day and night.",
@@ -571,7 +623,7 @@ export const skincareProducts: Product[] = [
         usage: "Apply liberally to the face and neck at night, or as directed by a physician.",
         mainIngredients: ["Ceramides", "Hyaluronic Acid", "Niacinamide"],
         benefits: ["Overnight hydration", "Soothes skin", "Oil-free"],
-        image: "",
+        image: "https://www.cerave.com/-/media/project/loreal/brand-sites/cerave/americas/us/products-v3/pm-facial-moisturizing-lotion/cerave_pm-facial-moisturizing-lotion_3oz_front-v2.png",
         targetTypes: ["oily", "normal", "combination"],
         medicalDetails: {
             mechanismOfAction: "Niacinamide helps calm skin while ceramides restore the barrier overnight.",
@@ -587,7 +639,7 @@ export const skincareProducts: Product[] = [
         usage: "Apply every morning and/or evening to the face and neck.",
         mainIngredients: ["Fragmented Hyaluronic Acid", "Thermal Spring Water"],
         benefits: ["Long-lasting hydration", "Lightweight texture", "Refreshing"],
-        image: "",
+        image: "https://www.laroche-posay.me/getmedia/e1f8e3a2-2c3b-4c2d-9b5e-0b9f0b9f0b9f/hydraphase-ha-light-50ml.aspx",
         targetTypes: ["combination", "normal"],
         medicalDetails: {
             mechanismOfAction: "Reinforces cell cohesion to lock water into the skin for long-lasting hydration.",

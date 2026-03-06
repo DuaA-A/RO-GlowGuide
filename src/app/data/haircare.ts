@@ -189,6 +189,42 @@ export const scalpConditions: ScalpCondition[] = [
 
 export const haircareRoutines: Routine[] = [
     {
+        id: "hair-loss-routine",
+        name: "Hair Regrowth Protocol",
+        description: "A clinical protocol to stimulate blood flow and revitalize dormant hair follicles.",
+        targetType: "hair-loss",
+        steps: [
+            { step: 1, name: "Scalp Detox", description: "Removes sebum and buildup blocking the follicles.", timing: "Weekly" },
+            { step: 2, name: "Minoxidil Application", description: "Apply foam or liquid directly to thinning areas.", timing: "AM & PM" },
+            { step: 3, name: "Scalp Massage", description: "Promotes blood circulation to the follicle roots.", timing: "5 mins daily" },
+        ],
+        image: "",
+    },
+    {
+        id: "scalp-eczema-routine",
+        name: "Scalp Eczema Soothing Routine",
+        description: "A gentle, anti-inflammatory routine to calm redness and stop the itch on the scalp.",
+        targetType: "scalp-eczema",
+        steps: [
+            { step: 1, name: "Steroid / Anti-fungal Lotion", description: "Apply as prescribed to calm active flares.", timing: "PM" },
+            { step: 2, name: "Gentle pH-Balanced Shampoo", description: "Cleanse without stripping natural oils.", timing: "AM" },
+            { step: 3, name: "Scalp Oil", description: "Moisturize the scalp skin with light jojoba or squalane.", timing: "Weekly" },
+        ],
+        image: "",
+    },
+    {
+        id: "split-ends-routine",
+        name: "Split End Repair & Prevention",
+        description: "A maintenance routine focusing on sealing the cuticle and preventing further fiber separation.",
+        targetType: "split-ends",
+        steps: [
+            { step: 1, name: "Bond Repair Treatment", description: "Apply to damp hair to strengthen internal bonds.", timing: "Weekly" },
+            { step: 2, name: "Leave-in Sealant", description: "Concentrate on the bottom 2 inches of hair.", timing: "Daily" },
+            { step: 3, name: "Heat Protectant", description: "Essential before any styling tool use.", timing: "As needed" },
+        ],
+        image: "",
+    },
+    {
         id: "straight-routine",
         name: "Straight Hair Balancing Routine",
         description:
@@ -277,7 +313,7 @@ export const haircareProducts: Product[] = [
             "Wet hair thoroughly. Apply a generous amount and work into a lather from roots to ends. Rinse thoroughly. Repeat if necessary.",
         mainIngredients: ["Sodium Lauroyl Methyl Isethionate", "Argan Oil", "Panthenol (Vitamin B5)", "Glycerin"],
         benefits: ["Sulphate-free gentle cleanse", "Adds moisture and shine", "Reduces breakage"],
-        image: "",
+        image: "https://www.hairhaven.ie/cdn/shop/products/macadamia-nourishing-moisture-shampoo-image-3_1024x1024.jpg",
         targetTypes: ["dry", "curly", "coily", "damaged"],
         medicalDetails: {
             mechanismOfAction:
@@ -299,7 +335,7 @@ export const haircareProducts: Product[] = [
             "Use medicated shampoo 2–3 times weekly. Leave on scalp for 3–5 minutes before rinsing. Continue for 4 weeks minimum.",
         mainIngredients: ["Ketoconazole (2%)", "Zinc Pyrithione", "Salicylic Acid"],
         benefits: ["Eliminates flaking", "Controls fungus growth", "Soothes scalp itching"],
-        image: "",
+        image: "https://www.nizoral.com/-/media/project/johnson-and-johnson/nizoral/products/anti-dandruff-shampoo-7oz.png",
         targetTypes: ["dandruff", "all", "oily-scalp", "seborrheic-dermatitis"],
         medicalDetails: {
             mechanismOfAction:
@@ -319,7 +355,7 @@ export const haircareProducts: Product[] = [
         usage: "Use 2-3 times weekly on wet hair. Leave for 2 minutes then rinse.",
         mainIngredients: ["Selenium Sulfide", "Salicylic Acid", "Ceramides"],
         benefits: ["Removes 100% visible flakes", "6-week anti-relapse action", "Soothes scalp discomfort"],
-        image: "",
+        image: "https://www.vichy.co.uk/-/media/project/loreal/brand-sites/vichy/emea/uk/products/hair-care/dercos/anti-dandruff-shampoo-for-normal-to-oily-hair/vichy-dercos-anti-dandruff-shampoo-for-normal-to-oily-hair-200ml.jpg",
         targetTypes: ["all"],
         medicalDetails: {
             mechanismOfAction: "Selenium Sulfide slows skin cell turnover and treats the Malassezia fungus.",
@@ -334,7 +370,7 @@ export const haircareProducts: Product[] = [
         usage: "Apply serum on damp hair focusing on ends. Do not rinse.",
         mainIngredients: ["6 Precious Flower Oils", "Argan Oil", "Vitamin E"],
         benefits: ["Nourishes without weighing down", "Adds remarkable shine", "Prevents split ends"],
-        image: "",
+        image: "https://www.loreal-paris.co.uk/-/media/project/loreal/brand-sites/oap/emea/uk/products/hair-care/extraordinary-oil/extraordinary-oil-hair-oil-bottle-front.png",
         targetTypes: ["dry", "straight", "wavy", "curly", "coily"],
         medicalDetails: {
             mechanismOfAction: "Forms a protective layer over the hair shaft, sealing the cuticle to prevent moisture loss and physical split damage.",
@@ -350,7 +386,7 @@ export const haircareProducts: Product[] = [
         usage: "Use as a mask 1-2 times weekly. Apply on damp hair focusing on ends.",
         mainIngredients: ["Banana Extract", "Shea Butter", "Coconut Oil"],
         benefits: ["Intense nourishment", "98% natural origin ingredients", "No silicones"],
-        image: "",
+        image: "https://www.garnier.co.uk/-/media/project/loreal/brand-sites/garnier/emea/uk/fructis/hair-food/banana-mask-390ml/garnier-fructis-hair-food-banana-mask-390ml.jpg",
         targetTypes: ["dry", "curly", "coily", "damaged"],
         medicalDetails: {
             mechanismOfAction: "Deeply penetrates the hair fibre with nourishing triglycerides from shea and coconut.",
@@ -366,7 +402,7 @@ export const haircareProducts: Product[] = [
         usage: "Apply half a capful once daily to the scalp in the hair loss area. Massage into scalp with fingers.",
         mainIngredients: ["Minoxidil 5%"],
         benefits: ["Clinically proven regrowth", "Easy-to-use foam", "Revitalizes follicles"],
-        image: "",
+        image: "https://www.rogaine.com/-/media/project/johnson-and-johnson/rogaine/products/womens-foam-4-month.png",
         targetTypes: ["hair-loss", "alopecia", "thinning"],
         medicalDetails: {
             mechanismOfAction: "Increases blood flow to hair follicles, widening blood vessels and shortening the telogen phase to push hair into the anagen phase.",
@@ -404,7 +440,7 @@ export const haircareProducts: Product[] = [
         usage: "Swap your regular shampoo for this power wash once a week or as needed.",
         mainIngredients: ["Salicylic Acid", "Activated Charcoal", "K18Peptide"],
         benefits: ["Deeply detoxifies", "Removes metals", "Perfect prep for treatments"],
-        image: "",
+        image: "https://www.k18hair.com/cdn/shop/files/k18-pepetide-prep-detox-shampoo-250ml.png",
         targetTypes: ["oily-scalp", "buildup", "all", "fine"],
         medicalDetails: {
             mechanismOfAction: "Activated charcoal absorbs excess oil and impurities; Salicylic acid exfoliates the scalp and unclogs pores.",
@@ -454,7 +490,7 @@ export const haircareProducts: Product[] = [
         usage: "Apply after shampooing on towel-dried hair. Leave for 1 minute then rinse.",
         mainIngredients: ["Ceramides", "Omega 3-6-9"],
         benefits: ["Repairs hair fiber", "Smooths ends", "Adds shine and soft feel"],
-        image: "",
+        image: "https://www.vichy.co.uk/-/media/project/loreal/brand-sites/vichy/emea/uk/products/hair-care/dercos/nourishing-reparative-conditioner/vichy-dercos-nourishing-reparative-conditioner-200ml.jpg",
         targetTypes: ["dry", "damaged"],
         medicalDetails: {
             mechanismOfAction: "Ceramides fill in the gaps in the hair cuticle to restore smoothness and strength.",
@@ -470,7 +506,7 @@ export const haircareProducts: Product[] = [
         usage: "Apply a small amount to damp or dry hair, focusing on the ends. Do not rinse.",
         mainIngredients: ["Pro-V Nutrients", "Vitamin E"],
         benefits: ["Instantly repairs damage", "Prevents split ends", "Adds brilliant shine"],
-        image: "",
+        image: "https://www.pantene.ae/-/media/project/pg/pantene/en-ae/products/repair-and-protect/serum/repair-protect-serum-front.png",
         targetTypes: ["damaged", "split-ends"],
         medicalDetails: {
             mechanismOfAction: "Concentrated conditioning agents coat the hair shaft to protect from breakage and heat.",

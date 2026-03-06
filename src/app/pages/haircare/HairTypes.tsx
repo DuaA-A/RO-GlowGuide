@@ -120,10 +120,10 @@ export function HairTypes() {
 
                                             <div className="mt-6 pt-5 border-t border-warm-beige">
                                                 <Link
-                                                    to={`/haircare/products?type=${hair.name.split(' ')[0].toLowerCase()}`}
-                                                    className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-gold hover:text-gold-dark transition-colors"
+                                                    to={`/haircare/solutions?type=${hair.id}`}
+                                                    className="btn-wine text-[10px] py-2 px-6"
                                                 >
-                                                    View products for {hair.name.toLowerCase()} →
+                                                    View routine for {hair.name.toLowerCase()} →
                                                 </Link>
                                             </div>
                                         </div>
@@ -198,10 +198,10 @@ export function HairTypes() {
 
                                                 <div className="mt-6 pt-5 border-t border-warm-beige">
                                                     <Link
-                                                        to={`/haircare/products?type=${condition.id}`}
-                                                        className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-gold hover:text-gold-dark transition-colors"
+                                                        to={`/haircare/solutions?condition=${condition.id}`}
+                                                        className="btn-wine text-[10px] py-2 px-6"
                                                     >
-                                                        View treatment products →
+                                                        View treatment routine →
                                                     </Link>
                                                 </div>
                                             </div>

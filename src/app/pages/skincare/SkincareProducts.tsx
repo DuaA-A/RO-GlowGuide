@@ -9,7 +9,7 @@ import { skincareProducts } from "../../data/skincare";
 const CATEGORIES = ["All", "Cleanser", "Toner", "Serum", "Moisturiser", "Sunscreen", "Treatment"];
 
 export function SkincareProducts() {
-    const [searchParams] = useSearchParams();
+    const [searchParams, setSearchParams] = useSearchParams();
     const [search, setSearch] = useState("");
     const [activeCategory, setActiveCategory] = useState("All");
 
@@ -60,11 +60,35 @@ export function SkincareProducts() {
                             type="text"
                             placeholder="Search by name, ingredient, or skin type…"
                             value={search}
-                            onChange={(e) => setSearch(e.target.value)}
+                            onChange={(e) => {
+                                const val = e.target.value;
+                                setSearch(val);
+                                if (!val) {
+                                    const newParams = new URLSearchParams(searchParams);
+                                    newParams.delete("type");
+                                    setSearchParams(newParams);
+                                }
+                            }}
                             className="w-full pl-11 pr-5 py-3.5 bg-ivory border border-warm-beige rounded-full text-sm text-espresso placeholder-taupe focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/10 transition-all"
                         />
                     </div>
                 </div>
+
+                {/* Filter info and clear button */}
+                {(search || activeCategory !== "All") && (
+                    <div className="flex justify-center mb-6">
+                        <button
+                            onClick={() => {
+                                setSearch("");
+                                setActiveCategory("All");
+                                setSearchParams({});
+                            }}
+                            className="text-xs uppercase tracking-widest text-wine hover:text-wine-dark font-medium underline underline-offset-4"
+                        >
+                            Clear all filters
+                        </button>
+                    </div>
+                )}
 
                 {/* Category filters */}
                 <div className="flex flex-wrap justify-center gap-2 mb-12">
