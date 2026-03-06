@@ -16,7 +16,7 @@ export function Solutions() {
           benefit: "Penetrates pores to dissolve oil and debris",
           ingredients: "2% Salicylic Acid, Glycerin",
           usage: "Use twice daily",
-          image: "https://images.unsplash.com/photo-1556227703-ab57dbc6f839?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYWNpYWwlMjBjbGVhbnNlciUyMGJvdHRsZXxlbnwxfHx8fDE3NzIwMjM5NDB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+          image: "",
         },
         {
           name: "BHA Exfoliating Toner",

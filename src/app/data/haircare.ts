@@ -313,7 +313,7 @@ export const haircareProducts: Product[] = [
             "Wet hair thoroughly. Apply a generous amount and work into a lather from roots to ends. Rinse thoroughly. Repeat if necessary.",
         mainIngredients: ["Sodium Lauroyl Methyl Isethionate", "Argan Oil", "Panthenol (Vitamin B5)", "Glycerin"],
         benefits: ["Sulphate-free gentle cleanse", "Adds moisture and shine", "Reduces breakage"],
-        image: "https://www.hairhaven.ie/cdn/shop/products/macadamia-nourishing-moisture-shampoo-image-3_1024x1024.jpg",
+        image: "https://www.kingdombeauty.com/v/vspfiles/photos/MAM100202-2.jpg?v-cache=1652088243",
         targetTypes: ["dry", "curly", "coily", "damaged"],
         medicalDetails: {
             mechanismOfAction:
@@ -335,7 +335,7 @@ export const haircareProducts: Product[] = [
             "Use medicated shampoo 2–3 times weekly. Leave on scalp for 3–5 minutes before rinsing. Continue for 4 weeks minimum.",
         mainIngredients: ["Ketoconazole (2%)", "Zinc Pyrithione", "Salicylic Acid"],
         benefits: ["Eliminates flaking", "Controls fungus growth", "Soothes scalp itching"],
-        image: "https://www.nizoral.com/-/media/project/johnson-and-johnson/nizoral/products/anti-dandruff-shampoo-7oz.png",
+        image: "https://i5.walmartimages.com/asr/9615bd18-d0f0-45bf-849a-904cf8caef77_1.150025e8a4f12053ef70913c30ffea3a.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF",
         targetTypes: ["dandruff", "all", "oily-scalp", "seborrheic-dermatitis"],
         medicalDetails: {
             mechanismOfAction:
@@ -355,7 +355,7 @@ export const haircareProducts: Product[] = [
         usage: "Use 2-3 times weekly on wet hair. Leave for 2 minutes then rinse.",
         mainIngredients: ["Selenium Sulfide", "Salicylic Acid", "Ceramides"],
         benefits: ["Removes 100% visible flakes", "6-week anti-relapse action", "Soothes scalp discomfort"],
-        image: "https://www.vichy.co.uk/-/media/project/loreal/brand-sites/vichy/emea/uk/products/hair-care/dercos/anti-dandruff-shampoo-for-normal-to-oily-hair/vichy-dercos-anti-dandruff-shampoo-for-normal-to-oily-hair-200ml.jpg",
+        image: "https://bestpharmacy.gr/pub/media/catalog/product/cache/386eb87acf83bc20648b2ef1991a0076/v/i/vichy-antidandruff-shampoo-dry-390ml.jpg",
         targetTypes: ["all"],
         medicalDetails: {
             mechanismOfAction: "Selenium Sulfide slows skin cell turnover and treats the Malassezia fungus.",
@@ -386,7 +386,7 @@ export const haircareProducts: Product[] = [
         usage: "Use as a mask 1-2 times weekly. Apply on damp hair focusing on ends.",
         mainIngredients: ["Banana Extract", "Shea Butter", "Coconut Oil"],
         benefits: ["Intense nourishment", "98% natural origin ingredients", "No silicones"],
-        image: "https://www.garnier.co.uk/-/media/project/loreal/brand-sites/garnier/emea/uk/fructis/hair-food/banana-mask-390ml/garnier-fructis-hair-food-banana-mask-390ml.jpg",
+        image: "https://i5.walmartimages.com/asr/06987f2e-4dca-478a-9a9c-0c6a5af6a7a0.13bc8748d70df8a4d46c6a5af6a7a0.jpeg",
         targetTypes: ["dry", "curly", "coily", "damaged"],
         medicalDetails: {
             mechanismOfAction: "Deeply penetrates the hair fibre with nourishing triglycerides from shea and coconut.",
@@ -402,7 +402,7 @@ export const haircareProducts: Product[] = [
         usage: "Apply half a capful once daily to the scalp in the hair loss area. Massage into scalp with fingers.",
         mainIngredients: ["Minoxidil 5%"],
         benefits: ["Clinically proven regrowth", "Easy-to-use foam", "Revitalizes follicles"],
-        image: "https://www.rogaine.com/-/media/project/johnson-and-johnson/rogaine/products/womens-foam-4-month.png",
+        image: "https://i5.walmartimages.com/asr/fed88085-f851-4045-8884-0a377035f524.3f1a23e9-9a2e-4614-9988-1c42289c0376.jpeg",
         targetTypes: ["hair-loss", "alopecia", "thinning"],
         medicalDetails: {
             mechanismOfAction: "Increases blood flow to hair follicles, widening blood vessels and shortening the telogen phase to push hair into the anagen phase.",
@@ -440,7 +440,7 @@ export const haircareProducts: Product[] = [
         usage: "Swap your regular shampoo for this power wash once a week or as needed.",
         mainIngredients: ["Salicylic Acid", "Activated Charcoal", "K18Peptide"],
         benefits: ["Deeply detoxifies", "Removes metals", "Perfect prep for treatments"],
-        image: "https://www.k18hair.com/cdn/shop/files/k18-pepetide-prep-detox-shampoo-250ml.png",
+        image: "https://elegantstoreeg.com/cdn/shop/files/k18-peptide-prep-detox-shampoo-250ml.jpg",
         targetTypes: ["oily-scalp", "buildup", "all", "fine"],
         medicalDetails: {
             mechanismOfAction: "Activated charcoal absorbs excess oil and impurities; Salicylic acid exfoliates the scalp and unclogs pores.",

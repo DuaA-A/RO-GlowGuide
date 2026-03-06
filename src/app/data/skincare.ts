@@ -308,7 +308,7 @@ export const skincareProducts: Product[] = [
             "Apply a small amount to damp skin, massage in circular motions for 60 seconds, and rinse thoroughly with lukewarm water. Use morning and evening.",
         mainIngredients: ["Zinc PCA", "La Roche-Posay Thermal Spring Water", "Citric Acid"],
         benefits: ["Purifies skin", "Reduces excess sebum", "Maintains skin pH"],
-        image: "https://www.laroche-posay.me/getmedia/8c7e6e5a-4b3d-4c2d-9b5e-0b9f0b9f0b9f/effaclar-cleansing-foaming-gel-400ml.aspx",
+        image: "https://elegantstoreeg.com/cdn/shop/files/la-roche-posay-effaclar-purifying-foaming-gel-400ml-1.jpg?v=1701198592",
         targetTypes: ["oily", "sensitive", "acne-prone", "combination"],
         medicalDetails: {
             mechanismOfAction:
@@ -342,7 +342,7 @@ export const skincareProducts: Product[] = [
         usage: "Wet skin with lukewarm water. Massage cleanser into skin in a gentle, circular motion. Rinse.",
         mainIngredients: ["Ceramides (1, 3, 6-II)", "Hyaluronic Acid", "Niacinamide"],
         benefits: ["Non-drying", "Fragrance-free", "Restores skin barrier"],
-        image: "https://www.cerave.com/-/media/project/loreal/brand-sites/cerave/americas/us/products-v3/foaming-facial-cleanser/foaming-facial-cleanser_16oz_front-v2.png",
+        image: "https://elegantstoreeg.com/cdn/shop/files/cerave-foaming-facial-cleanser-473ml-1.jpg?v=1701198592",
         targetTypes: ["oily", "normal"],
         medicalDetails: {
             mechanismOfAction: "Ceramides help restore the skin barrier. Niacinamide calms the skin. Hyaluronic acid retains moisture.",
@@ -357,7 +357,7 @@ export const skincareProducts: Product[] = [
         usage: "Apply to the entire face morning and/or evening after cleansing.",
         mainIngredients: ["Salicylic Acid", "LHA", "Niacinamide", "Procerad"],
         benefits: ["Clears breakouts", "Reduces red and brown marks", "24h hydration"],
-        image: "https://www.laroche-posay.me/getmedia/d7f8e3a2-2c3b-4c2d-9b5e-0b9f0b9f0b9f/Effaclar-Duo-Plus-40ml.aspx",
+        image: "https://elegantstoreeg.com/cdn/shop/files/la-roche-posay-effaclar-duo-40ml-1.jpg?v=1701198592",
         targetTypes: ["oily", "combination"],
         medicalDetails: {
             mechanismOfAction: "Salicylic acid and LHA exfoliate the surface. Niacinamide reduces inflammation. Procerad helps protect against the appearance of marks.",
@@ -372,7 +372,7 @@ export const skincareProducts: Product[] = [
         usage: "Apply liberally as often as needed, or as directed by a physician.",
         mainIngredients: ["Ceramides", "Hyaluronic Acid"],
         benefits: ["Moisturses for 24 hours", "MVE Technology for controlled release", "Non-comedogenic"],
-        image: "https://www.cerave.com/-/media/project/loreal/brand-sites/cerave/americas/us/products-v3/daily-moisturizing-lotion/daily-moisturizing-lotion_12oz_front-v2.png",
+        image: "https://elegantstoreeg.com/cdn/shop/files/cerave-daily-moisturizing-lotion-236ml-1.jpg?v=1701198592",
         targetTypes: ["dry", "normal", "combination"],
         medicalDetails: {
             mechanismOfAction: "Ceramides replenish skin's essential lipids. MVE technology ensures efficient delivery within the skin's barrier.",
@@ -495,7 +495,7 @@ export const skincareProducts: Product[] = [
         usage: "Apply morning and evening after cleansing.",
         mainIngredients: ["MP-Lipids", "Niacinamide", "Orellana Extract"],
         benefits: ["Soothes skin discomfort", "Restores moisture barrier", "Reduces redness"],
-        image: "https://www.laroche-posay.me/getmedia/e7f8e3a2-2c3b-4c2d-9b5e-0b9f0b9f0b9f/Effaclar-H-Iso-Biome-40ml.aspx",
+        image: "https://elegantstoreeg.com/cdn/shop/files/la-roche-posay-effaclar-h-iso-biome-40ml-1.jpg?v=1701198592",
         targetTypes: ["oily", "acne-prone", "sensitive"],
         medicalDetails: {
             mechanismOfAction: "MP-Lipids help rebuild the skin's protective barrier while Niacinamide calms inflammation.",
@@ -511,7 +511,7 @@ export const skincareProducts: Product[] = [
         usage: "Apply once daily to very dry and irritated skin on the face and/or body.",
         mainIngredients: ["Aqua Posae Filiformis", "Shea Butter", "Niacinamide"],
         benefits: ["Anti-scratching", "Anti-flare up", "Restores microbiome"],
-        image: "",
+        image: "https://elegantstoreeg.com/cdn/shop/files/la-roche-posay-lipikar-baume-ap-m-400ml-1.jpg?v=1701198592",
         targetTypes: ["dry", "sensitive", "eczema"],
         medicalDetails: {
             mechanismOfAction: "Rebalances the skin microbiome and restores the barrier to prevent allergen penetration.",
@@ -559,7 +559,7 @@ export const skincareProducts: Product[] = [
         usage: "Apply evenly to face daily. Avoid contact with eyes and lips. Use sunscreen during the day.",
         mainIngredients: ["Encapsulated Retinol", "Licorice Root Extract", "Ceramides"],
         benefits: ["Reduces post-acne marks", "Refines skin texture", "Restores skin barrier"],
-        image: "https://www.cerave.com/-/media/project/loreal/brand-sites/cerave/americas/us/products-v3/resurfacing-retinol-serum/resurfacing-retinol-serum_30ml_front.png",
+        image: "https://elegantstoreeg.com/cdn/shop/files/cerave-resurfacing-retinol-serum-30ml-1.jpg?v=1701198592",
         targetTypes: ["acne-prone", "oily"],
         medicalDetails: {
             mechanismOfAction: "Encapsulated retinol helps resurface skin while Licorice root extract brightens.",
@@ -591,7 +591,7 @@ export const skincareProducts: Product[] = [
         usage: "Apply liberally as often as needed, or as directed by a physician.",
         mainIngredients: ["Ceramides (1, 3, 6-II)", "Hyaluronic Acid"],
         benefits: ["24-hour hydration", "Non-comedogenic", "Fragrance-free"],
-        image: "https://www.cerave.com/-/media/project/loreal/brand-sites/cerave/americas/us/products-v3/moisturizing-cream/cerave_moisturizing_cream_16oz_front-v2.png",
+        image: "https://elegantstoreeg.com/cdn/shop/files/cerave-moisturizing-cream-454gm-1.jpg?v=1701198592",
         targetTypes: ["dry", "sensitive", "normal"],
         medicalDetails: {
             mechanismOfAction: "MVE Delivery Technology provides a steady stream of nourishment throughout the day and night.",
