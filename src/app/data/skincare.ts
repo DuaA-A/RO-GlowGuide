@@ -41,7 +41,7 @@ export const skinTypes: SkinType[] = [
             "Apply moisturizer while skin is still damp, 2–3 times daily",
             "Panthenol helps soothe and hydrate deeply",
         ],
-        image: "",
+        image: "https://share.google/scNs02sVnhFAPpoWQ",
         color: "blush",
     },
     {
@@ -61,7 +61,7 @@ export const skinTypes: SkinType[] = [
             "Opt for oil-free, non-comedogenic formulas",
             "Wash face twice daily with targeted gel cleansers",
         ],
-        image: "",
+        image: "https://www.raoderm.com/how-to-fix-an-oily-face/",
         color: "sand",
     },
     {
@@ -81,7 +81,7 @@ export const skinTypes: SkinType[] = [
             "Niacinamide and Hyaluronic Acid are ideal core ingredients",
             "Balance the T-zone with gentle exfoliating toners",
         ],
-        image: "",
+        image: "https://www.goaesthetic.at/wp-content/uploads/2024/06/Mischhaut-2.jpg",
         color: "taupe",
     },
     {
@@ -139,7 +139,7 @@ export const skinConditions: SkinCondition[] = [
             "Poor skincare routine / lack of cleansing",
             "High glycemic diet and stress",
         ],
-        image: "",
+        image: "https://share.google/u1V4SOCJpZN9gJBID",
         color: "taupe",
     },
     {
@@ -155,7 +155,7 @@ export const skinConditions: SkinCondition[] = [
             "Genetic predisposition to scarring",
             "Significant hormonal imbalances",
         ],
-        image: "",
+        image: "https://share.google/IeRh0181XqOb3qqqA",
         color: "mink",
     },
     {
@@ -171,7 +171,7 @@ export const skinConditions: SkinCondition[] = [
             "Cortisol elevation from stress",
             "Certain medications affecting hormones",
         ],
-        image: "",
+        image: "https://share.google/GqRzH8zZmAxJdUU3F",
         color: "blush",
     },
 ];

@@ -370,7 +370,7 @@ export const haircareProducts: Product[] = [
         usage: "Apply serum on damp hair focusing on ends. Do not rinse.",
         mainIngredients: ["6 Precious Flower Oils", "Argan Oil", "Vitamin E"],
         benefits: ["Nourishes without weighing down", "Adds remarkable shine", "Prevents split ends"],
-        image: "https://www.loreal-paris.co.uk/-/media/project/loreal/brand-sites/oap/emea/uk/products/hair-care/extraordinary-oil/extraordinary-oil-hair-oil-bottle-front.png",
+        image: "https://www.amazon.eg/-/en/LOr%C3%A9al-Paris-Elvive-Extraordinary-Serum/dp/B01FN772MS",
         targetTypes: ["dry", "straight", "wavy", "curly", "coily"],
         medicalDetails: {
             mechanismOfAction: "Forms a protective layer over the hair shaft, sealing the cuticle to prevent moisture loss and physical split damage.",
@@ -386,7 +386,7 @@ export const haircareProducts: Product[] = [
         usage: "Use as a mask 1-2 times weekly. Apply on damp hair focusing on ends.",
         mainIngredients: ["Banana Extract", "Shea Butter", "Coconut Oil"],
         benefits: ["Intense nourishment", "98% natural origin ingredients", "No silicones"],
-        image: "https://i5.walmartimages.com/asr/06987f2e-4dca-478a-9a9c-0c6a5af6a7a0.13bc8748d70df8a4d46c6a5af6a7a0.jpeg",
+        image: "https://www.sweetcare.com/eg/garnier-fructis-hair-food-mask-cocoa-butter-p-015497xg?st=01&country=eg&fcurr=EGP&flang=EN",
         targetTypes: ["dry", "curly", "coily", "damaged"],
         medicalDetails: {
             mechanismOfAction: "Deeply penetrates the hair fibre with nourishing triglycerides from shea and coconut.",
@@ -402,7 +402,7 @@ export const haircareProducts: Product[] = [
         usage: "Apply half a capful once daily to the scalp in the hair loss area. Massage into scalp with fingers.",
         mainIngredients: ["Minoxidil 5%"],
         benefits: ["Clinically proven regrowth", "Easy-to-use foam", "Revitalizes follicles"],
-        image: "https://i5.walmartimages.com/asr/fed88085-f851-4045-8884-0a377035f524.3f1a23e9-9a2e-4614-9988-1c42289c0376.jpeg",
+        image: "https://tdawi.com/uae-ar/rogaine-men-s-5-pure-minoxidil-foam-for-hair-loss-and-hair-regrowth-topical-treatment-for-thinning-hair-one-month-supply?srsltid=AfmBOoqlTKJ0xKHx33Eb8nZqdwB8NWeW7d7u6DZ_vL5tywLUOyqOnjGR",
         targetTypes: ["hair-loss", "alopecia", "thinning"],
         medicalDetails: {
             mechanismOfAction: "Increases blood flow to hair follicles, widening blood vessels and shortening the telogen phase to push hair into the anagen phase.",
@@ -421,7 +421,7 @@ export const haircareProducts: Product[] = [
         usage: "Take one tablet (1mg) daily as directed by a healthcare professional.",
         mainIngredients: ["Finasteride 1mg"],
         benefits: ["Blocks DHT", "Prevents further loss", "Effective for pattern baldness"],
-        image: "",
+        image: "https://www.curely.co.uk/medications/propecia-branded-finasteride",
         targetTypes: ["hair-loss", "male-pattern-baldness", "thinning"],
         medicalDetails: {
             mechanismOfAction: "A 5-alpha reductase inhibitor that blocks the conversion of testosterone to DHT, the hormone responsible for follicle miniaturization.",
@@ -440,7 +440,7 @@ export const haircareProducts: Product[] = [
         usage: "Swap your regular shampoo for this power wash once a week or as needed.",
         mainIngredients: ["Salicylic Acid", "Activated Charcoal", "K18Peptide"],
         benefits: ["Deeply detoxifies", "Removes metals", "Perfect prep for treatments"],
-        image: "https://elegantstoreeg.com/cdn/shop/files/k18-peptide-prep-detox-shampoo-250ml.jpg",
+        image: "https://powderbeauty.com/ar/products/k18-peptide-prep%E2%84%A2-detox-shampoo?srsltid=AfmBOopQ5cFFm2rk6ceQwNibrKQwpj7PDDkad-fnboRdRmW-o5QLu7Xd",
         targetTypes: ["oily-scalp", "buildup", "all", "fine"],
         medicalDetails: {
             mechanismOfAction: "Activated charcoal absorbs excess oil and impurities; Salicylic acid exfoliates the scalp and unclogs pores.",
@@ -458,7 +458,7 @@ export const haircareProducts: Product[] = [
         usage: "Apply to wet hair, massage into scalp, leave for several minutes, then rinse.",
         mainIngredients: ["Selenium Sulfide (1%)"],
         benefits: ["Prescription strength flaking relief", "Removes excess oil", "Soothes itching"],
-        image: "",
+        image: "https://www.picknsave.com/p/head-shoulders-2-in-1-clinical-strength-dandruff-defense-shampoo-conditioner/0003700067397",
         targetTypes: ["dandruff", "seborrheic-dermatitis"],
         medicalDetails: {
             mechanismOfAction: "Selenium sulfide is a cytostatic agent that reduces the rate of skin cell turnover on the scalp.",
@@ -474,7 +474,7 @@ export const haircareProducts: Product[] = [
         usage: "Shake well. Wet hair, massage onto scalp, rinse. Repeat if desired.",
         mainIngredients: ["Selenium Sulfide (1%)"],
         benefits: ["Tough on dandruff", "Menthol for cooling sensation", "Relieves scalp itch"],
-        image: "",
+        image: "https://www.amazon.eg/-/en/Selsun-Blue-Medicated-Anti-Dandruff-Shampoo/dp/B000052Y0B",
         targetTypes: ["dandruff"],
         medicalDetails: {
             mechanismOfAction: "Antifungal activity against Malassezia yeast and reduces scalp cell proliferation.",
@@ -490,7 +490,7 @@ export const haircareProducts: Product[] = [
         usage: "Apply after shampooing on towel-dried hair. Leave for 1 minute then rinse.",
         mainIngredients: ["Ceramides", "Omega 3-6-9"],
         benefits: ["Repairs hair fiber", "Smooths ends", "Adds shine and soft feel"],
-        image: "https://www.vichy.co.uk/-/media/project/loreal/brand-sites/vichy/emea/uk/products/hair-care/dercos/nourishing-reparative-conditioner/vichy-dercos-nourishing-reparative-conditioner-200ml.jpg",
+        image: "https://www.vichy.co.za/Hair-care/NOURISHING-REPARATIVE-CONDITIONER-DERCOS/p18784.aspx",
         targetTypes: ["dry", "damaged"],
         medicalDetails: {
             mechanismOfAction: "Ceramides fill in the gaps in the hair cuticle to restore smoothness and strength.",
@@ -506,7 +506,7 @@ export const haircareProducts: Product[] = [
         usage: "Apply a small amount to damp or dry hair, focusing on the ends. Do not rinse.",
         mainIngredients: ["Pro-V Nutrients", "Vitamin E"],
         benefits: ["Instantly repairs damage", "Prevents split ends", "Adds brilliant shine"],
-        image: "https://www.pantene.ae/-/media/project/pg/pantene/en-ae/products/repair-and-protect/serum/repair-protect-serum-front.png",
+        image: "https://ph.britishessentials.com/products/pantene-repair-protect-miracle-serum-220ml",
         targetTypes: ["damaged", "split-ends"],
         medicalDetails: {
             mechanismOfAction: "Concentrated conditioning agents coat the hair shaft to protect from breakage and heat.",
