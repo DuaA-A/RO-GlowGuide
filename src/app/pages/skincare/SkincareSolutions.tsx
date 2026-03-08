@@ -55,57 +55,62 @@ export function SkincareSolutions() {
                             transition={{ duration: 0.6, delay: i * 0.05 }}
                             className="luxury-card overflow-hidden h-[85vh] flex flex-col"
                         >
-                            {/* Routine header with alternating layout - Fixed height portion */}
+                            {/* Routine header with alternating layout - Super Compact & Balanced */}
                             {routine.image ? (
-                                <div className={`grid md:grid-cols-3 gap-0 flex-none ${i % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
-                                    <div className={`relative h-64 md:h-full md:min-h-[320px] ${i % 2 === 1 ? 'md:order-2' : ''}`}>
-                                        <img src={routine.image} alt={routine.name} className="w-full h-full object-cover" />
+                                <div className={`flex flex-col md:flex-row ${i % 2 === 1 ? 'md:flex-row-reverse' : ''} flex-none border-b border-warm-beige/30`}>
+                                    <div className="w-full md:w-48 h-40 md:h-48 flex-none relative">
+                                        <img src={routine.image} alt={routine.name} className="absolute inset-0 w-full h-full object-cover" />
                                     </div>
-                                    <div className={`md:col-span-2 p-6 md:p-8 ${i % 2 === 1 ? 'md:order-1' : ''}`}>
-                                        <div className="flex items-center gap-3 mb-3">
-                                            <span className="badge-skincare">{routine.targetType} skin</span>
+                                    <div className="flex-1 p-4 md:p-6 flex flex-col justify-center">
+                                        <div className="flex items-center gap-2 mb-2">
+                                            <span className="badge-skincare text-[9px] py-0.5 px-2">{routine.targetType} skin</span>
+                                            <div className="flex items-center gap-3 text-[9px] uppercase tracking-wider text-taupe/70 font-bold ml-auto">
+                                                <span className="flex items-center gap-1"><Layers className="w-3 h-3" />{routine.steps.length} steps</span>
+                                                <span className="flex items-center gap-1 md:flex hidden"><Clock className="w-3 h-3" />Daily routine</span>
+                                            </div>
                                         </div>
-                                        <h3 className="font-heading text-espresso mb-2 text-2xl">{routine.name}</h3>
-                                        <p className="text-espresso/90 text-sm leading-relaxed mb-4 line-clamp-2">
+                                        <h3 className="font-heading text-espresso mb-1 text-xl md:text-2xl">{routine.name}</h3>
+                                        <p className="text-espresso/80 text-sm md:text-base leading-relaxed line-clamp-2 italic">
                                             {routine.description}</p>
-
-                                        <div className="flex items-center gap-4 text-[10px] uppercase tracking-wider text-taupe font-bold">
-                                            <span className="flex items-center gap-1.5"><Layers className="w-3.5 h-3.5" />{routine.steps.length} steps</span>
-                                            <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" />Daily routine</span>
-                                        </div>
                                     </div>
                                 </div>
                             ) : (
-                                <div className="p-6 md:p-8 flex-none">
-                                    <div className="flex items-center gap-3 mb-3">
-                                        <span className="badge-skincare">{routine.targetType} skin</span>
+                                <div className="p-4 md:p-6 flex-none border-b border-warm-beige/30 bg-cream/20">
+                                    <div className="flex items-center gap-2 mb-2">
+                                        <span className="badge-skincare text-[9px] py-0.5 px-2">{routine.targetType} skin</span>
+                                        <div className="flex items-center gap-3 text-[9px] uppercase tracking-wider text-taupe/70 font-bold ml-auto">
+                                            <span className="flex items-center gap-1"><Layers className="w-3 h-3" />{routine.steps.length} steps</span>
+                                            <span className="flex items-center gap-1 md:flex hidden"><Clock className="w-3 h-3" />Daily routine</span>
+                                        </div>
                                     </div>
-                                    <h3 className="font-heading text-espresso mb-2 text-2xl">{routine.name}</h3>
-                                    <p className="text-espresso/90 text-sm leading-relaxed mb-4 max-w-3xl">
+                                    <h3 className="font-heading text-espresso mb-1 text-xl md:text-2xl">{routine.name}</h3>
+                                    <p className="text-espresso/80 text-sm md:text-base leading-relaxed max-w-4xl italic">
                                         {routine.description}</p>
-
-                                    <div className="flex items-center gap-4 text-[10px] uppercase tracking-wider text-taupe font-bold">
-                                        <span className="flex items-center gap-1.5"><Layers className="w-3.5 h-3.5" />{routine.steps.length} steps</span>
-                                        <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" />Daily routine</span>
-                                    </div>
                                 </div>
                             )}
 
                             {/* Steps Grid - Scrollable portion */}
-                            <div className="flex-grow overflow-y-auto border-t border-warm-beige px-6 py-6 md:px-10 bg-cream/30 scrollbar-thin">
-                                <p className="text-[10px] uppercase tracking-[0.2em] text-gold mb-6 font-bold">Step-by-Step Routine Guide</p>
-                                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 pb-4">
+                            <div className="flex-grow overflow-y-auto px-4 py-4 md:px-10 bg-cream/30 scrollbar-thin">
+                                <div className="flex items-center justify-between mb-4">
+                                    <p className="text-[10px] uppercase tracking-[0.2em] text-gold font-bold">Step-by-Step Treatment Guide</p>
+                                    <p className="text-[9px] text-taupe/60 md:hidden uppercase font-bold tracking-widest">Swipe for next step →</p>
+                                </div>
+
+                                <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 pb-6 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory scrollbar-none">
                                     {routine.steps.map((step) => (
-                                        <div key={step.step} className="bg-white border border-warm-beige rounded-xl p-5 group hover:border-wine transition-colors duration-300 shadow-sm">
+                                        <div
+                                            key={step.step}
+                                            className="min-w-[85%] md:min-w-0 snap-center bg-white border border-warm-beige rounded-xl p-5 group hover:border-wine transition-colors duration-300 shadow-sm flex flex-col"
+                                        >
                                             <div className="flex items-center gap-3 mb-3">
-                                                <div className="w-7 h-7 rounded-full bg-espresso flex items-center justify-center flex-shrink-0">
+                                                <div className="w-7 h-7 rounded-full bg-espresso flex items-center justify-center flex-shrink-0 group-hover:bg-wine transition-colors">
                                                     <span className="text-cream text-xs font-bold">{step.step}</span>
                                                 </div>
-                                                <h4 className="text-sm font-bold text-espresso tracking-tight">{step.name}</h4>
                                             </div>
-                                            <p className="text-xs text-espresso/80 leading-relaxed mb-2">
+                                            <h4 className="border-b border-warm-beige/30 pb-2 font-heading text-espresso text-base mb-2">{step.name}</h4>
+                                            <p className="text-sm text-espresso/80 leading-relaxed mb-3 flex-grow line-clamp-4">
                                                 {step.description}</p>
-                                            <span className="inline-block text-[9px] uppercase tracking-wide bg-wine/5 border border-wine/10 text-wine font-bold px-2 py-0.5 rounded-full">
+                                            <span className="inline-block text-[9px] w-fit uppercase tracking-wide bg-wine/5 border border-wine/10 text-wine font-bold px-2 py-0.5 rounded-full">
                                                 {step.timing}
                                             </span>
                                         </div>
@@ -113,8 +118,8 @@ export function SkincareSolutions() {
                                 </div>
                             </div>
 
-                            {/* Fixed Footer Button */}
-                            <div className="flex-none p-6 border-t border-warm-beige bg-white flex justify-center">
+                            {/* Fixed Footer Button - Left Aligned */}
+                            <div className="flex-none p-6 border-t border-warm-beige bg-white flex justify-start">
                                 <Link
                                     to={`/skincare/products?${skinTypes.some((t: any) => t.id === routine.targetType) ? 'type' : 'concern'}=${routine.targetType}`}
                                     className="btn-wine py-3 px-8 text-xs"
@@ -132,15 +137,15 @@ export function SkincareSolutions() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mt-16 bg-espresso rounded-2xl p-10 text-center"
+                    className="mt-16 bg-[#F8EDED] border border-[#EBCBCB] rounded-2xl p-10 text-center"
                 >
-                    <p className="text-xs uppercase tracking-[0.25em] text-cream/40 mb-4">Next Step</p>
-                    <h3 className="font-heading text-cream mb-4">Ready to build your product shelf?</h3>
-                    <p className="text-cream/60 text-sm mb-7 max-w-lg mx-auto leading-relaxed">
+                    <p className="text-xs uppercase tracking-[0.25em] text-[#8E5B61] mb-4 font-bold">Next Step</p>
+                    <h3 className="font-heading text-espresso mb-4">Ready to build your product shelf?</h3>
+                    <p className="text-espresso/70 text-sm mb-7 max-w-lg mx-auto leading-relaxed">
                         Explore our curated skincare product catalogue and find the exact formulas recommended in each routine step.
                     </p>
                     <Link to="/skincare/products" className="btn-wine">
-                        Browse Skincare Products <ArrowRight className="w-4 h-4" />
+                        Browse Full Catalogue <ArrowRight className="w-4 h-4 ml-2" />
                     </Link>
                 </motion.div>
 

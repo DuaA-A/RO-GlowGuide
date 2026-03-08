@@ -249,7 +249,7 @@ export const skincareRoutines: Routine[] = [
         description:
             "A specialized recovery routine for skin that is both oily and prone to breakouts, focusing on clearing pores and healing the barrier.",
         targetType: "acne-prone",
-        image: "https://cdn.shopify.com/s/files/1/0746/0952/5042/files/sea_buckthorn_oil_skin_before_and_after_600x600.jpg",
+        image: "https://ultraessence.com/cdn/shop/articles/Acne-BeforeAfter-Blog_345x345@2x.png",
         steps: [
             { step: 1, name: "Double Cleansing", description: "Use Micellar water followed by a targeted gel like Effaclar Gel to deeply purify.", timing: "PM" },
             { step: 2, name: "Morning Cleansing", description: "Wash with Effaclar Gel to remove overnight sebum.", timing: "AM" },
@@ -264,7 +264,7 @@ export const skincareRoutines: Routine[] = [
         description:
             "A minimal, barrier-supporting routine for reactive and sensitive skin. Placeholder: replace with full routine rationale.",
         targetType: "sensitive",
-        image: "https://cdn.shopify.com/s/files/1/0746/0952/5042/files/sea_buckthorn_oil_skin_before_and_after_600x600.jpg",
+        image: "https://ultraessence.com/cdn/shop/articles/Acne-BeforeAfter-Blog_345x345@2x.png",
 
         steps: [
             { step: 1, name: "Micellar / Gentle Cleanser", description: "Placeholder: fragrance-free, pH-balanced cleanser.", timing: "AM & PM" },
