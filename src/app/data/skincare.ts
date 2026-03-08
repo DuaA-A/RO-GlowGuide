@@ -21,7 +21,7 @@ export const skinTypes: SkinType[] = [
             "Use a broad-spectrum SPF 30+ daily",
             "Incorporate a lightweight antioxidant serum",
         ],
-        image: "",
+        image: "https://images.pexels.com/photos/3762466/pexels-photo-3762466.jpeg",
         color: "warm-beige",
     },
     {
@@ -41,7 +41,7 @@ export const skinTypes: SkinType[] = [
             "Apply moisturizer while skin is still damp, 2–3 times daily",
             "Panthenol helps soothe and hydrate deeply",
         ],
-        image: "https://share.google/scNs02sVnhFAPpoWQ",
+        image: "https://www.skinspireca.com/wp-content/uploads/2024/02/Skinspire-Skin-Laser-Clinic-1-1.jpg",
         color: "blush",
     },
     {
@@ -61,7 +61,7 @@ export const skinTypes: SkinType[] = [
             "Opt for oil-free, non-comedogenic formulas",
             "Wash face twice daily with targeted gel cleansers",
         ],
-        image: "https://www.raoderm.com/how-to-fix-an-oily-face/",
+        image: "https://cdn.prod.website-files.com/61c44817190504d47e91cbc4/6756b87be852cd4c82c14421_Hydration%20tips%20for%20oily%20skin_Cover.webp",
         color: "sand",
     },
     {
@@ -123,7 +123,7 @@ export const skinConditions: SkinCondition[] = [
             "Bacterial activity",
             "Genetic predisposition",
         ],
-        image: "",
+        image: "https://porcelainskin.com/cdn/shop/articles/Close-up_of_the_skin_of_a_young_girl_with_acne_problem.jpg?v=1731921280",
         color: "sand",
     },
     {
@@ -139,7 +139,7 @@ export const skinConditions: SkinCondition[] = [
             "Hormonal changes",
             "Oily or occlusive cosmetics",
         ],
-        image: "",
+        image: "https://my.clevelandclinic.org/-/scassets/images/org/health/articles/comedonal-acne",
         color: "sand",
     },
     {
@@ -155,7 +155,7 @@ export const skinConditions: SkinCondition[] = [
             "Poor skincare routine / lack of cleansing",
             "High glycemic diet and stress",
         ],
-        image: "https://share.google/u1V4SOCJpZN9gJBID",
+        image: "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/04/GettyImages-552992761_header-1024x575.jpg",
         color: "taupe",
     },
     {
@@ -171,7 +171,7 @@ export const skinConditions: SkinCondition[] = [
             "Genetic predisposition to scarring",
             "Significant hormonal imbalances",
         ],
-        image: "https://share.google/IeRh0181XqOb3qqqA",
+        image: "https://www.drdennisgross.com/on/demandware.static/-/Sites-ddg_us-Library/default/dwb2aec126/blogs/skincare-blogs/What_is_Cystic_Acne_How_to_Treat_It.png",
         color: "mink",
     },
     {
@@ -187,7 +187,7 @@ export const skinConditions: SkinCondition[] = [
             "Cortisol elevation from stress",
             "Certain medications affecting hormones",
         ],
-        image: "https://share.google/GqRzH8zZmAxJdUU3F",
+        image: "https://doralhw.org/wp-content/uploads/2023/04/shutterstock_2423537765.jpg",
         color: "blush",
     },
 ];
@@ -202,6 +202,7 @@ export const skincareRoutines: Routine[] = [
         description:
             "A balanced, maintenance-focused routine for normal skin. Placeholder: replace with full routine rationale.",
         targetType: "normal",
+        image: "https://images.pexels.com/photos/3762871/pexels-photo-3762871.jpeg",
         steps: [
             { step: 1, name: "Cleanser", description: "Placeholder: gentle foaming or gel cleanser.", timing: "AM & PM" },
             { step: 2, name: "Toner", description: "Placeholder: hydrating or balancing toner.", timing: "AM & PM" },
@@ -216,6 +217,7 @@ export const skincareRoutines: Routine[] = [
         description:
             "An intense moisture-restoring routine for dry and dehydrated skin. Placeholder: replace with full routine rationale.",
         targetType: "dry",
+        image: "https://geimshospital.com/wp-content/uploads/2025/11/banner-5.jpg",
         steps: [
             { step: 1, name: "Oil Cleanser", description: "Placeholder: balm or oil cleanser.", timing: "PM" },
             { step: 2, name: "Cream Cleanser", description: "Placeholder: creamy, non-stripping cleanser.", timing: "AM & PM" },
@@ -232,6 +234,7 @@ export const skincareRoutines: Routine[] = [
         description:
             "A clinical routine designed to control excess oil and maintain a healthy skin barrier without adding shine.",
         targetType: "oily",
+        image: "https://images.pexels.com/photos/3762466/pexels-photo-3762466.jpeg",
         steps: [
             { step: 1, name: "Cleansing", description: "Use a gentle gel cleanser twice daily to remove excess oil without stripping the skin.", timing: "AM & PM" },
             { step: 2, name: "Mist", description: "A refreshing thermal water mist to soothe and hydrate.", timing: "As needed" },
@@ -245,6 +248,7 @@ export const skincareRoutines: Routine[] = [
         description:
             "A specialized recovery routine for skin that is both oily and prone to breakouts, focusing on clearing pores and healing the barrier.",
         targetType: "acne-prone",
+        image: "https://porcelainskin.com/cdn/shop/articles/Close-up_of_the_skin_of_a_young_girl_with_acne_problem.jpg?v=1731921280",
         steps: [
             { step: 1, name: "Double Cleansing", description: "Use Micellar water followed by a targeted gel like Effaclar Gel to deeply purify.", timing: "PM" },
             { step: 2, name: "Morning Cleansing", description: "Wash with Effaclar Gel to remove overnight sebum.", timing: "AM" },
@@ -382,7 +386,7 @@ export const skincareProducts: Product[] = [
         usage: "Apply to the entire face morning and/or evening after cleansing.",
         mainIngredients: ["Salicylic Acid", "LHA", "Niacinamide", "Procerad"],
         benefits: ["Clears breakouts", "Reduces red and brown marks", "24h hydration"],
-        image: "https://elegantstoreeg.com/cdn/shop/files/la-roche-posay-effaclar-duo-40ml-1.jpg?v=1701198592",
+        image: "https://theelement.skin/cdn/shop/articles/images-30_7e91d155-8fa1-497f-a5dd-80c868aadc1c.jpg?v=1746588494",
         targetTypes: ["oily", "combination"],
         concerns: ["acne-prone", "inflammatory"],
         medicalDetails: {
@@ -559,7 +563,7 @@ export const skincareProducts: Product[] = [
         usage: "Apply once or twice daily to skin after cleansing.",
         mainIngredients: ["Skin Protect Complex", "Glycerin"],
         benefits: ["Immediately hydrates", "Strengthens skin barrier", "Softens skin"],
-        image: "https://www.bioderma.com/-/media/project/naos/bioderma/na/products/atoderm/cream/atoderm-cream-500ml-white-bg.png",
+        image: "https://images.pexels.com/photos/3762464/pexels-photo-3762464.jpeg",
         targetTypes: ["dry", "sensitive"],
         medicalDetails: {
             mechanismOfAction: "Stimulates the production of hyaluronic acid and ceramides to naturally moisturize the skin.",
