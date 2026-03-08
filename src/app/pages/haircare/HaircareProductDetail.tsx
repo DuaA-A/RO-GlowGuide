@@ -141,9 +141,6 @@ export function HaircareProductDetail() {
                             <MedicalDetailsPanel details={product.medicalDetails} />
                         )}
 
-                        <p className="text-xs text-taupe mt-6 leading-relaxed italic">
-                            This product information is for educational purposes only and does not constitute medical advice.
-                        </p>
                     </motion.div>
                 </div>
 

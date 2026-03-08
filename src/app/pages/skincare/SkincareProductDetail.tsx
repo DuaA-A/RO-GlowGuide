@@ -146,10 +146,6 @@ export function SkincareProductDetail() {
                             <MedicalDetailsPanel details={product.medicalDetails} />
                         )}
 
-                        {/* Disclaimer */}
-                        <p className="text-xs text-taupe mt-6 leading-relaxed italic">
-                            This product information is for educational purposes only and does not constitute medical advice.
-                        </p>
                     </motion.div>
                 </div>
 

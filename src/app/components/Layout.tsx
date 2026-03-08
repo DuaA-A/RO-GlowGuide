@@ -383,9 +383,34 @@ export function Layout() {
             className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
             style={{ borderTop: "1px solid rgba(201,168,124,0.15)" }}
           >
-            <p className="text-xs" style={{ color: "rgba(232,213,192,0.40)" }}>
-              © 2026 RO Beauty Guide. For educational purposes only — not a substitute for professional medical advice.
-            </p>
+            <div className="flex-1">
+              <p className="text-xs mb-4" style={{ color: "rgba(232,213,192,0.40)" }}>
+                © 2026 RO Beauty Guide. MTI College Graduation Project — Faculty of Pharmacy.
+              </p>
+
+              {/* Conditional References */}
+              {location.pathname.includes("/skincare") && (
+                <div className="mt-8 pt-8 border-t border-gold/10">
+                  <h5 className="text-[10px] uppercase tracking-[0.2em] mb-4 text-gold/50">Skincare References</h5>
+                  <div className="space-y-4 text-[11px] leading-relaxed text-cream/40 max-w-2xl">
+                    <p>Andrews' Diseases of the Skin: Clinical Dermatology. James W., Elston D., Treat J., Rosenbach M. 13th Edition. Elsevier; 2020.</p>
+                    <p>American Academy of Dermatology. Acne and skin care information. <a href="https://www.aad.org" target="_blank" className="hover:text-gold transition-colors">www.aad.org</a></p>
+                    <p>National Health Service. Acne overview and treatment. <a href="https://www.nhs.uk" target="_blank" className="hover:text-gold transition-colors">www.nhs.uk</a></p>
+                  </div>
+                </div>
+              )}
+
+              {location.pathname.includes("/haircare") && (
+                <div className="mt-8 pt-8 border-t border-gold/10">
+                  <h5 className="text-[10px] uppercase tracking-[0.2em] mb-4 text-gold/50">Haircare References</h5>
+                  <div className="space-y-4 text-[11px] leading-relaxed text-cream/40 max-w-2xl">
+                    <p>National Health Service (NHS). (2023). Dandruff and seborrhoeic dermatitis. <a href="https://www.nhs.uk" target="_blank" className="hover:text-gold transition-colors">www.nhs.uk</a></p>
+                    <p>Trüeb, R. M., & Tobin, D. J. (2010). Aging hair. Springer.</p>
+                    <p>Cleveland Clinic. (2023). Split ends: Causes, treatment, and prevention.</p>
+                  </div>
+                </div>
+              )}
+            </div>
             <div className="w-16 h-px" style={{ background: "rgba(201,168,124,0.35)" }} />
           </div>
         </div>

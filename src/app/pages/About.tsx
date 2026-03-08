@@ -32,24 +32,32 @@ export function About() {
 
                 {/* ── Header ─────────────────────────────────────────────────── */}
                 <SectionHeader
-                    label="About Us"
-                    title="The Team Behind"
-                    titleHighlight="LumeGuide."
-                    subtitle="A multidisciplinary team united by a single purpose: making expert skincare and haircare knowledge accessible, beautiful, and clinically sound."
+                    label="About the Project"
+                    title="Faculty of"
+                    titleHighlight="Pharmacy."
+                    subtitle="A professional graduation project by the Pharmacist Team at MTI College, dedicated to clinical precision in beauty and health."
                 />
 
-                {/* ── Team Leader ────────────────────────────────────────────── */}
-                {leader && (
-                    <div className="mt-16 flex justify-center">
-                        <div className="w-full max-w-sm">
-                            <TeamMemberCard member={leader} />
+                {/* ── MTI College Section ─────────────────────────────────────── */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="mt-12 mb-20 flex flex-col items-center text-center"
+                >
+                    <div className="w-32 h-32 mb-6 bg-cream rounded-full flex items-center justify-center border border-gold/20 shadow-xl overflow-hidden group">
+                        {/* MTI LOGO PLACEHOLDER */}
+                        <div className="w-full h-full flex items-center justify-center bg-ivory group-hover:bg-white transition-colors">
+                            <span className="text-wine font-heading text-3xl font-bold tracking-tighter">MTI</span>
                         </div>
                     </div>
-                )}
+                    <h3 className="text-wine-dark font-heading text-2xl mb-2">MTI University</h3>
+                    <p className="text-taupe text-sm max-w-md">Modern University for Technology & Information</p>
+                </motion.div>
 
                 {/* ── Team Grid ──────────────────────────────────────────────── */}
-                <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
-                    {members.map((member, i) => (
+                <div className="mt-10 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    {teamMembers.map((member, i) => (
                         <TeamMemberCard key={member.id} member={member} index={i} />
                     ))}
                 </div>
@@ -65,19 +73,16 @@ export function About() {
                     <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 blur-[100px] -mr-32 -mt-32 rounded-full" />
 
                     <div className="max-w-3xl mx-auto text-center relative z-10">
-                        <p className="text-xs uppercase tracking-[0.25em] text-gold-light mb-6 font-medium">Our Story</p>
+                        <p className="text-xs uppercase tracking-[0.25em] text-gold-light mb-6 font-medium">Research Project</p>
                         <h2 className="font-heading text-cream mb-6" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
-                            Why We Built LumeGuide
+                            Clinical Intelligence in Cosmetics
                         </h2>
                         <div className="section-divider mx-auto mb-10 w-24 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent" />
                         <p className="text-cream/90 leading-relaxed mb-6 text-base md:text-lg">
-                            We noticed that navigating skincare and haircare can be genuinely overwhelming — conflicting advice, ingredient confusion, and a market driven by aesthetics over science.
-                        </p>
-                        <p className="text-cream/90 leading-relaxed mb-6 text-base md:text-lg">
-                            <strong className="font-medium text-gold-light">LumeGuide</strong> was built to change that. We combine clinical precision with elegant, accessible design to create a resource that anyone can use — whether you're discovering your skin type for the first time, or a medical professional seeking detailed ingredient data.
+                            This platform represents the culmination of our research into dermatological and trichological sciences. We identified a critical gap between clinical knowledge and consumer understanding.
                         </p>
                         <p className="text-cream/90 leading-relaxed text-base md:text-lg">
-                            Every guide, product profile, and routine we publish is reviewed for accuracy and presented honestly. Our mission is to empower, not to sell.
+                            As a team of pharmacists from <strong className="font-medium text-gold-light">MTI College</strong>, we built LumeGuide to provide a professional, evidence-based resource that empowers users to make informed decisions about their skin and hair health through pharmacological accuracy.
                         </p>
                     </div>
                 </motion.div>
@@ -90,9 +95,9 @@ export function About() {
                     className="mt-28"
                 >
                     <SectionHeader
-                        label="What We Stand For"
-                        title="Our Core"
-                        titleHighlight="Values."
+                        label="Our Principles"
+                        title="Pharmacist"
+                        titleHighlight="Standards."
                     />
 
                     <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -103,19 +108,19 @@ export function About() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.1, duration: 0.5 }}
-                                className="luxury-card p-8 text-center bg-ivory border-sand/30"
+                                className="luxury-card p-8 text-center bg-white border-wine/10"
                             >
                                 <div className="w-12 h-12 rounded-2xl bg-wine mx-auto mb-6 flex items-center justify-center shadow-lg shadow-wine/20">
                                     <span className="text-gold-light text-xl">✦</span>
                                 </div>
                                 <h4 className="font-heading text-wine-dark text-2xl mb-4 font-medium">{value.title}</h4>
-                                <p className="text-espresso/90 text-base leading-relaxed">{value.description}</p>
+                                <p className="text-mink text-base leading-relaxed">{value.description}</p>
                             </motion.div>
                         ))}
                     </div>
                 </motion.div>
 
-                {/* ── Contact CTA ─────────────────────────────────────────────── */}
+                {/* ── Feedback CTA ─────────────────────────────────────────────── */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -126,18 +131,18 @@ export function About() {
                     <div className="absolute inset-0 bg-gradient-to-br from-wine-dark/40 via-transparent to-wine/40 opacity-50" />
 
                     <div className="relative z-10">
-                        <p className="text-xs uppercase tracking-[0.3em] text-gold/60 mb-6 font-semibold">Get in Touch</p>
+                        <p className="text-xs uppercase tracking-[0.3em] text-gold/60 mb-6 font-semibold">Community Impact</p>
                         <h3 className="font-heading text-cream mb-6 leading-tight" style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)" }}>
-                            Have Questions or Feedback?
+                            Share Your Feedback
                         </h3>
                         <p className="text-cream/80 text-base md:text-lg mb-10 max-w-xl mx-auto leading-relaxed font-light">
-                            We love hearing from our community — whether you have a question, a collaboration idea, or simply want to share your experience.
+                            As part of our graduation project, your feedback is vital. Please help us evaluate the impact of this resource by participating in our research survey.
                         </p>
                         <a
-                            href="mailto:hello@lumeguide.com"
+                            href="#" // REPLACE WITH SURVEY LINK
                             className="btn-wine scale-110 hover:scale-115 transition-transform duration-300"
                         >
-                            Contact Us
+                            Take Survey
                         </a>
                     </div>
                 </motion.div>
