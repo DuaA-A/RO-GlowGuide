@@ -43,7 +43,7 @@ const slides: HeroSlide[] = [
         ctaPath: "/haircare/types",
         secondaryLabel: "Explore Products",
         secondaryPath: "/haircare/products",
-        accentColor: "#7A3F52",
+        accentColor: "#5C2D3E",
         photo: "/images/hero-hairCare.png",
     },
 ];
@@ -127,126 +127,158 @@ export function HeroSlider() {
                 className="absolute hidden lg:flex items-center justify-center pointer-events-none"
                 style={{ top: 0, bottom: 0, right: 0, width: "48%" }}
             >
-                {/* Outer ring */}
                 <motion.div
-                    className="absolute rounded-full"
-                    style={{ width: 480, height: 480, border: `1.5px solid ${slide.accentColor}40` }}
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-                />
-                {/* Tick marks on outer ring */}
-                {[0, 90, 180, 270].map((angle, i) => (
+                    className="absolute inset-0 flex items-center justify-center"
+                    animate={{ x: slide.id === "haircare" ? 0 : -50 }}
+                    transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                >
+                    {/* Outer ring */}
                     <motion.div
-                        key={i}
-                        className="absolute"
-                        style={{
-                            width: 6, height: 6,
-                            borderRadius: "1px",
-                            background: slide.accentColor,
-                            opacity: 0.6,
-                            top: "50%", left: "50%",
-                            transformOrigin: "0 0",
-                            transform: `rotate(${angle}deg) translate(237px, -3px)`,
-                        }}
+                        className="absolute rounded-full"
+                        style={{ width: 480, height: 480, border: `1.5px solid ${slide.accentColor}40` }}
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
                     />
-                ))}
+                    {/* Tick marks on outer ring */}
+                    {[0, 90, 180, 270].map((angle, i) => (
+                        <motion.div
+                            key={i}
+                            className="absolute"
+                            style={{
+                                width: 6, height: 6,
+                                borderRadius: "1px",
+                                background: slide.accentColor,
+                                opacity: 0.6,
+                                top: "50%", left: "50%",
+                                transformOrigin: "0 0",
+                                transform: `rotate(${angle}deg) translate(237px, -3px)`,
+                            }}
+                        />
+                    ))}
 
-                {/* Mid ring */}
-                <motion.div
-                    className="absolute rounded-full"
-                    style={{ width: 320, height: 320, border: `1px solid ${slide.accentColor}35` }}
-                    animate={{ rotate: -360 }}
-                    transition={{ duration: 34, repeat: Infinity, ease: "linear" }}
-                />
-
-                {/* Inner ring */}
-                <motion.div
-                    className="absolute rounded-full"
-                    style={{ width: 200, height: 200, border: `1px solid ${slide.accentColor}28` }}
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-                />
-
-                {/* Pulsing centre jewel */}
-                <motion.div
-                    className="absolute rounded-full"
-                    style={{
-                        width: 14, height: 14,
-                        background: slide.accentColor,
-                        boxShadow: `0 0 0 8px ${slide.accentColor}28, 0 0 36px 10px ${slide.accentColor}35`,
-                    }}
-                    animate={{ scale: [1, 1.5, 1], opacity: [0.7, 1, 0.7] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                />
-
-                {/* Floating orbs — with generous padding inside the ring area */}
-                <motion.div
-                    className="absolute rounded-full"
-                    style={{ width: 72, height: 72, background: `${slide.accentColor}50`, top: "18%", right: "22%" }}
-                    animate={{ y: [0, -20, 0], scale: [1, 1.1, 1] }}
-                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                />
-                <motion.div
-                    className="absolute rounded-full"
-                    style={{ width: 44, height: 44, background: `${slide.accentColor}40`, bottom: "22%", right: "30%" }}
-                    animate={{ y: [0, -14, 0], scale: [1, 1.12, 1] }}
-                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                />
-                <motion.div
-                    className="absolute rounded-full"
-                    style={{ width: 28, height: 28, background: `${slide.accentColor}35`, top: "58%", right: "14%" }}
-                    animate={{ y: [0, -10, 0] }}
-                    transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                />
-
-                {/* Sparkle dots */}
-                {[
-                    { x: "20%", y: "14%", s: 5, d: 0 },
-                    { x: "78%", y: "20%", s: 4, d: 0.8 },
-                    { x: "8%", y: "68%", s: 5, d: 1.4 },
-                    { x: "82%", y: "70%", s: 4, d: 2.1 },
-                    { x: "50%", y: "88%", s: 5, d: 0.4 },
-                    { x: "35%", y: "8%", s: 4, d: 1.8 },
-                    { x: "65%", y: "40%", s: 3, d: 2.6 },
-                    { x: "42%", y: "55%", s: 3, d: 1.1 },
-                    { x: "72%", y: "55%", s: 4, d: 3.2 },
-                ].map((dot, i) => (
+                    {/* Mid ring */}
                     <motion.div
-                        key={i}
-                        className="absolute rounded-full pointer-events-none sparkle-blink"
-                        style={{
-                            width: dot.s,
-                            height: dot.s,
-                            left: dot.x,
-                            top: dot.y,
-                            background: slide.accentColor,
-                            animationDelay: `${dot.d}s`,
-                        }}
+                        className="absolute rounded-full"
+                        style={{ width: 320, height: 320, border: `1px solid ${slide.accentColor}35` }}
+                        animate={{ rotate: -360 }}
+                        transition={{ duration: 34, repeat: Infinity, ease: "linear" }}
                     />
-                ))}
 
-                {/* Shimmer lines */}
-                <motion.div
-                    className="absolute pointer-events-none"
-                    style={{
-                        height: "1px", left: "10%", right: "10%", top: "30%",
-                        background: `linear-gradient(90deg, transparent, ${slide.accentColor}65, transparent)`,
-                        transformOrigin: "left",
-                    }}
-                    animate={{ scaleX: [0, 1, 0], opacity: [0, 1, 0] }}
-                    transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-                />
-                <motion.div
-                    className="absolute pointer-events-none"
-                    style={{
-                        height: "1px", left: "18%", right: "18%", bottom: "28%",
-                        background: `linear-gradient(90deg, transparent, ${slide.accentColor}50, transparent)`,
-                        transformOrigin: "left",
-                    }}
-                    animate={{ scaleX: [0, 1, 0], opacity: [0, 1, 0] }}
-                    transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1.8 }}
-                />
+                    {/* Inner ring */}
+                    <motion.div
+                        className="absolute rounded-full"
+                        style={{ width: 200, height: 200, border: `1px solid ${slide.accentColor}28` }}
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
+                    />
 
+                    {/* Pulsing centre jewel */}
+                    <motion.div
+                        className="absolute rounded-full"
+                        style={{
+                            width: 14, height: 14,
+                            background: slide.accentColor,
+                            boxShadow: `0 0 0 8px ${slide.accentColor}28, 0 0 36px 10px ${slide.accentColor}35`,
+                        }}
+                        animate={{ scale: [1, 1.5, 1], opacity: [0.7, 1, 0.7] }}
+                        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                    />
+
+                    {/* Floating orbs — with generous padding inside the ring area */}
+                    <motion.div
+                        className="absolute rounded-full"
+                        style={{ width: 72, height: 72, background: `${slide.accentColor}50`, top: "18%", right: "22%" }}
+                        animate={{ y: [0, -20, 0], scale: [1, 1.1, 1] }}
+                        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                    />
+                    <motion.div
+                        className="absolute rounded-full"
+                        style={{ width: 44, height: 44, background: `${slide.accentColor}40`, bottom: "22%", right: "30%" }}
+                        animate={{ y: [0, -14, 0], scale: [1, 1.12, 1] }}
+                        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                    />
+                    <motion.div
+                        className="absolute rounded-full"
+                        style={{ width: 28, height: 28, background: `${slide.accentColor}35`, top: "58%", right: "14%" }}
+                        animate={{ y: [0, -10, 0] }}
+                        transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                    />
+
+                    {/* Sparkle dots */}
+                    {[
+                        { x: "20%", y: "14%", s: 5, d: 0 },
+                        { x: "78%", y: "20%", s: 4, d: 0.8 },
+                        { x: "8%", y: "68%", s: 5, d: 1.4 },
+                        { x: "82%", y: "70%", s: 4, d: 2.1 },
+                        { x: "50%", y: "88%", s: 5, d: 0.4 },
+                        { x: "35%", y: "8%", s: 4, d: 1.8 },
+                        { x: "65%", y: "40%", s: 3, d: 2.6 },
+                        { x: "42%", y: "55%", s: 3, d: 1.1 },
+                        { x: "72%", y: "55%", s: 4, d: 3.2 },
+                    ].map((dot, i) => (
+                        <motion.div
+                            key={i}
+                            className="absolute rounded-full pointer-events-none sparkle-blink"
+                            style={{
+                                width: dot.s,
+                                height: dot.s,
+                                left: dot.x,
+                                top: dot.y,
+                                background: slide.accentColor,
+                                animationDelay: `${dot.d}s`,
+                            }}
+                        />
+                    ))}
+
+                    {/* Shimmer lines */}
+                    <motion.div
+                        className="absolute pointer-events-none"
+                        style={{
+                            height: "1px", left: "10%", right: "10%", top: "30%",
+                            background: `linear-gradient(90deg, transparent, ${slide.accentColor}65, transparent)`,
+                            transformOrigin: "left",
+                        }}
+                        animate={{ scaleX: [0, 1, 0], opacity: [0, 1, 0] }}
+                        transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+                    />
+                    <motion.div
+                        className="absolute pointer-events-none"
+                        style={{
+                            height: "1px", left: "18%", right: "18%", bottom: "28%",
+                            background: `linear-gradient(90deg, transparent, ${slide.accentColor}50, transparent)`,
+                            transformOrigin: "left",
+                        }}
+                        animate={{ scaleX: [0, 1, 0], opacity: [0, 1, 0] }}
+                        transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1.8 }}
+                    />
+
+                    {/* Category badge */}
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={`tag-${slide.id}`}
+                            className="absolute bottom-12 right-10 z-30 flex items-center gap-2 px-5 py-2.5 rounded-full"
+                            style={{
+                                background: "rgba(255,252,248,0.80)",
+                                border: `1px solid ${slide.accentColor}45`,
+                                backdropFilter: "blur(12px)",
+                            }}
+                            initial={{ opacity: 0, y: 12 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ delay: 0.5 }}
+                        >
+                            <motion.span
+                                className="w-2 h-2 rounded-full"
+                                style={{ background: slide.accentColor }}
+                                animate={{ scale: [1, 1.5, 1] }}
+                                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                            />
+                            <span className="text-xs uppercase tracking-[0.18em] font-medium font-body" style={{ color: slide.accentColor }}>
+                                {slide.eyebrow}
+                            </span>
+                        </motion.div>
+                    </AnimatePresence>
+                </motion.div>
                 {/* Photo — sits on top of decorations when provided */}
                 {slide.photo && (
                     <AnimatePresence mode="wait">
@@ -266,40 +298,18 @@ export function HeroSlider() {
                                 filter: `drop-shadow(0 32px 60px rgba(0,0,0,0.10)) drop-shadow(0 6px 18px ${slide.accentColor}30)`,
                             }}
                             initial={{ opacity: 0, scale: 0.94, y: 24 }}
-                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            animate={{
+                                opacity: 1,
+                                scale: 1.1, // Increased size for both based on user request
+                                y: 0,
+                                x: slide.id === "haircare" ? -160 : -50 // Large shift for hair, small shift for skin
+                            }}
                             exit={{ opacity: 0 }}
                             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
                             draggable={false}
                         />
                     </AnimatePresence>
                 )}
-
-                {/* Category badge */}
-                <AnimatePresence mode="wait">
-                    <motion.div
-                        key={`tag-${slide.id}`}
-                        className="absolute bottom-12 right-10 z-30 flex items-center gap-2 px-5 py-2.5 rounded-full"
-                        style={{
-                            background: "rgba(255,252,248,0.80)",
-                            border: `1px solid ${slide.accentColor}45`,
-                            backdropFilter: "blur(12px)",
-                        }}
-                        initial={{ opacity: 0, y: 12 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ delay: 0.5 }}
-                    >
-                        <motion.span
-                            className="w-2 h-2 rounded-full"
-                            style={{ background: slide.accentColor }}
-                            animate={{ scale: [1, 1.5, 1] }}
-                            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                        />
-                        <span className="text-xs uppercase tracking-[0.18em] font-medium font-body" style={{ color: slide.accentColor }}>
-                            {slide.eyebrow}
-                        </span>
-                    </motion.div>
-                </AnimatePresence>
             </div>
 
             {/* ── Content: centred within the full-width single background ──────── */}
@@ -332,7 +342,7 @@ export function HeroSlider() {
                                             animate={{ scaleX: 1 }}
                                             transition={{ duration: 0.5, delay: 0.15 }}
                                         />
-                                        <span className="text-xs uppercase tracking-[0.3em] font-body font-medium" style={{ color: slide.accentColor }}>
+                                        <span className="text-xs uppercase tracking-[0.3em] font-body font-medium text-hero-gold">
                                             {slide.eyebrow}
                                         </span>
                                     </div>
@@ -341,8 +351,8 @@ export function HeroSlider() {
                                         style={{ fontSize: "clamp(2.8rem, 5.5vw, 5rem)", lineHeight: 1.06, fontWeight: 300 }}>
                                         {slide.heading}
                                     </h1>
-                                    <h1 className="font-heading mb-7"
-                                        style={{ fontSize: "clamp(2.8rem, 5.5vw, 5rem)", lineHeight: 1.06, fontWeight: 500, fontStyle: "italic", color: slide.accentColor }}>
+                                    <h1 className="font-heading mb-7 text-hero-gold"
+                                        style={{ fontSize: "clamp(2.8rem, 5.5vw, 5rem)", lineHeight: 1.06, fontWeight: 500, fontStyle: "italic" }}>
                                         {slide.headingItalic}
                                     </h1>
 

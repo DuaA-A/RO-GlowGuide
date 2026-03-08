@@ -409,6 +409,15 @@
     background-clip: text;
   }
 
+  .text-hero-gold {
+    background: linear-gradient(135deg, #B4916B 0%, #E2C99A 50%, #B4916B 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+  }
+
   .text-espresso-gradient {
     background: linear-gradient(135deg, #3D2B1F 0%, #7A6858 100%);
     -webkit-background-clip: text;

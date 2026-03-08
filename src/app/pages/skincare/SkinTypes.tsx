@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Link } from "react-router";
-import { Check, ChevronRight, AlertCircle } from "lucide-react";
+import { Check, ChevronRight } from "lucide-react";
 import { SectionHeader } from "../../components/SectionHeader";
 import { skinTypes, skinConditions } from "../../data/skincare";
 
@@ -226,21 +226,7 @@ export function SkinTypes() {
                     )}
                 </AnimatePresence>
 
-                {/* Disclaimer */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="mt-16 bg-linen border border-warm-beige rounded-2xl p-6 flex gap-5 items-start"
-                >
-                    <AlertCircle className="w-5 h-5 text-taupe flex-shrink-0 mt-0.5" />
-                    <div>
-                        <p className="text-sm font-medium text-espresso mb-1">Important Note</p>
-                        <p className="text-sm text-mink leading-relaxed">
-                            This information is for educational purposes only. Severe or persistent skin concerns should be evaluated by a qualified dermatologist. Nothing on this platform constitutes professional medical advice.
-                        </p>
-                    </div>
-                </motion.div>
+
 
             </div>
         </div>

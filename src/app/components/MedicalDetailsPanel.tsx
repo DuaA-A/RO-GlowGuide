@@ -87,11 +87,6 @@ export function MedicalDetailsPanel({ details }: MedicalDetailsPanelProps) {
                         className="overflow-hidden"
                     >
                         <div className="px-5 pb-6 pt-2 border-t border-[#D4C5B5]">
-                            <p className="text-xs text-taupe italic mb-5 leading-relaxed">
-                                The following information is intended for medical and clinical professionals.
-                                This is not a substitute for professional medical advice.
-                            </p>
-
                             <div className="space-y-5">
                                 {rows.map((row, idx) => {
                                     const Icon = row.icon;

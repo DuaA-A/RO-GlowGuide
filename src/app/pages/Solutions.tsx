@@ -75,7 +75,7 @@ export function Solutions() {
           name: "Prescription Retinoid",
           benefit: "Medical-grade cell turnover and deep pore clearing",
           ingredients: "Tretinoin, Adapalene (Rx required)",
-          usage: "As directed by dermatologist",
+          usage: "Apply once daily or as per package instructions",
           image: "https://images.unsplash.com/photo-1686121522744-dc323ce3fb26?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3NtZXRpYyUyMHNlcnVtJTIwYm90dGxlJTIwcGlua3xlbnwxfHx8fDE3NzIwNzM0MDl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
         },
         {
@@ -105,7 +105,7 @@ export function Solutions() {
           name: "Spironolactone (Rx)",
           benefit: "Blocks androgens that trigger oil production",
           ingredients: "Spironolactone (prescription only)",
-          usage: "As prescribed by healthcare provider",
+          usage: "Apply as directed on product labeling",
           image: "https://images.unsplash.com/photo-1686121522744-dc323ce3fb26?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3NtZXRpYyUyMHNlcnVtJTIwYm90dGxlJTIwcGlua3xlbnwxfHx8fDE3NzIwNzM0MDl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
         },
         {
@@ -266,7 +266,7 @@ export function Solutions() {
             <div className="flex gap-3">
               <CheckCircle2 className="w-6 h-6 text-pink-500 flex-shrink-0 mt-1" />
               <div>
-                <p className="text-gray-700 mb-1">Consult a dermatologist for severe or persistent acne.</p>
+                <p className="text-gray-700 mb-1">Stay consistent with your routine for 4-6 weeks to see results.</p>
               </div>
             </div>
           </div>
