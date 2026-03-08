@@ -56,20 +56,32 @@ export function SkincareSolutions() {
                             className="luxury-card overflow-hidden h-[85vh] flex flex-col"
                         >
                             {/* Routine header with alternating layout - Fixed height portion */}
-                            <div className={`grid md:grid-cols-3 gap-0 flex-none ${i % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
-                                <div className={`relative h-40 md:h-auto ${i % 2 === 1 ? 'md:order-2' : ''}`}>
-                                    {routine.image ? (
+                            {routine.image ? (
+                                <div className={`grid md:grid-cols-3 gap-0 flex-none ${i % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+                                    <div className={`relative h-64 md:h-full md:min-h-[320px] ${i % 2 === 1 ? 'md:order-2' : ''}`}>
                                         <img src={routine.image} alt={routine.name} className="w-full h-full object-cover" />
-                                    ) : (
-                                        <PlaceholderImage label={routine.name} />
-                                    )}
+                                    </div>
+                                    <div className={`md:col-span-2 p-6 md:p-8 ${i % 2 === 1 ? 'md:order-1' : ''}`}>
+                                        <div className="flex items-center gap-3 mb-3">
+                                            <span className="badge-skincare">{routine.targetType} skin</span>
+                                        </div>
+                                        <h3 className="font-heading text-espresso mb-2 text-2xl">{routine.name}</h3>
+                                        <p className="text-espresso/90 text-sm leading-relaxed mb-4 line-clamp-2">
+                                            {routine.description}</p>
+
+                                        <div className="flex items-center gap-4 text-[10px] uppercase tracking-wider text-taupe font-bold">
+                                            <span className="flex items-center gap-1.5"><Layers className="w-3.5 h-3.5" />{routine.steps.length} steps</span>
+                                            <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" />Daily routine</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className={`md:col-span-2 p-6 md:p-8 ${i % 2 === 1 ? 'md:order-1' : ''}`}>
+                            ) : (
+                                <div className="p-6 md:p-8 flex-none">
                                     <div className="flex items-center gap-3 mb-3">
                                         <span className="badge-skincare">{routine.targetType} skin</span>
                                     </div>
                                     <h3 className="font-heading text-espresso mb-2 text-2xl">{routine.name}</h3>
-                                    <p className="text-espresso/90 text-sm leading-relaxed mb-4 line-clamp-2">
+                                    <p className="text-espresso/90 text-sm leading-relaxed mb-4 max-w-3xl">
                                         {routine.description}</p>
 
                                     <div className="flex items-center gap-4 text-[10px] uppercase tracking-wider text-taupe font-bold">
@@ -77,7 +89,7 @@ export function SkincareSolutions() {
                                         <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" />Daily routine</span>
                                     </div>
                                 </div>
-                            </div>
+                            )}
 
                             {/* Steps Grid - Scrollable portion */}
                             <div className="flex-grow overflow-y-auto border-t border-warm-beige px-6 py-6 md:px-10 bg-cream/30 scrollbar-thin">

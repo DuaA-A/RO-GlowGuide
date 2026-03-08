@@ -21,7 +21,7 @@ export const skinTypes: SkinType[] = [
             "Use a broad-spectrum SPF 30+ daily",
             "Incorporate a lightweight antioxidant serum",
         ],
-        image: "https://images.pexels.com/photos/3762466/pexels-photo-3762466.jpeg",
+        image: "https://sentelabs.com/cdn/shop/articles/how-to-restore-a-healthy-skin-barrier-817769.jpg?",
         color: "warm-beige",
     },
     {
@@ -81,7 +81,7 @@ export const skinTypes: SkinType[] = [
             "Niacinamide and Hyaluronic Acid are ideal core ingredients",
             "Balance the T-zone with gentle exfoliating toners",
         ],
-        image: "https://www.goaesthetic.at/wp-content/uploads/2024/06/Mischhaut-2.jpg",
+        image: "https://cdn.shopify.com/s/files/1/0473/8904/8992/files/Combination_skin_0f9bb743-5e6f-4501-b706-34339e781098_480x480.jpg",
         color: "taupe",
     },
     {
@@ -101,9 +101,10 @@ export const skinTypes: SkinType[] = [
             "Avoid fragrance, alcohol, and harsh exfoliating acids",
             "Madecassoside helps repair and soothe reactive zones",
         ],
-        image: "",
+        image: "https://yourbasicprinciple.com/cdn/shop/articles/Guide_to_Rosacea.png",
         color: "blush",
     },
+
 ];
 
 // ── Skin Conditions ──────────────────────────────────────────────────────────
@@ -139,7 +140,7 @@ export const skinConditions: SkinCondition[] = [
             "Hormonal changes",
             "Oily or occlusive cosmetics",
         ],
-        image: "https://my.clevelandclinic.org/-/scassets/images/org/health/articles/comedonal-acne",
+        image: "https://theelement.skin/cdn/shop/articles/images-30_7e91d155-8fa1-497f-a5dd-80c868aadc1c.jpg?v=1746588494",
         color: "sand",
     },
     {
@@ -217,7 +218,7 @@ export const skincareRoutines: Routine[] = [
         description:
             "An intense moisture-restoring routine for dry and dehydrated skin. Placeholder: replace with full routine rationale.",
         targetType: "dry",
-        image: "https://geimshospital.com/wp-content/uploads/2025/11/banner-5.jpg",
+        image: "https://kotilskinscience.com/wp-content/uploads/2023/12/dehydrated.webp",
         steps: [
             { step: 1, name: "Oil Cleanser", description: "Placeholder: balm or oil cleanser.", timing: "PM" },
             { step: 2, name: "Cream Cleanser", description: "Placeholder: creamy, non-stripping cleanser.", timing: "AM & PM" },
@@ -234,7 +235,7 @@ export const skincareRoutines: Routine[] = [
         description:
             "A clinical routine designed to control excess oil and maintain a healthy skin barrier without adding shine.",
         targetType: "oily",
-        image: "https://images.pexels.com/photos/3762466/pexels-photo-3762466.jpeg",
+        image: "https://cdn.shopify.com/s/files/1/0247/1939/2873/files/OilySkin-BeforeAfter_600x600.png",
         steps: [
             { step: 1, name: "Cleansing", description: "Use a gentle gel cleanser twice daily to remove excess oil without stripping the skin.", timing: "AM & PM" },
             { step: 2, name: "Mist", description: "A refreshing thermal water mist to soothe and hydrate.", timing: "As needed" },
@@ -248,7 +249,7 @@ export const skincareRoutines: Routine[] = [
         description:
             "A specialized recovery routine for skin that is both oily and prone to breakouts, focusing on clearing pores and healing the barrier.",
         targetType: "acne-prone",
-        image: "https://porcelainskin.com/cdn/shop/articles/Close-up_of_the_skin_of_a_young_girl_with_acne_problem.jpg?v=1731921280",
+        image: "https://cdn.shopify.com/s/files/1/0746/0952/5042/files/sea_buckthorn_oil_skin_before_and_after_600x600.jpg",
         steps: [
             { step: 1, name: "Double Cleansing", description: "Use Micellar water followed by a targeted gel like Effaclar Gel to deeply purify.", timing: "PM" },
             { step: 2, name: "Morning Cleansing", description: "Wash with Effaclar Gel to remove overnight sebum.", timing: "AM" },
@@ -263,6 +264,8 @@ export const skincareRoutines: Routine[] = [
         description:
             "A minimal, barrier-supporting routine for reactive and sensitive skin. Placeholder: replace with full routine rationale.",
         targetType: "sensitive",
+        image: "https://cdn.shopify.com/s/files/1/0746/0952/5042/files/sea_buckthorn_oil_skin_before_and_after_600x600.jpg",
+
         steps: [
             { step: 1, name: "Micellar / Gentle Cleanser", description: "Placeholder: fragrance-free, pH-balanced cleanser.", timing: "AM & PM" },
             { step: 2, name: "Centella Serum", description: "Placeholder: calming centella or azelaic acid serum.", timing: "AM & PM" },
@@ -275,6 +278,7 @@ export const skincareRoutines: Routine[] = [
         name: "Acne Management Routine",
         description: "A clinical routine focusing on clearing inflammation, killing acne bacteria, and restoring the barrier.",
         targetType: "inflammatory",
+        image: "https://cdn.prod.website-files.com/675ac5b5763bca154f1db7b9/675ac5b5763bca154f1dbc9c_conditionacne.jpg",
         steps: [
             { step: 1, name: "Salicylic Cleanser", description: "Use a gel cleanser with BHA to penetrate pores.", timing: "AM & PM" },
             { step: 2, name: "Azelaic Acid", description: "Apply to inflamed areas to reduce redness and bacteria.", timing: "AM" },
@@ -282,23 +286,24 @@ export const skincareRoutines: Routine[] = [
             { step: 4, name: "Oil-Free Moisturiser", description: "Non-comedogenic hydration to support the barrier.", timing: "AM & PM" },
         ],
     },
-    {
-        id: "rosacea-routine",
-        name: "Rosacea Calming Routine",
-        description: "A specialized routine to reduce redness, strengthen capillaries, and soothe hypersensitive skin.",
-        targetType: "rosacea",
-        steps: [
-            { step: 1, name: "Gentle Milky Cleanser", description: "Avoid foaming agents that can trigger flushing.", timing: "AM & PM" },
-            { step: 2, name: "Soothing Toner", description: "Thermal water or rose water to cool the skin.", timing: "As needed" },
-            { step: 3, name: "Azelaic Acid (10-15%)", description: "Dermatologist gold-standard for rosacea redness.", timing: "PM" },
-            { step: 4, name: "Barrier Cream", description: "Rich in ceramides and panthenol to shield skin.", timing: "AM & PM" },
-        ],
-    },
+    // {
+    //     id: "rosacea-routine",
+    //     name: "Rosacea Calming Routine",
+    //     description: "A specialized routine to reduce redness, strengthen capillaries, and soothe hypersensitive skin.",
+    //     targetType: "rosacea",
+    //     steps: [
+    //         { step: 1, name: "Gentle Milky Cleanser", description: "Avoid foaming agents that can trigger flushing.", timing: "AM & PM" },
+    //         { step: 2, name: "Soothing Toner", description: "Thermal water or rose water to cool the skin.", timing: "As needed" },
+    //         { step: 3, name: "Azelaic Acid (10-15%)", description: "Dermatologist gold-standard for rosacea redness.", timing: "PM" },
+    //         { step: 4, name: "Barrier Cream", description: "Rich in ceramides and panthenol to shield skin.", timing: "AM & PM" },
+    //     ],
+    // },
     {
         id: "eczema-routine",
         name: "Eczema Flare-Up Routine",
         description: "A high-lipid routine to restore the skin's moisture barrier and stop the itch-scratch cycle.",
         targetType: "eczema",
+        image: "https://www.hopedermatology.com.au/wp-content/uploads/2022/01/3eee.jpg",
         steps: [
             { step: 1, name: "Soap-Free Wash", description: "Use ultra-gentle, lipid-replenishing washes.", timing: "Daily" },
             { step: 2, name: "Healing Balm", description: "Apply thick, oily balms (AP+M) to damp skin.", timing: "As needed" },
@@ -310,6 +315,7 @@ export const skincareRoutines: Routine[] = [
         name: "Pigment Correction Routine",
         description: "A brightening routine targeting dark spots, melasma, and post-acne marks (PIH).",
         targetType: "hyperpigmentation",
+        image: "https://columbiaskinclinic.com/wp-content/uploads/2020/11/the-truth-about-hyperpigmentation-.jpg",
         steps: [
             { step: 1, name: "Exfoliating Cleanser", description: "Alpha-hydroxy acids to boost cell turnover.", timing: "PM (3x weekly)" },
             { step: 2, name: "Vitamin C Serum", description: "Antioxidant to brighten and prevent UV damage.", timing: "AM" },

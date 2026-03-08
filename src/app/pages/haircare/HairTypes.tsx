@@ -90,15 +90,16 @@ export function HairTypes() {
                                     transition={{ delay: i * 0.08, duration: 0.5 }}
                                     className="luxury-card overflow-hidden"
                                 >
-                                    <div className="grid md:grid-cols-5 gap-0">
-                                        <div className="md:col-span-2 relative h-56 md:h-auto">
-                                            {hair.image ? (
+                                    <div className={`grid ${hair.image ? 'md:grid-cols-5' : 'grid-cols-1'} gap-0`}>
+                                        {/* Image */}
+                                        {hair.image && (
+                                            <div className="md:col-span-2 relative h-64 md:h-full min-h-[320px]">
                                                 <img src={hair.image} alt={hair.name} className="w-full h-full object-cover" />
-                                            ) : (
-                                                <PlaceholderImage label={hair.name} />
-                                            )}
-                                        </div>
-                                        <div className="md:col-span-3 p-8 md:p-10">
+                                            </div>
+                                        )}
+
+                                        {/* Content */}
+                                        <div className={`${hair.image ? 'md:col-span-3' : 'md:col-span-1'} p-8 md:p-10`}>
                                             <p className="text-xs uppercase tracking-[0.15em] text-espresso/70 mb-1">{hair.pattern}</p>
                                             <h3 className="font-heading text-espresso mb-3">{hair.name}</h3>
                                             <p className="text-espresso/90 text-sm leading-relaxed mb-6">{hair.description}</p>
@@ -162,21 +163,29 @@ export function HairTypes() {
                                         transition={{ delay: i * 0.08, duration: 0.5 }}
                                         className="luxury-card overflow-hidden"
                                     >
-                                        <div className="grid md:grid-cols-5 gap-0">
-                                            <div className="md:col-span-2 relative h-56 md:h-auto">
-                                                {condition.image ? (
+                                        <div className={`grid ${condition.image ? 'md:grid-cols-5' : 'grid-cols-1'} gap-0`}>
+                                            {/* Image */}
+                                            {condition.image && (
+                                                <div className="md:col-span-2 relative h-64 md:h-full min-h-[320px]">
                                                     <img src={condition.image} alt={condition.name} className="w-full h-full object-cover" />
-                                                ) : (
-                                                    <PlaceholderImage label={condition.name} />
-                                                )}
-                                                <div className="absolute top-4 right-4">
-                                                    <span className={`text-xs px-3 py-1 rounded-full border ${sev.bg} ${sev.text} ${sev.border}`}>
-                                                        {condition.severity}
-                                                    </span>
+                                                    {/* Severity badge inside if it has image */}
+                                                    <div className="absolute top-4 right-4 z-10">
+                                                        <span className={`text-xs px-3 py-1 rounded-full border ${sev.bg} ${sev.text} ${sev.border}`}>
+                                                            {condition.severity}
+                                                        </span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className="md:col-span-3 p-8 md:p-10">
-                                                <h3 className="font-heading text-espresso mb-3">{condition.name}</h3>
+                                            )}
+
+                                            <div className={`${condition.image ? 'md:col-span-3' : 'md:col-span-1'} p-8 md:p-10`}>
+                                                <div className="flex items-center justify-between mb-4">
+                                                    <h3 className="font-heading text-espresso text-2xl">{condition.name}</h3>
+                                                    {!condition.image && (
+                                                        <span className={`text-xs px-3 py-1 rounded-full border ${sev.bg} ${sev.text} ${sev.border}`}>
+                                                            {condition.severity}
+                                                        </span>
+                                                    )}
+                                                </div>
                                                 <p className="text-espresso/90 text-sm md:text-base leading-relaxed mb-6">{condition.description}</p>
 
                                                 <div className="grid sm:grid-cols-2 gap-6">
@@ -222,8 +231,6 @@ export function HairTypes() {
                         </motion.div>
                     )}
                 </AnimatePresence>
-
-
 
             </div>
         </div>

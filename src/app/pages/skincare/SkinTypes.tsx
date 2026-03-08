@@ -92,18 +92,16 @@ export function SkinTypes() {
                                     transition={{ delay: i * 0.08, duration: 0.5 }}
                                     className="luxury-card overflow-hidden"
                                 >
-                                    <div className="grid md:grid-cols-5 gap-0">
+                                    <div className={`grid ${skin.image ? 'md:grid-cols-5' : 'grid-cols-1'} gap-0`}>
                                         {/* Image */}
-                                        <div className="md:col-span-2 relative h-56 md:h-auto">
-                                            {skin.image ? (
+                                        {skin.image && (
+                                            <div className="md:col-span-2 relative h-64 md:h-full min-h-[320px]">
                                                 <img src={skin.image} alt={skin.name} className="w-full h-full object-cover" />
-                                            ) : (
-                                                <PlaceholderImage label={skin.name} />
-                                            )}
-                                        </div>
+                                            </div>
+                                        )}
 
                                         {/* Content */}
-                                        <div className="md:col-span-3 p-8 md:p-10">
+                                        <div className={`${skin.image ? 'md:col-span-3' : 'md:col-span-5'} p-8 md:p-10`}>
                                             <div className="flex items-center gap-3 mb-4">
                                                 <span className="badge-skincare">{skin.name}</span>
                                             </div>
@@ -170,25 +168,30 @@ export function SkinTypes() {
                                         transition={{ delay: i * 0.08, duration: 0.5 }}
                                         className="luxury-card overflow-hidden"
                                     >
-                                        <div className="grid md:grid-cols-5 gap-0">
+                                        <div className={`grid ${condition.image ? 'md:grid-cols-5' : 'grid-cols-1'} gap-0`}>
                                             {/* Image */}
-                                            <div className="md:col-span-2 relative h-56 md:h-auto">
-                                                {condition.image ? (
+                                            {condition.image && (
+                                                <div className="md:col-span-2 relative h-64 md:h-full min-h-[320px]">
                                                     <img src={condition.image} alt={condition.name} className="w-full h-full object-cover" />
-                                                ) : (
-                                                    <PlaceholderImage label={condition.name} />
-                                                )}
-                                                {/* Severity badge */}
-                                                <div className="absolute top-4 right-4">
-                                                    <span className={`text-xs px-3 py-1 rounded-full border ${sev.bg} ${sev.text} ${sev.border}`}>
-                                                        {condition.severity}
-                                                    </span>
+                                                    {/* Severity badge inside if it has image */}
+                                                    <div className="absolute top-4 right-4 z-10">
+                                                        <span className={`text-xs px-3 py-1 rounded-full border ${sev.bg} ${sev.text} ${sev.border}`}>
+                                                            {condition.severity}
+                                                        </span>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            )}
 
                                             {/* Content */}
-                                            <div className="md:col-span-3 p-8 md:p-10">
-                                                <p className="text-xs uppercase tracking-[0.15em] text-wine-dark/70 mb-2">{condition.type}</p>
+                                            <div className={`${condition.image ? 'md:col-span-3' : 'md:col-span-5'} p-8 md:p-10`}>
+                                                <div className="flex items-center justify-between mb-4">
+                                                    <p className="text-xs uppercase tracking-[0.15em] text-wine-dark/70">{condition.type}</p>
+                                                    {!condition.image && (
+                                                        <span className={`text-xs px-3 py-1 rounded-full border ${sev.bg} ${sev.text} ${sev.border}`}>
+                                                            {condition.severity}
+                                                        </span>
+                                                    )}
+                                                </div>
                                                 <h3 className="font-heading text-espresso mb-3">{condition.name}</h3>
                                                 <p className="text-espresso/90 text-sm md:text-base leading-relaxed mb-6">{condition.description}</p>
 
