@@ -182,6 +182,16 @@ export const scalpConditions: ScalpCondition[] = [
         image: "",
         color: "mink",
     },
+    {
+        id: "hair-loss",
+        name: "Hair Loss & Thinning",
+        severity: "Moderate",
+        description: "Thinning hair or localized loss often caused by hormonal shifts, stress, or nutrient deficiencies.",
+        causes: ["Androgenetic factors", "Post-partum hormonal shifts", "Nutrient deficiencies", "Traction or stress"],
+        tips: ["Use minoxidil-based treatments", "Scalp massage to boost circulation", "Avoid tight hairstyles"],
+        image: "",
+        color: "sand",
+    },
 ];
 
 // ── Haircare Routines ─────────────────────────────────────────────────────────
@@ -198,7 +208,6 @@ export const haircareRoutines: Routine[] = [
             { step: 2, name: "Minoxidil Application", description: "Apply foam or liquid directly to thinning areas.", timing: "AM & PM" },
             { step: 3, name: "Scalp Massage", description: "Promotes blood circulation to the follicle roots.", timing: "5 mins daily" },
         ],
-        image: "",
     },
     {
         id: "scalp-eczema-routine",
@@ -210,7 +219,6 @@ export const haircareRoutines: Routine[] = [
             { step: 2, name: "Gentle pH-Balanced Shampoo", description: "Cleanse without stripping natural oils.", timing: "AM" },
             { step: 3, name: "Scalp Oil", description: "Moisturize the scalp skin with light jojoba or squalane.", timing: "Weekly" },
         ],
-        image: "",
     },
     {
         id: "split-ends-routine",
@@ -222,7 +230,6 @@ export const haircareRoutines: Routine[] = [
             { step: 2, name: "Leave-in Sealant", description: "Concentrate on the bottom 2 inches of hair.", timing: "Daily" },
             { step: 3, name: "Heat Protectant", description: "Essential before any styling tool use.", timing: "As needed" },
         ],
-        image: "",
     },
     {
         id: "straight-routine",
@@ -236,7 +243,6 @@ export const haircareRoutines: Routine[] = [
             { step: 3, name: "Lightweight Conditioner", description: "Placeholder: Apply mid-lengths to ends.", timing: "Every wash" },
             { step: 4, name: "Leave-in Spray", description: "Placeholder: Detangling and heat protection spray.", timing: "Before styling" },
         ],
-        image: "",
     },
     {
         id: "curly-routine",
@@ -251,7 +257,6 @@ export const haircareRoutines: Routine[] = [
             { step: 4, name: "Curl Defining Cream", description: "Placeholder: Apply over leave-in to clump curls.", timing: "Every wash" },
             { step: 5, name: "Gel Layer", description: "Placeholder: Seals the curl cast for definition.", timing: "Every wash" },
         ],
-        image: "",
     },
     {
         id: "coily-routine",
@@ -266,7 +271,6 @@ export const haircareRoutines: Routine[] = [
             { step: 4, name: "Deep Conditioner", description: "Placeholder: Heavy cream conditioner with heat.", timing: "Weekly" },
             { step: 5, name: "LOC Method", description: "Placeholder: Liquid > Oil > Cream application sequence.", timing: "Every wash + top-up daily" },
         ],
-        image: "",
     },
     {
         id: "general-routine",
@@ -281,7 +285,6 @@ export const haircareRoutines: Routine[] = [
             { step: 4, name: "Serum / Leave-in", description: "Protects from heat and controls frizz on damp hair.", timing: "Daily / After wash" },
             { step: 5, name: "Heat Protection", description: "Crucial step before using any dryers or straighteners.", timing: "Before styling" },
         ],
-        image: "",
     },
     {
         id: "scalp-treatment-routine",
@@ -337,6 +340,7 @@ export const haircareProducts: Product[] = [
         benefits: ["Eliminates flaking", "Controls fungus growth", "Soothes scalp itching"],
         image: "https://i5.walmartimages.com/asr/9615bd18-d0f0-45bf-849a-904cf8caef77_1.150025e8a4f12053ef70913c30ffea3a.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF",
         targetTypes: ["dandruff", "all", "oily-scalp", "seborrheic-dermatitis"],
+        concerns: ["dandruff", "seborrheic-dermatitis"],
         medicalDetails: {
             mechanismOfAction:
                 "Ketoconazole inhibits the synthesis of ergosterol, disrupting fungal cell membranes (Malassezia). Zinc Pyrithione is antibacterial/antifungal.",
@@ -404,6 +408,7 @@ export const haircareProducts: Product[] = [
         benefits: ["Clinically proven regrowth", "Easy-to-use foam", "Revitalizes follicles"],
         image: "https://tdawi.com/uae-ar/rogaine-men-s-5-pure-minoxidil-foam-for-hair-loss-and-hair-regrowth-topical-treatment-for-thinning-hair-one-month-supply?srsltid=AfmBOoqlTKJ0xKHx33Eb8nZqdwB8NWeW7d7u6DZ_vL5tywLUOyqOnjGR",
         targetTypes: ["hair-loss", "alopecia", "thinning"],
+        concerns: ["hair-loss"],
         medicalDetails: {
             mechanismOfAction: "Increases blood flow to hair follicles, widening blood vessels and shortening the telogen phase to push hair into the anagen phase.",
             sideEffects: ["Scalp irritation", "unwanted facial hair growth", "temporary shedding"],
@@ -423,6 +428,7 @@ export const haircareProducts: Product[] = [
         benefits: ["Blocks DHT", "Prevents further loss", "Effective for pattern baldness"],
         image: "https://www.curely.co.uk/medications/propecia-branded-finasteride",
         targetTypes: ["hair-loss", "male-pattern-baldness", "thinning"],
+        concerns: ["hair-loss"],
         medicalDetails: {
             mechanismOfAction: "A 5-alpha reductase inhibitor that blocks the conversion of testosterone to DHT, the hormone responsible for follicle miniaturization.",
             sideEffects: ["Sexual dysfunction", "breast tenderness", "depression"],
@@ -460,6 +466,7 @@ export const haircareProducts: Product[] = [
         benefits: ["Prescription strength flaking relief", "Removes excess oil", "Soothes itching"],
         image: "https://www.picknsave.com/p/head-shoulders-2-in-1-clinical-strength-dandruff-defense-shampoo-conditioner/0003700067397",
         targetTypes: ["dandruff", "seborrheic-dermatitis"],
+        concerns: ["dandruff", "seborrheic-dermatitis"],
         medicalDetails: {
             mechanismOfAction: "Selenium sulfide is a cytostatic agent that reduces the rate of skin cell turnover on the scalp.",
             pregnancySafety: "Consult physician."
@@ -476,6 +483,7 @@ export const haircareProducts: Product[] = [
         benefits: ["Tough on dandruff", "Menthol for cooling sensation", "Relieves scalp itch"],
         image: "https://www.amazon.eg/-/en/Selsun-Blue-Medicated-Anti-Dandruff-Shampoo/dp/B000052Y0B",
         targetTypes: ["dandruff"],
+        concerns: ["dandruff"],
         medicalDetails: {
             mechanismOfAction: "Antifungal activity against Malassezia yeast and reduces scalp cell proliferation.",
             pregnancySafety: "Consult physician."
@@ -508,6 +516,7 @@ export const haircareProducts: Product[] = [
         benefits: ["Instantly repairs damage", "Prevents split ends", "Adds brilliant shine"],
         image: "https://ph.britishessentials.com/products/pantene-repair-protect-miracle-serum-220ml",
         targetTypes: ["damaged", "split-ends"],
+        concerns: ["split-ends"],
         medicalDetails: {
             mechanismOfAction: "Concentrated conditioning agents coat the hair shaft to protect from breakage and heat.",
             pregnancySafety: "Safe."

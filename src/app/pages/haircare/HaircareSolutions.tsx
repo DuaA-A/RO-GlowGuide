@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { Link, useSearchParams } from "react-router";
 import { Clock, Layers, ArrowRight } from "lucide-react";
 import { SectionHeader } from "../../components/SectionHeader";
-import { haircareRoutines } from "../../data/haircare";
+import { haircareRoutines, hairTypes } from "../../data/haircare";
 
 function PlaceholderImage({ label }: { label: string }) {
     return (
@@ -53,58 +53,61 @@ export function HaircareSolutions() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-60px" }}
                             transition={{ duration: 0.6, delay: i * 0.05 }}
-                            className="luxury-card overflow-hidden"
+                            className="luxury-card overflow-hidden h-[85vh] flex flex-col"
                         >
-                            <div className="grid md:grid-cols-3 gap-0">
-                                <div className="relative h-48 md:h-auto">
+                            {/* Fixed Header */}
+                            <div className={`grid md:grid-cols-3 gap-0 flex-none ${i % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+                                <div className={`relative h-40 md:h-auto ${i % 2 === 1 ? 'md:order-2' : ''}`}>
                                     {routine.image ? (
                                         <img src={routine.image} alt={routine.name} className="w-full h-full object-cover" />
                                     ) : (
                                         <PlaceholderImage label={routine.name} />
                                     )}
                                 </div>
-                                <div className="md:col-span-2 p-8 md:p-10">
-                                    <div className="flex items-center gap-3 mb-4">
+                                <div className={`md:col-span-2 p-6 md:p-8 ${i % 2 === 1 ? 'md:order-1' : ''}`}>
+                                    <div className="flex items-center gap-3 mb-3">
                                         <span className="badge-haircare">{routine.targetType} hair</span>
                                     </div>
-                                    <h3 className="font-heading text-espresso mb-3">{routine.name}</h3>
-                                    <p className="text-espresso/90 text-sm md:text-base leading-relaxed mb-6">{routine.description}</p>
+                                    <h3 className="font-heading text-espresso mb-2 text-2xl">{routine.name}</h3>
+                                    <p className="text-espresso/90 text-sm leading-relaxed mb-4 line-clamp-2">{routine.description}</p>
 
-                                    <div className="flex items-center gap-4 text-xs text-taupe">
+                                    <div className="flex items-center gap-4 text-[10px] uppercase tracking-wider text-taupe font-bold">
                                         <span className="flex items-center gap-1.5"><Layers className="w-3.5 h-3.5" />{routine.steps.length} steps</span>
                                         <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" />Targeted routine</span>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="border-t border-warm-beige px-8 py-8 md:px-10">
-                                <p className="text-xs uppercase tracking-[0.15em] text-gold mb-6">Step-by-Step Routine</p>
-                                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                                    {routine.steps.map((step) => (
-                                        <div key={step.step} className="bg-cream border border-warm-beige rounded-xl p-5 hover:border-gold transition-colors duration-200">
+                            {/* Scrollable Steps */}
+                            <div className="flex-grow overflow-y-auto border-t border-warm-beige px-6 py-6 md:px-10 bg-cream/30 scrollbar-thin">
+                                <p className="text-[10px] uppercase tracking-[0.2em] text-gold mb-6 font-bold">Step-by-Step Routine Guide</p>
+                                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 pb-4">
+                                    {haircareRoutines[i].steps.map((step) => (
+                                        <div key={step.step} className="bg-white border border-warm-beige rounded-xl p-5 hover:border-wine transition-colors duration-300 shadow-sm">
                                             <div className="flex items-center gap-3 mb-3">
                                                 <div className="w-7 h-7 rounded-full bg-espresso flex items-center justify-center flex-shrink-0">
-                                                    <span className="text-cream text-xs font-medium">{step.step}</span>
+                                                    <span className="text-cream text-xs font-bold">{step.step}</span>
                                                 </div>
-                                                <h4 className="text-sm font-medium text-espresso">{step.name}</h4>
+                                                <h4 className="text-sm font-bold text-espresso tracking-tight">{step.name}</h4>
                                             </div>
-                                            <p className="text-sm text-espresso/80 leading-relaxed mb-2">{step.description}</p>
-                                            <span className="inline-block text-xs bg-wine/5 border border-wine/10 text-wine-dark px-2.5 py-1 rounded-full font-medium">
+                                            <p className="text-xs text-espresso/80 leading-relaxed mb-2">{step.description}</p>
+                                            <span className="inline-block text-[9px] uppercase tracking-wide bg-wine/5 border border-wine/10 text-wine font-bold px-2 py-0.5 rounded-full">
                                                 {step.timing}
                                             </span>
                                         </div>
                                     ))}
                                 </div>
+                            </div>
 
-                                <div className="mt-6 pt-6 border-t border-warm-beige">
-                                    <Link
-                                        to={`/haircare/products?type=${routine.targetType}`}
-                                        className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-gold hover:text-gold-dark transition-colors"
-                                    >
-                                        Find products for this routine
-                                        <ArrowRight className="w-3 h-3" />
-                                    </Link>
-                                </div>
+                            {/* Fixed Footer */}
+                            <div className="flex-none p-6 border-t border-warm-beige bg-white flex justify-center">
+                                <Link
+                                    to={`/haircare/products?${hairTypes.some((t: any) => t.id === routine.targetType) ? 'type' : 'concern'}=${routine.targetType}`}
+                                    className="btn-wine py-3 px-8 text-xs"
+                                >
+                                    Explore Compatible Products
+                                    <ArrowRight className="w-4 h-4 ml-1.5" />
+                                </Link>
                             </div>
                         </motion.div>
                     ))}

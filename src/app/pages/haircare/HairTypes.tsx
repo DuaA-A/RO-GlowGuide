@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Link } from "react-router";
+import { useSearchParams, Link } from "react-router";
 import { Check, ChevronRight } from "lucide-react";
 import { SectionHeader } from "../../components/SectionHeader";
 import { hairTypes, scalpConditions } from "../../data/haircare";
@@ -19,10 +19,20 @@ const severityColor = {
     Mild: { bg: "bg-[#F0E8DF]", text: "text-[#7A5C40]", border: "border-[#D9CFC3]" },
     Moderate: { bg: "bg-[#EDE7DC]", text: "text-[#7A6858]", border: "border-[#C4B5A0]" },
     Severe: { bg: "bg-[#E8E0D8]", text: "text-[#5C4F42]", border: "border-[#9E8E7E]" },
+    Varies: { bg: "bg-linen", text: "text-taupe", border: "border-warm-beige" },
 };
 
 export function HairTypes() {
-    const [activeTab, setActiveTab] = useState<Tab>("types");
+    const [searchParams, setSearchParams] = useSearchParams();
+    const initialTab = (searchParams.get("tab") as Tab) || "types";
+    const [activeTab, setActiveTab] = useState<Tab>(initialTab);
+
+    const handleTabChange = (tab: Tab) => {
+        setActiveTab(tab);
+        const newParams = new URLSearchParams(searchParams);
+        newParams.set("tab", tab);
+        setSearchParams(newParams, { replace: true });
+    };
 
     return (
         <div className="py-20">
@@ -42,7 +52,7 @@ export function HairTypes() {
                         {(["types", "conditions"] as Tab[]).map((tab) => (
                             <button
                                 key={tab}
-                                onClick={() => setActiveTab(tab)}
+                                onClick={() => handleTabChange(tab)}
                                 className={`relative px-7 py-2.5 rounded-full text-sm transition-all duration-300 ${activeTab === tab ? "text-cream shadow-sm" : "text-taupe hover:text-espresso"
                                     }`}
                             >

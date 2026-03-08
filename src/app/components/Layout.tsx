@@ -21,13 +21,15 @@ interface NavDropdownItem {
 }
 
 const skincareItems: NavDropdownItem[] = [
-  { label: "Skin Types & Conditions", path: "/skincare/types", description: "Understand your skin" },
+  { label: "Skin Types", path: "/skincare/types?tab=types", description: "Identify your skin profile" },
+  { label: "Skin Conditions", path: "/skincare/types?tab=conditions", description: "Targeted concern guides" },
   { label: "Skincare Routines", path: "/skincare/solutions", description: "Step-by-step guidance" },
   { label: "Skincare Products", path: "/skincare/products", description: "Explore our catalogue" },
 ];
 
 const haircareItems: NavDropdownItem[] = [
-  { label: "Hair Types & Conditions", path: "/haircare/types", description: "Know your hair" },
+  { label: "Hair Types", path: "/haircare/types?tab=types", description: "Know your hair profile" },
+  { label: "Scalp Conditions", path: "/haircare/types?tab=conditions", description: "Targeted care guides" },
   { label: "Hair Routines", path: "/haircare/solutions", description: "Care plans by type" },
   { label: "Haircare Products", path: "/haircare/products", description: "Hair-specific formulas" },
 ];

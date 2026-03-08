@@ -111,6 +111,22 @@ export const skinTypes: SkinType[] = [
 
 export const skinConditions: SkinCondition[] = [
     {
+        id: "acne-prone",
+        name: "Acne-Prone Skin",
+        type: "Condition-Specific",
+        severity: "Varies",
+        description:
+            "Skin that is highly susceptible to breakouts, often due to a combination of overactive oil glands, clogged pores, and a sensitive barrier. It requires specialized, non-comedogenic care.",
+        causes: [
+            "Excessive sebum production",
+            "Clogged pores from dead skin cells",
+            "Bacterial activity",
+            "Genetic predisposition",
+        ],
+        image: "",
+        color: "sand",
+    },
+    {
         id: "comedonal",
         name: "Comedonal Acne",
         type: "Non-inflammatory",
@@ -193,7 +209,6 @@ export const skincareRoutines: Routine[] = [
             { step: 4, name: "Moisturiser", description: "Placeholder: lightweight lotion.", timing: "AM & PM" },
             { step: 5, name: "Sunscreen", description: "Placeholder: broad-spectrum SPF 50.", timing: "AM" },
         ],
-        image: "",
     },
     {
         id: "dry-routine",
@@ -210,21 +225,33 @@ export const skincareRoutines: Routine[] = [
             { step: 6, name: "Face Oil / Occlusive", description: "Placeholder: squalane or shea butter.", timing: "PM" },
             { step: 7, name: "Sunscreen", description: "Placeholder: hydrating SPF 50.", timing: "AM" },
         ],
-        image: "",
     },
     {
         id: "oily-routine",
-        name: "Oily & Acne-Prone Recovery Routine",
+        name: "Oily Skin Control Routine",
         description:
-            "A clinical routine designed to clear acne, control excess oil, and maintain a healthy skin barrier without adding shine.",
+            "A clinical routine designed to control excess oil and maintain a healthy skin barrier without adding shine.",
         targetType: "oily",
         steps: [
-            { step: 1, name: "Cleanser", description: "Wash twice daily with a targeted gel like Effaclar Gel or Shaan Gel. Avoid harsh soaps.", timing: "AM & PM" },
-            { step: 2, name: "Active Treatment", description: "Apply a treatment with Salicylic Acid or Adapalene to regulate turnover and kill bacteria.", timing: "PM (Start slowly)" },
-            { step: 3, name: "Moisturiser", description: "Use oil-free hydration like Effaclar H or CeraVe Lotion to prevent dehydration markings.", timing: "AM & PM" },
-            { step: 4, name: "Sunscreen", description: "Essential protection to prevent post-inflammatory hyperpigmentation (acne marks).", timing: "AM" },
+            { step: 1, name: "Cleansing", description: "Use a gentle gel cleanser twice daily to remove excess oil without stripping the skin.", timing: "AM & PM" },
+            { step: 2, name: "Mist", description: "A refreshing thermal water mist to soothe and hydrate.", timing: "As needed" },
+            { step: 3, name: "Moisturiser", description: "Use oil-free hydration like Effaclar Mat or Shaan Gel.", timing: "AM & PM" },
+            { step: 4, name: "Sunscreen", description: "Non-comedogenic SPF is essential.", timing: "AM" },
         ],
-        image: "",
+    },
+    {
+        id: "acne-prone-routine",
+        name: "Oily & Acne-Prone Recovery Routine",
+        description:
+            "A specialized recovery routine for skin that is both oily and prone to breakouts, focusing on clearing pores and healing the barrier.",
+        targetType: "acne-prone",
+        steps: [
+            { step: 1, name: "Double Cleansing", description: "Use Micellar water followed by a targeted gel like Effaclar Gel to deeply purify.", timing: "PM" },
+            { step: 2, name: "Morning Cleansing", description: "Wash with Effaclar Gel to remove overnight sebum.", timing: "AM" },
+            { step: 3, name: "Active Treatment", description: "Apply Effaclar Duo(+) to reduce pimples and marks.", timing: "AM & PM" },
+            { step: 4, name: "Hydrating Moisturiser", description: "Use Effaclar H Iso-Biome to prevent dehydration from treatments.", timing: "AM & PM" },
+            { step: 5, name: "Sunscreen", description: "Essential protection to prevent post-inflammatory marks.", timing: "AM" },
+        ],
     },
     {
         id: "sensitive-routine",
@@ -238,20 +265,18 @@ export const skincareRoutines: Routine[] = [
             { step: 3, name: "Barrier Moisturiser", description: "Placeholder: ceramide and panthenol moisturiser.", timing: "AM & PM" },
             { step: 4, name: "Mineral Sunscreen", description: "Placeholder: zinc oxide-based SPF 50.", timing: "AM" },
         ],
-        image: "",
     },
     {
         id: "acne-routine",
         name: "Acne Management Routine",
         description: "A clinical routine focusing on clearing inflammation, killing acne bacteria, and restoring the barrier.",
-        targetType: "acne",
+        targetType: "inflammatory",
         steps: [
             { step: 1, name: "Salicylic Cleanser", description: "Use a gel cleanser with BHA to penetrate pores.", timing: "AM & PM" },
             { step: 2, name: "Azelaic Acid", description: "Apply to inflamed areas to reduce redness and bacteria.", timing: "AM" },
             { step: 3, name: "Retinoid / Adapalene", description: "Primary treatment to regulate cell turnover.", timing: "PM" },
             { step: 4, name: "Oil-Free Moisturiser", description: "Non-comedogenic hydration to support the barrier.", timing: "AM & PM" },
         ],
-        image: "",
     },
     {
         id: "rosacea-routine",
@@ -264,7 +289,6 @@ export const skincareRoutines: Routine[] = [
             { step: 3, name: "Azelaic Acid (10-15%)", description: "Dermatologist gold-standard for rosacea redness.", timing: "PM" },
             { step: 4, name: "Barrier Cream", description: "Rich in ceramides and panthenol to shield skin.", timing: "AM & PM" },
         ],
-        image: "",
     },
     {
         id: "eczema-routine",
@@ -276,7 +300,6 @@ export const skincareRoutines: Routine[] = [
             { step: 2, name: "Healing Balm", description: "Apply thick, oily balms (AP+M) to damp skin.", timing: "As needed" },
             { step: 3, name: "Anti-Itch Serum", description: "Calming agents like Niacinamide or Oats.", timing: "PM" },
         ],
-        image: "",
     },
     {
         id: "hyperpigmentation-routine",
@@ -289,7 +312,6 @@ export const skincareRoutines: Routine[] = [
             { step: 3, name: "Tranexamic / Kojic Acid", description: "Inhibits melanin production at the source.", timing: "PM" },
             { step: 4, name: "Broad Spectrum SPF", description: "Crucial! Pigment will return without protection.", timing: "AM (Every 2h)" },
         ],
-        image: "",
     },
 ];
 
@@ -309,7 +331,8 @@ export const skincareProducts: Product[] = [
         mainIngredients: ["Zinc PCA", "La Roche-Posay Thermal Spring Water", "Citric Acid"],
         benefits: ["Purifies skin", "Reduces excess sebum", "Maintains skin pH"],
         image: "https://elegantstoreeg.com/cdn/shop/files/la-roche-posay-effaclar-purifying-foaming-gel-400ml-1.jpg?v=1701198592",
-        targetTypes: ["oily", "sensitive", "acne-prone", "combination"],
+        targetTypes: ["oily", "sensitive", "combination"],
+        concerns: ["comedonal", "inflammatory", "cystic", "acne-prone"],
         medicalDetails: {
             mechanismOfAction:
                 "Zinc PCA helps to regulate sebum production and provides antimicrobial properties. Thermal spring water soothes and reduces irritation.",
@@ -329,6 +352,7 @@ export const skincareProducts: Product[] = [
         benefits: ["Gentle cleansing", "Antioxidant protection", "Brightens complexion"],
         image: "https://elegantstoreeg.com/cdn/shop/files/shaan-facial-cleanser-gel-200ml-1.jpg?v=1701198592",
         targetTypes: ["dry", "normal", "sensitive"],
+        concerns: ["eczema"],
         medicalDetails: {
             mechanismOfAction: "Antioxidants C and E protect against free radical damage while glycerin maintains hydration.",
             pregnancySafety: "Safe."
@@ -344,6 +368,7 @@ export const skincareProducts: Product[] = [
         benefits: ["Non-drying", "Fragrance-free", "Restores skin barrier"],
         image: "https://elegantstoreeg.com/cdn/shop/files/cerave-foaming-facial-cleanser-473ml-1.jpg?v=1701198592",
         targetTypes: ["oily", "normal"],
+        concerns: ["comedonal", "inflammatory", "acne-prone"],
         medicalDetails: {
             mechanismOfAction: "Ceramides help restore the skin barrier. Niacinamide calms the skin. Hyaluronic acid retains moisture.",
             pregnancySafety: "Safe."
@@ -359,6 +384,7 @@ export const skincareProducts: Product[] = [
         benefits: ["Clears breakouts", "Reduces red and brown marks", "24h hydration"],
         image: "https://elegantstoreeg.com/cdn/shop/files/la-roche-posay-effaclar-duo-40ml-1.jpg?v=1701198592",
         targetTypes: ["oily", "combination"],
+        concerns: ["acne-prone", "inflammatory"],
         medicalDetails: {
             mechanismOfAction: "Salicylic acid and LHA exfoliate the surface. Niacinamide reduces inflammation. Procerad helps protect against the appearance of marks.",
             pregnancySafety: "Avoid high concentrations of salicylates; consult doctor."
@@ -390,6 +416,7 @@ export const skincareProducts: Product[] = [
         benefits: ["Steroid-free", "Once-daily application", "Rapid itch relief"],
         image: "",
         targetTypes: ["eczema", "sensitive", "atopic-dermatitis", "dry"],
+        concerns: ["eczema"],
         medicalDetails: {
             mechanismOfAction: "A potent and selective PDE4 inhibitor that reduces the production of pro-inflammatory mediators.",
             sideEffects: ["Application site reactions", "diarrhea", "headache"],
@@ -445,7 +472,8 @@ export const skincareProducts: Product[] = [
         mainIngredients: ["Salicylic Acid", "Zinc"],
         benefits: ["Deeply cleanses", "Removes excess oil", "Reduces breakouts"],
         image: "",
-        targetTypes: ["oily", "acne-prone"],
+        targetTypes: ["oily"],
+        concerns: ["acne-prone"],
         medicalDetails: {
             mechanismOfAction: "Salicylic acid exfoliates within the pores while zinc regulates oil production.",
             pregnancySafety: "Consult physician."
@@ -461,7 +489,8 @@ export const skincareProducts: Product[] = [
         mainIngredients: ["Azelaic Acid (20%)"],
         benefits: ["Antibacterial", "Anti-inflammatory", "Brightens marks"],
         image: "https://elegantstoreeg.com/cdn/shop/files/skinoren-cream-30gm-1.jpg?v=1701198592",
-        targetTypes: ["acne-prone", "hyperpigmentation", "sensitive"],
+        targetTypes: ["hyperpigmentation", "sensitive"],
+        concerns: ["inflammatory", "hyperpigmentation", "acne-prone"],
         medicalDetails: {
             mechanismOfAction: "Inhibits the growth of acne bacteria and reduces the production of keratin which blocks pores.",
             sideEffects: ["Skin irritation", "burning", "itching"],
@@ -479,7 +508,8 @@ export const skincareProducts: Product[] = [
         mainIngredients: ["Benzoyl Peroxide"],
         benefits: ["Kills 94% of acne bacteria", "Unclogs pores", "Reduces inflammation"],
         image: "https://elegantstoreeg.com/cdn/shop/files/benzac-ac-5-gel-60gm-1.jpg?v=1701198547",
-        targetTypes: ["acne-prone"],
+        targetTypes: ["oily"],
+        concerns: ["inflammatory", "acne-prone"],
         medicalDetails: {
             mechanismOfAction: "Provides oxygen to the pores which kills the anaerobic acne bacteria.",
             sideEffects: ["Dryness", "peeling", "may bleach fabrics"],
@@ -496,7 +526,8 @@ export const skincareProducts: Product[] = [
         mainIngredients: ["MP-Lipids", "Niacinamide", "Orellana Extract"],
         benefits: ["Soothes skin discomfort", "Restores moisture barrier", "Reduces redness"],
         image: "https://elegantstoreeg.com/cdn/shop/files/la-roche-posay-effaclar-h-iso-biome-40ml-1.jpg?v=1701198592",
-        targetTypes: ["oily", "acne-prone", "sensitive"],
+        targetTypes: ["oily", "sensitive"],
+        concerns: ["inflammatory", "cystic", "acne-prone"],
         medicalDetails: {
             mechanismOfAction: "MP-Lipids help rebuild the skin's protective barrier while Niacinamide calms inflammation.",
             pregnancySafety: "Safe."
@@ -513,6 +544,7 @@ export const skincareProducts: Product[] = [
         benefits: ["Anti-scratching", "Anti-flare up", "Restores microbiome"],
         image: "https://elegantstoreeg.com/cdn/shop/files/la-roche-posay-lipikar-baume-ap-m-400ml-1.jpg?v=1701198592",
         targetTypes: ["dry", "sensitive", "eczema"],
+        concerns: ["eczema"],
         medicalDetails: {
             mechanismOfAction: "Rebalances the skin microbiome and restores the barrier to prevent allergen penetration.",
             pregnancySafety: "Safe."
@@ -560,7 +592,8 @@ export const skincareProducts: Product[] = [
         mainIngredients: ["Encapsulated Retinol", "Licorice Root Extract", "Ceramides"],
         benefits: ["Reduces post-acne marks", "Refines skin texture", "Restores skin barrier"],
         image: "https://elegantstoreeg.com/cdn/shop/files/cerave-resurfacing-retinol-serum-30ml-1.jpg?v=1701198592",
-        targetTypes: ["acne-prone", "oily"],
+        targetTypes: ["oily"],
+        concerns: ["inflammatory", "hyperpigmentation", "acne-prone"],
         medicalDetails: {
             mechanismOfAction: "Encapsulated retinol helps resurface skin while Licorice root extract brightens.",
             pregnancySafety: "Avoid."
@@ -576,7 +609,8 @@ export const skincareProducts: Product[] = [
         mainIngredients: ["Salicylic Acid", "Tea Tree Oil", "Niacinamide"],
         benefits: ["Non-comedogenic", "Oil-control", "Soothes inflammation"],
         image: "https://elegantstoreeg.com/cdn/shop/files/infinity-clear-skin-cream-60ml-1.jpg?v=1701198592",
-        targetTypes: ["oily", "acne-prone"],
+        targetTypes: ["oily"],
+        concerns: ["acne-prone"],
         medicalDetails: {
             mechanismOfAction: "Combination of anti-inflammatory and oil-regulating ingredients to balance problematic skin.",
             pregnancySafety: "Consult physician."
@@ -625,6 +659,7 @@ export const skincareProducts: Product[] = [
         benefits: ["Overnight hydration", "Soothes skin", "Oil-free"],
         image: "https://www.cerave.com/-/media/project/loreal/brand-sites/cerave/americas/us/products-v3/pm-facial-moisturizing-lotion/cerave_pm-facial-moisturizing-lotion_3oz_front-v2.png",
         targetTypes: ["oily", "normal", "combination"],
+        concerns: ["inflammatory", "hormonal", "acne-prone"],
         medicalDetails: {
             mechanismOfAction: "Niacinamide helps calm skin while ceramides restore the barrier overnight.",
             pregnancySafety: "Safe."

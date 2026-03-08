@@ -18,7 +18,7 @@ export interface SkinCondition {
   id: string;
   name: string;
   type: string;   // e.g. "Non-inflammatory" | "Inflammatory"
-  severity: "Mild" | "Moderate" | "Severe";
+  severity: "Mild" | "Moderate" | "Severe" | "Varies";
   description: string;
   causes: string[];
   tips?: string[];
@@ -40,7 +40,7 @@ export interface HairType {
 export interface ScalpCondition {
   id: string;
   name: string;
-  severity: "Mild" | "Moderate" | "Severe";
+  severity: "Mild" | "Moderate" | "Severe" | "Varies";
   description: string;
   causes: string[];
   tips?: string[];
@@ -69,6 +69,7 @@ export interface Product {
   benefits: string[];
   image: string; // placeholder
   targetTypes: string[]; // skin or hair type IDs it targets
+  concerns?: string[]; // IDs of skin/scalp conditions it treats
   medicalDetails?: MedicalDetails;
   isExternal?: boolean; // Flag for API results
 }
@@ -86,7 +87,7 @@ export interface Routine {
   description: string;
   targetType: string;  // which skin/hair type this is for
   steps: RoutineStep[];
-  image: string;
+  image?: string;
 }
 
 export interface TeamMember {

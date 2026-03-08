@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { motion } from "motion/react";
-import { Search } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+import { Search, ChevronDown, Filter, X } from "lucide-react";
 import { useSearchParams } from "react-router";
 import { SectionHeader } from "../../components/SectionHeader";
 import { ProductCard } from "../../components/ProductCard";
-import { skincareProducts } from "../../data/skincare";
+import { skincareProducts, skinTypes, skinConditions } from "../../data/skincare";
 
 const CATEGORIES = ["All", "Cleanser", "Toner", "Serum", "Moisturiser", "Sunscreen", "Treatment"];
 
@@ -12,33 +12,73 @@ export function SkincareProducts() {
     const [searchParams, setSearchParams] = useSearchParams();
     const [search, setSearch] = useState("");
     const [activeCategory, setActiveCategory] = useState("All");
+    const [activeType, setActiveType] = useState("All Types");
+    const [activeConcern, setActiveConcern] = useState<string | null>(null);
+    const [isTypeDropdownOpen, setIsTypeDropdownOpen] = useState(false);
 
     useEffect(() => {
         const typeParam = searchParams.get("type");
+        const concernParam = searchParams.get("concern");
         const catParam = searchParams.get("category");
+
         if (catParam && CATEGORIES.includes(catParam)) {
             setActiveCategory(catParam);
         }
+
         if (typeParam) {
-            setSearch(typeParam); // Use search for specific types if not in categories
+            const foundType = skinTypes.find(t => t.id === typeParam);
+            setActiveType(foundType ? foundType.name : "All Types");
+        } else {
+            setActiveType("All Types");
+        }
+
+        if (concernParam) {
+            setActiveConcern(concernParam);
+        } else {
+            setActiveConcern(null);
         }
     }, [searchParams]);
 
     const filtered = skincareProducts.filter((p) => {
         const query = search.toLowerCase().trim();
-        const matchesSearch =
+
+        // Search matches
+        const matchesSearch = !query ||
             p.name.toLowerCase().includes(query) ||
             p.description.toLowerCase().includes(query) ||
             p.mainIngredients.some((i) => i.toLowerCase().includes(query)) ||
-            p.targetTypes.some((t) => t.toLowerCase().includes(query)) ||
             (p.brand && p.brand.toLowerCase().includes(query));
 
+        // Category matches
         const matchesCategory = activeCategory === "All" || p.category === activeCategory;
-        return matchesSearch && matchesCategory;
+
+        // Type matches (from url or dropdown)
+        const typeId = searchParams.get("type");
+        const matchesType = !typeId || p.targetTypes.includes(typeId);
+
+        // Concern matches (from url or buttons)
+        const concernId = activeConcern;
+        const matchesConcern = !concernId || (p.concerns && p.concerns.includes(concernId));
+
+        return matchesSearch && matchesCategory && matchesType && matchesConcern;
     });
 
-    const handleCategoryClick = (cat: string) => {
-        setActiveCategory(cat);
+    const handleClearAll = () => {
+        setSearch("");
+        setActiveCategory("All");
+        setActiveType("All Types");
+        setActiveConcern(null);
+        setSearchParams({});
+    };
+
+    const updateFilter = (key: string, value: string | null) => {
+        const newParams = new URLSearchParams(searchParams);
+        if (value && value !== "All" && value !== "All Types") {
+            newParams.set(key, value);
+        } else {
+            newParams.delete(key);
+        }
+        setSearchParams(newParams);
     };
 
     return (
@@ -49,81 +89,139 @@ export function SkincareProducts() {
                     label="Skincare Products"
                     title="The Skincare"
                     titleHighlight="Catalogue."
-                    subtitle="Search and filter our curated skincare product range. Click any product to view full details, ingredients, and clinical information."
+                    subtitle="Filter by skin type, concern, or category to find your perfect routine match."
                 />
 
-                {/* Search */}
-                <div className="mt-12 max-w-xl mx-auto mb-8">
-                    <div className="relative">
-                        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-taupe" />
-                        <input
-                            type="text"
-                            placeholder="Search by name, ingredient, or skin type…"
-                            value={search}
-                            onChange={(e) => {
-                                const val = e.target.value;
-                                setSearch(val);
-                                if (!val) {
-                                    const newParams = new URLSearchParams(searchParams);
-                                    newParams.delete("type");
-                                    setSearchParams(newParams);
-                                }
-                            }}
-                            className="w-full pl-11 pr-5 py-3.5 bg-ivory border border-warm-beige rounded-full text-sm text-espresso placeholder-taupe focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/10 transition-all"
-                        />
+                <div className="mt-12 mb-12 flex flex-col items-center gap-8">
+                    {/* Search and Type Dropdown Row */}
+                    <div className="w-full max-w-4xl flex flex-col md:flex-row gap-4">
+                        {/* Search Bar */}
+                        <div className="flex-grow relative">
+                            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-taupe" />
+                            <input
+                                type="text"
+                                placeholder="Search by name or ingredient…"
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
+                                className="w-full pl-11 pr-5 py-3.5 bg-ivory border border-warm-beige rounded-xl text-sm text-espresso placeholder-taupe focus:outline-none focus:border-gold transition-all"
+                            />
+                        </div>
+
+                        {/* Type Dropdown */}
+                        <div className="relative w-full md:w-64">
+                            <button
+                                onClick={() => setIsTypeDropdownOpen(!isTypeDropdownOpen)}
+                                className="w-full flex items-center justify-between px-5 py-3.5 bg-ivory border border-warm-beige rounded-xl text-sm text-espresso hover:border-gold transition-all"
+                            >
+                                <span className="flex items-center gap-2">
+                                    <Filter className="w-4 h-4 text-taupe" />
+                                    {activeType}
+                                </span>
+                                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isTypeDropdownOpen ? "rotate-180" : ""}`} />
+                            </button>
+
+                            <AnimatePresence>
+                                {isTypeDropdownOpen && (
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: 10 }}
+                                        className="absolute z-50 w-full mt-2 bg-white border border-warm-beige rounded-xl shadow-xl overflow-hidden"
+                                    >
+                                        <button
+                                            onClick={() => {
+                                                updateFilter("type", null);
+                                                setIsTypeDropdownOpen(false);
+                                            }}
+                                            className="w-full text-left px-5 py-3 text-sm hover:bg-linen transition-colors border-b border-warm-beige/50"
+                                        >
+                                            All Types
+                                        </button>
+                                        {skinTypes.map(type => (
+                                            <button
+                                                key={type.id}
+                                                onClick={() => {
+                                                    updateFilter("type", type.id);
+                                                    setIsTypeDropdownOpen(false);
+                                                }}
+                                                className="w-full text-left px-5 py-3 text-sm hover:bg-linen transition-colors"
+                                            >
+                                                {type.name}
+                                            </button>
+                                        ))}
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </div>
+                    </div>
+
+                    {/* Concern Pill Buttons */}
+                    <div className="flex flex-wrap justify-center gap-3">
+                        <span className="w-full text-center text-xs uppercase tracking-widest text-taupe mb-2">Filter by Skin Concern</span>
+                        {skinConditions.map(condition => (
+                            <button
+                                key={condition.id}
+                                onClick={() => updateFilter("concern", activeConcern === condition.id ? null : condition.id)}
+                                className={`px-5 py-2.5 rounded-full text-xs font-medium transition-all duration-300 border ${activeConcern === condition.id
+                                    ? "bg-wine text-white border-wine shadow-md"
+                                    : "bg-ivory text-espresso border-warm-beige hover:border-wine/30"
+                                    }`}
+                            >
+                                {condition.name}
+                            </button>
+                        ))}
+                    </div>
+
+                    {/* Category Tabs */}
+                    <div className="flex flex-wrap justify-center gap-2 border-t border-warm-beige pt-8 w-full">
+                        {CATEGORIES.map((cat) => (
+                            <button
+                                key={cat}
+                                onClick={() => {
+                                    setActiveCategory(cat);
+                                    updateFilter("category", cat === "All" ? null : cat);
+                                }}
+                                className={`px-6 py-2 rounded-full text-[10px] uppercase tracking-[0.2em] transition-all duration-200 ${activeCategory === cat
+                                    ? "bg-espresso text-cream shadow-inner"
+                                    : "text-taupe hover:text-espresso"
+                                    }`}
+                            >
+                                {cat}
+                            </button>
+                        ))}
                     </div>
                 </div>
 
-                {/* Filter info and clear button */}
-                {(search || activeCategory !== "All") && (
-                    <div className="flex justify-center mb-6">
+                {/* Filter Summary */}
+                {(search || activeCategory !== "All" || activeType !== "All Types" || activeConcern) && (
+                    <div className="flex items-center justify-between mb-8 pb-4 border-b border-warm-beige">
+                        <p className="text-sm text-taupe italic">
+                            Showing {filtered.length} products matching your selection
+                        </p>
                         <button
-                            onClick={() => {
-                                setSearch("");
-                                setActiveCategory("All");
-                                setSearchParams({});
-                            }}
-                            className="text-xs uppercase tracking-widest text-wine hover:text-wine-dark font-medium underline underline-offset-4"
+                            onClick={handleClearAll}
+                            className="flex items-center gap-1.5 text-xs uppercase tracking-widest text-wine hover:text-wine-dark font-medium group"
                         >
-                            Clear all filters
+                            <X className="w-3 h-3 group-hover:rotate-90 transition-transform" />
+                            Reset Filters
                         </button>
                     </div>
                 )}
 
-                {/* Category filters */}
-                <div className="flex flex-wrap justify-center gap-2 mb-12">
-                    {CATEGORIES.map((cat) => (
-                        <button
-                            key={cat}
-                            onClick={() => handleCategoryClick(cat)}
-                            className={`px-5 py-2 rounded-full text-xs uppercase tracking-[0.1em] border transition-all duration-200 ${activeCategory === cat
-                                ? "bg-espresso text-cream border-espresso"
-                                : "bg-ivory text-taupe border-warm-beige hover:border-taupe hover:text-espresso"
-                                }`}
-                        >
-                            {cat}
-                        </button>
-                    ))}
-                </div>
-
-                {/* Count */}
-                <p className="text-center text-sm text-taupe mb-8">
-                    Showing {filtered.length} curated product{filtered.length !== 1 ? "s" : ""}
-                </p>
-
                 {/* Grid */}
                 <motion.div layout className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    {filtered.map((product, i) => (
+                    {filtered.map((product) => (
                         <ProductCard key={product.id} product={product} category="skincare" />
                     ))}
                 </motion.div>
 
                 {filtered.length === 0 && (
-                    <div className="text-center py-20">
-                        <div className="w-16 h-16 rounded-full bg-linen flex items-center justify-center mx-auto mb-4">
-                            <Search className="w-8 h-8 text-sand" />
+                    <div className="text-center py-24">
+                        <div className="w-20 h-20 rounded-full bg-linen flex items-center justify-center mx-auto mb-6">
+                            <Filter className="w-10 h-10 text-sand" />
                         </div>
-                        <p className="text-taupe">No curated products found.</p>
+                        <h4 className="text-espresso mb-2">No matching products</h4>
+                        <p className="text-taupe text-sm">Try adjusting your filters or search terms.</p>
                     </div>
                 )}
             </div>
