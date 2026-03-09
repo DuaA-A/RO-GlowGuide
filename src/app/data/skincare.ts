@@ -191,6 +191,28 @@ export const skinConditions: SkinCondition[] = [
         image: "https://doralhw.org/wp-content/uploads/2023/04/shutterstock_2423537765.jpg",
         color: "blush",
     },
+    {
+        id: "eczema",
+        name: "Atopic Dermatitis (Eczema)",
+        type: "Inflammatory",
+        severity: "Moderate",
+        description: "A chronic inflammatory skin condition causing dry, intense itching, redness, and occasionally cracks or small blisters. Common in both children and adults.",
+        causes: [
+            "Genetic predisposition (family history of allergies/asthma)",
+            "Weakened or compromised skin barrier",
+            "Immune system overreaction",
+            "Triggers: harsh soaps, stress, cold weather, wool"
+        ],
+        tips: [
+            "Use only mild, soap-free cleansers",
+            "Apply moisturizers 2–3 times daily",
+            "Moisturize immediately after showering to lock in hydration",
+            "Use lukewarm water instead of hot water",
+            "Wear cotton clothing and manage stress"
+        ],
+        image: "https://www.hopedermatology.com.au/wp-content/uploads/2022/01/3eee.jpg",
+        color: "blush"
+    },
 ];
 
 // ── Skincare Routines ─────────────────────────────────────────────────────────
@@ -249,7 +271,7 @@ export const skincareRoutines: Routine[] = [
         description:
             "A specialized recovery routine for skin that is both oily and prone to breakouts, focusing on clearing pores and healing the barrier.",
         targetType: "acne-prone",
-        image: "https://ultraessence.com/cdn/shop/articles/Acne-BeforeAfter-Blog_345x345@2x.png",
+        image: "https://www.neogenesispro.com.au/wp-content/uploads/2024/05/Acne-AP-BA-Left.jpg",
         steps: [
             { step: 1, name: "Double Cleansing", description: "Use Micellar water followed by a targeted gel like Effaclar Gel to deeply purify.", timing: "PM" },
             { step: 2, name: "Morning Cleansing", description: "Wash with Effaclar Gel to remove overnight sebum.", timing: "AM" },
@@ -262,15 +284,15 @@ export const skincareRoutines: Routine[] = [
         id: "sensitive-routine",
         name: "Sensitive Skin Calming Routine",
         description:
-            "A minimal, barrier-supporting routine for reactive and sensitive skin. Placeholder: replace with full routine rationale.",
+            "A minimal, barrier-supporting routine for reactive and sensitive skin, focusing on calming redness and strengthening the skin's natural defenses.",
         targetType: "sensitive",
-        image: "https://ultraessence.com/cdn/shop/articles/Acne-BeforeAfter-Blog_345x345@2x.png",
+        image: "https://www.laroche-posay.me/getmedia/3e87858c-8f3b-4876-857e-07a8ceadeae2/toleriane-sensitive-creme-soothing-moisturiser.aspx",
 
         steps: [
-            { step: 1, name: "Micellar / Gentle Cleanser", description: "Placeholder: fragrance-free, pH-balanced cleanser.", timing: "AM & PM" },
-            { step: 2, name: "Centella Serum", description: "Placeholder: calming centella or azelaic acid serum.", timing: "AM & PM" },
-            { step: 3, name: "Barrier Moisturiser", description: "Placeholder: ceramide and panthenol moisturiser.", timing: "AM & PM" },
-            { step: 4, name: "Mineral Sunscreen", description: "Placeholder: zinc oxide-based SPF 50.", timing: "AM" },
+            { step: 1, name: "Micellar / Gentle Cleanser", description: "Use a fragrance-free, pH-balanced cleanser like Cetaphil Gentle Skin Cleanser.", timing: "AM & PM" },
+            { step: 2, name: "Centella Serum", description: "Apply a calming serum to reduce redness and irritation.", timing: "AM & PM" },
+            { step: 3, name: "Barrier Moisturiser", description: "Use a ceramide and panthenol-rich moisturiser like Toleriane Sensitive.", timing: "AM & PM" },
+            { step: 4, name: "Mineral Sunscreen", description: "Protect with a zinc oxide or titanium dioxide SPF to avoid Chemical irritation.", timing: "AM" },
         ],
     },
     {
@@ -301,13 +323,14 @@ export const skincareRoutines: Routine[] = [
     {
         id: "eczema-routine",
         name: "Eczema Flare-Up Routine",
-        description: "A high-lipid routine to restore the skin's moisture barrier and stop the itch-scratch cycle.",
+        description: "A high-lipid, barrier-restoring routine to calm inflammation and stop the itch-scratch cycle.",
         targetType: "eczema",
         image: "https://www.hopedermatology.com.au/wp-content/uploads/2022/01/3eee.jpg",
         steps: [
-            { step: 1, name: "Soap-Free Wash", description: "Use ultra-gentle, lipid-replenishing washes.", timing: "Daily" },
-            { step: 2, name: "Healing Balm", description: "Apply thick, oily balms (AP+M) to damp skin.", timing: "As needed" },
-            { step: 3, name: "Anti-Itch Serum", description: "Calming agents like Niacinamide or Oats.", timing: "PM" },
+            { step: 1, name: "Gentle Soap-Free Cleaning", description: "Use ultra-gentle, lipid-replenishing soap-free washes like Atoderm Gel Moussant.", timing: "Daily" },
+            { step: 2, name: "Intense Moisturizing", description: "Apply rich emollient creams (e.g., Lipikar Baume AP+M or Atoderm Cream) 2-3 times daily.", timing: "AM & PM" },
+            { step: 3, name: "Post-Shower Lock", description: "Critical application of moisturizer immediately after lukewarm showering.", timing: "After Shower" },
+            { step: 4, name: "Flare-Up Management", description: "During active flares, use mild topical corticosteroids (e.g., Hydrocortisone) if needed.", timing: "Short-term/As needed" },
         ],
     },
     {
@@ -704,6 +727,74 @@ export const skincareProducts: Product[] = [
         targetTypes: ["combination", "oily"],
         medicalDetails: {
             mechanismOfAction: "Provides immediate cooling hydration without adding oil.",
+            pregnancySafety: "Safe."
+        }
+    },
+    {
+        id: "sk-023",
+        name: "Atoderm Gel Moussant",
+        brand: "Bioderma",
+        category: "Cleanser",
+        description: "A soap-free, paraben-free, and hypoallergenic foaming gel for dry to very dry sensitive skin.",
+        usage: "Apply on wet skin. Work into a foam. Rinse well and gently dry.",
+        mainIngredients: ["Zinc Sulfate", "Copper Sulfate", "Vitamin PP"],
+        benefits: ["Restores lipids", "Soothes tightness", "Protects barrier"],
+        image: "https://www.bioderma.me/getmedia/63910609-0d5b-4860-848e-2f5595995995/atoderm-gel-moussant-500ml-front.aspx",
+        targetTypes: ["dry", "sensitive", "eczema"],
+        concerns: ["eczema"],
+        medicalDetails: {
+            mechanismOfAction: "Limits the proliferation of micro-organisms while boosting the skin's hydration.",
+            pregnancySafety: "Safe."
+        }
+    },
+    {
+        id: "sk-024",
+        name: "Eva Skin Clinic Atopi Cream",
+        brand: "Eva Cosmetics",
+        category: "Moisturiser",
+        description: "Specially formulated for atopic and very dry skin to reduce itching and irritation.",
+        usage: "Apply twice daily to affected areas.",
+        mainIngredients: ["Ceramides", "Vaseline", "Paraffin"],
+        benefits: ["Relieves itching", "Deep nourishment", "Barrier repair"],
+        image: "",
+        targetTypes: ["dry", "eczema"],
+        concerns: ["eczema"],
+        medicalDetails: {
+            mechanismOfAction: "Creates an occlusive layer to prevent trans-epidermal water loss and provides essential lipids.",
+            pregnancySafety: "Safe."
+        }
+    },
+    {
+        id: "sk-025",
+        name: "Bepanthen Moisturizing Cream",
+        brand: "Bayer",
+        category: "Moisturiser",
+        description: "Contains Pro-Vitamin B5 to support the skin's natural healing process and maintain softness.",
+        usage: "Apply once or several times daily as needed.",
+        mainIngredients: ["Dexpanthenol (Pro-Vitamin B5)"],
+        benefits: ["Promotes healing", "Long-lasting hydration", "Very gentle"],
+        image: "https://elegantstoreeg.com/cdn/shop/files/bepanthen-moisturizing-cream-for-dry-and-damaged-skin-30gm-1.jpg?v=1701198592",
+        targetTypes: ["sensitive", "dry", "normal", "eczema"],
+        concerns: ["eczema"],
+        medicalDetails: {
+            mechanismOfAction: "Pro-Vitamin B5 is converted into pantothenic acid in the skin, which supports cell growth and regeneration.",
+            pregnancySafety: "Safe."
+        }
+    },
+    {
+        id: "sk-026",
+        name: "Sebamed Liquid Face & Body Wash",
+        brand: "Sebamed",
+        category: "Cleanser",
+        description: "Soap-free wash with pH 5.5 to support the natural barrier of the skin.",
+        usage: "Apply to wet skin and rinse.",
+        mainIngredients: ["Active Skin Care Complex", "Pentavitin", "Vitamins"],
+        benefits: ["pH 5.5 balanced", "Soap-free", "For sensitive skin"],
+        image: "https://elegantstoreeg.com/cdn/shop/files/sebamed-liquid-face-and-body-wash-200ml-1.jpg?v=1701198592",
+        targetTypes: ["sensitive", "eczema", "all"],
+        concerns: ["eczema"],
+        medicalDetails: {
+            mechanismOfAction: "Maintains the skin's natural acidic mantle with pH 5.5.",
             pregnancySafety: "Safe."
         }
     }
