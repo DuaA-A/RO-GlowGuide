@@ -99,9 +99,12 @@ export function HairTypes() {
                                         )}
 
                                         {/* Content */}
-                                        <div className={`${hair.image ? 'md:col-span-3' : 'md:col-span-1'} p-8 md:p-10`}>
-                                            <p className="text-xs uppercase tracking-[0.15em] text-espresso/70 mb-1">{hair.pattern}</p>
+                                        <div className={`${hair.image ? 'md:col-span-3' : 'md:col-span-5'} p-8 md:p-10`}>
+                                            <div className="flex items-center gap-3 mb-4">
+                                                <span className="badge-haircare">{hair.name}</span>
+                                            </div>
                                             <h3 className="font-heading text-espresso mb-3">{hair.name}</h3>
+                                            <p className="text-xs uppercase tracking-[0.15em] text-espresso/70 mb-2">{hair.pattern}</p>
                                             <p className="text-espresso/90 text-sm leading-relaxed mb-6">{hair.description}</p>
 
                                             <div className="grid sm:grid-cols-2 gap-6">
@@ -177,9 +180,9 @@ export function HairTypes() {
                                                 </div>
                                             )}
 
-                                            <div className={`${condition.image ? 'md:col-span-3' : 'md:col-span-1'} p-8 md:p-10`}>
+                                            <div className={`${condition.image ? 'md:col-span-3' : 'md:col-span-5'} p-8 md:p-10`}>
                                                 <div className="flex items-center justify-between mb-4">
-                                                    <h3 className="font-heading text-espresso text-2xl">{condition.name}</h3>
+                                                    <h3 className="font-heading text-espresso mb-3">{condition.name}</h3>
                                                     {!condition.image && (
                                                         <span className={`text-xs px-3 py-1 rounded-full border ${sev.bg} ${sev.text} ${sev.border}`}>
                                                             {condition.severity}

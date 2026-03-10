@@ -9,7 +9,7 @@ export const hairTypes: HairType[] = [
         name: "Straight Hair",
         pattern: "Type 1 — Straight",
         description:
-            "Straight hair grows from a round follicle and lies completely flat from root to tip, with natural oils distributing easily along the shaft. Placeholder: replace with detailed description.",
+            "Straight hair grows from a round follicle and lies completely flat from root to tip, with natural oils distributing easily along the shaft. Characterized by a shiny appearance and tendency towards scalp oiliness.",
         characteristics: [
             "Naturally smooth and shiny shaft",
             "Tends toward oiliness at the scalp",
@@ -21,7 +21,7 @@ export const hairTypes: HairType[] = [
             "Apply conditioner mid-lengths to ends only",
             "Clarify regularly to remove buildup from sebum",
         ],
-        image: "", // PLACEHOLDER
+        image: "https://images.pexels.com/photos/3065209/pexels-photo-3065209.jpeg?auto=compress&cs=tinysrgb&w=800",
         color: "sand",
     },
     {
@@ -29,7 +29,7 @@ export const hairTypes: HairType[] = [
         name: "Wavy Hair",
         pattern: "Type 2 — Wavy",
         description:
-            "Wavy hair has a subtle S-shaped pattern with a slight curl that can vary from loose beach waves to more defined, springy bends. Placeholder: replace with detailed description.",
+            "Wavy hair has a subtle S-shaped pattern with a slight curl that can vary from loose beach waves to more defined, springy bends. It sits between straight and curly in terms of care needs.",
         characteristics: [
             "Natural S-wave pattern from roots to ends",
             "Can be prone to frizz in humidity",
@@ -41,7 +41,7 @@ export const hairTypes: HairType[] = [
             "Scrunch in products rather than raking through",
             "Diffuse or air dry to encourage wave definition",
         ],
-        image: "",
+        image: "https://images.pexels.com/photos/1620781/pexels-photo-1620781.jpeg?auto=compress&cs=tinysrgb&w=800",
         color: "blush",
     },
     {
@@ -49,7 +49,7 @@ export const hairTypes: HairType[] = [
         name: "Curly Hair",
         pattern: "Type 3 — Curly",
         description:
-            "Curly hair follows a clearly defined, spring-like spiral pattern and is naturally drier than straighter hair types due to the difficulty of sebum travelling down the coiled shaft. Placeholder: replace with detailed description.",
+            "Curly hair follows a clearly defined, spring-like spiral pattern and is naturally drier than straighter hair types due to the difficulty of sebum travelling down the coiled shaft.",
         characteristics: [
             "Well-defined spiral or corkscrew curls",
             "High porosity and prone to frizz",
@@ -61,7 +61,7 @@ export const hairTypes: HairType[] = [
             "Use a rich leave-in conditioner while hair is soaking wet",
             "Protect curls at night with a silk or satin bonnet",
         ],
-        image: "",
+        image: "https://images.pexels.com/photos/1586973/pexels-photo-1586973.jpeg?auto=compress&cs=tinysrgb&w=800",
         color: "taupe",
     },
     {
@@ -69,7 +69,7 @@ export const hairTypes: HairType[] = [
         name: "Coily / Kinky Hair",
         pattern: "Type 4 — Coily",
         description:
-            "Coily hair has a very tight Z or S pattern and is the most fragile hair type due to its angular curl structure and high porosity. Requires significant moisture retention strategies. Placeholder: replace with detailed description.",
+            "Coily hair has a very tight Z or S pattern and is the most fragile hair type due to its angular curl structure and high porosity. Requires significant moisture retention strategies.",
         characteristics: [
             "Tightly coiled Z or S pattern",
             "Most susceptible to breakage and shrinkage",
@@ -81,7 +81,7 @@ export const hairTypes: HairType[] = [
             "Detangle gently on wet, conditioned hair only",
             "Protective styles reduce manipulation and breakage",
         ],
-        image: "",
+        image: "https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=800",
         color: "mink",
     },
     {
@@ -89,7 +89,7 @@ export const hairTypes: HairType[] = [
         name: "Fine / Thin Hair",
         pattern: "Fine — Any Pattern",
         description:
-            "Fine hair refers to the diameter of each individual strand, while thin hair refers to overall density. Fine hair is delicate and easily weighed down by heavy products. Placeholder: replace with detailed description.",
+            "Fine hair refers to the diameter of each individual strand, while thin hair refers to overall density. Fine hair is delicate and easily weighed down by heavy products.",
         characteristics: [
             "Small individual strand diameter",
             "Prone to breakage with rough handling",
@@ -101,13 +101,11 @@ export const hairTypes: HairType[] = [
             "Use a volumising root spray for lift",
             "Trim regularly to prevent split ends from worsening",
         ],
-        image: "",
+        image: "https://images.pexels.com/photos/3065171/pexels-photo-3065171.jpeg?auto=compress&cs=tinysrgb&w=800",
         color: "warm-beige",
     },
 ];
-
 // ── Scalp Conditions ──────────────────────────────────────────────────────────
-// PLACEHOLDER: Replace with clinical details and images
 
 export const scalpConditions: ScalpCondition[] = [
     {
@@ -128,7 +126,7 @@ export const scalpConditions: ScalpCondition[] = [
             "Leave treatment on the scalp for 3–5 minutes before rinsing",
             "Maintain frequency of 2–3 times weekly for at least 4 weeks",
         ],
-        image: "",
+        image: "https://images.pexels.com/photos/5069368/pexels-photo-5069368.jpeg?auto=compress&cs=tinysrgb&w=800",
         color: "sand",
     },
     {
@@ -136,14 +134,14 @@ export const scalpConditions: ScalpCondition[] = [
         name: "Scalp Psoriasis",
         severity: "Moderate",
         description:
-            "An autoimmune condition causing rapid keratinocyte turnover, resulting in thick, silver-scaled plaques on the scalp. Placeholder: replace with clinical description.",
+            "An autoimmune condition causing rapid keratinocyte turnover, resulting in thick, silver-scaled plaques on the scalp. It can extend beyond the hairline and is often associated with systemic inflammation.",
         causes: [
             "Autoimmune T-cell mediated inflammation",
             "Genetic predisposition (HLA-C*06:02)",
             "Triggers: stress, infection, medications",
             "Environmental and lifestyle factors",
         ],
-        image: "",
+        image: "https://images.pexels.com/photos/7477710/pexels-photo-7477710.jpeg?auto=compress&cs=tinysrgb&w=800",
         color: "taupe",
     },
     {
@@ -151,14 +149,14 @@ export const scalpConditions: ScalpCondition[] = [
         name: "Scalp Eczema (Atopic Dermatitis)",
         severity: "Moderate",
         description:
-            "Inflammatory scalp condition with intensely itchy, weeping, or crusted patches. Associated with atopic triad (asthma, rhinitis, eczema). Placeholder: replace with clinical description.",
+            "Inflammatory scalp condition with intensely itchy, weeping, or crusted patches. Associated with atopic triad (asthma, rhinitis, eczema) and characterized by a compromised skin barrier.",
         causes: [
             "Filaggrin gene mutations impairing barrier",
             "IgE-mediated sensitivities",
             "Environmental irritants and allergens",
             "Dysbiosis of the scalp microbiome",
         ],
-        image: "",
+        image: "https://images.pexels.com/photos/3997955/pexels-photo-3997955.jpeg?auto=compress&cs=tinysrgb&w=800",
         color: "blush",
     },
     {
@@ -179,34 +177,46 @@ export const scalpConditions: ScalpCondition[] = [
             "Always use heat protectant before styling",
             "Use deep conditioning hair masks 1–2 times weekly",
         ],
-        image: "",
+        image: "https://images.pexels.com/photos/3738341/pexels-photo-3738341.jpeg?auto=compress&cs=tinysrgb&w=800",
         color: "mink",
     },
     {
-        id: "hair-loss",
-        name: "Hair Loss & Thinning",
+        id: "alopecia",
+        name: "Alopecia (Hair Loss)",
         severity: "Moderate",
-        description: "Thinning hair or localized loss often caused by hormonal shifts, stress, or nutrient deficiencies.",
-        causes: ["Androgenetic factors", "Post-partum hormonal shifts", "Nutrient deficiencies", "Traction or stress"],
-        tips: ["Use minoxidil-based treatments", "Scalp massage to boost circulation", "Avoid tight hairstyles"],
-        image: "",
+        description: "Thinning hair or localized loss affecting the scalp. Common types include Androgenic Alopecia (pattern baldness), Telogen Effluvium (temporary shedding), and Traction Alopecia.",
+        causes: [
+            "Genetic predisposition (DHT sensitivity)",
+            "Hormonal shifts (Post-partum/Menopause)",
+            "Extreme stress or trauma",
+            "Nutrient deficiencies (Iron, Zinc, Biotin)",
+            "Physical traction from tight styles",
+        ],
+        tips: [
+            "Use Minoxidil 5% to prolong the hair growth phase",
+            "Incorporate Caffeine and Biotin serums to fortify the shaft",
+            "Scalp massage with fortifying lotions to boost blood flow",
+            "Switch to loose protective styles to prevent traction",
+        ],
+        image: "https://images.pexels.com/photos/7797668/pexels-photo-7797668.jpeg?auto=compress&cs=tinysrgb&w=800",
         color: "sand",
     },
 ];
 
 // ── Haircare Routines ─────────────────────────────────────────────────────────
-// PLACEHOLDER: Replace step descriptions and images with real content
 
 export const haircareRoutines: Routine[] = [
     {
         id: "hair-loss-routine",
-        name: "Hair Regrowth Protocol",
-        description: "A clinical protocol to stimulate blood flow and revitalize dormant hair follicles.",
-        targetType: "hair-loss",
+        name: "Alopecia Recovery Protocol",
+        description: "A clinical protocol designed to stimulate blood flow, block DHT, and revitalize dormant hair follicles.",
+        targetType: "alopecia",
+        image: "https://images.pexels.com/photos/3997989/pexels-photo-3997989.jpeg?auto=compress&cs=tinysrgb&w=800",
         steps: [
-            { step: 1, name: "Scalp Detox", description: "Removes sebum and buildup blocking the follicles.", timing: "Weekly" },
-            { step: 2, name: "Minoxidil Application", description: "Apply foam or liquid directly to thinning areas.", timing: "AM & PM" },
-            { step: 3, name: "Scalp Massage", description: "Promotes blood circulation to the follicle roots.", timing: "5 mins daily" },
+            { step: 1, name: "Scalp Detox", description: "Use a clarifying or detox shampoo to remove sebum blocking the follicles.", timing: "Weekly" },
+            { step: 2, name: "Minoxidil Treatment", description: "Apply Minoxidil 5% directly to thinning areas twice daily.", timing: "AM & PM" },
+            { step: 3, name: "Fortifying Serum", description: "Apply a Caffeine or Biotin-rich serum to strengthen the hair shaft.", timing: "PM" },
+            { step: 4, name: "Scalp Massage", description: "Vigorously massage the scalp for 5 minutes with a fortifying lotion to boost circulation.", timing: "Daily" },
         ],
     },
     {
@@ -214,6 +224,7 @@ export const haircareRoutines: Routine[] = [
         name: "Scalp Eczema Soothing Routine",
         description: "A gentle, anti-inflammatory routine to calm redness and stop the itch on the scalp.",
         targetType: "scalp-eczema",
+        image: "https://images.pexels.com/photos/3997965/pexels-photo-3997965.jpeg?auto=compress&cs=tinysrgb&w=800",
         steps: [
             { step: 1, name: "Steroid / Anti-fungal Lotion", description: "Apply as prescribed to calm active flares.", timing: "PM" },
             { step: 2, name: "Gentle pH-Balanced Shampoo", description: "Cleanse without stripping natural oils.", timing: "AM" },
@@ -225,6 +236,7 @@ export const haircareRoutines: Routine[] = [
         name: "Split End Repair & Prevention",
         description: "A maintenance routine focusing on sealing the cuticle and preventing further fiber separation.",
         targetType: "split-ends",
+        image: "https://images.pexels.com/photos/3738341/pexels-photo-3738341.jpeg?auto=compress&cs=tinysrgb&w=800",
         steps: [
             { step: 1, name: "Bond Repair Treatment", description: "Apply to damp hair to strengthen internal bonds.", timing: "Weekly" },
             { step: 2, name: "Leave-in Sealant", description: "Concentrate on the bottom 2 inches of hair.", timing: "Daily" },
@@ -234,50 +246,50 @@ export const haircareRoutines: Routine[] = [
     {
         id: "straight-routine",
         name: "Straight Hair Balancing Routine",
-        description:
-            "A cleansing-focused routine that prevents oiliness while maintaining shine. Placeholder: replace with full routine rationale.",
+        description: "A cleansing-focused routine that prevents oiliness while maintaining shine and volume.",
         targetType: "straight",
+        image: "https://images.pexels.com/photos/3065209/pexels-photo-3065209.jpeg?auto=compress&cs=tinysrgb&w=800",
         steps: [
-            { step: 1, name: "Clarifying Shampoo", description: "Placeholder: Use weekly to remove buildup.", timing: "Weekly" },
-            { step: 2, name: "Volumising Shampoo", description: "Placeholder: Lightweight, sulfate-free shampoo.", timing: "Every 2–3 days" },
-            { step: 3, name: "Lightweight Conditioner", description: "Placeholder: Apply mid-lengths to ends.", timing: "Every wash" },
-            { step: 4, name: "Leave-in Spray", description: "Placeholder: Detangling and heat protection spray.", timing: "Before styling" },
+            { step: 1, name: "Clarifying Shampoo", description: "Use weekly to remove sebum buildup and keep hair light.", timing: "Weekly" },
+            { step: 2, name: "Volumising Shampoo", description: "Lightweight, sulfate-free shampoo for regular washes.", timing: "Every 2–3 days" },
+            { step: 3, name: "Lightweight Conditioner", description: "Apply mid-lengths to ends only to avoid root oiliness.", timing: "Every wash" },
+            { step: 4, name: "Leave-in Spray", description: "Detangling and heat protection spray before styling.", timing: "Before styling" },
         ],
     },
     {
         id: "curly-routine",
         name: "Curly Hair Moisture Routine",
-        description:
-            "An intensive moisture-locking routine following curly hair method principles. Placeholder: replace with full routine rationale.",
+        description: "An intensive moisture-locking routine following curly hair method principles for defined, frizz-free curls.",
         targetType: "curly",
+        image: "https://images.pexels.com/photos/1586973/pexels-photo-1586973.jpeg?auto=compress&cs=tinysrgb&w=800",
         steps: [
-            { step: 1, name: "Co-wash or Shampoo", description: "Placeholder: Sulfate-free, moisturising shampoo.", timing: "Every 3–4 days" },
-            { step: 2, name: "Deep Conditioner", description: "Placeholder: Leave on under heat for 20 minutes.", timing: "Weekly" },
-            { step: 3, name: "Leave-in Conditioner", description: "Placeholder: Apply generously to soaking wet hair.", timing: "Every wash" },
-            { step: 4, name: "Curl Defining Cream", description: "Placeholder: Apply over leave-in to clump curls.", timing: "Every wash" },
-            { step: 5, name: "Gel Layer", description: "Placeholder: Seals the curl cast for definition.", timing: "Every wash" },
+            { step: 1, name: "Co-wash or Shampoo", description: "Sulfate-free, moisturising shampoo to preserve natural oils.", timing: "Every 3–4 days" },
+            { step: 2, name: "Deep Conditioner", description: "Leave on under heat for 20 minutes for deep penetration.", timing: "Weekly" },
+            { step: 3, name: "Leave-in Conditioner", description: "Apply generously to soaking wet hair to lock in moisture.", timing: "Every wash" },
+            { step: 4, name: "Curl Defining Cream", description: "Apply over leave-in to clump and define curls.", timing: "Every wash" },
+            { step: 5, name: "Gel Layer", description: "Seals the curl cast for frizz-free definition.", timing: "Every wash" },
         ],
     },
     {
         id: "coily-routine",
         name: "Coily Hair Retention Routine",
-        description:
-            "An ultra-moisturising routine focused on breakage prevention and length retention. Placeholder: replace with full routine rationale.",
+        description: "An ultra-moisturising routine focused on breakage prevention and length retention for tight coils.",
         targetType: "coily",
+        image: "https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=800",
         steps: [
-            { step: 1, name: "Pre-poo Treatment", description: "Placeholder: Coconut or olive oil applied before washing.", timing: "Before every wash" },
-            { step: 2, name: "Moisturising Shampoo", description: "Placeholder: Sulfate-free, with slip for detangling.", timing: "Weekly" },
-            { step: 3, name: "Protein Treatment", description: "Placeholder: To strengthen the hair shaft. Use monthly.", timing: "Monthly" },
-            { step: 4, name: "Deep Conditioner", description: "Placeholder: Heavy cream conditioner with heat.", timing: "Weekly" },
-            { step: 5, name: "LOC Method", description: "Placeholder: Liquid > Oil > Cream application sequence.", timing: "Every wash + top-up daily" },
+            { step: 1, name: "Pre-poo Treatment", description: "Coconut or olive oil applied before washing to reduce protein loss.", timing: "Before every wash" },
+            { step: 2, name: "Moisturising Shampoo", description: "Sulfate-free, with slip for gentle detangling while cleansing.", timing: "Weekly" },
+            { step: 3, name: "Protein Treatment", description: "To strengthen the hair shaft and prevent breakage. Use monthly.", timing: "Monthly" },
+            { step: 4, name: "Deep Conditioner", description: "Heavy cream conditioner with heat cap for intense moisture.", timing: "Weekly" },
+            { step: 5, name: "LOC Method", description: "Liquid > Oil > Cream application sequence for moisture retention.", timing: "Every wash + top-up daily" },
         ],
     },
     {
         id: "general-routine",
         name: "Complete Hair Health Routine",
-        description:
-            "A foundation-level routine to maintain scalp health, moisture balance, and improve hair strength and shine.",
+        description: "A foundation-level routine to maintain scalp health, moisture balance, and improve hair strength and shine.",
         targetType: "all",
+        image: "https://images.pexels.com/photos/3065171/pexels-photo-3065171.jpeg?auto=compress&cs=tinysrgb&w=800",
         steps: [
             { step: 1, name: "Shampoo", description: "Wash 2–3 times weekly to clear excess oil and buildup. Choose by scalp type.", timing: "Every 2–3 days" },
             { step: 2, name: "Conditioner", description: "Apply after every wash to restore moisture and reduce frizz. Apply mid-length to ends only.", timing: "Every wash" },
@@ -289,15 +301,14 @@ export const haircareRoutines: Routine[] = [
     {
         id: "scalp-treatment-routine",
         name: "Anti-Dandruff Treatment Routine",
-        description:
-            "A targeted therapeutic routine for managing dandruff and seborrheic dermatitis through medical-grade scalp care.",
-        targetType: "all",
+        description: "A targeted therapeutic routine for managing dandruff and seborrheic dermatitis through medical-grade scalp care.",
+        targetType: "dandruff",
+        image: "https://images.pexels.com/photos/5069368/pexels-photo-5069368.jpeg?auto=compress&cs=tinysrgb&w=800",
         steps: [
             { step: 1, name: "Medicated Shampoo", description: "Use Nizoral or Selsun Blue. Massage into scalp and leave for 3–5 minutes.", timing: "2–3×/week" },
             { step: 2, name: "Gentle Conditioner", description: "Apply to ends only to prevent lengths from drying out during treatment.", timing: "Every wash" },
             { step: 3, name: "Maintenance Wash", description: "Once improvement is seen, reduce to once weekly to prevent relapse.", timing: "Weekly" },
         ],
-        image: "",
     },
 ];
 
@@ -519,6 +530,23 @@ export const haircareProducts: Product[] = [
         concerns: ["split-ends"],
         medicalDetails: {
             mechanismOfAction: "Concentrated conditioning agents coat the hair shaft to protect from breakage and heat.",
+            pregnancySafety: "Safe."
+        }
+    },
+    {
+        id: "hc-013",
+        name: "The Ordinary Multi-Peptide Serum",
+        brand: "The Ordinary",
+        category: "Treatment",
+        description: "A concentrated formula designed to support hair health so that it looks thicker, denser, fuller, and healthier.",
+        usage: "Apply a few drops or as needed once daily, ideally at bedtime, to clean, dry scalp.",
+        mainIngredients: ["REDENSYL™", "Procapil™", "Caffeine"],
+        benefits: ["Increases hair density", "Supports scalp health", "Lightweight finish"],
+        image: "https://theordinary.com/dw/image/v2/BFJH_PRD/on/demandware.static/-/Sites-deciem-master/default/dwed9e4726/Images/products/The%20Ordinary/rdn-multi-peptide-serum-for-hair-density-60ml.png?sw=1200",
+        targetTypes: ["all", "hair-loss", "alopecia"],
+        concerns: ["alopecia"],
+        medicalDetails: {
+            mechanismOfAction: "Peptide complexes work in tandem with caffeine to improve the biological environment of the hair follicle.",
             pregnancySafety: "Safe."
         }
     }
