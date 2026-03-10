@@ -45,11 +45,12 @@ export function About() {
                     viewport={{ once: true }}
                     className="mt-12 mb-20 flex flex-col items-center text-center"
                 >
-                    <div className="w-32 h-32 mb-6 bg-cream rounded-full flex items-center justify-center border border-gold/20 shadow-xl overflow-hidden group">
-                        {/* MTI LOGO PLACEHOLDER */}
-                        <div className="w-full h-full flex items-center justify-center bg-ivory group-hover:bg-white transition-colors">
-                            <span className="text-wine font-heading text-3xl font-bold tracking-tighter">MTI</span>
-                        </div>
+                    <div className="w-40 h-40 mb-6 rounded-2xl flex items-center justify-center border border-gold/20 shadow-2xl overflow-hidden bg-white">
+                        <img
+                            src="/images/team/mti_logo.jpeg"
+                            alt="MTI University Logo"
+                            className="w-full h-full object-contain"
+                        />
                     </div>
                     <h3 className="text-wine-dark font-heading text-2xl mb-2">MTI University</h3>
                     <p className="text-taupe text-sm max-w-md">Modern University for Technology & Information</p>
