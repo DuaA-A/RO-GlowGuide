@@ -45,12 +45,47 @@ export function About() {
                     viewport={{ once: true }}
                     className="mt-12 mb-20 flex flex-col items-center text-center"
                 >
-                    <div className="w-40 h-40 mb-6 rounded-2xl flex items-center justify-center border border-gold/20 shadow-2xl overflow-hidden bg-white">
-                        <img
-                            src="/images/team/mti_logo.jpeg"
-                            alt="MTI University Logo"
-                            className="w-full h-full object-contain"
+                    {/* Pulsing glow aura wrapper */}
+                    <div className="relative mb-8 flex items-center justify-center">
+                        {/* Outer pulsing glow layers */}
+                        <div
+                            className="absolute rounded-full"
+                            style={{
+                                width: "220px",
+                                height: "220px",
+                                background: "radial-gradient(circle, transparent 38%, rgba(201,168,124,0.65) 46%, transparent 75%)",
+
+
+                                animation: "logo-aura 2.8s ease-in-out infinite",
+
+                            }}
                         />
+                        <div
+                            className="absolute rounded-full"
+                            style={{
+                                width: "190px",
+                                height: "190px",
+                                background: "radial-gradient(circle, transparent 38%, rgba(226,201,154,0.45) 47%, transparent 80%)",
+
+
+                                animation: "logo-aura 2.8s ease-in-out infinite 0.5s",
+
+                            }}
+                        />
+                        {/* Logo image circle */}
+                        <div
+                            className="relative z-10 w-40 h-40 rounded-full overflow-hidden bg-white flex items-center justify-center"
+                            style={{
+                                boxShadow: "0 0 0 3px rgba(212,160,23,0.6), 0 0 24px rgba(139,26,44,0.4), 0 0 48px rgba(61,26,38,0.2)",
+                                animation: "border-glow 2.8s ease-in-out infinite",
+                            }}
+                        >
+                            <img
+                                src="/images/team/mti_logo.jpeg"
+                                alt="MTI University Logo"
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
                     </div>
                     <h3 className="text-wine-dark font-heading text-2xl mb-2">MTI University</h3>
                     <p className="text-taupe text-sm max-w-md">Modern University for Technology & Information</p>
