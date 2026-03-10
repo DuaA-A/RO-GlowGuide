@@ -4,6 +4,8 @@ import { useSearchParams, Link } from "react-router";
 import { Check, ChevronRight } from "lucide-react";
 import { SectionHeader } from "../../components/SectionHeader";
 import { skinTypes, skinConditions } from "../../data/skincare";
+import { useLanguage } from "../../context/LanguageContext";
+import { skinTypesAr, skinConditionsAr } from "../../data/skincare_ar";
 
 type Tab = "types" | "conditions";
 
@@ -26,6 +28,7 @@ export function SkinTypes() {
     const [searchParams, setSearchParams] = useSearchParams();
     const initialTab = (searchParams.get("tab") as Tab) || "types";
     const [activeTab, setActiveTab] = useState<Tab>(initialTab);
+    const { t, isAr } = useLanguage();
 
     const handleTabChange = (tab: Tab) => {
         setActiveTab(tab);
@@ -40,10 +43,10 @@ export function SkinTypes() {
 
                 {/* Header */}
                 <SectionHeader
-                    label="Skincare Guide"
-                    title="Know Your"
-                    titleHighlight="Skin."
-                    subtitle="Understanding your skin type and conditions is the essential first step to building an effective, personalised skincare routine."
+                    label={t("skincare.types.label")}
+                    title={t("skincare.types.title")}
+                    titleHighlight={t("skincare.types.titleHighlight")}
+                    subtitle={t("skincare.types.subtitle")}
                 />
 
                 {/* Tabs */}
@@ -66,7 +69,7 @@ export function SkinTypes() {
                                     />
                                 )}
                                 <span className="relative z-10 capitalize">
-                                    {tab === "types" ? "Skin Types" : "Skin Conditions"}
+                                    {tab === "types" ? t("skincare.types.title") + " " + t("skincare.types.titleHighlight") : t("skincare.conditions.title") + " " + t("skincare.conditions.titleHighlight")}
                                 </span>
                             </button>
                         ))}
@@ -107,13 +110,13 @@ export function SkinTypes() {
                                             </div>
                                             <h3 className="font-heading text-espresso mb-3">{skin.name}</h3>
                                             <p className="text-espresso/90 text-sm md:text-base leading-relaxed mb-6">
-                                                {skin.description}</p>
+                                                {isAr ? skinTypesAr[skin.id]?.description : skin.description}</p>
 
                                             <div className="grid sm:grid-cols-2 gap-6">
                                                 <div>
-                                                    <p className="text-xs uppercase tracking-[0.15em] text-gold mb-3">Characteristics</p>
+                                                    <p className="text-xs uppercase tracking-[0.15em] text-gold mb-3">{t("label.characteristics")}</p>
                                                     <ul className="space-y-2">
-                                                        {skin.characteristics.map((c, idx) => (
+                                                        {(isAr ? skinTypesAr[skin.id]?.characteristics ?? skin.characteristics : skin.characteristics).map((c, idx) => (
                                                             <li key={idx} className="flex items-start gap-2 text-sm md:text-base text-espresso/80">
                                                                 <Check className="w-3.5 h-3.5 text-gold flex-shrink-0 mt-0.5" />
                                                                 {c}
@@ -122,12 +125,12 @@ export function SkinTypes() {
                                                     </ul>
                                                 </div>
                                                 <div>
-                                                    <p className="text-xs uppercase tracking-[0.15em] text-gold mb-3">Care Tips</p>
+                                                    <p className="text-xs uppercase tracking-[0.15em] text-gold mb-3">{t("label.tips")}</p>
                                                     <ul className="space-y-2">
-                                                        {skin.tips.map((t, idx) => (
+                                                        {(isAr ? skinTypesAr[skin.id]?.tips ?? skin.tips : skin.tips).map((tip, idx) => (
                                                             <li key={idx} className="flex items-start gap-2 text-sm md:text-base text-espresso/80">
                                                                 <ChevronRight className="w-3.5 h-3.5 text-sand flex-shrink-0 mt-0.5" />
-                                                                {t}
+                                                                {tip}
                                                             </li>
                                                         ))}
                                                     </ul>
@@ -139,7 +142,7 @@ export function SkinTypes() {
                                                     to={`/skincare/solutions?type=${skin.id}`}
                                                     className="btn-wine text-[10px] py-2 px-6"
                                                 >
-                                                    View routine for {skin.name.toLowerCase()} →
+                                                    {isAr ? `عرض روتين ${skin.name} ←` : `View routine for ${skin.name.toLowerCase()} →`}
                                                 </Link>
                                             </div>
                                         </div>
@@ -193,13 +196,15 @@ export function SkinTypes() {
                                                     )}
                                                 </div>
                                                 <h3 className="font-heading text-espresso mb-3">{condition.name}</h3>
-                                                <p className="text-espresso/90 text-sm md:text-base leading-relaxed mb-6">{condition.description}</p>
+                                                <p className="text-espresso/90 text-sm md:text-base leading-relaxed mb-6">
+                                                    {isAr ? skinConditionsAr[condition.id]?.description : condition.description}
+                                                </p>
 
                                                 <div className="grid sm:grid-cols-2 gap-6">
                                                     <div>
-                                                        <p className="text-xs uppercase tracking-[0.15em] text-gold mb-3">Common Causes</p>
+                                                        <p className="text-xs uppercase tracking-[0.15em] text-gold mb-3">{t("label.causes")}</p>
                                                         <ul className="space-y-2">
-                                                            {condition.causes.map((c, idx) => (
+                                                            {(isAr ? skinConditionsAr[condition.id]?.causes ?? condition.causes : condition.causes).map((c, idx) => (
                                                                 <li key={idx} className="flex items-start gap-2 text-sm md:text-base text-espresso/80">
                                                                     <ChevronRight className="w-3.5 h-3.5 text-sand flex-shrink-0 mt-0.5" />
                                                                     {c}
@@ -209,12 +214,12 @@ export function SkinTypes() {
                                                     </div>
                                                     {condition.tips && condition.tips.length > 0 && (
                                                         <div>
-                                                            <p className="text-xs uppercase tracking-[0.15em] text-gold mb-3">Clinical Tips</p>
+                                                            <p className="text-xs uppercase tracking-[0.15em] text-gold mb-3">{t("label.tips")}</p>
                                                             <ul className="space-y-2">
-                                                                {condition.tips.map((t, idx) => (
+                                                                {(isAr ? skinConditionsAr[condition.id]?.tips ?? condition.tips : condition.tips).map((tip, idx) => (
                                                                     <li key={idx} className="flex items-start gap-2 text-sm md:text-base text-espresso/80">
                                                                         <Check className="w-3.5 h-3.5 text-gold flex-shrink-0 mt-0.5" />
-                                                                        {t}
+                                                                        {tip}
                                                                     </li>
                                                                 ))}
                                                             </ul>
@@ -227,7 +232,7 @@ export function SkinTypes() {
                                                         to={`/skincare/solutions?condition=${condition.id}`}
                                                         className="btn-wine text-[10px] py-2 px-6"
                                                     >
-                                                        View treatment routine →
+                                                        {isAr ? "عرض روتين العلاج ←" : "View treatment routine →"}
                                                     </Link>
                                                 </div>
                                             </div>

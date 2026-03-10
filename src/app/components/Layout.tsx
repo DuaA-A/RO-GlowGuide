@@ -2,6 +2,8 @@ import { Outlet, Link, useLocation } from "react-router";
 import { motion, AnimatePresence, useScroll, useSpring } from "motion/react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import { useLanguage } from "../context/LanguageContext";
+
 
 function ScrollProgressBar() {
   const { scrollYProgress } = useScroll();
@@ -20,17 +22,20 @@ interface NavDropdownItem {
   description: string;
 }
 
-const skincareItems: NavDropdownItem[] = [
-  { label: "Skin Types & Conditions", path: "/skincare/types", description: "Understand your skin" },
-  { label: "Skincare Routines", path: "/skincare/solutions", description: "Step-by-step guidance" },
-  { label: "Skincare Products", path: "/skincare/products", description: "Explore our catalogue" },
-];
-
-const haircareItems: NavDropdownItem[] = [
-  { label: "Hair Types & Conditions", path: "/haircare/types", description: "Know your hair" },
-  { label: "Hair Routines", path: "/haircare/solutions", description: "Care plans by type" },
-  { label: "Haircare Products", path: "/haircare/products", description: "Hair-specific formulas" },
-];
+function useNavItems() {
+  const { t } = useLanguage();
+  const skincareItems: NavDropdownItem[] = [
+    { label: t("nav.skinTypes"), path: "/skincare/types", description: t("nav.skinDesc") },
+    { label: t("nav.skincareRoutines"), path: "/skincare/solutions", description: t("nav.skincareRoutinesDesc") },
+    { label: t("nav.skincareProducts"), path: "/skincare/products", description: t("nav.skinProductsDesc") },
+  ];
+  const haircareItems: NavDropdownItem[] = [
+    { label: t("nav.hairTypes"), path: "/haircare/types", description: t("nav.hairDesc") },
+    { label: t("nav.hairRoutines"), path: "/haircare/solutions", description: t("nav.hairRoutinesDesc") },
+    { label: t("nav.haircareProducts"), path: "/haircare/products", description: t("nav.hairProductsDesc") },
+  ];
+  return { skincareItems, haircareItems };
+}
 
 function DropdownMenu({ items, isOpen }: { items: NavDropdownItem[]; isOpen: boolean }) {
   return (
@@ -65,6 +70,8 @@ export function Layout() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
+  const { t, lang, setLang } = useLanguage();
+  const { skincareItems, haircareItems } = useNavItems();
 
   const isHome = location.pathname === "/";
 
@@ -168,7 +175,7 @@ export function Layout() {
                     : "text-mink hover:text-espresso hover:bg-linen/60"
                     }`}
                 >
-                  Skincare
+                  {t("nav.skincare")}
                   <ChevronDown
                     className={`w-3 h-3 transition-transform duration-200 ${openDropdown === "skincare" ? "rotate-180" : ""}`}
                   />
@@ -192,7 +199,7 @@ export function Layout() {
                     : "text-mink hover:text-espresso hover:bg-linen/60"
                     }`}
                 >
-                  Haircare
+                  {t("nav.haircare")}
                   <ChevronDown
                     className={`w-3 h-3 transition-transform duration-200 ${openDropdown === "haircare" ? "rotate-180" : ""}`}
                   />
@@ -213,8 +220,19 @@ export function Layout() {
                   : "text-mink hover:text-espresso hover:bg-linen/60"
                   }`}
               >
-                About Us
+                {t("nav.about")}
               </Link>
+
+              {/* Language Toggle */}
+              <button
+                onClick={() => setLang(lang === "en" ? "ar" : "en")}
+                className="ml-2 flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs font-medium tracking-widest uppercase transition-all duration-200 hover:bg-linen/60"
+                style={{ borderColor: "rgba(201,168,124,0.5)", color: "#A8907E" }}
+                title={lang === "en" ? "Switch to Arabic" : "التبديل إلى الإنجليزية"}
+              >
+                <span className="text-sm">{lang === "en" ? "🌐" : "🌐"}</span>
+                {lang === "en" ? "AR" : "EN"}
+              </button>
             </div>
 
             {/* Mobile toggle */}
@@ -241,7 +259,7 @@ export function Layout() {
                 className="md:hidden overflow-hidden border-t border-warm-beige"
               >
                 <div className="py-4 space-y-1">
-                  <p className="text-xs uppercase tracking-[0.2em] text-sand px-4 py-2">Skincare</p>
+                  <p className="text-xs uppercase tracking-[0.2em] text-sand px-4 py-2">{t("nav.skincare")}</p>
                   {skincareItems.map((item) => (
                     <Link
                       key={item.path}
@@ -252,7 +270,7 @@ export function Layout() {
                     </Link>
                   ))}
                   <div className="my-2 border-t border-warm-beige" />
-                  <p className="text-xs uppercase tracking-[0.2em] text-sand px-4 py-2">Haircare</p>
+                  <p className="text-xs uppercase tracking-[0.2em] text-sand px-4 py-2">{t("nav.haircare")}</p>
                   {haircareItems.map((item) => (
                     <Link
                       key={item.path}
@@ -267,8 +285,15 @@ export function Layout() {
                     to="/about"
                     className="block px-6 py-2.5 text-sm text-mink hover:text-gold hover:bg-linen rounded-lg transition-colors"
                   >
-                    About Us
+                    {t("nav.about")}
                   </Link>
+                  <div className="my-2 border-t border-warm-beige" />
+                  <button
+                    onClick={() => setLang(lang === "en" ? "ar" : "en")}
+                    className="w-full text-left px-6 py-2.5 text-sm text-mink hover:text-gold hover:bg-linen rounded-lg transition-colors"
+                  >
+                    🌐 {lang === "en" ? "العربية" : "English"}
+                  </button>
                 </div>
               </motion.div>
             )}
@@ -300,7 +325,7 @@ export function Layout() {
                 <span className="font-heading text-lg italic" style={{ color: "#E8D5C0" }}>RO</span>
               </div>
               <p className="text-sm leading-relaxed" style={{ color: "rgba(232,213,192,0.65)" }}>
-                Your expert companion for skincare and haircare — evidence-based, beautifully curated.
+                {t("footer.tagline")}
               </p>
             </div>
 
@@ -310,7 +335,7 @@ export function Layout() {
                 className="font-body text-xs uppercase tracking-[0.22em] mb-4"
                 style={{ color: "rgba(201,168,124,0.70)" }}
               >
-                Skincare
+                {t("nav.skincare")}
               </h4>
               <ul className="space-y-2.5">
                 {skincareItems.map((item) => (
@@ -335,7 +360,7 @@ export function Layout() {
                 className="font-body text-xs uppercase tracking-[0.22em] mb-4"
                 style={{ color: "rgba(201,168,124,0.70)" }}
               >
-                Haircare
+                {t("nav.haircare")}
               </h4>
               <ul className="space-y-2.5">
                 {haircareItems.map((item) => (
@@ -360,7 +385,7 @@ export function Layout() {
                 className="font-body text-xs uppercase tracking-[0.22em] mb-4"
                 style={{ color: "rgba(201,168,124,0.70)" }}
               >
-                Company
+                {t("footer.company")}
               </h4>
               <ul className="space-y-2.5">
                 <li>
@@ -371,7 +396,7 @@ export function Layout() {
                     onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#C9A87C"; }}
                     onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(232,213,192,0.65)"; }}
                   >
-                    About Us
+                    {t("nav.about")}
                   </Link>
                 </li>
               </ul>
@@ -385,13 +410,13 @@ export function Layout() {
           >
             <div className="flex-1">
               <p className="text-xs mb-4" style={{ color: "rgba(232,213,192,0.40)" }}>
-                © 2026 RO Beauty Guide. MTI College Graduation Project — Faculty of Pharmacy.
+                {t("footer.copyright")}
               </p>
 
               {/* Conditional References */}
               {location.pathname.includes("/skincare") && (
                 <div className="mt-8 pt-8 border-t border-gold/10">
-                  <h5 className="text-[10px] uppercase tracking-[0.2em] mb-4 text-gold/50">Skincare References</h5>
+                  <h5 className="text-[10px] uppercase tracking-[0.2em] mb-4 text-gold/50">{t("footer.skincareRefs")}</h5>
                   <div className="space-y-4 text-[11px] leading-relaxed text-cream/40 max-w-2xl">
                     <p>Andrews' Diseases of the Skin: Clinical Dermatology. James W., Elston D., Treat J., Rosenbach M. 13th Edition. Elsevier; 2020.</p>
                     <p>American Academy of Dermatology. Acne and skin care information. <a href="https://www.aad.org" target="_blank" className="hover:text-gold transition-colors">www.aad.org</a></p>
@@ -402,7 +427,7 @@ export function Layout() {
 
               {location.pathname.includes("/haircare") && (
                 <div className="mt-8 pt-8 border-t border-gold/10">
-                  <h5 className="text-[10px] uppercase tracking-[0.2em] mb-4 text-gold/50">Haircare References</h5>
+                  <h5 className="text-[10px] uppercase tracking-[0.2em] mb-4 text-gold/50">{t("footer.haircareRefs")}</h5>
                   <div className="space-y-4 text-[11px] leading-relaxed text-cream/40 max-w-2xl">
                     <p>National Health Service (NHS). (2023). Dandruff and seborrhoeic dermatitis. <a href="https://www.nhs.uk" target="_blank" className="hover:text-gold transition-colors">www.nhs.uk</a></p>
                     <p>Trüeb, R. M., & Tobin, D. J. (2010). Aging hair. Springer.</p>

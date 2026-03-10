@@ -4,6 +4,8 @@ import { Link, useSearchParams } from "react-router";
 import { Clock, Layers, ArrowRight } from "lucide-react";
 import { SectionHeader } from "../../components/SectionHeader";
 import { skincareRoutines, skinTypes } from "../../data/skincare";
+import { useLanguage } from "../../context/LanguageContext";
+import { skincareRoutinesAr } from "../../data/skincare_ar";
 
 function PlaceholderImage({ label }: { label: string }) {
     return (
@@ -16,6 +18,7 @@ function PlaceholderImage({ label }: { label: string }) {
 export function SkincareSolutions() {
     const [searchParams] = useSearchParams();
     const routineRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+    const { t, isAr } = useLanguage();
 
     useEffect(() => {
         const typeId = searchParams.get("type");
@@ -38,10 +41,10 @@ export function SkincareSolutions() {
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
 
                 <SectionHeader
-                    label="Skincare Routines"
-                    title="Your Personalised"
-                    titleHighlight="Routine."
-                    subtitle="Step-by-step skincare routines tailored to each skin type — from a minimalist daily regimen to a comprehensive specialist approach."
+                    label={t("skincare.solutions.label")}
+                    title={t("skincare.solutions.title")}
+                    titleHighlight={t("skincare.solutions.titleHighlight")}
+                    subtitle={t("skincare.solutions.subtitle")}
                 />
 
                 <div className="mt-16 space-y-12">
@@ -71,7 +74,7 @@ export function SkincareSolutions() {
                                         </div>
                                         <h3 className="font-heading text-espresso mb-1 text-xl md:text-2xl">{routine.name}</h3>
                                         <p className="text-espresso/80 text-sm md:text-base leading-relaxed line-clamp-2 italic">
-                                            {routine.description}</p>
+                                            {isAr ? skincareRoutinesAr[routine.id]?.description ?? routine.description : routine.description}</p>
                                     </div>
                                 </div>
                             ) : (
@@ -85,15 +88,15 @@ export function SkincareSolutions() {
                                     </div>
                                     <h3 className="font-heading text-espresso mb-1 text-xl md:text-2xl">{routine.name}</h3>
                                     <p className="text-espresso/80 text-sm md:text-base leading-relaxed max-w-4xl italic">
-                                        {routine.description}</p>
+                                        {isAr ? skincareRoutinesAr[routine.id]?.description ?? routine.description : routine.description}</p>
                                 </div>
                             )}
 
                             {/* Steps Grid - Scrollable portion */}
                             <div className="flex-grow overflow-y-auto px-4 py-4 md:px-10 bg-cream/30 scrollbar-thin">
                                 <div className="flex items-center justify-between mb-4">
-                                    <p className="text-[10px] uppercase tracking-[0.2em] text-gold font-bold">Step-by-Step Treatment Guide</p>
-                                    <p className="text-[9px] text-taupe/60 md:hidden uppercase font-bold tracking-widest">Swipe for next step →</p>
+                                    <p className="text-[10px] uppercase tracking-[0.2em] text-gold font-bold">{t("label.steps")}</p>
+                                    <p className="text-[9px] text-taupe/60 md:hidden uppercase font-bold tracking-widest">{isAr ? "اسحبي للخطوة التالية ←" : "Swipe for next step →"}</p>
                                 </div>
 
                                 <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 pb-6 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory scrollbar-none">
@@ -109,7 +112,10 @@ export function SkincareSolutions() {
                                             </div>
                                             <h4 className="border-b border-warm-beige/30 pb-2 font-heading text-espresso text-base mb-2">{step.name}</h4>
                                             <p className="text-sm text-espresso/80 leading-relaxed mb-3 flex-grow line-clamp-4">
-                                                {step.description}</p>
+                                                {isAr
+                                                    ? skincareRoutinesAr[routine.id]?.steps[routine.steps.indexOf(step)]?.description ?? step.description
+                                                    : step.description}
+                                            </p>
                                             <span className="inline-block text-[9px] w-fit uppercase tracking-wide bg-wine/5 border border-wine/10 text-wine font-bold px-2 py-0.5 rounded-full">
                                                 {step.timing}
                                             </span>
@@ -124,7 +130,7 @@ export function SkincareSolutions() {
                                     to={`/skincare/products?${skinTypes.some((t: any) => t.id === routine.targetType) ? 'type' : 'concern'}=${routine.targetType}`}
                                     className="btn-wine py-3 px-8 text-xs"
                                 >
-                                    Explore Compatible Products
+                                    {isAr ? "استكشفي المنتجات المتوافقة" : "Explore Compatible Products"}
                                     <ArrowRight className="w-4 h-4 ml-1.5" />
                                 </Link>
                             </div>
@@ -139,13 +145,13 @@ export function SkincareSolutions() {
                     viewport={{ once: true }}
                     className="mt-16 bg-[#F8EDED] border border-[#EBCBCB] rounded-2xl p-10 text-center"
                 >
-                    <p className="text-xs uppercase tracking-[0.25em] text-[#8E5B61] mb-4 font-bold">Next Step</p>
-                    <h3 className="font-heading text-espresso mb-4">Ready to build your product shelf?</h3>
+                    <p className="text-xs uppercase tracking-[0.25em] text-[#8E5B61] mb-4 font-bold">{isAr ? "الخطوة التالية" : "Next Step"}</p>
+                    <h3 className="font-heading text-espresso mb-4">{isAr ? "هل أنتِ مستعدة لبناء رف منتجاتك؟" : "Ready to build your product shelf?"}</h3>
                     <p className="text-espresso/70 text-sm mb-7 max-w-lg mx-auto leading-relaxed">
-                        Explore our curated skincare product catalogue and find the exact formulas recommended in each routine step.
+                        {isAr ? "استكشفي كتالوج منتجات العناية بالبشرة المنتقى وابحثي عن التركيبات المُوصى بها في كل خطوة من خطوات الروتين." : "Explore our curated skincare product catalogue and find the exact formulas recommended in each routine step."}
                     </p>
                     <Link to="/skincare/products" className="btn-wine">
-                        Browse Full Catalogue <ArrowRight className="w-4 h-4 ml-2" />
+                        {isAr ? "تصفح الكتالوج الكامل" : "Browse Full Catalogue"} <ArrowRight className="w-4 h-4 ml-2" />
                     </Link>
                 </motion.div>
 

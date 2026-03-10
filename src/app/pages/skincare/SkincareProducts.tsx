@@ -5,6 +5,7 @@ import { useSearchParams } from "react-router";
 import { SectionHeader } from "../../components/SectionHeader";
 import { ProductCard } from "../../components/ProductCard";
 import { skincareProducts, skinTypes, skinConditions } from "../../data/skincare";
+import { useLanguage } from "../../context/LanguageContext";
 
 const CATEGORIES = ["All", "Cleanser", "Toner", "Serum", "Moisturiser", "Sunscreen", "Treatment"];
 
@@ -15,6 +16,7 @@ export function SkincareProducts() {
     const [activeType, setActiveType] = useState("All Types");
     const [activeConcern, setActiveConcern] = useState<string | null>(null);
     const [isTypeDropdownOpen, setIsTypeDropdownOpen] = useState(false);
+    const { t } = useLanguage();
 
     useEffect(() => {
         const typeParam = searchParams.get("type");
@@ -86,10 +88,10 @@ export function SkincareProducts() {
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
 
                 <SectionHeader
-                    label="Skincare Products"
-                    title="The Skincare"
-                    titleHighlight="Catalogue."
-                    subtitle="Filter by skin type, concern, or category to find your perfect routine match."
+                    label={t("skincare.products.label")}
+                    title={t("skincare.products.title")}
+                    titleHighlight={t("skincare.products.titleHighlight")}
+                    subtitle={t("skincare.products.subtitle")}
                 />
 
                 <div className="mt-12 mb-12 flex flex-col items-center gap-8">
@@ -100,7 +102,7 @@ export function SkincareProducts() {
                             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-taupe" />
                             <input
                                 type="text"
-                                placeholder="Search by name or ingredient…"
+                                placeholder={t("label.searchPlaceholder")}
                                 value={search}
                                 onChange={(e) => setSearch(e.target.value)}
                                 className="w-full pl-11 pr-5 py-3.5 bg-ivory border border-warm-beige rounded-xl text-sm text-espresso placeholder-taupe focus:outline-none focus:border-gold transition-all"

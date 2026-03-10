@@ -4,6 +4,8 @@ import { useSearchParams, Link } from "react-router";
 import { Check, ChevronRight } from "lucide-react";
 import { SectionHeader } from "../../components/SectionHeader";
 import { hairTypes, scalpConditions } from "../../data/haircare";
+import { useLanguage } from "../../context/LanguageContext";
+import { hairTypesAr, scalpConditionsAr } from "../../data/haircare_ar";
 
 type Tab = "types" | "conditions";
 
@@ -26,6 +28,7 @@ export function HairTypes() {
     const [searchParams, setSearchParams] = useSearchParams();
     const initialTab = (searchParams.get("tab") as Tab) || "types";
     const [activeTab, setActiveTab] = useState<Tab>(initialTab);
+    const { t, isAr } = useLanguage();
 
     const handleTabChange = (tab: Tab) => {
         setActiveTab(tab);
@@ -40,10 +43,10 @@ export function HairTypes() {
 
                 {/* Header */}
                 <SectionHeader
-                    label="Haircare Guide"
-                    title="Know Your"
-                    titleHighlight="Hair."
-                    subtitle="Identifying your hair type and understanding any scalp conditions is the foundation of a targeted, effective haircare routine."
+                    label={t("haircare.types.label")}
+                    title={t("haircare.types.title")}
+                    titleHighlight={t("haircare.types.titleHighlight")}
+                    subtitle={t("haircare.types.subtitle")}
                 />
 
                 {/* Tabs */}
@@ -105,13 +108,14 @@ export function HairTypes() {
                                             </div>
                                             <h3 className="font-heading text-espresso mb-3">{hair.name}</h3>
                                             <p className="text-xs uppercase tracking-[0.15em] text-espresso/70 mb-2">{hair.pattern}</p>
-                                            <p className="text-espresso/90 text-sm leading-relaxed mb-6">{hair.description}</p>
+                                            <p className="text-espresso/90 text-sm leading-relaxed mb-6">
+                                                {isAr ? hairTypesAr[hair.id]?.description : hair.description}</p>
 
                                             <div className="grid sm:grid-cols-2 gap-6">
                                                 <div>
-                                                    <p className="text-xs uppercase tracking-[0.15em] text-gold mb-3">Characteristics</p>
+                                                    <p className="text-xs uppercase tracking-[0.15em] text-gold mb-3">{t("label.characteristics")}</p>
                                                     <ul className="space-y-2">
-                                                        {hair.characteristics.map((c, idx) => (
+                                                        {(isAr ? hairTypesAr[hair.id]?.characteristics ?? hair.characteristics : hair.characteristics).map((c, idx) => (
                                                             <li key={idx} className="flex items-start gap-2 text-sm md:text-base text-espresso/80">
                                                                 <Check className="w-3.5 h-3.5 text-gold flex-shrink-0 mt-0.5" />
                                                                 {c}
@@ -120,12 +124,12 @@ export function HairTypes() {
                                                     </ul>
                                                 </div>
                                                 <div>
-                                                    <p className="text-xs uppercase tracking-[0.15em] text-gold mb-3">Care Tips</p>
+                                                    <p className="text-xs uppercase tracking-[0.15em] text-gold mb-3">{t("label.tips")}</p>
                                                     <ul className="space-y-2">
-                                                        {hair.tips.map((t, idx) => (
+                                                        {(isAr ? hairTypesAr[hair.id]?.tips ?? hair.tips : hair.tips).map((tip, idx) => (
                                                             <li key={idx} className="flex items-start gap-2 text-sm md:text-base text-espresso/80">
                                                                 <ChevronRight className="w-3.5 h-3.5 text-sand flex-shrink-0 mt-0.5" />
-                                                                {t}
+                                                                {tip}
                                                             </li>
                                                         ))}
                                                     </ul>
@@ -137,7 +141,7 @@ export function HairTypes() {
                                                     to={`/haircare/solutions?type=${hair.id}`}
                                                     className="btn-wine text-[10px] py-2 px-6"
                                                 >
-                                                    View routine for {hair.name.toLowerCase()} →
+                                                    {isAr ? `عرض روتين ${hair.name} ←` : `View routine for ${hair.name.toLowerCase()} →`}
                                                 </Link>
                                             </div>
                                         </div>
