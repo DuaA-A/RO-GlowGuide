@@ -67,7 +67,7 @@ export function HairTypes() {
                                     />
                                 )}
                                 <span className="relative z-10 capitalize">
-                                    {tab === "types" ? "Hair Types" : "Scalp Conditions"}
+                                    {tab === "types" ? t("haircare.types.title") + " " + t("haircare.types.titleHighlight") : t("haircare.conditions.title") + " " + t("haircare.conditions.titleHighlight")}
                                 </span>
                             </button>
                         ))}
@@ -102,46 +102,45 @@ export function HairTypes() {
                                         )}
 
                                         {/* Content */}
-                                        <div className={`${hair.image ? 'md:col-span-3' : 'md:col-span-5'} p-8 md:p-10`}>
-                                            <div className="flex items-center gap-3 mb-4">
-                                                <span className="badge-haircare">{hair.name}</span>
+                                        <div className={`${hair.image ? 'md:col-span-3' : 'md:col-span-5'} p-8 md:p-10 ${isAr ? "text-right" : ""}`}>
+                                            <div className={`flex items-center gap-3 mb-4 ${isAr ? "flex-row-reverse" : ""}`}>
+                                                <span className="badge-haircare">{isAr ? hairTypesAr[hair.id]?.name : hair.name}</span>
                                             </div>
-                                            <h3 className="font-heading text-espresso mb-3">{hair.name}</h3>
-                                            <p className="text-xs uppercase tracking-[0.15em] text-espresso/70 mb-2">{hair.pattern}</p>
+                                            <h3 className="font-heading text-espresso mb-3">{isAr ? hairTypesAr[hair.id]?.name : hair.name}</h3>
+                                            <p className="text-xs uppercase tracking-[0.15em] text-espresso/70 mb-2">{isAr ? hairTypesAr[hair.id]?.pattern : hair.pattern}</p>
                                             <p className="text-espresso/90 text-sm leading-relaxed mb-6">
                                                 {isAr ? hairTypesAr[hair.id]?.description : hair.description}</p>
 
-                                            <div className="grid sm:grid-cols-2 gap-6">
-                                                <div>
+                                            <div className={`grid sm:grid-cols-2 gap-6 ${isAr ? "flex-row-reverse" : ""}`}>
+                                                <div className={isAr ? "text-right" : ""}>
                                                     <p className="text-xs uppercase tracking-[0.15em] text-gold mb-3">{t("label.characteristics")}</p>
                                                     <ul className="space-y-2">
                                                         {(isAr ? hairTypesAr[hair.id]?.characteristics ?? hair.characteristics : hair.characteristics).map((c, idx) => (
-                                                            <li key={idx} className="flex items-start gap-2 text-sm md:text-base text-espresso/80">
+                                                            <li key={idx} className={`flex items-start gap-2 text-sm md:text-base text-espresso/80 ${isAr ? "flex-row-reverse" : ""}`}>
                                                                 <Check className="w-3.5 h-3.5 text-gold flex-shrink-0 mt-0.5" />
-                                                                {c}
+                                                                <span className={isAr ? "text-right" : ""}>{c}</span>
                                                             </li>
                                                         ))}
                                                     </ul>
                                                 </div>
-                                                <div>
+                                                <div className={isAr ? "text-right" : ""}>
                                                     <p className="text-xs uppercase tracking-[0.15em] text-gold mb-3">{t("label.tips")}</p>
                                                     <ul className="space-y-2">
                                                         {(isAr ? hairTypesAr[hair.id]?.tips ?? hair.tips : hair.tips).map((tip, idx) => (
-                                                            <li key={idx} className="flex items-start gap-2 text-sm md:text-base text-espresso/80">
-                                                                <ChevronRight className="w-3.5 h-3.5 text-sand flex-shrink-0 mt-0.5" />
-                                                                {tip}
+                                                            <li key={idx} className={`flex items-start gap-2 text-sm md:text-base text-espresso/80 ${isAr ? "flex-row-reverse" : ""}`}>
+                                                                <ChevronRight className={`w-3.5 h-3.5 text-sand flex-shrink-0 mt-0.5 ${isAr ? "rotate-180" : ""}`} />
+                                                                <span className={isAr ? "text-right" : ""}>{tip}</span>
                                                             </li>
                                                         ))}
                                                     </ul>
                                                 </div>
                                             </div>
-
-                                            <div className="mt-6 pt-5 border-t border-warm-beige">
+                                            <div className={`mt-6 pt-5 border-t border-warm-beige ${isAr ? "text-right" : ""}`}>
                                                 <Link
                                                     to={`/haircare/solutions?type=${hair.id}`}
                                                     className="btn-wine text-[10px] py-2 px-6"
                                                 >
-                                                    {isAr ? `عرض روتين ${hair.name} ←` : `View routine for ${hair.name.toLowerCase()} →`}
+                                                    {isAr ? `عرض روتين ${isAr ? hairTypesAr[hair.id]?.name : hair.name} ←` : `View routine for ${hair.name.toLowerCase()} →`}
                                                 </Link>
                                             </div>
                                         </div>
@@ -184,50 +183,51 @@ export function HairTypes() {
                                                 </div>
                                             )}
 
-                                            <div className={`${condition.image ? 'md:col-span-3' : 'md:col-span-5'} p-8 md:p-10`}>
-                                                <div className="flex items-center justify-between mb-4">
-                                                    <h3 className="font-heading text-espresso mb-3">{condition.name}</h3>
+                                            <div className={`${condition.image ? 'md:col-span-3' : 'md:col-span-5'} p-8 md:p-10 ${isAr ? "text-right" : ""}`}>
+                                                <div className={`flex items-center justify-between mb-4 ${isAr ? "flex-row-reverse" : ""}`}>
+                                                    <h3 className="font-heading text-espresso mb-3">{isAr ? scalpConditionsAr[condition.id]?.name : condition.name}</h3>
                                                     {!condition.image && (
                                                         <span className={`text-xs px-3 py-1 rounded-full border ${sev.bg} ${sev.text} ${sev.border}`}>
                                                             {condition.severity}
                                                         </span>
                                                     )}
                                                 </div>
-                                                <p className="text-espresso/90 text-sm md:text-base leading-relaxed mb-6">{condition.description}</p>
+                                                <p className="text-espresso/90 text-sm md:text-base leading-relaxed mb-6">
+                                                    {isAr ? scalpConditionsAr[condition.id]?.description : condition.description}
+                                                </p>
 
-                                                <div className="grid sm:grid-cols-2 gap-6">
-                                                    <div>
-                                                        <p className="text-xs uppercase tracking-[0.15em] text-gold mb-3">Common Causes</p>
+                                                <div className={`grid sm:grid-cols-2 gap-6 ${isAr ? "flex-row-reverse" : ""}`}>
+                                                    <div className={isAr ? "text-right" : ""}>
+                                                        <p className="text-xs uppercase tracking-[0.15em] text-gold mb-3">{t("label.causes")}</p>
                                                         <ul className="space-y-2">
-                                                            {condition.causes.map((c, idx) => (
-                                                                <li key={idx} className="flex items-start gap-2 text-sm md:text-base text-espresso/80">
-                                                                    <ChevronRight className="w-3.5 h-3.5 text-sand flex-shrink-0 mt-0.5" />
-                                                                    {c}
+                                                            {(isAr ? scalpConditionsAr[condition.id]?.causes ?? condition.causes : condition.causes).map((c, idx) => (
+                                                                <li key={idx} className={`flex items-start gap-2 text-sm md:text-base text-espresso/80 ${isAr ? "flex-row-reverse" : ""}`}>
+                                                                    <ChevronRight className={`w-3.5 h-3.5 text-sand flex-shrink-0 mt-0.5 ${isAr ? "rotate-180" : ""}`} />
+                                                                    <span className={isAr ? "text-right" : ""}>{c}</span>
                                                                 </li>
                                                             ))}
                                                         </ul>
                                                     </div>
                                                     {condition.tips && condition.tips.length > 0 && (
-                                                        <div>
-                                                            <p className="text-xs uppercase tracking-[0.15em] text-gold mb-3">Clinical Tips</p>
+                                                        <div className={isAr ? "text-right" : ""}>
+                                                            <p className="text-xs uppercase tracking-[0.15em] text-gold mb-3">{t("label.tips")}</p>
                                                             <ul className="space-y-2">
-                                                                {condition.tips.map((t, idx) => (
-                                                                    <li key={idx} className="flex items-start gap-2 text-sm md:text-base text-espresso/80">
+                                                                {(isAr ? scalpConditionsAr[condition.id]?.tips ?? condition.tips : condition.tips).map((tip, idx) => (
+                                                                    <li key={idx} className={`flex items-start gap-2 text-sm md:text-base text-espresso/80 ${isAr ? "flex-row-reverse" : ""}`}>
                                                                         <Check className="w-3.5 h-3.5 text-gold flex-shrink-0 mt-0.5" />
-                                                                        {t}
+                                                                        <span className={isAr ? "text-right" : ""}>{tip}</span>
                                                                     </li>
                                                                 ))}
                                                             </ul>
                                                         </div>
                                                     )}
                                                 </div>
-
-                                                <div className="mt-6 pt-5 border-t border-warm-beige">
+                                                <div className={`mt-6 pt-5 border-t border-warm-beige ${isAr ? "text-right" : ""}`}>
                                                     <Link
                                                         to={`/haircare/solutions?condition=${condition.id}`}
                                                         className="btn-wine text-[10px] py-2 px-6"
                                                     >
-                                                        View treatment routine →
+                                                        {isAr ? "عرض روتين العلاج ←" : "View treatment routine →"}
                                                     </Link>
                                                 </div>
                                             </div>

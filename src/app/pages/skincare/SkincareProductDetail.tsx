@@ -1,10 +1,11 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { useParams, Link, useNavigate } from "react-router";
 import { ArrowLeft, Check, Droplets, BookOpen } from "lucide-react";
 import { MedicalDetailsPanel } from "../../components/MedicalDetailsPanel";
-import { skincareProducts } from "../../data/skincare";
-import { Product } from "../../data/types";
 import { useState } from "react";
+import { skincareProducts } from "../../data/skincare";
+import { skincareProductsAr } from "../../data/skincare_ar";
+import { useLanguage } from "../../context/LanguageContext";
 
 function PlaceholderProductImage({ name }: { name: string }) {
     return (
@@ -20,15 +21,23 @@ function PlaceholderProductImage({ name }: { name: string }) {
 export function SkincareProductDetail() {
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
-    const [product] = useState<Product | undefined>(
-        skincareProducts.find((p) => p.id === id)
-    );
+    const { t, isAr } = useLanguage();
+
+    const baseProduct = skincareProducts.find((p) => p.id === id);
+    const arData = id ? skincareProductsAr[id] : undefined;
+
+    const product = baseProduct && isAr && arData ? {
+        ...baseProduct,
+        description: arData.description,
+        usage: arData.usage,
+        benefits: arData.benefits
+    } : baseProduct;
 
     if (!product) {
         return (
             <div className="min-h-[60vh] flex flex-col items-center justify-center py-20">
-                <p className="text-taupe mb-6">Product not found.</p>
-                <Link to="/skincare/products" className="btn-gold">Back to Products</Link>
+                <p className="text-taupe mb-6">{t("product.noProduct")}</p>
+                <Link to="/skincare/products" className="btn-gold">{t("product.backToProducts")}</Link>
             </div>
         );
     }
@@ -40,10 +49,10 @@ export function SkincareProductDetail() {
                 {/* Back */}
                 <button
                     onClick={() => navigate(-1)}
-                    className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-taupe hover:text-gold transition-colors mb-10"
+                    className={`inline-flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-taupe hover:text-gold transition-colors mb-10 ${isAr ? "flex-row-reverse" : ""}`}
                 >
-                    <ArrowLeft className="w-4 h-4" />
-                    Back to Products
+                    <ArrowLeft className={`w-4 h-4 ${isAr ? "rotate-180" : ""}`} />
+                    {t("product.backToProducts")}
                 </button>
 
                 <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -70,11 +79,11 @@ export function SkincareProductDetail() {
                         transition={{ duration: 0.6, delay: 0.1 }}
                     >
                         {/* Category & Status badges */}
-                        <div className="flex items-center gap-3">
-                            <span className="badge-skincare">{product.category}</span>
+                        <div className={`flex items-center gap-3 ${isAr ? "flex-row-reverse" : ""}`}>
+                            <span className={isAr ? "badge-skincare text-right" : "badge-skincare"}>{product.category}</span>
                             {!product.isExternal && (
                                 <span className="bg-espresso text-cream text-[10px] uppercase tracking-widest px-2 py-0.5 rounded border border-gold/30">
-                                    Verified
+                                    {t("product.verified")}
                                 </span>
                             )}
                         </div>
@@ -90,23 +99,23 @@ export function SkincareProductDetail() {
                         </h1>
 
                         {/* Description */}
-                        <p className="text-mink leading-relaxed mb-8 text-sm border-b border-warm-beige pb-8">
+                        <p className={`text-mink leading-relaxed mb-8 text-sm border-b border-warm-beige pb-8 ${isAr ? "text-right" : ""}`}>
                             {product.description}
                         </p>
 
                         {/* Usage */}
                         <div className="mb-7">
-                            <div className="flex items-center gap-2 mb-3">
+                            <div className={`flex items-center gap-2 mb-3 ${isAr ? "flex-row-reverse" : ""}`}>
                                 <BookOpen className="w-4 h-4 text-gold" />
-                                <p className="text-xs uppercase tracking-[0.15em] text-gold">How to Use</p>
+                                <p className="text-xs uppercase tracking-[0.15em] text-gold">{t("product.howToUse")}</p>
                             </div>
-                            <p className="text-sm text-mink leading-relaxed pl-6">{product.usage}</p>
+                            <p className={`text-sm text-mink leading-relaxed ${isAr ? "pr-6 text-right" : "pl-6"}`}>{product.usage}</p>
                         </div>
 
                         {/* Main Ingredients */}
                         <div className="mb-7">
-                            <p className="text-xs uppercase tracking-[0.15em] text-gold mb-3">Main Ingredients</p>
-                            <div className="flex flex-wrap gap-2">
+                            <p className={`text-xs uppercase tracking-[0.15em] text-gold mb-3 ${isAr ? "text-right" : ""}`}>{t("product.mainIngredients")}</p>
+                            <div className={`flex flex-wrap gap-2 ${isAr ? "flex-row-reverse" : ""}`}>
                                 {product.mainIngredients.map((ing, i) => (
                                     <span
                                         key={i}
@@ -120,14 +129,14 @@ export function SkincareProductDetail() {
 
                         {/* Benefits */}
                         <div className="mb-7">
-                            <p className="text-xs uppercase tracking-[0.15em] text-gold mb-3">Key Benefits</p>
+                            <p className={`text-xs uppercase tracking-[0.15em] text-gold mb-3 ${isAr ? "text-right" : ""}`}>{t("product.keyBenefits")}</p>
                             <ul className="space-y-2">
                                 {product.benefits.map((benefit, i) => (
-                                    <li key={i} className="flex items-center gap-2.5 text-sm text-mink">
+                                    <li key={i} className={`flex items-center gap-2.5 text-sm text-mink ${isAr ? "flex-row-reverse" : ""}`}>
                                         <div className="w-5 h-5 rounded-full bg-linen border border-warm-beige flex items-center justify-center flex-shrink-0">
                                             <Check className="w-3 h-3 text-gold" />
                                         </div>
-                                        {benefit}
+                                        <span className={isAr ? "text-right" : ""}>{benefit}</span>
                                     </li>
                                 ))}
                             </ul>
@@ -135,9 +144,9 @@ export function SkincareProductDetail() {
 
                         {/* Best for */}
                         {product.targetTypes.length > 0 && (
-                            <div className="mb-8 p-5 bg-linen border border-warm-beige rounded-xl">
-                                <p className="text-xs uppercase tracking-[0.15em] text-gold mb-2">Best for</p>
-                                <p className="text-sm text-mink capitalize">{product.targetTypes.join(", ")} skin</p>
+                            <div className={`mb-8 p-5 bg-linen border border-warm-beige rounded-xl ${isAr ? "text-right" : ""}`}>
+                                <p className="text-xs uppercase tracking-[0.15em] text-gold mb-2">{t("product.bestFor")}</p>
+                                <p className="text-sm text-mink capitalize">{product.targetTypes.join(", ")}{t("product.bestForSuffix")}</p>
                             </div>
                         )}
 
@@ -156,8 +165,8 @@ export function SkincareProductDetail() {
                     viewport={{ once: true }}
                     className="mt-20 py-12 border-t border-warm-beige text-center"
                 >
-                    <p className="text-taupe text-sm mb-6">Looking for more products?</p>
-                    <Link to="/skincare/products" className="btn-gold">View All Skincare Products</Link>
+                    <p className="text-taupe text-sm mb-6">{t("product.lookingForMore")}</p>
+                    <Link to="/skincare/products" className="btn-gold">{t("product.viewAllSkincare")}</Link>
                 </motion.div>
 
             </div>

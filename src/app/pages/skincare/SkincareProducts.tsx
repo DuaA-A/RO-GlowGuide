@@ -5,6 +5,7 @@ import { useSearchParams } from "react-router";
 import { SectionHeader } from "../../components/SectionHeader";
 import { ProductCard } from "../../components/ProductCard";
 import { skincareProducts, skinTypes, skinConditions } from "../../data/skincare";
+import { skincareProductsAr } from "../../data/skincare_ar";
 import { useLanguage } from "../../context/LanguageContext";
 
 const CATEGORIES = ["All", "Cleanser", "Toner", "Serum", "Moisturiser", "Sunscreen", "Treatment"];
@@ -16,7 +17,7 @@ export function SkincareProducts() {
     const [activeType, setActiveType] = useState("All Types");
     const [activeConcern, setActiveConcern] = useState<string | null>(null);
     const [isTypeDropdownOpen, setIsTypeDropdownOpen] = useState(false);
-    const { t } = useLanguage();
+    const { t, isAr } = useLanguage();
 
     useEffect(() => {
         const typeParam = searchParams.get("type");
@@ -212,9 +213,23 @@ export function SkincareProducts() {
 
                 {/* Grid */}
                 <motion.div layout className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    {filtered.map((product) => (
-                        <ProductCard key={product.id} product={product} category="skincare" />
-                    ))}
+                    {filtered.map((product) => {
+                        const arData = skincareProductsAr[product.id];
+                        const displayProduct = isAr && arData ? {
+                            ...product,
+                            description: arData.description,
+                            usage: arData.usage,
+                            benefits: arData.benefits
+                        } : product;
+
+                        return (
+                            <ProductCard
+                                key={product.id}
+                                product={displayProduct}
+                                category="skincare"
+                            />
+                        );
+                    })}
                 </motion.div>
 
                 {filtered.length === 0 && (

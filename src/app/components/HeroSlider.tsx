@@ -1,7 +1,8 @@
-import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { Link } from "react-router";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
+import { useState, useEffect, useCallback } from "react";
+import { Link } from "react-router";
 
 interface HeroSlide {
     id: string;
@@ -54,6 +55,36 @@ export function HeroSlider() {
     const [activeIndex, setActiveIndex] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
     const [direction, setDirection] = useState<1 | -1>(1);
+    const { t, isAr } = useLanguage();
+
+    const slides: HeroSlide[] = [
+        {
+            id: "skincare",
+            eyebrow: t("hero.skincare.eyebrow"),
+            heading: t("hero.skincare.heading"),
+            headingItalic: t("hero.skincare.headingItalic"),
+            description: t("hero.skincare.desc"),
+            ctaLabel: t("hero.skincare.cta"),
+            ctaPath: "/skincare/types",
+            secondaryLabel: t("hero.skincare.secondary"),
+            secondaryPath: "/skincare/products",
+            accentColor: "#5C2D3E",
+            photo: "/images/heroSkinCareModel.png",
+        },
+        {
+            id: "haircare",
+            eyebrow: t("hero.haircare.eyebrow"),
+            heading: t("hero.haircare.heading"),
+            headingItalic: t("hero.haircare.headingItalic"),
+            description: t("hero.haircare.desc"),
+            ctaLabel: t("hero.haircare.cta"),
+            ctaPath: "/haircare/types",
+            secondaryLabel: t("hero.haircare.secondary"),
+            secondaryPath: "/haircare/products",
+            accentColor: "#5C2D3E",
+            photo: "/images/hero-hairCare.png",
+        },
+    ];
 
     const goTo = useCallback((idx: number, dir: 1 | -1 = 1) => {
         setDirection(dir);
@@ -125,11 +156,11 @@ export function HeroSlider() {
             {/* ── Decorative rings — centred on the RIGHT half, not a separate panel ── */}
             <div
                 className="absolute hidden lg:flex items-center justify-center pointer-events-none"
-                style={{ top: 0, bottom: 0, right: 0, width: "48%" }}
+                style={{ top: 0, bottom: 0, [isAr ? 'left' : 'right']: 0, width: "48%" }}
             >
                 <motion.div
                     className="absolute inset-0 flex items-center justify-center"
-                    animate={{ x: slide.id === "haircare" ? 0 : -50 }}
+                    animate={{ x: slide.id === "haircare" ? 0 : (isAr ? 50 : -50) }}
                     transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
                 >
                     {/* Outer ring */}
@@ -256,7 +287,7 @@ export function HeroSlider() {
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={`tag-${slide.id}`}
-                            className="absolute bottom-12 right-10 z-30 flex items-center gap-2 px-5 py-2.5 rounded-full"
+                            className={`absolute bottom-12 ${isAr ? 'left-10' : 'right-10'} z-30 flex items-center gap-2 px-5 py-2.5 rounded-full`}
                             style={{
                                 background: "rgba(255,252,248,0.80)",
                                 border: `1px solid ${slide.accentColor}45`,
@@ -300,9 +331,11 @@ export function HeroSlider() {
                             initial={{ opacity: 0, scale: 0.94, y: 24 }}
                             animate={{
                                 opacity: 1,
-                                scale: 1.1, // Increased size for both based on user request
+                                scale: 1.1,
                                 y: 0,
-                                x: slide.id === "haircare" ? -160 : -50 // Large shift for hair, small shift for skin
+                                x: isAr
+                                    ? (slide.id === "haircare" ? 160 : 50)
+                                    : (slide.id === "haircare" ? -160 : -50)
                             }}
                             exit={{ opacity: 0 }}
                             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
@@ -332,12 +365,12 @@ export function HeroSlider() {
                                     animate="center"
                                     exit="exit"
                                     transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-                                    className="max-w-lg text-center lg:text-left"
+                                    className={`max-w-lg text-center ${isAr ? 'lg:text-right' : 'lg:text-left'}`}
                                 >
                                     {/* Eyebrow */}
-                                    <div className="flex items-center justify-center lg:justify-start gap-3 mb-6">
+                                    <div className={`flex items-center justify-center ${isAr ? 'lg:justify-end' : 'lg:justify-start'} gap-3 mb-6`}>
                                         <motion.div
-                                            style={{ height: "1px", background: slide.accentColor, width: 32, originX: 0 }}
+                                            style={{ height: "1px", background: slide.accentColor, width: 32, originX: isAr ? 1 : 0 }}
                                             initial={{ scaleX: 0 }}
                                             animate={{ scaleX: 1 }}
                                             transition={{ duration: 0.5, delay: 0.15 }}
@@ -361,9 +394,9 @@ export function HeroSlider() {
                                     </p>
 
                                     {/* CTAs */}
-                                    <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-12">
+                                    <div className={`flex flex-wrap justify-center ${isAr ? 'lg:justify-end' : 'lg:justify-start'} gap-4 mb-12`}>
                                         <Link to={slide.ctaPath} className="btn-wine">
-                                            {slide.ctaLabel} <ArrowRight className="w-4 h-4" />
+                                            {slide.ctaLabel} <ArrowRight className={`w-4 h-4 ${isAr ? 'rotate-180' : ''}`} />
                                         </Link>
                                         <Link to={slide.secondaryPath} className="btn-outline">
                                             {slide.secondaryLabel}
@@ -371,11 +404,11 @@ export function HeroSlider() {
                                     </div>
 
                                     {/* Slide controls */}
-                                    <div className="flex items-center justify-center lg:justify-start gap-4">
+                                    <div className={`flex items-center justify-center ${isAr ? 'lg:justify-end' : 'lg:justify-start'} gap-4`}>
                                         <button onClick={() => goTo((activeIndex - 1 + slides.length) % slides.length, -1)}
                                             className="w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-200 hover:scale-105"
                                             style={{ borderColor: `${slide.accentColor}60`, color: slide.accentColor }} aria-label="Previous">
-                                            <ChevronLeft className="w-4 h-4" />
+                                            {isAr ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
                                         </button>
                                         <div className="flex items-center gap-2">
                                             {slides.map((s, i) => (
@@ -396,7 +429,7 @@ export function HeroSlider() {
                                         <button onClick={() => goTo((activeIndex + 1) % slides.length, 1)}
                                             className="w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-200 hover:scale-105"
                                             style={{ borderColor: `${slide.accentColor}60`, color: slide.accentColor }} aria-label="Next">
-                                            <ChevronRight className="w-4 h-4" />
+                                            {isAr ? <ChevronLeft className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
                                         </button>
                                     </div>
                                 </motion.div>
@@ -405,7 +438,7 @@ export function HeroSlider() {
 
                         {/* Right visual area placeholder — decorative rings live in the absolute layer above */}
                         {/* This spacer keeps the two-column layout balanced on desktop */}
-                        <div className="hidden lg:block flex-shrink-0" style={{ width: "44%" }} />
+                        <div className="hidden lg:block flex-shrink-0" style={{ [isAr ? 'marginRight' : 'marginLeft']: "auto", width: "44%" }} />
                     </div>
                 </div>
             </div>

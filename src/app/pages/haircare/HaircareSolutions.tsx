@@ -61,33 +61,33 @@ export function HaircareSolutions() {
                         >
                             {/* Balanced Header - Super Compact */}
                             {routine.image ? (
-                                <div className={`flex flex-col md:flex-row ${i % 2 === 1 ? 'md:flex-row-reverse' : ''} flex-none border-b border-warm-beige/30`}>
+                                <div className={`flex flex-col md:flex-row ${i % 2 === 1 ? 'md:flex-row-reverse' : ''} ${isAr ? "md:flex-row-reverse" : ""} flex-none border-b border-warm-beige/30`}>
                                     <div className="w-full md:w-48 h-40 md:h-48 flex-none relative">
                                         <img src={routine.image} alt={routine.name} className="absolute inset-0 w-full h-full object-cover" />
                                     </div>
-                                    <div className="flex-1 p-4 md:p-6 flex flex-col justify-center">
-                                        <div className="flex items-center gap-2 mb-2">
-                                            <span className="badge-haircare text-[9px] py-0.5 px-2">{routine.targetType} hair</span>
-                                            <div className="flex items-center gap-3 text-[9px] uppercase tracking-wider text-taupe/70 font-bold ml-auto">
-                                                <span className="flex items-center gap-1"><Layers className="w-3 h-3" />{routine.steps.length} steps</span>
-                                                <span className="flex items-center gap-1 md:flex hidden"><Clock className="w-3 h-3" />Treatment guide</span>
+                                    <div className={`flex-1 p-4 md:p-6 flex flex-col justify-center ${isAr ? "text-right" : ""}`}>
+                                        <div className={`flex items-center gap-2 mb-2 ${isAr ? "flex-row-reverse" : ""}`}>
+                                            <span className="badge-haircare text-[9px] py-0.5 px-2">{isAr ? (hairTypesAr[routine.targetType]?.name ?? routine.targetType) : routine.targetType} {t("product.bestForSuffix")}</span>
+                                            <div className={`flex items-center gap-3 text-[9px] uppercase tracking-wider text-taupe/70 font-bold ${isAr ? "mr-auto" : "ml-auto"} ${isAr ? "flex-row-reverse" : ""}`}>
+                                                <span className={`flex items-center gap-1 ${isAr ? "flex-row-reverse" : ""}`}><Layers className="w-3 h-3" />{routine.steps.length} {t("label.steps")}</span>
+                                                <span className={`flex items-center gap-1 md:flex hidden ${isAr ? "flex-row-reverse" : ""}`}><Clock className="w-3 h-3" />{t("label.treatmentGuide")}</span>
                                             </div>
                                         </div>
-                                        <h3 className="font-heading text-espresso mb-1 text-xl md:text-2xl">{routine.name}</h3>
+                                        <h3 className="font-heading text-espresso mb-1 text-xl md:text-2xl">{isAr ? haircareRoutinesAr[routine.id]?.name ?? routine.name : routine.name}</h3>
                                         <p className="text-espresso/80 text-sm md:text-base leading-relaxed line-clamp-2 italic">
                                             {isAr ? haircareRoutinesAr[routine.id]?.description ?? routine.description : routine.description}</p>
                                     </div>
                                 </div>
                             ) : (
-                                <div className="p-4 md:p-6 flex-none border-b border-warm-beige/30 bg-cream/20">
-                                    <div className="flex items-center gap-2 mb-2">
-                                        <span className="badge-haircare text-[9px] py-0.5 px-2">{routine.targetType} hair</span>
-                                        <div className="flex items-center gap-3 text-[9px] uppercase tracking-wider text-taupe/70 font-bold ml-auto">
-                                            <span className="flex items-center gap-1"><Layers className="w-3 h-3" />{routine.steps.length} steps</span>
-                                            <span className="flex items-center gap-1 md:flex hidden"><Clock className="w-3 h-3" />Treatment guide</span>
+                                <div className={`p-4 md:p-6 flex-none border-b border-warm-beige/30 bg-cream/20 ${isAr ? "text-right" : ""}`}>
+                                    <div className={`flex items-center gap-2 mb-2 ${isAr ? "flex-row-reverse" : ""}`}>
+                                        <span className="badge-haircare text-[9px] py-0.5 px-2">{isAr ? (hairTypesAr[routine.targetType]?.name ?? routine.targetType) : routine.targetType} {t("product.bestForSuffix")}</span>
+                                        <div className={`flex items-center gap-3 text-[9px] uppercase tracking-wider text-taupe/70 font-bold ${isAr ? "mr-auto" : "ml-auto"} ${isAr ? "flex-row-reverse" : ""}`}>
+                                            <span className={`flex items-center gap-1 ${isAr ? "flex-row-reverse" : ""}`}><Layers className="w-3 h-3" />{routine.steps.length} {t("label.steps")}</span>
+                                            <span className={`flex items-center gap-1 md:flex hidden ${isAr ? "flex-row-reverse" : ""}`}><Clock className="w-3 h-3" />{t("label.treatmentGuide")}</span>
                                         </div>
                                     </div>
-                                    <h3 className="font-heading text-espresso mb-1 text-xl md:text-2xl">{routine.name}</h3>
+                                    <h3 className="font-heading text-espresso mb-1 text-xl md:text-2xl">{isAr ? haircareRoutinesAr[routine.id]?.name ?? routine.name : routine.name}</h3>
                                     <p className="text-espresso/80 text-sm md:text-base leading-relaxed max-w-4xl italic">
                                         {isAr ? haircareRoutinesAr[routine.id]?.description ?? routine.description : routine.description}</p>
                                 </div>
@@ -95,30 +95,30 @@ export function HaircareSolutions() {
 
                             {/* Scrollable Steps Carousel */}
                             <div className="flex-grow overflow-y-auto px-4 py-4 md:px-10 bg-cream/30 scrollbar-thin">
-                                <div className="flex items-center justify-between mb-4">
+                                <div className={`flex items-center justify-between mb-4 ${isAr ? "flex-row-reverse" : ""}`}>
                                     <p className="text-[10px] uppercase tracking-[0.2em] text-gold font-bold">{t("label.steps")}</p>
                                     <p className="text-[9px] text-taupe/60 md:hidden uppercase font-bold tracking-widest">{isAr ? "اسحبي للخطوة التالية ←" : "Swipe for next step →"}</p>
                                 </div>
 
                                 <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 pb-6 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory scrollbar-none">
-                                    {routine.steps.map((step) => (
+                                    {routine.steps.map((step, idx) => (
                                         <div
-                                            key={step.step}
-                                            className="min-w-[85%] md:min-w-0 snap-center bg-white border border-warm-beige rounded-xl p-5 group hover:border-wine transition-colors duration-300 shadow-sm flex flex-col"
+                                            key={idx}
+                                            className={`min-w-[85%] md:min-w-0 snap-center bg-white border border-warm-beige rounded-xl p-5 group hover:border-wine transition-colors duration-300 shadow-sm flex flex-col ${isAr ? "text-right" : ""}`}
                                         >
-                                            <div className="flex items-center gap-3 mb-3">
+                                            <div className={`flex items-center gap-3 mb-3 ${isAr ? "flex-row-reverse" : ""}`}>
                                                 <div className="w-7 h-7 rounded-full bg-espresso flex items-center justify-center flex-shrink-0 group-hover:bg-wine transition-colors">
-                                                    <span className="text-cream text-xs font-bold">{step.step}</span>
+                                                    <span className="text-cream text-xs font-bold">{idx + 1}</span>
                                                 </div>
                                             </div>
-                                            <h4 className="border-b border-warm-beige/30 pb-2 font-heading text-espresso text-base mb-2">{step.name}</h4>
+                                            <h4 className="border-b border-warm-beige/30 pb-2 font-heading text-espresso text-base mb-2">{isAr ? haircareRoutinesAr[routine.id]?.steps[idx]?.name ?? step.name : step.name}</h4>
                                             <p className="text-sm text-espresso/80 leading-relaxed mb-3 flex-grow line-clamp-4">
                                                 {isAr
-                                                    ? haircareRoutinesAr[routine.id]?.steps[routine.steps.indexOf(step)]?.description ?? step.description
+                                                    ? haircareRoutinesAr[routine.id]?.steps[idx]?.description ?? step.description
                                                     : step.description}
                                             </p>
-                                            <span className="inline-block text-[9px] w-fit uppercase tracking-wide bg-wine/5 border border-wine/10 text-wine font-bold px-2 py-0.5 rounded-full">
-                                                {step.timing}
+                                            <span className={`inline-block text-[9px] w-fit uppercase tracking-wide bg-wine/5 border border-wine/10 text-wine font-bold px-2 py-0.5 rounded-full ${isAr ? "mr-auto" : ""}`}>
+                                                {isAr ? (step.timing === "Morning" ? "صباحاً" : step.timing === "Evening" ? "مساءً" : "صباحاً ومساءً") : step.timing}
                                             </span>
                                         </div>
                                     ))}
@@ -126,13 +126,13 @@ export function HaircareSolutions() {
                             </div>
 
                             {/* Fixed Footer - Left Aligned */}
-                            <div className="flex-none p-6 border-t border-warm-beige bg-white flex justify-start">
+                            <div className={`flex-none p-6 border-t border-warm-beige bg-white flex ${isAr ? "justify-end" : "justify-start"}`}>
                                 <Link
                                     to={`/haircare/products?${hairTypes.some((t: any) => t.id === routine.targetType) ? 'type' : 'concern'}=${routine.targetType}`}
-                                    className="btn-wine py-3 px-8 text-xs"
+                                    className={`btn-wine py-3 px-8 text-xs ${isAr ? "flex-row-reverse" : ""}`}
                                 >
                                     {isAr ? "استكشفي المنتجات المتوافقة" : "Explore Compatible Products"}
-                                    <ArrowRight className="w-4 h-4 ml-1.5" />
+                                    <ArrowRight className={`w-4 h-4 ${isAr ? "mr-1.5 rotate-180" : "ml-1.5"}`} />
                                 </Link>
                             </div>
                         </motion.div>

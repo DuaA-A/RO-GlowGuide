@@ -2,27 +2,29 @@ import { motion } from "motion/react";
 import { SectionHeader } from "../components/SectionHeader";
 import { TeamMemberCard } from "../components/TeamMemberCard";
 import { teamMembers } from "../data/team";
+import { useLanguage } from "../context/LanguageContext";
 
 export function About() {
+    const { t, isAr } = useLanguage();
     const leader = teamMembers.find((m) => m.isLeader);
     const members = teamMembers.filter((m) => !m.isLeader);
 
     const values = [
         {
-            title: "Evidence-Based",
-            description: "Every recommendation is grounded in peer-reviewed research. We never prioritise trends over science.",
+            title: t("about.value1.title"),
+            description: t("about.value1.desc"),
         },
         {
-            title: "Transparent",
-            description: "Full ingredient transparency, clear medical data, and no sponsored product placements.",
+            title: t("about.value2.title"),
+            description: t("about.value2.desc"),
         },
         {
-            title: "Inclusive",
-            description: "We design for all skin types, hair textures, tones, and backgrounds — beauty has no single definition.",
+            title: t("about.value3.title"),
+            description: t("about.value3.desc"),
         },
         {
-            title: "Accessible",
-            description: "Expert knowledge presented clearly for everyone — from curious beginners to trained professionals.",
+            title: t("about.value4.title"),
+            description: t("about.value4.desc"),
         },
     ];
 
@@ -32,10 +34,10 @@ export function About() {
 
                 {/* ── Header ─────────────────────────────────────────────────── */}
                 <SectionHeader
-                    label="About the Project"
-                    title="Faculty of"
-                    titleHighlight="Pharmacy."
-                    subtitle="A professional graduation project by the Pharmacist Team at MTI College, dedicated to clinical precision in beauty and health."
+                    label={t("about.header.label")}
+                    title={t("about.header.title")}
+                    titleHighlight={t("about.header.titleHighlight")}
+                    subtitle={t("about.header.subtitle")}
                 />
 
                 {/* ── MTI College Section ─────────────────────────────────────── */}
@@ -87,8 +89,8 @@ export function About() {
                             />
                         </div>
                     </div>
-                    <h3 className="text-wine-dark font-heading text-2xl mb-2">MTI University</h3>
-                    <p className="text-taupe text-sm max-w-md">Modern University for Technology & Information</p>
+                    <h3 className="text-wine-dark font-heading text-2xl mb-2">{t("about.mti.name")}</h3>
+                    <p className="text-taupe text-sm max-w-md">{t("about.mti.full")}</p>
                 </motion.div>
 
                 {/* ── Team Grid ──────────────────────────────────────────────── */}
@@ -109,16 +111,16 @@ export function About() {
                     <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 blur-[100px] -mr-32 -mt-32 rounded-full" />
 
                     <div className="max-w-3xl mx-auto text-center relative z-10">
-                        <p className="text-xs uppercase tracking-[0.25em] text-gold-light mb-6 font-medium">Research Project</p>
+                        <p className="text-xs uppercase tracking-[0.25em] text-gold-light mb-6 font-medium">{t("about.mission.label")}</p>
                         <h2 className="font-heading text-cream mb-6" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
-                            Clinical Intelligence in Cosmetics
+                            {t("about.mission.title")}
                         </h2>
                         <div className="section-divider mx-auto mb-10 w-24 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent" />
                         <p className="text-cream/90 leading-relaxed mb-6 text-base md:text-lg">
-                            This platform represents the culmination of our research into dermatological and trichological sciences. We identified a critical gap between clinical knowledge and consumer understanding.
+                            {t("about.mission.p1")}
                         </p>
                         <p className="text-cream/90 leading-relaxed text-base md:text-lg">
-                            As a team of pharmacists from <strong className="font-medium text-gold-light">MTI College</strong>, we built LumeGuide to provide a professional, evidence-based resource that empowers users to make informed decisions about their skin and hair health through pharmacological accuracy.
+                            {t("about.mission.p2")}
                         </p>
                     </div>
                 </motion.div>
@@ -131,9 +133,9 @@ export function About() {
                     className="mt-28"
                 >
                     <SectionHeader
-                        label="Our Principles"
-                        title="Pharmacist"
-                        titleHighlight="Standards."
+                        label={t("about.principles.label")}
+                        title={t("about.principles.title")}
+                        titleHighlight={t("about.principles.titleHighlight")}
                     />
 
                     <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -167,18 +169,18 @@ export function About() {
                     <div className="absolute inset-0 bg-gradient-to-br from-wine-dark/40 via-transparent to-wine/40 opacity-50" />
 
                     <div className="relative z-10">
-                        <p className="text-xs uppercase tracking-[0.3em] text-gold/60 mb-6 font-semibold">Community Impact</p>
+                        <p className="text-xs uppercase tracking-[0.3em] text-gold/60 mb-6 font-semibold">{t("about.survey.label")}</p>
                         <h3 className="font-heading text-cream mb-6 leading-tight" style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)" }}>
-                            Share Your Feedback
+                            {t("about.survey.title")}
                         </h3>
                         <p className="text-cream/80 text-base md:text-lg mb-10 max-w-xl mx-auto leading-relaxed font-light">
-                            As part of our graduation project, your feedback is vital. Please help us evaluate the impact of this resource by participating in our research survey.
+                            {t("about.survey.desc")}
                         </p>
                         <a
                             href="#" // REPLACE WITH SURVEY LINK
                             className="btn-wine scale-110 hover:scale-115 transition-transform duration-300"
                         >
-                            Take Survey
+                            {t("about.survey.cta")}
                         </a>
                     </div>
                 </motion.div>

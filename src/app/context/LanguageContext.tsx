@@ -138,6 +138,135 @@ const translations: Record<string, Record<Lang, string>> = {
     "home.heroSubtitle": { en: "Evidence-based skincare and haircare guidance — crafted by pharmacists, designed for you.", ar: "إرشادات عناية بالبشرة والشعر مبنية على الأدلة — من صنع صيادلة، مصمّمة لك." },
     "home.exploreSkincare": { en: "Explore Skincare", ar: "استكشفي العناية بالبشرة" },
     "home.exploreHaircare": { en: "Explore Haircare", ar: "استكشفي العناية بالشعر" },
+
+    // Home - Two Worlds
+    "home.worlds.label": { en: "Our Expertise", ar: "خبرتنا" },
+    "home.worlds.title": { en: "One Platform,", ar: "منصة واحدة،" },
+    "home.worlds.titleHighlight": { en: "Two Worlds.", ar: "عالمان." },
+    "home.worlds.subtitle": { en: "Whether you're navigating a complex skincare concern or building a transformative hair routine, RO brings clinical expertise and elegant guidance together in one beautifully structured space.", ar: "سواء كنتِ تبحثين عن حل لمشكلة جلدية معقدة أو تبنين روتيناً متكاملاً لشعرك، تجمع RO بين الخبرة السريرية والتوجيه الأنيق في مساحة واحدة منظمة بجمال." },
+    "home.worlds.skinTitle": { en: "Radiant, Healthy Skin", ar: "بشرة نضرة وصحية" },
+    "home.worlds.skinDesc": { en: "From skin types and conditions to targeted solutions and product discoveries — your complete skincare companion.", ar: "من أنواع البشرة وحالاتها إلى الحلول المستهدفة واكتشافات المنتجات — رفيقك الكامل للعناية بالبشرة." },
+    "home.worlds.hairTitle": { en: "Thriving, Beautiful Hair", ar: "شعر حيوي وجذاب" },
+    "home.worlds.hairDesc": { en: "Hair types, scalp conditions, targeted routines, and expertly chosen products — everything your hair needs.", ar: "أنواع الشعر، حالات فروة الرأس، الروتينات المستهدفة، والمنتجات المختارة بعناية — كل ما يحتاجه شعرك." },
+
+    // Home - Features
+    "home.features.label": { en: "Why RO", ar: "لماذا RO" },
+    "home.features.title": { en: "The Standard", ar: "المعيار" },
+    "home.features.titleHighlight": { en: "of Care.", ar: "في الرعاية." },
+    "home.features.subtitle": { en: "We combine clinical rigour with approachable, beautifully designed guidance — so every user finds what they need, whether casual or professional.", ar: "نجمع بين الدقة السريرية والتوجيه الميسر والمصمم بجمال — ليجد كل مستخدم ما يحتاجه، سواء كان يبحث عن معلومة بسيطة أو متخصصة." },
+    "home.feat1.title": { en: "Science-Backed", ar: "مدعوم بالعلم" },
+    "home.feat1.desc": { en: "Every recommendation is grounded in peer-reviewed dermatological and trichological research — not trends.", ar: "تستند كل توصية إلى أبحاث جلدية وشعرية محكّمة — وليس على الصيحات الرائجة." },
+    "home.feat2.title": { en: "Safety First", ar: "الأمان أولاً" },
+    "home.feat2.desc": { en: "We prioritise gentle, effective formulas with transparent ingredient profiling and medical contraindication data.", ar: "نمنح الأولوية للتركيبات اللطيفة والفعّالة مع تقديم بيانات دقيقة للمكونات وموانع الاستخدام الطبية." },
+    "home.feat3.title": { en: "Holistic Approach", ar: "نهج شمولي" },
+    "home.feat3.desc": { en: "We address skin and hair holistically — types, conditions, routines, and targeted products in one place.", ar: "نتعامل مع البشرة والشعر بنهج شمولي — الأنواع، الحالات، الروتينات، والمنتجات المستهدفة في مكان واحد." },
+    "home.feat4.title": { en: "Expert Curated", ar: "منتقاة بخبرة" },
+    "home.feat4.desc": { en: "Our multidisciplinary team curates content that bridges medical accuracy with practical everyday use.", ar: "فريقنا المتعدد التخصصات ينتقي محتوى يربط بين الدقة الطبية والاستخدام اليومي العملي." },
+
+    // Home - Stats
+    "home.stats.products": { en: "Products Curated", ar: "منتج مختار" },
+    "home.stats.types": { en: "Skin & Hair Types", ar: "أنواع البشرة والشعر" },
+    "home.stats.routines": { en: "Expert Routines", ar: "روتين متخصص" },
+    "home.stats.backed": { en: "Science-Backed", ar: "مدعوم بالعلم" },
+
+    // Home - Offers
+    "home.offers.label": { en: "What We Offer", ar: "ماذا نقدم" },
+    "home.offers.title": { en: "Complete", ar: "توجيه" },
+    "home.offers.titleHighlight": { en: "Guidance.", ar: "كامل." },
+    "home.offers.subtitle": { en: "From foundational knowledge to expert product selection — an end-to-end resource for both skincare and haircare.", ar: "من المعرفة الأساسية إلى اختيار المنتجات بشكل احترافي — مرجع متكامل للعناية بالبشرة والشعر." },
+    "home.offer1.title": { en: "Skin & Hair Type Education", ar: "تعليم أنواع البشرة والشعر" },
+    "home.offer1.desc": { en: "Detailed guides on skin types, acne conditions, hair types, and scalp conditions — with characteristics and care tips for each.", ar: "أدلة مفصلة عن أنواع البشرة، حالات حب الشباب، أنواع الشعر، وحالات فروة الرأس — مع الخصائص ونصائح العناية." },
+    "home.offer2.title": { en: "Targeted Routines", ar: "روتينات مستهدفة" },
+    "home.offer2.desc": { en: "Step-by-step morning and evening routines for every skin and hair type, from basic maintenance to intensive care.", ar: "روتينات صباحية ومسائية خطوة بخطوة لكل نوع من أنواع البشرة والشعر، من العناية الأساسية إلى المكثفة." },
+    "home.offer3.title": { en: "Product Catalogue", ar: "كتالوج المنتجات" },
+    "home.offer3.desc": { en: "A curated, searchable catalogue of skincare and haircare products with complete ingredient, benefit, and medical detail pages.", ar: "كتالوج منقى وقابل للبحث لمنتجات العناية بالبشرة والشعر مع صفحات كاملة للمكونات والفوائد والتفاصيل الطبية." },
+    "home.offer4.title": { en: "Medical Details", ar: "تفاصيل طبية" },
+    "home.offer4.desc": { en: "Every product includes an expandable clinical section with mechanism of action, contraindications, and safety data for professionals.", ar: "يتضمن كل منتج قسماً سريرياً قابلاً للتوسيع مع آلية العمل، وموانع الاستخدام، وبيانات السلامة للمتخصصين." },
+
+    // Home - CTA
+    "home.cta.label": { en: "Begin Your Journey", ar: "ابدئي رحلتكِ" },
+    "home.cta.titlePart1": { en: "Discover What Your", ar: "اكتشفي ما تحتاجه" },
+    "home.cta.titlePart2": { en: "Skin & Hair", ar: "بشرتِك وشعرِك" },
+    "home.cta.titlePart3": { en: "Truly Needs", ar: "حقاً" },
+    "home.cta.desc": { en: "Start with understanding your skin type or hair type, then build your personalised routine from science-backed foundations.", ar: "ابدئي بفهم نوع بشرتك أو نوع شعرك، ثم ابني روتينك المخصص بناءً على أسس علمية." },
+
+    // Ticker
+    "ticker.skincare": { en: "Skincare", ar: "العناية بالبشرة" },
+    "ticker.haircare": { en: "Haircare", ar: "العناية بالشعر" },
+    "ticker.routines": { en: "Routines", ar: "روتينات" },
+    "ticker.products": { en: "Products", ar: "المنتجات" },
+    "ticker.guides": { en: "Expert Guides", ar: "أدلة الخبراء" },
+    "ticker.backed": { en: "Evidence-Based", ar: "مبني على الأدلة" },
+
+    // Slider
+    "hero.skincare.eyebrow": { en: "Skincare", ar: "العناية بالبشرة" },
+    "hero.skincare.heading": { en: "Radiant Skin Is", ar: "بشرة نضرة" },
+    "hero.skincare.headingItalic": { en: "Within Reach.", ar: "أصبحت ممكّنة." },
+    "hero.skincare.desc": { en: "Understand your unique skin type, build an expert-crafted routine, and discover products formulated to deliver real, visible results.", ar: "افهمي نوع بشرتك الفريد، وابني روتيناً مصمماً بإشراف الخبراء، واكتشفي المنتجات المصممة لتحقيق نتائج حقيقية وملموسة." },
+    "hero.skincare.cta": { en: "Discover Your Skin Type", ar: "اكتشفي نوع بشرتكِ" },
+    "hero.skincare.secondary": { en: "Explore Products", ar: "استكشفي المنتجات" },
+
+    "hero.haircare.eyebrow": { en: "Haircare", ar: "العناية بالشعر" },
+    "hero.haircare.heading": { en: "Beautiful Hair,", ar: "شعر جذاب،" },
+    "hero.haircare.headingItalic": { en: "By Design.", ar: "بتصميم ذكي." },
+    "hero.haircare.desc": { en: "Know your hair type, treat your scalp, and follow targeted routines with professional-grade products chosen for your strands.", ar: "تعرفي على نوع شعركِ، واعتني بفروة رأسكِ، واتبعي روتينات مستهدفة بمنتجات ذات جودة احترافية مختارة لخصلات شعركِ." },
+    "hero.haircare.cta": { en: "Discover Your Hair Type", ar: "اكتشفي نوع شعركِ" },
+    "hero.haircare.secondary": { en: "Explore Products", ar: "استكشفي المنتجات" },
+    "hero.prev": { en: "Previous", ar: "السابق" },
+    "hero.next": { en: "التالي", ar: "التالي" },
+
+    // About Page
+    "about.header.label": { en: "About the Project", ar: "عن المشروع" },
+    "about.header.title": { en: "Faculty of", ar: "كلية" },
+    "about.header.titleHighlight": { en: "Pharmacy.", ar: "الصيدلة." },
+    "about.header.subtitle": { en: "A professional graduation project by the Pharmacist Team at MTI College, dedicated to clinical precision in beauty and health.", ar: "مشروع تخرج مهني من قبل فريق الصيادلة في كلية MTI، مخصص للدقة السريرية في الجمال والصحة." },
+    "about.mti.name": { en: "MTI University", ar: "جامعة MTI" },
+    "about.mti.full": { en: "Modern University for Technology & Information", ar: "الجامعة الحديثة للتكنولوجيا والمعلومات" },
+
+    "about.mission.label": { en: "Research Project", ar: "مشروع بحثي" },
+    "about.mission.title": { en: "Clinical Intelligence in Cosmetics", ar: "الذكاء السريري في مستحضرات التجميل" },
+    "about.mission.p1": { en: "This platform represents the culmination of our research into dermatological and trichological sciences. We identified a critical gap between clinical knowledge and consumer understanding.", ar: "تمثل هذه المنصة تتويجاً لأبحاثنا في علوم الجلد والشعر. لقد حددنا فجوة حرجة بين المعرفة السريرية وفهم المستهلك." },
+    "about.mission.p2": { en: "As a team of pharmacists from MTI College, we built LumeGuide to provide a professional, evidence-based resource that empowers users to make informed decisions about their skin and hair health through pharmacological accuracy.", ar: "كفريق من الصيادلة من كلية MTI، قمنا ببناء LumeGuide لتوفير مورد احترافي قائم على الأدلة يمكّن المستخدمين من اتخاذ قرارات مستنيرة بشأن صحة بشرتهم وشعرهم من خلال الدقة الصيدلانية." },
+
+    "about.principles.label": { en: "Our Principles", ar: "مبادئنا" },
+    "about.principles.title": { en: "Pharmacist", ar: "معايير" },
+    "about.principles.titleHighlight": { en: "Standards.", ar: "الصيادلة." },
+
+    "about.value1.title": { en: "Evidence-Based", ar: "قائم على الأدلة" },
+    "about.value1.desc": { en: "Every recommendation is grounded in peer-reviewed research. We never prioritise trends over science.", ar: "تستند كل توصية إلى أبحاث محكّمة. نحن لا نعطي الأولوية أبداً للصيحات على حساب العلم." },
+    "about.value2.title": { en: "Transparent", ar: "الشفافية" },
+    "about.value2.desc": { en: "Full ingredient transparency, clear medical data, and no sponsored product placements.", ar: "شفافية كاملة في المكونات، بيانات طبية واضحة، ولا توجد إعلانات منتجات ممولة." },
+    "about.value3.title": { en: "Inclusive", ar: "الشمولية" },
+    "about.value3.desc": { en: "We design for all skin types, hair textures, tones, and backgrounds — beauty has no single definition.", ar: "نحن نصمم لجميع أنواع البشرة وقوام الشعر ودرجاته وخلفياته — فالجمال ليس له تعريف واحد." },
+    "about.value4.title": { en: "Accessible", ar: "سهولة الوصول" },
+    "about.value4.desc": { en: "Expert knowledge presented clearly for everyone — from curious beginners to trained professionals.", ar: "معرفة الخبراء مقدمة بوضوح للجميع — من المبتدئين الفضوليين إلى المحترفين المدربين." },
+
+    "about.survey.label": { en: "Community Impact", ar: "تأثير المجتمع" },
+    "about.survey.title": { en: "Share Your Feedback", ar: "شاركينا رأيكِ" },
+    "about.survey.desc": { en: "As part of our graduation project, your feedback is vital. Please help us evaluate the impact of this resource by participating in our research survey.", ar: "كجزء من مشروع تخرجنا، فإن ملاحظاتكِ حيوية. يرجى مساعدتنا في تقييم تأثير هذا المورد من خلال المشاركة في مسحنا البحثي." },
+    "about.survey.cta": { en: "Take Survey", ar: "المشاركة في المسح" },
+
+    // Product Detail Page Labels
+    "product.howToUse": { en: "How to Use", ar: "كيفية الاستخدام" },
+    "product.keyBenefits": { en: "Key Benefits", ar: "الفوائد الأساسية" },
+    "product.mainIngredients": { en: "Main Ingredients", ar: "المكونات الأساسية" },
+    "product.bestFor": { en: "Best for", ar: "مناسب لـ" },
+    "product.bestForSuffix": { en: " skin", ar: " " },
+    "product.backToProducts": { en: "Back to Products", ar: "الرجوع للمنتجات" },
+    "product.noProduct": { en: "Product not found.", ar: "المنتج غير موجود." },
+    "product.verified": { en: "Verified", ar: "موثق" },
+    "product.lookingForMore": { en: "Looking for more products?", ar: "هل تبحثين عن المزيد من المنتجات؟" },
+    "product.viewAllSkincare": { en: "View All Skincare Products", ar: "مشاهدة كل منتجات العناية بالبشرة" },
+    "product.viewAllHaircare": { en: "View All Haircare Products", ar: "مشاهدة كل منتجات العناية بالشعر" },
+
+    // Generic Labels
+    "label.steps": { en: "Steps", ar: "خطوات" },
+    "label.dailyRoutine": { en: "Daily Routine", ar: "روتين يومي" },
+    "label.treatmentGuide": { en: "Treatment Guide", ar: "دليل علاجي" },
+    "label.characteristics": { en: "Key Characteristics", ar: "الخصائص الأساسية" },
+    "label.tips": { en: "Clinical Tips", ar: "نصائح سريرية" },
+    "label.causes": { en: "Common Causes", ar: "الأسباب الشائعة" },
+    "label.nextStep": { en: "Next Step", ar: "الخطوة التالية" },
 };
 
 export function LanguageProvider({ children }: { children: ReactNode }) {

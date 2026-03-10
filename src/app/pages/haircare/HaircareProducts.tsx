@@ -5,10 +5,13 @@ import { useSearchParams } from "react-router";
 import { SectionHeader } from "../../components/SectionHeader";
 import { ProductCard } from "../../components/ProductCard";
 import { haircareProducts, hairTypes, scalpConditions } from "../../data/haircare";
+import { haircareProductsAr } from "../../data/haircare_ar";
+import { useLanguage } from "../../context/LanguageContext";
 
 const CATEGORIES = ["All", "Shampoo", "Conditioner", "Treatment", "Oil Treatment"];
 
 export function HaircareProducts() {
+    const { t, isAr } = useLanguage();
     const [searchParams, setSearchParams] = useSearchParams();
     const [search, setSearch] = useState("");
     const [activeCategory, setActiveCategory] = useState("All");
@@ -210,9 +213,23 @@ export function HaircareProducts() {
 
                 {/* Grid */}
                 <motion.div layout className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    {filtered.map((product) => (
-                        <ProductCard key={product.id} product={product} category="haircare" />
-                    ))}
+                    {filtered.map((product) => {
+                        const arData = haircareProductsAr[product.id];
+                        const displayProduct = isAr && arData ? {
+                            ...product,
+                            description: arData.description,
+                            usage: arData.usage,
+                            benefits: arData.benefits
+                        } : product;
+
+                        return (
+                            <ProductCard
+                                key={product.id}
+                                product={displayProduct}
+                                category="haircare"
+                            />
+                        );
+                    })}
                 </motion.div>
 
                 {filtered.length === 0 && (

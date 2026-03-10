@@ -119,7 +119,7 @@ export function Layout() {
     : "none";
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen bg-cream" dir={isAr ? "rtl" : "ltr"}>
       <ScrollProgressBar />
 
       {/* ── Navigation ───────────────────────────────────────────────────── */}
@@ -138,7 +138,7 @@ export function Layout() {
           <div className="flex justify-between items-center h-16">
 
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 group flex-shrink-0">
+            <Link to="/" className={`flex items-center gap-3 group flex-shrink-0 ${isAr ? "flex-row-reverse" : ""}`}>
               <div
                 className="w-7 h-7 rounded-full border flex items-center justify-center group-hover:bg-gold transition-colors duration-300"
                 style={{ borderColor: isHome && !scrolled ? "rgba(201,168,124,0.7)" : "#C9A87C" }}
@@ -170,7 +170,7 @@ export function Layout() {
                   onMouseEnter={() => setOpenDropdown("skincare")}
                   onMouseLeave={() => setOpenDropdown(null)}
                   onClick={() => setOpenDropdown(openDropdown === "skincare" ? null : "skincare")}
-                  className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm transition-all duration-200 ${isActive(["/skincare"])
+                  className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm transition-all duration-200 ${isAr ? "flex-row-reverse" : ""} ${isActive(["/skincare"])
                     ? "text-gold bg-linen"
                     : "text-mink hover:text-espresso hover:bg-linen/60"
                     }`}
@@ -194,7 +194,7 @@ export function Layout() {
                   onMouseEnter={() => setOpenDropdown("haircare")}
                   onMouseLeave={() => setOpenDropdown(null)}
                   onClick={() => setOpenDropdown(openDropdown === "haircare" ? null : "haircare")}
-                  className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm transition-all duration-200 ${isActive(["/haircare"])
+                  className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm transition-all duration-200 ${isAr ? "flex-row-reverse" : ""} ${isActive(["/haircare"])
                     ? "text-gold bg-linen"
                     : "text-mink hover:text-espresso hover:bg-linen/60"
                     }`}
@@ -226,7 +226,7 @@ export function Layout() {
               {/* Language Toggle */}
               <button
                 onClick={() => setLang(lang === "en" ? "ar" : "en")}
-                className="ml-2 flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs font-medium tracking-widest uppercase transition-all duration-200 hover:bg-linen/60"
+                className={`ml-2 flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs font-medium tracking-widest uppercase transition-all duration-200 hover:bg-linen/60 ${isAr ? "flex-row-reverse ml-0 mr-2" : ""}`}
                 style={{ borderColor: "rgba(201,168,124,0.5)", color: "#A8907E" }}
                 title={lang === "en" ? "Switch to Arabic" : "التبديل إلى الإنجليزية"}
               >
@@ -290,9 +290,9 @@ export function Layout() {
                   <div className="my-2 border-t border-warm-beige" />
                   <button
                     onClick={() => setLang(lang === "en" ? "ar" : "en")}
-                    className="w-full text-left px-6 py-2.5 text-sm text-mink hover:text-gold hover:bg-linen rounded-lg transition-colors"
+                    className={`w-full text-left px-6 py-2.5 text-sm text-mink hover:text-gold hover:bg-linen rounded-lg transition-colors flex items-center gap-2 ${isAr ? "flex-row-reverse text-right" : ""}`}
                   >
-                    🌐 {lang === "en" ? "العربية" : "English"}
+                    <span>🌐</span> {lang === "en" ? "العربية" : "English"}
                   </button>
                 </div>
               </motion.div>
@@ -317,8 +317,8 @@ export function Layout() {
           <div className="grid md:grid-cols-4 gap-10 mb-12">
 
             {/* Brand */}
-            <div className="md:col-span-1">
-              <div className="flex items-center gap-3 mb-4">
+            <div className={`md:col-span-1 ${isAr ? "text-right" : ""}`}>
+              <div className={`flex items-center gap-3 mb-4 ${isAr ? "flex-row-reverse" : ""}`}>
                 <div className="w-6 h-6 rounded-full border border-gold/60 flex items-center justify-center">
                   <span className="text-gold text-xs">✦</span>
                 </div>
@@ -330,7 +330,7 @@ export function Layout() {
             </div>
 
             {/* Skincare */}
-            <div>
+            <div className={isAr ? "text-right" : ""}>
               <h4
                 className="font-body text-xs uppercase tracking-[0.22em] mb-4"
                 style={{ color: "rgba(201,168,124,0.70)" }}
@@ -355,7 +355,7 @@ export function Layout() {
             </div>
 
             {/* Haircare */}
-            <div>
+            <div className={isAr ? "text-right" : ""}>
               <h4
                 className="font-body text-xs uppercase tracking-[0.22em] mb-4"
                 style={{ color: "rgba(201,168,124,0.70)" }}
@@ -380,7 +380,7 @@ export function Layout() {
             </div>
 
             {/* Company */}
-            <div>
+            <div className={isAr ? "text-right" : ""}>
               <h4
                 className="font-body text-xs uppercase tracking-[0.22em] mb-4"
                 style={{ color: "rgba(201,168,124,0.70)" }}
@@ -405,10 +405,10 @@ export function Layout() {
 
           {/* Divider + copyright */}
           <div
-            className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
+            className={`pt-8 flex flex-col md:flex-row justify-between items-center gap-4 ${isAr ? "md:flex-row-reverse" : ""}`}
             style={{ borderTop: "1px solid rgba(201,168,124,0.15)" }}
           >
-            <div className="flex-1">
+            <div className={`flex-1 ${isAr ? "text-right" : ""}`}>
               <p className="text-xs mb-4" style={{ color: "rgba(232,213,192,0.40)" }}>
                 {t("footer.copyright")}
               </p>

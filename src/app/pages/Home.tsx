@@ -4,6 +4,7 @@ import { Link } from "react-router";
 import { ArrowRight, Shield, Sparkle, Leaf, Microscope } from "lucide-react";
 import { HeroSlider } from "../components/HeroSlider";
 import { SectionHeader } from "../components/SectionHeader";
+import { useLanguage } from "../context/LanguageContext";
 
 const features = [
   {
@@ -88,22 +89,28 @@ const offers = [
 ];
 
 // Marquee ticker items
-const TICKER = [
-  "Skincare", "✦", "Haircare", "✦", "Routines", "✦",
-  "Products", "✦", "Expert Guides", "✦", "Evidence-Based", "✦",
-  "Skincare", "✦", "Haircare", "✦", "Routines", "✦",
-  "Products", "✦", "Expert Guides", "✦", "Evidence-Based", "✦",
-];
+function useTickerItems() {
+  const { t } = useLanguage();
+  return [
+    t("ticker.skincare"), "✦", t("ticker.haircare"), "✦", t("ticker.routines"), "✦",
+    t("ticker.products"), "✦", t("ticker.guides"), "✦", t("ticker.backed"), "✦",
+    t("ticker.skincare"), "✦", t("ticker.haircare"), "✦", t("ticker.routines"), "✦",
+    t("ticker.products"), "✦", t("ticker.guides"), "✦", t("ticker.backed"), "✦",
+  ];
+}
 
 function MarqueeTicker() {
+  const { isAr } = useLanguage();
+  const tickerItems = useTickerItems();
+
   return (
     <div className="overflow-hidden py-3 border-y border-warm-beige bg-ivory select-none">
       <motion.div
         className="flex items-center gap-8 whitespace-nowrap"
-        animate={{ x: ["0%", "-50%"] }}
+        animate={{ x: isAr ? ["-50%", "0%"] : ["0%", "-50%"] }}
         transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
       >
-        {TICKER.map((item, i) => (
+        {tickerItems.map((item, i) => (
           <span
             key={i}
             className={`text-xs uppercase tracking-[0.22em] flex-shrink-0 ${item === "✦" ? "sparkle-blink" : "text-taupe"
@@ -140,11 +147,86 @@ function FloatOrb({
 
 export function Home() {
   const ctaRef = useRef<HTMLDivElement>(null);
+  const { t, isAr } = useLanguage();
   const { scrollYProgress } = useScroll({
     target: ctaRef,
     offset: ["start end", "end start"],
   });
   const ctaY = useTransform(scrollYProgress, [0, 1], [40, -40]);
+
+  const features = [
+    {
+      icon: Microscope,
+      title: t("home.feat1.title"),
+      description: t("home.feat1.desc"),
+      color: "#5C2D3E",
+      bg: "rgba(92,45,62,0.10)",
+      hoverBg: "rgba(92,45,62,0.20)",
+    },
+    {
+      icon: Shield,
+      title: t("home.feat2.title"),
+      description: t("home.feat2.desc"),
+      color: "#7A3F52",
+      bg: "rgba(122,63,82,0.10)",
+      hoverBg: "rgba(122,63,82,0.20)",
+    },
+    {
+      icon: Leaf,
+      title: t("home.feat3.title"),
+      description: t("home.feat3.desc"),
+      color: "#9E7B4F",
+      bg: "rgba(158,123,79,0.12)",
+      hoverBg: "rgba(158,123,79,0.24)",
+    },
+    {
+      icon: Sparkle,
+      title: t("home.feat4.title"),
+      description: t("home.feat4.desc"),
+      color: "#A05870",
+      bg: "rgba(160,88,112,0.10)",
+      hoverBg: "rgba(160,88,112,0.20)",
+    },
+  ];
+
+  const offers = [
+    {
+      number: "01",
+      title: t("home.offer1.title"),
+      description: t("home.offer1.desc"),
+      link: "/skincare/types",
+      accent: "#5C2D3E",
+      bg: "rgba(92,45,62,0.08)",
+      hoverBg: "rgba(92,45,62,0.18)",
+    },
+    {
+      number: "02",
+      title: t("home.offer2.title"),
+      description: t("home.offer2.desc"),
+      link: "/skincare/solutions",
+      accent: "#7A3F52",
+      bg: "rgba(122,63,82,0.08)",
+      hoverBg: "rgba(122,63,82,0.18)",
+    },
+    {
+      number: "03",
+      title: t("home.offer3.title"),
+      description: t("home.offer3.desc"),
+      link: "/skincare/products",
+      accent: "#9E7B4F",
+      bg: "rgba(158,123,79,0.08)",
+      hoverBg: "rgba(158,123,79,0.18)",
+    },
+    {
+      number: "04",
+      title: t("home.offer4.title"),
+      description: t("home.offer4.desc"),
+      link: "/about",
+      accent: "#A05870",
+      bg: "rgba(160,88,112,0.08)",
+      hoverBg: "rgba(160,88,112,0.18)",
+    },
+  ];
 
   return (
     <div className="overflow-hidden">
@@ -162,16 +244,16 @@ export function Home() {
 
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <SectionHeader
-            label="Our Expertise"
-            title="One Platform,"
-            titleHighlight="Two Worlds."
-            subtitle="Whether you're navigating a complex skincare concern or building a transformative hair routine, RO brings clinical expertise and elegant guidance together in one beautifully structured space."
+            label={t("home.worlds.label")}
+            title={t("home.worlds.title")}
+            titleHighlight={t("home.worlds.titleHighlight")}
+            subtitle={t("home.worlds.subtitle")}
           />
 
           <div className="mt-16 grid md:grid-cols-2 gap-6">
             {/* Skincare card */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: isAr ? 30 : -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
@@ -182,7 +264,7 @@ export function Home() {
               <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #F5E8DF 0%, #EDD5C8 100%)" }} />
               <motion.div
                 className="absolute inset-0"
-                style={{ backgroundImage: "radial-gradient(ellipse at 80% 20%, #C9A87C18 0%, transparent 60%)" }}
+                style={{ backgroundImage: `radial-gradient(ellipse at ${isAr ? '20% 20%' : '80% 20%'}, #C9A87C18 0%, transparent 60%)` }}
                 animate={{ opacity: [0.4, 0.7, 0.4] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
@@ -193,32 +275,32 @@ export function Home() {
                 animate={{ scaleX: [0, 1, 0], opacity: [0, 1, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
               />
-              <div className="relative z-10 p-10 h-full flex flex-col justify-between" style={{ minHeight: 340 }}>
-                <div>
-                  <span className="badge-skincare inline-block mb-4">Skincare</span>
+              <div className="relative z-10 p-10 h-full flex flex-col justify-between items-start" style={{ minHeight: 340 }}>
+                <div className="w-full">
+                  <span className="badge-skincare inline-block mb-4">{t("nav.skincare")}</span>
                   <h3
                     className="font-heading text-espresso mb-4"
                     style={{ fontSize: "clamp(1.8rem, 3vw, 2.5rem)", fontStyle: "italic" }}
                   >
-                    Radiant, Healthy Skin
+                    {t("home.worlds.skinTitle")}
                   </h3>
                   <p className="text-espresso/90 text-sm md:text-base leading-relaxed max-w-sm">
-                    From skin types and conditions to targeted solutions and product discoveries — your complete skincare companion.
+                    {t("home.worlds.skinDesc")}
                   </p>
                 </div>
                 <Link
                   to="/skincare/types"
                   className="inline-flex items-center gap-2 text-gold text-xs uppercase tracking-[0.15em] hover:gap-4 transition-all duration-300 font-medium"
                 >
-                  Explore Skincare
-                  <ArrowRight className="w-4 h-4" />
+                  {t("home.exploreSkincare")}
+                  <ArrowRight className={`w-4 h-4 ${isAr ? 'rotate-180' : ''}`} />
                 </Link>
               </div>
             </motion.div>
 
             {/* Haircare card */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: isAr ? -30 : 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
@@ -229,7 +311,7 @@ export function Home() {
               <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #E8EDE4 0%, #D8E3D4 100%)" }} />
               <motion.div
                 className="absolute inset-0"
-                style={{ backgroundImage: "radial-gradient(ellipse at 20% 80%, #A8907E18 0%, transparent 60%)" }}
+                style={{ backgroundImage: `radial-gradient(ellipse at ${isAr ? '80% 80%' : '20% 80%'}, #A8907E18 0%, transparent 60%)` }}
                 animate={{ opacity: [0.4, 0.7, 0.4] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
               />
@@ -239,25 +321,25 @@ export function Home() {
                 animate={{ scaleX: [0, 1, 0], opacity: [0, 1, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 2.5 }}
               />
-              <div className="relative z-10 p-10 h-full flex flex-col justify-between" style={{ minHeight: 340 }}>
-                <div>
-                  <span className="badge-haircare inline-block mb-4">Haircare</span>
+              <div className="relative z-10 p-10 h-full flex flex-col justify-between items-start" style={{ minHeight: 340 }}>
+                <div className="w-full">
+                  <span className="badge-haircare inline-block mb-4">{t("nav.haircare")}</span>
                   <h3
                     className="font-heading text-espresso mb-4"
                     style={{ fontSize: "clamp(1.8rem, 3vw, 2.5rem)", fontStyle: "italic" }}
                   >
-                    Thriving, Beautiful Hair
+                    {t("home.worlds.hairTitle")}
                   </h3>
                   <p className="text-espresso/90 text-sm md:text-base leading-relaxed max-w-sm">
-                    Hair types, scalp conditions, targeted routines, and expertly chosen products — everything your hair needs.
+                    {t("home.worlds.hairDesc")}
                   </p>
                 </div>
                 <Link
                   to="/haircare/types"
                   className="inline-flex items-center gap-2 text-mink text-xs uppercase tracking-[0.15em] hover:gap-4 hover:text-gold transition-all duration-300 font-medium"
                 >
-                  Explore Haircare
-                  <ArrowRight className="w-4 h-4" />
+                  {t("home.exploreHaircare")}
+                  <ArrowRight className={`w-4 h-4 ${isAr ? 'rotate-180' : ''}`} />
                 </Link>
               </div>
             </motion.div>
@@ -271,10 +353,10 @@ export function Home() {
 
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <SectionHeader
-            label="Why RO"
-            title="The Standard"
-            titleHighlight="of Care."
-            subtitle="We combine clinical rigour with approachable, beautifully designed guidance — so every user finds what they need, whether casual or professional."
+            label={t("home.features.label")}
+            title={t("home.features.title")}
+            titleHighlight={t("home.features.titleHighlight")}
+            subtitle={t("home.features.subtitle")}
           />
 
           <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -312,10 +394,10 @@ export function Home() {
       <section className="py-14 bg-cream border-y border-warm-beige">
         <div className="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
           {[
-            { value: "50+", label: "Products Curated" },
-            { value: "12", label: "Skin & Hair Types" },
-            { value: "30+", label: "Expert Routines" },
-            { value: "100%", label: "Science-Backed" },
+            { value: "50+", label: t("home.stats.products") },
+            { value: "12", label: t("home.stats.types") },
+            { value: "30+", label: t("home.stats.routines") },
+            { value: "100%", label: t("home.stats.backed") },
           ].map((stat, i) => (
             <motion.div
               key={i}
@@ -347,10 +429,10 @@ export function Home() {
 
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <SectionHeader
-            label="What We Offer"
-            title="Complete"
-            titleHighlight="Guidance."
-            subtitle="From foundational knowledge to expert product selection — an end-to-end resource for both skincare and haircare."
+            label={t("home.offers.label")}
+            title={t("home.offers.title")}
+            titleHighlight={t("home.offers.titleHighlight")}
+            subtitle={t("home.offers.subtitle")}
           />
 
           <div className="mt-16 grid md:grid-cols-2 gap-6">
@@ -385,7 +467,7 @@ export function Home() {
                         <p className="text-espresso/80 text-sm leading-relaxed">
                           {offer.description}</p>
                         <div className="mt-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.12em]" style={{ color: offer.accent }}>
-                          Learn more <ArrowRight className="w-3 h-3" />
+                          {t("label.learnMore")} <ArrowRight className={`w-3 h-3 ${isAr ? 'rotate-180' : ''}`} />
                         </div>
                       </div>
                     </div>
@@ -428,25 +510,25 @@ export function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <p className="text-xs uppercase tracking-[0.3em] text-wine-dark/60 mb-5">Begin Your Journey</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-wine-dark/60 mb-5">{t("home.cta.label")}</p>
             <h2
               className="font-heading text-espresso mb-6"
               style={{ fontWeight: 300, letterSpacing: "0.02em" }}
             >
-              Discover What Your{" "}
-              <span className="italic" style={{ color: "#9E7B4F" }}>Skin & Hair</span>{" "}
-              Truly Needs
+              {t("home.cta.titlePart1")}{" "}
+              <span className="italic" style={{ color: "#9E7B4F" }}>{t("home.cta.titlePart2")}</span>{" "}
+              {t("home.cta.titlePart3")}
             </h2>
             <p className="text-espresso/90 text-lg md:text-xl leading-relaxed mb-10">
-              Start with understanding your skin type or hair type, then build your personalised routine from science-backed foundations.
+              {t("home.cta.desc")}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link to="/skincare/types" className="btn-wine">
-                Explore Skincare
-                <ArrowRight className="w-4 h-4" />
+                {t("home.exploreSkincare")}
+                <ArrowRight className={`w-4 h-4 ${isAr ? 'rotate-180' : ''}`} />
               </Link>
               <Link to="/haircare/types" className="btn-outline">
-                Explore Haircare
+                {t("home.exploreHaircare")}
               </Link>
             </div>
           </motion.div>
