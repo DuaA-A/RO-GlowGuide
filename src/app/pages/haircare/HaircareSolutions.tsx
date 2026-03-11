@@ -5,12 +5,12 @@ import { Clock, Layers, ArrowRight } from "lucide-react";
 import { SectionHeader } from "../../components/SectionHeader";
 import { haircareRoutines, hairTypes } from "../../data/haircare";
 import { useLanguage } from "../../context/LanguageContext";
-import { haircareRoutinesAr } from "../../data/haircare_ar";
+import { haircareRoutinesAr, hairTypesAr } from "../../data/haircare_ar";
 
 function PlaceholderImage({ label }: { label: string }) {
     return (
         <div className="w-full h-full bg-gradient-to-br from-sage/40 to-linen flex items-center justify-center">
-            <p className="text-taupe text-xs text-center px-3">{label}<br /><span className="opacity-50">Image Placeholder</span></p>
+            <span className="text-warm-beige opacity-40 text-5xl">✦</span>
         </div>
     );
 }

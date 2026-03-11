@@ -19,9 +19,6 @@ function PlaceholderImage({ name, category }: { name: string; category: string }
             <div className="w-16 h-16 rounded-full border-2 border-warm-beige flex items-center justify-center mb-3 opacity-50">
                 <span className="text-2xl">{isSkincare ? "✦" : "❧"}</span>
             </div>
-            <p className="text-xs text-taupe text-center px-4 leading-relaxed opacity-70">
-                Product Image Placeholder
-            </p>
         </div>
     );
 }

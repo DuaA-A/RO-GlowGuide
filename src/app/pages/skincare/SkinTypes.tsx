@@ -12,7 +12,7 @@ type Tab = "types" | "conditions";
 function PlaceholderImage({ label }: { label: string }) {
     return (
         <div className="w-full h-full bg-gradient-to-br from-blush to-linen flex items-center justify-center">
-            <p className="text-taupe text-xs text-center px-4">{label}<br /><span className="opacity-50">Image Placeholder</span></p>
+            <span className="text-warm-beige opacity-40 text-5xl">✦</span>
         </div>
     );
 }

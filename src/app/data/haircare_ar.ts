@@ -2,6 +2,7 @@
 
 export interface HairTypeAr {
     name: string;
+    pattern: string;
     description: string;
     characteristics: string[];
     tips: string[];
@@ -30,7 +31,8 @@ export interface ProductAr {
 
 export const hairTypesAr: Record<string, HairTypeAr> = {
     straight: {
-        name: "الشعر المستقيم",
+        name: "Straight Hair",
+        pattern: "1A – مستقيم",
         description: "الشعر المستقيم ينمو من بصيلة مستديرة ويستلقي باستقامة تامة من الجذر إلى الطرف، مع توزيع سهل للزيوت الطبيعية على عدوق الشعر. يتميز بمظهر لامع وميل نحو دهنية فروة الرأس.",
         characteristics: [
             "عمود شعري ناعم ولامع بطبيعته",
@@ -45,7 +47,8 @@ export const hairTypesAr: Record<string, HairTypeAr> = {
         ],
     },
     wavy: {
-        name: "الشعر المموج",
+        name: "Wavy Hair",
+        pattern: "2A – مموج",
         description: "الشعر المموج له نمط S خفيف مع تجعيد طفيف يتراوح من موجات شاطئية ناعمة إلى انحناءات أكثر تحديداً. يقع بين الشعر المستقيم والمجعد من حيث احتياجات العناية.",
         characteristics: [
             "نمط موجي S طبيعي من الجذور إلى الأطراف",
@@ -60,8 +63,9 @@ export const hairTypesAr: Record<string, HairTypeAr> = {
         ],
     },
     curly: {
-        name: "الشعر المجعد",
-        description: "الشعر المجعد يتبع نمطاً حلزونياً محدداً ويكون أكثر جفافاً من الأنواع المستقيمة بسبب صعوبة توزيع الزهم على عمود الشعر اللولبي.",
+        name: "Curly Hair",
+        pattern: "3A-3B – مجعد",
+        description: "يتميز الشعر المجعد بحلقات أو لوالب واضحة تبدأ من الجذور وتستمر حتى الأطراف. يكون أكثر عرضة للجفاف والتشابك نظراً لصعوبة وصول الزيوت الطبيعية من فروة الرأس إلى كامل طول الشعرة.",
         characteristics: [
             "تجعيدات حلزونية أو فلينية محددة بوضوح",
             "مسامية عالية وعُرضة للتجعد",
@@ -75,8 +79,9 @@ export const hairTypesAr: Record<string, HairTypeAr> = {
         ],
     },
     coily: {
-        name: "الشعر الملتف",
-        description: "الشعر الملتف له نمط Z أو S ضيق جداً وهو أكثر أنواع الشعر هشاشةً بسبب بنيته الزاوية ومساميته العالية. يتطلب استراتيجيات كبيرة للحفاظ على الترطيب.",
+        name: "Coily Hair",
+        pattern: "4A-4C – حلزوني",
+        description: "الشعر الحلزوني (أو المتعرج) يتميز بنمط تجعيد ضيق للغاية على شكل زجزاج أو لوالب صغيرة مكثفة. هو النوع الأكثر هشاشة وعرضة للتكسر والجفاف الشديد، ولكنه يمتلك حجماً وقوة طبيعية مذهلة.",
         characteristics: [
             "نمط ملتف Z أو S ضيق",
             "الأكثر عُرضة للكسر والانكماش",
@@ -90,7 +95,8 @@ export const hairTypesAr: Record<string, HairTypeAr> = {
         ],
     },
     "fine-thin": {
-        name: "الشعر الرفيع أو الخفيف",
+        name: "Fine or Thin Hair",
+        pattern: "رفيع أو خفيف",
         description: "الشعر الرفيع يشير إلى قطر كل خصلة بشكل فردي، بينما يشير الشعر الخفيف إلى كثافته الإجمالية. الشعر الرفيع حساس ويُثقّل بسهولة بالمنتجات الثقيلة.",
         characteristics: [
             "قطر خصلة فردية صغير",
@@ -104,13 +110,30 @@ export const hairTypesAr: Record<string, HairTypeAr> = {
             "قصّي الشعر بانتظام لمنع تفاقم التقصف",
         ],
     },
+    damaged: {
+        name: "Damaged Hair",
+        pattern: "مسامي وعُرضة للكسر",
+        description: "الشعر التالف يتميز بمسامية عالية، خشونة، وبهتان، وعُرضة للكسر والتقصف. يحدث نتيجة للمعالجات الكيميائية، التصفيف الحراري المفرط، أو العوامل البيئية.",
+        characteristics: [
+            "مسامية عالية، يمتص الماء بسرعة ويجف ببطء",
+            "خشونة في الملمس وبهتان في اللون",
+            "عُرضة للكسر والتقصف بسهولة",
+            "يفتقر إلى المرونة واللمعان",
+        ],
+        tips: [
+            "استخدمي علاجات البروتين لإعادة بناء الروابط التالفة",
+            "تجنبي التصفيف الحراري قدر الإمكان واستخدمي واقياً حرارياً",
+            "أقنعة ترطيب عميقة بانتظام لاستعادة الليونة",
+            "قصّي الأطراف المتقصفة بانتظام لمنع تفاقم الضرر",
+        ],
+    },
 };
 
 // ── Scalp Conditions ──────────────────────────────────────────────────────────
 
 export const scalpConditionsAr: Record<string, ScalpConditionAr> = {
     dandruff: {
-        name: "قشرة الرأس",
+        name: "Dandruff",
         description: "حالة شائعة بفروة الرأس تتميز ببقشرة بيضاء وحكة مستمرة وأحياناً احمرار موضعي. غالباً ما ترتبط بفرط نمو فطر Malassezia.",
         causes: [
             "فرط نمو فطر Malassezia",
@@ -125,8 +148,8 @@ export const scalpConditionsAr: Record<string, ScalpConditionAr> = {
             "كرّري 2-3 مرات أسبوعياً لمدة 4 أسابيع على الأقل",
         ],
     },
-    "scalp-psoriasis": {
-        name: "صدفية فروة الرأس",
+    "psoriasis-scalp": {
+        name: "Scalp Psoriasis",
         description: "حالة مناعية ذاتية تُسبّب تجدداً سريعاً لخلايا الجلد مما يُفضي إلى لويحات فضية سميكة على فروة الرأس. قد تمتد إلى ما وراء خط الشعر وترتبط بالتهاب جهازي.",
         causes: [
             "التهاب مناعي ذاتي بوساطة الخلايا التائية",
@@ -136,7 +159,7 @@ export const scalpConditionsAr: Record<string, ScalpConditionAr> = {
         ],
     },
     "scalp-eczema": {
-        name: "إكزيما فروة الرأس",
+        name: "Scalp Eczema",
         description: "التهاب جلدي بفروة الرأس مع بقع مُثيرة للحكة بشدة أو متقيّحة أو متقشرة. مرتبط بالثالوث التأتبي (الربو والتهاب الأنف والإكزيما) وضعف حاجز الجلد.",
         causes: [
             "طفرات جين الفيلاجرين تُضعف الحاجز",
@@ -161,8 +184,8 @@ export const scalpConditionsAr: Record<string, ScalpConditionAr> = {
             "أقنعة الشعر العميقة مرة إلى مرتين أسبوعياً",
         ],
     },
-    alopecia: {
-        name: "تساقط الشعر (الثعلبة)",
+    "hair-loss": {
+        name: "Hair Loss (Telogen Effluvium)",
         description: "تخفيف الشعر أو فقدانه الموضعي الذي يؤثر على فروة الرأس. الأنواع الشائعة تشمل الثعلبة الأندروجينية (الصلع النمطي)، والتلطّف التالي (التساقط المؤقت)، وثعلبة الشحب.",
         causes: [
             "الاستعداد الوراثي (حساسية DHT)",
@@ -184,7 +207,7 @@ export const scalpConditionsAr: Record<string, ScalpConditionAr> = {
 
 export const haircareRoutinesAr: Record<string, RoutineAr> = {
     "hair-loss-routine": {
-        name: "روتين مكافحة تساقط الشعر",
+        name: "Hair Loss Routine",
         description: "بروتوكول سريري مُصمَّم لتحفيز تدفق الدم وحجب DHT وإعادة تنشيط بصيلات الشعر الخاملة.",
         steps: [
             { name: "التنظيف العميق", description: "استخدمي شامبو توضيح أو سمّ لإزالة الزهم الذي يسدّ البصيلات." },
@@ -194,7 +217,7 @@ export const haircareRoutinesAr: Record<string, RoutineAr> = {
         ],
     },
     "scalp-eczema-routine": {
-        name: "روتين تهدئة إكزيما الفروة",
+        name: "Scalp Eczema Routine",
         description: "روتين لطيف مضاد للالتهابات لتهدئة الاحمرار وإيقاف الحكة في فروة الرأس.",
         steps: [
             { name: "العلاج الدوائي", description: "ضعي محلول ستيرويد/مضاد الفطريات حسب الوصفة الطبية لتهدئة النوبات." },
@@ -203,7 +226,7 @@ export const haircareRoutinesAr: Record<string, RoutineAr> = {
         ],
     },
     "split-ends-routine": {
-        name: "روتين إصلاح الأطراف",
+        name: "Split Ends Routine",
         description: "روتين صيانة يُركّز على إغلاق الكيوتيكل ومنع مزيد من انشقاق الخصلات.",
         steps: [
             { name: "بناء الروابط", description: "ضعي علاج إصلاح الروابط على الشعر الرطب لتقوية الروابط الداخلية." },
@@ -211,8 +234,18 @@ export const haircareRoutinesAr: Record<string, RoutineAr> = {
             { name: "الحماية الحرارية", description: "الواقي الحراري ضروري قبل استخدام أي أداة تصفيف." },
         ],
     },
+    "seborrheic-dermatitis": {
+        name: "Seborrheic Dermatitis",
+        description: "روتين يُركّز على التنظيف لمنع الدهنية مع الحفاظ على البريق والحجم.",
+        steps: [
+            { name: "التنظيف الأسبوعي", description: "استخدمي شامبو توضيح أسبوعياً لإزالة تراكم الزهم وإبقاء الشعر خفيفاً." },
+            { name: "الغسل اليومي", description: "شامبو تحجيم خفيف الوزن خالٍ من الكبريتات للغسلات المعتادة." },
+            { name: "التكييف", description: "ضعي البلسم الخفيف من المنتصف إلى الأطراف فقط لتجنب دهنية الجذور." },
+            { name: "الحماية", description: "رذاذ فكّ الشابك والواقي الحراري قبل التصفيف." },
+        ],
+    },
     "straight-routine": {
-        name: "روتين الشعر المستقيم",
+        name: "Straight Hair Routine",
         description: "روتين يُركّز على التنظيف لمنع الدهنية مع الحفاظ على البريق والحجم.",
         steps: [
             { name: "التنظيف الأسبوعي", description: "استخدمي شامبو توضيح أسبوعياً لإزالة تراكم الزهم وإبقاء الشعر خفيفاً." },
@@ -222,7 +255,7 @@ export const haircareRoutinesAr: Record<string, RoutineAr> = {
         ],
     },
     "curly-routine": {
-        name: "روتين الشعر المجعد",
+        name: "Curly Hair Routine",
         description: "روتين مُكثَّف لقفل الترطيب وفق مبادئ Curly Girl Method لتجعيدات محددة خالية من التجعّد.",
         steps: [
             { name: "الغسل اللطيف", description: "شامبو مُرطّب خالٍ من الكبريتات للحفاظ على الزيوت الطبيعية." },
@@ -233,7 +266,7 @@ export const haircareRoutinesAr: Record<string, RoutineAr> = {
         ],
     },
     "coily-routine": {
-        name: "روتين الشعر الملتف",
+        name: "Coily Hair Routine",
         description: "روتين مُرطِّب فائق يُركّز على منع الكسر والحفاظ على الطول للشعر المجعّد الضيق.",
         steps: [
             { name: "ما قبل الغسيل", description: "ضع زيت جوز الهند أو الزيتون قبل الغسيل لتقليل فقدان البروتين." },
@@ -244,7 +277,7 @@ export const haircareRoutinesAr: Record<string, RoutineAr> = {
         ],
     },
     "general-routine": {
-        name: "روتين العناية العام",
+        name: "General Care Routine",
         description: "روتين أساسي للحفاظ على صحة فروة الرأس وتوازن الترطيب وتحسين قوة الشعر ولمعانه.",
         steps: [
             { name: "الغسيل المنتظم", description: "اغسلي 2-3 مرات أسبوعياً لإزالة الدهون الزائدة. اختاري الشامبو حسب نوع فروة الرأس." },
@@ -255,7 +288,7 @@ export const haircareRoutinesAr: Record<string, RoutineAr> = {
         ],
     },
     "scalp-treatment-routine": {
-        name: "روتين علاج الفروة",
+        name: "Scalp Treatment Routine",
         description: "روتين علاجي مُستهدف لإدارة القشرة والتهاب الجلد الدهني عبر عناية سريرية بفروة الرأس.",
         steps: [
             { name: "التنظيف الطبي", description: "استخدمي Nizoral أو Selsun Blue. دلّكي في فروة الرأس واتركيه 3-5 دقائق." },

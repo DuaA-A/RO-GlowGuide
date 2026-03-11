@@ -38,8 +38,8 @@ const translations: Record<string, Record<Lang, string>> = {
     "footer.haircareRefs": { en: "Haircare References", ar: "مراجع العناية بالشعر" },
 
     // Shared section labels
-    "label.characteristics": { en: "Characteristics", ar: "الخصائص" },
-    "label.tips": { en: "Tips", ar: "النصائح" },
+    "label.characteristics": { en: "Key Characteristics", ar: "الخصائص الأساسية" },
+    "label.tips": { en: "Clinical Tips", ar: "نصائح سريرية" },
     "label.causes": { en: "Common Causes", ar: "الأسباب الشائعة" },
     "label.severity": { en: "Severity", ar: "الشدة" },
     "label.usage": { en: "How to Use", ar: "طريقة الاستخدام" },
@@ -259,13 +259,6 @@ const translations: Record<string, Record<Lang, string>> = {
     "product.viewAllSkincare": { en: "View All Skincare Products", ar: "مشاهدة كل منتجات العناية بالبشرة" },
     "product.viewAllHaircare": { en: "View All Haircare Products", ar: "مشاهدة كل منتجات العناية بالشعر" },
 
-    // Generic Labels
-    "label.steps": { en: "Steps", ar: "خطوات" },
-    "label.dailyRoutine": { en: "Daily Routine", ar: "روتين يومي" },
-    "label.treatmentGuide": { en: "Treatment Guide", ar: "دليل علاجي" },
-    "label.characteristics": { en: "Key Characteristics", ar: "الخصائص الأساسية" },
-    "label.tips": { en: "Clinical Tips", ar: "نصائح سريرية" },
-    "label.causes": { en: "Common Causes", ar: "الأسباب الشائعة" },
     "label.nextStep": { en: "Next Step", ar: "الخطوة التالية" },
 };
 

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useParams, Link, useNavigate } from "react-router";
 import { ArrowLeft, Check, Wind, BookOpen } from "lucide-react";
 import { MedicalDetailsPanel } from "../../components/MedicalDetailsPanel";
@@ -14,7 +14,7 @@ function PlaceholderProductImage({ name }: { name: string }) {
             <div className="w-20 h-20 rounded-full border-2 border-warm-beige flex items-center justify-center mb-4 opacity-40">
                 <Wind className="w-9 h-9 text-taupe" />
             </div>
-            <p className="text-taupe text-xs text-center px-6 opacity-60">Product Image Placeholder<br />{name}</p>
+            <p className="text-taupe text-xs text-center px-6 opacity-40">{name}</p>
         </div>
     );
 }

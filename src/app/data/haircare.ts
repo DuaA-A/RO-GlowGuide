@@ -21,7 +21,7 @@ export const hairTypes: HairType[] = [
             "Apply conditioner mid-lengths to ends only",
             "Clarify regularly to remove buildup from sebum",
         ],
-        image: "https://images.pexels.com/photos/3065209/pexels-photo-3065209.jpeg?auto=compress&cs=tinysrgb&w=800",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSevmRcoVIbA5MVQQFrxHK34g-gY3em5z-BSA&s",
         color: "sand",
     },
     {
@@ -41,7 +41,7 @@ export const hairTypes: HairType[] = [
             "Scrunch in products rather than raking through",
             "Diffuse or air dry to encourage wave definition",
         ],
-        image: "https://images.pexels.com/photos/1620781/pexels-photo-1620781.jpeg?auto=compress&cs=tinysrgb&w=800",
+        image: "https://images.stockcake.com/public/0/6/d/06dea7eb-b132-4646-90d9-39db8bd94f33_large/stylish-wavy-hair-stockcake.jpg",
         color: "blush",
     },
     {
@@ -61,7 +61,7 @@ export const hairTypes: HairType[] = [
             "Use a rich leave-in conditioner while hair is soaking wet",
             "Protect curls at night with a silk or satin bonnet",
         ],
-        image: "https://images.pexels.com/photos/1586973/pexels-photo-1586973.jpeg?auto=compress&cs=tinysrgb&w=800",
+        image: "https://therighthairstyles.com/wp-content/uploads/2025/04/10-types-of-haircuts-for-natural-curly-hair.jpg",
         color: "taupe",
     },
     {
@@ -81,7 +81,7 @@ export const hairTypes: HairType[] = [
             "Detangle gently on wet, conditioned hair only",
             "Protective styles reduce manipulation and breakage",
         ],
-        image: "https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=800",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtiZ-SEPNDi8sPC61teVRsfR4Sf91y4WJlLA&s",
         color: "mink",
     },
     {
@@ -101,7 +101,7 @@ export const hairTypes: HairType[] = [
             "Use a volumising root spray for lift",
             "Trim regularly to prevent split ends from worsening",
         ],
-        image: "https://images.pexels.com/photos/3065171/pexels-photo-3065171.jpeg?auto=compress&cs=tinysrgb&w=800",
+        image: "https://www.beautyclublondon.co.uk/wp-content/uploads/thin-hair-before-and-after-extensions.jpg",
         color: "warm-beige",
     },
 ];
@@ -126,7 +126,7 @@ export const scalpConditions: ScalpCondition[] = [
             "Leave treatment on the scalp for 3–5 minutes before rinsing",
             "Maintain frequency of 2–3 times weekly for at least 4 weeks",
         ],
-        image: "https://images.pexels.com/photos/5069368/pexels-photo-5069368.jpeg?auto=compress&cs=tinysrgb&w=800",
+        image: "https://www.hshairclinic.co.uk/wp-content/uploads/2024/07/Man-with-Dandruff-in-His-Dark-Hair-Macro-View.webp",
         color: "sand",
     },
     {
@@ -141,7 +141,7 @@ export const scalpConditions: ScalpCondition[] = [
             "Triggers: stress, infection, medications",
             "Environmental and lifestyle factors",
         ],
-        image: "https://images.pexels.com/photos/7477710/pexels-photo-7477710.jpeg?auto=compress&cs=tinysrgb&w=800",
+        image: "https://domf5oio6qrcr.cloudfront.net/medialibrary/16410/gettyimages-1127052059.jpg",
         color: "taupe",
     },
     {
@@ -156,7 +156,7 @@ export const scalpConditions: ScalpCondition[] = [
             "Environmental irritants and allergens",
             "Dysbiosis of the scalp microbiome",
         ],
-        image: "https://images.pexels.com/photos/3997955/pexels-photo-3997955.jpeg?auto=compress&cs=tinysrgb&w=800",
+        image: "https://www.health.com/thmb/ejWJjRDdimLSr2Tn6d-TwKEW4pc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/sebderm6__WatermarkedWyJXYXRlcm1hcmtlZCJd-c850b045967540bba179893273253681.jpeg",
         color: "blush",
     },
     {
@@ -177,7 +177,7 @@ export const scalpConditions: ScalpCondition[] = [
             "Always use heat protectant before styling",
             "Use deep conditioning hair masks 1–2 times weekly",
         ],
-        image: "https://images.pexels.com/photos/3738341/pexels-photo-3738341.jpeg?auto=compress&cs=tinysrgb&w=800",
+        image: "https://www.splitenderpro.net/cdn/shop/articles/unnamed_28_5c516959-88a0-4ca5-904e-4c3e6bb9b7c5.png?v=1749742410",
         color: "mink",
     },
     {
@@ -198,7 +198,7 @@ export const scalpConditions: ScalpCondition[] = [
             "Scalp massage with fortifying lotions to boost blood flow",
             "Switch to loose protective styles to prevent traction",
         ],
-        image: "https://images.pexels.com/photos/7797668/pexels-photo-7797668.jpeg?auto=compress&cs=tinysrgb&w=800",
+        image: "https://kohermedical.com/wp-content/uploads/2023/12/Male-pattern-baldness.png",
         color: "sand",
     },
 ];
@@ -211,7 +211,7 @@ export const haircareRoutines: Routine[] = [
         name: "Alopecia Recovery Protocol",
         description: "A clinical protocol designed to stimulate blood flow, block DHT, and revitalize dormant hair follicles.",
         targetType: "alopecia",
-        image: "https://images.pexels.com/photos/3997989/pexels-photo-3997989.jpeg?auto=compress&cs=tinysrgb&w=800",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzmwjUYmPmbyvS8vtxyweiCn7il14Qfa_hTA&s",
         steps: [
             { step: 1, name: "Scalp Detox", description: "Use a clarifying or detox shampoo to remove sebum blocking the follicles.", timing: "Weekly" },
             { step: 2, name: "Minoxidil Treatment", description: "Apply Minoxidil 5% directly to thinning areas twice daily.", timing: "AM & PM" },
@@ -224,7 +224,7 @@ export const haircareRoutines: Routine[] = [
         name: "Scalp Eczema Soothing Routine",
         description: "A gentle, anti-inflammatory routine to calm redness and stop the itch on the scalp.",
         targetType: "scalp-eczema",
-        image: "https://images.pexels.com/photos/3997965/pexels-photo-3997965.jpeg?auto=compress&cs=tinysrgb&w=800",
+        image: "https://flexitol.com/wp-content/uploads/2022/01/our-scalp-range.jpeg",
         steps: [
             { step: 1, name: "Steroid / Anti-fungal Lotion", description: "Apply as prescribed to calm active flares.", timing: "PM" },
             { step: 2, name: "Gentle pH-Balanced Shampoo", description: "Cleanse without stripping natural oils.", timing: "AM" },
@@ -236,7 +236,7 @@ export const haircareRoutines: Routine[] = [
         name: "Split End Repair & Prevention",
         description: "A maintenance routine focusing on sealing the cuticle and preventing further fiber separation.",
         targetType: "split-ends",
-        image: "https://images.pexels.com/photos/3738341/pexels-photo-3738341.jpeg?auto=compress&cs=tinysrgb&w=800",
+        image: "https://www.gosupps.com/media/catalog/product/cache/25/image/1500x/040ec09b1e35df139433887a97daa66f/4/1/41BO_0m7CEL.jpg",
         steps: [
             { step: 1, name: "Bond Repair Treatment", description: "Apply to damp hair to strengthen internal bonds.", timing: "Weekly" },
             { step: 2, name: "Leave-in Sealant", description: "Concentrate on the bottom 2 inches of hair.", timing: "Daily" },
@@ -248,7 +248,7 @@ export const haircareRoutines: Routine[] = [
         name: "Straight Hair Balancing Routine",
         description: "A cleansing-focused routine that prevents oiliness while maintaining shine and volume.",
         targetType: "straight",
-        image: "https://images.pexels.com/photos/3065209/pexels-photo-3065209.jpeg?auto=compress&cs=tinysrgb&w=800",
+        image: "https://deyga.in/cdn/shop/articles/15.jpg?v=1767960278",
         steps: [
             { step: 1, name: "Clarifying Shampoo", description: "Use weekly to remove sebum buildup and keep hair light.", timing: "Weekly" },
             { step: 2, name: "Volumising Shampoo", description: "Lightweight, sulfate-free shampoo for regular washes.", timing: "Every 2–3 days" },
@@ -261,7 +261,7 @@ export const haircareRoutines: Routine[] = [
         name: "Curly Hair Moisture Routine",
         description: "An intensive moisture-locking routine following curly hair method principles for defined, frizz-free curls.",
         targetType: "curly",
-        image: "https://images.pexels.com/photos/1586973/pexels-photo-1586973.jpeg?auto=compress&cs=tinysrgb&w=800",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz_c-rNLNnkjY3kPB_f8qkTi2Mkw1agw3Jow&s",
         steps: [
             { step: 1, name: "Co-wash or Shampoo", description: "Sulfate-free, moisturising shampoo to preserve natural oils.", timing: "Every 3–4 days" },
             { step: 2, name: "Deep Conditioner", description: "Leave on under heat for 20 minutes for deep penetration.", timing: "Weekly" },
@@ -275,7 +275,7 @@ export const haircareRoutines: Routine[] = [
         name: "Coily Hair Retention Routine",
         description: "An ultra-moisturising routine focused on breakage prevention and length retention for tight coils.",
         targetType: "coily",
-        image: "https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=800",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS12uy_Ji6nHUhdkVK_K6s3BpkEqSm9tmfkSQ&s",
         steps: [
             { step: 1, name: "Pre-poo Treatment", description: "Coconut or olive oil applied before washing to reduce protein loss.", timing: "Before every wash" },
             { step: 2, name: "Moisturising Shampoo", description: "Sulfate-free, with slip for gentle detangling while cleansing.", timing: "Weekly" },
@@ -289,7 +289,7 @@ export const haircareRoutines: Routine[] = [
         name: "Complete Hair Health Routine",
         description: "A foundation-level routine to maintain scalp health, moisture balance, and improve hair strength and shine.",
         targetType: "all",
-        image: "https://images.pexels.com/photos/3065171/pexels-photo-3065171.jpeg?auto=compress&cs=tinysrgb&w=800",
+        image: "https://ogariolondon.com/wp-content/uploads/2023/11/2.jpg",
         steps: [
             { step: 1, name: "Shampoo", description: "Wash 2–3 times weekly to clear excess oil and buildup. Choose by scalp type.", timing: "Every 2–3 days" },
             { step: 2, name: "Conditioner", description: "Apply after every wash to restore moisture and reduce frizz. Apply mid-length to ends only.", timing: "Every wash" },
@@ -303,7 +303,7 @@ export const haircareRoutines: Routine[] = [
         name: "Anti-Dandruff Treatment Routine",
         description: "A targeted therapeutic routine for managing dandruff and seborrheic dermatitis through medical-grade scalp care.",
         targetType: "dandruff",
-        image: "https://images.pexels.com/photos/5069368/pexels-photo-5069368.jpeg?auto=compress&cs=tinysrgb&w=800",
+        image: "https://hastehair.com/wp-content/uploads/2025/08/hyaluronic-acid-for-hair.jpg",
         steps: [
             { step: 1, name: "Medicated Shampoo", description: "Use Nizoral or Selsun Blue. Massage into scalp and leave for 3–5 minutes.", timing: "2–3×/week" },
             { step: 2, name: "Gentle Conditioner", description: "Apply to ends only to prevent lengths from drying out during treatment.", timing: "Every wash" },
@@ -401,7 +401,7 @@ export const haircareProducts: Product[] = [
         usage: "Use as a mask 1-2 times weekly. Apply on damp hair focusing on ends.",
         mainIngredients: ["Banana Extract", "Shea Butter", "Coconut Oil"],
         benefits: ["Intense nourishment", "98% natural origin ingredients", "No silicones"],
-        image: "https://www.sweetcare.com/eg/garnier-fructis-hair-food-mask-cocoa-butter-p-015497xg?st=01&country=eg&fcurr=EGP&flang=EN",
+        image: "https://static.beautytocare.com/cdn-cgi/image/width=1600,height=1600,f=auto/media/catalog/product//g/a/garnier-fructis-hair-food-banana-mask-400ml-new_2.jpg",
         targetTypes: ["dry", "curly", "coily", "damaged"],
         medicalDetails: {
             mechanismOfAction: "Deeply penetrates the hair fibre with nourishing triglycerides from shea and coconut.",
@@ -417,9 +417,9 @@ export const haircareProducts: Product[] = [
         usage: "Apply half a capful once daily to the scalp in the hair loss area. Massage into scalp with fingers.",
         mainIngredients: ["Minoxidil 5%"],
         benefits: ["Clinically proven regrowth", "Easy-to-use foam", "Revitalizes follicles"],
-        image: "https://tdawi.com/uae-ar/rogaine-men-s-5-pure-minoxidil-foam-for-hair-loss-and-hair-regrowth-topical-treatment-for-thinning-hair-one-month-supply?srsltid=AfmBOoqlTKJ0xKHx33Eb8nZqdwB8NWeW7d7u6DZ_vL5tywLUOyqOnjGR",
-        targetTypes: ["hair-loss", "alopecia", "thinning"],
-        concerns: ["hair-loss"],
+        image: "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/07/6407331/1.jpg?2282",
+        targetTypes: ["all"],
+        concerns: ["hair-loss", "alopecia", "thinning"],
         medicalDetails: {
             mechanismOfAction: "Increases blood flow to hair follicles, widening blood vessels and shortening the telogen phase to push hair into the anagen phase.",
             sideEffects: ["Scalp irritation", "unwanted facial hair growth", "temporary shedding"],
@@ -437,9 +437,9 @@ export const haircareProducts: Product[] = [
         usage: "Take one tablet (1mg) daily as directed by a healthcare professional.",
         mainIngredients: ["Finasteride 1mg"],
         benefits: ["Blocks DHT", "Prevents further loss", "Effective for pattern baldness"],
-        image: "https://www.curely.co.uk/medications/propecia-branded-finasteride",
-        targetTypes: ["hair-loss", "male-pattern-baldness", "thinning"],
-        concerns: ["hair-loss"],
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7eiy9pLgOpuv3PIDqKiD1-ttC5PCqq7SAdg&s",
+        targetTypes: ["all"],
+        concerns: ["hair-loss", "male-pattern-baldness", "thinning"],
         medicalDetails: {
             mechanismOfAction: "A 5-alpha reductase inhibitor that blocks the conversion of testosterone to DHT, the hormone responsible for follicle miniaturization.",
             sideEffects: ["Sexual dysfunction", "breast tenderness", "depression"],
@@ -457,8 +457,9 @@ export const haircareProducts: Product[] = [
         usage: "Swap your regular shampoo for this power wash once a week or as needed.",
         mainIngredients: ["Salicylic Acid", "Activated Charcoal", "K18Peptide"],
         benefits: ["Deeply detoxifies", "Removes metals", "Perfect prep for treatments"],
-        image: "https://powderbeauty.com/ar/products/k18-peptide-prep%E2%84%A2-detox-shampoo?srsltid=AfmBOopQ5cFFm2rk6ceQwNibrKQwpj7PDDkad-fnboRdRmW-o5QLu7Xd",
-        targetTypes: ["oily-scalp", "buildup", "all", "fine"],
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzZYewo3Sef0ijSdqdTl9MWvdstxN9zXI6OQ&s",
+        targetTypes: ["all", "fine"],
+        concerns: ["oily-scalp", "buildup"],
         medicalDetails: {
             mechanismOfAction: "Activated charcoal absorbs excess oil and impurities; Salicylic acid exfoliates the scalp and unclogs pores.",
             sideEffects: ["Possible dryness if overused; follow with conditioner."],
@@ -475,8 +476,8 @@ export const haircareProducts: Product[] = [
         usage: "Apply to wet hair, massage into scalp, leave for several minutes, then rinse.",
         mainIngredients: ["Selenium Sulfide (1%)"],
         benefits: ["Prescription strength flaking relief", "Removes excess oil", "Soothes itching"],
-        image: "https://www.picknsave.com/p/head-shoulders-2-in-1-clinical-strength-dandruff-defense-shampoo-conditioner/0003700067397",
-        targetTypes: ["dandruff", "seborrheic-dermatitis"],
+        image: "https://target.scene7.com/is/image/Target/GUEST_01fa7537-c6e9-4bb2-9a3d-9947634d5a66?wid=300&hei=300&fmt=pjpeg",
+        targetTypes: ["all"],
         concerns: ["dandruff", "seborrheic-dermatitis"],
         medicalDetails: {
             mechanismOfAction: "Selenium sulfide is a cytostatic agent that reduces the rate of skin cell turnover on the scalp.",

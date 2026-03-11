@@ -70,7 +70,7 @@ export function Layout() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
-  const { t, lang, setLang } = useLanguage();
+  const { t, lang, setLang, isAr } = useLanguage();
   const { skincareItems, haircareItems } = useNavItems();
 
   const isHome = location.pathname === "/";
@@ -103,19 +103,19 @@ export function Layout() {
   //  - Home + scrolled → semi-transparent warm bg + blur + shadow
   //  - Other pages → solid warm background
   const navBg = isHome
-    ? scrolled
-      ? "rgba(253,248,243,0.82)"
+    ? scrolled || mobileOpen
+      ? "rgba(253,248,243,0.98)"
       : "rgba(255,255,255,0.00)"
     : "rgba(253,248,243,0.96)";
 
   const navBorder = isHome
-    ? scrolled
+    ? scrolled || mobileOpen
       ? "1px solid rgba(190,155,120,0.22)"
       : "1px solid transparent"
     : "1px solid rgba(229,216,203,0.5)";
 
-  const navShadow = scrolled
-    ? "0 4px 32px rgba(100,60,40,0.10), 0 1px 0 rgba(190,155,120,0.12)"
+  const navShadow = scrolled || mobileOpen
+    ? "0 10px 40px rgba(100,60,40,0.12), 0 1px 0 rgba(190,155,120,0.12)"
     : "none";
 
   return (
@@ -256,7 +256,7 @@ export function Layout() {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                className="md:hidden overflow-hidden border-t border-warm-beige"
+                className="md:hidden overflow-hidden border-t border-warm-beige bg-cream/98 backdrop-blur-xl"
               >
                 <div className="py-4 space-y-1">
                   <p className="text-xs uppercase tracking-[0.2em] text-sand px-4 py-2">{t("nav.skincare")}</p>

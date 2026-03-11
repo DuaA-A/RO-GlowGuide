@@ -57,7 +57,7 @@ export function SkincareProducts() {
 
         // Type matches (from url or dropdown)
         const typeId = searchParams.get("type");
-        const matchesType = !typeId || p.targetTypes.includes(typeId);
+        const matchesType = !typeId || p.targetTypes.includes(typeId) || p.targetTypes.includes("all");
 
         // Concern matches (from url or buttons)
         const concernId = activeConcern;

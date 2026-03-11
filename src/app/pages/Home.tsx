@@ -239,8 +239,8 @@ export function Home() {
       {/* ── Two Worlds Section ───────────────────────────────────────────── */}
       <section className="py-28 bg-ivory relative overflow-hidden">
         {/* Soft floating orbs for depth */}
-        <FloatOrb size={340} color="#F0DDD130" style={{ top: "-80px", left: "-100px" }} />
-        <FloatOrb size={220} color="#D0DAC930" style={{ bottom: "-60px", right: "-60px" }} />
+        <FloatOrb size={340} color="#F0DDD130" style={{ top: "-80px", insetInlineStart: "-100px" }} />
+        <FloatOrb size={220} color="#D0DAC930" style={{ bottom: "-60px", insetInlineEnd: "-60px" }} />
 
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <SectionHeader

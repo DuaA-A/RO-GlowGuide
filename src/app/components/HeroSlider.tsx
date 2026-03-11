@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { useState, useEffect, useCallback } from "react";
@@ -82,7 +82,7 @@ export function HeroSlider() {
             secondaryLabel: t("hero.haircare.secondary"),
             secondaryPath: "/haircare/products",
             accentColor: "#5C2D3E",
-            photo: "/images/hero-hairCare.png",
+            photo: isAr ? "/images/hero-hairCare-ar.png" : "/images/hero-hairCare.png",
         },
     ];
 
@@ -134,14 +134,14 @@ export function HeroSlider() {
             {/* Top-left warm glow */}
             <motion.div
                 className="absolute rounded-full blur-3xl pointer-events-none"
-                style={{ width: 500, height: 500, top: "-120px", left: "-100px", background: "rgba(240,218,195,0.55)" }}
+                style={{ width: 500, height: 500, top: "-120px", insetInlineStart: "-100px", background: "rgba(240,218,195,0.55)" }}
                 animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.8, 0.5] }}
                 transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
             />
             {/* Bottom-right warm glow */}
             <motion.div
                 className="absolute rounded-full blur-3xl pointer-events-none"
-                style={{ width: 420, height: 420, bottom: "-80px", right: "-60px", background: "rgba(210,175,145,0.45)" }}
+                style={{ width: 420, height: 420, bottom: "-80px", insetInlineEnd: "-60px", background: "rgba(210,175,145,0.45)" }}
                 animate={{ scale: [1, 1.12, 1], opacity: [0.45, 0.75, 0.45] }}
                 transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }}
             />
@@ -218,19 +218,19 @@ export function HeroSlider() {
                     {/* Floating orbs — with generous padding inside the ring area */}
                     <motion.div
                         className="absolute rounded-full"
-                        style={{ width: 72, height: 72, background: `${slide.accentColor}50`, top: "18%", right: "22%" }}
+                        style={{ width: 72, height: 72, background: `${slide.accentColor}50`, top: "18%", insetInlineEnd: "22%" }}
                         animate={{ y: [0, -20, 0], scale: [1, 1.1, 1] }}
                         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
                     />
                     <motion.div
                         className="absolute rounded-full"
-                        style={{ width: 44, height: 44, background: `${slide.accentColor}40`, bottom: "22%", right: "30%" }}
+                        style={{ width: 44, height: 44, background: `${slide.accentColor}40`, bottom: "22%", insetInlineEnd: "30%" }}
                         animate={{ y: [0, -14, 0], scale: [1, 1.12, 1] }}
                         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
                     />
                     <motion.div
                         className="absolute rounded-full"
-                        style={{ width: 28, height: 28, background: `${slide.accentColor}35`, top: "58%", right: "14%" }}
+                        style={{ width: 28, height: 28, background: `${slide.accentColor}35`, top: "58%", insetInlineEnd: "14%" }}
                         animate={{ y: [0, -10, 0] }}
                         transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                     />
@@ -287,7 +287,7 @@ export function HeroSlider() {
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={`tag-${slide.id}`}
-                            className={`absolute bottom-12 ${isAr ? 'left-10' : 'right-10'} z-30 flex items-center gap-2 px-5 py-2.5 rounded-full`}
+                            className={`absolute bottom-12 inset-inline-end-10 z-30 flex items-center gap-2 px-5 py-2.5 rounded-full`}
                             style={{
                                 background: "rgba(255,252,248,0.80)",
                                 border: `1px solid ${slide.accentColor}45`,
