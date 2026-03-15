@@ -43,16 +43,24 @@ export function TeamMemberCard({ member, index = 0 }: TeamMemberCardProps) {
                     style={{ borderColor: "#B8965E" }}
                 >
                     {/* Photo area */}
-                    <div className="relative h-80 bg-gradient-to-br from-espresso to-wine-dark overflow-hidden group">
-                        {/* Animated Aura Background */}
-                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,var(--tw-gradient-stops))] from-gold/40 via-wine/20 to-transparent mix-blend-screen" />
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-gold/30 blur-[60px] rounded-full translate-x-1/2 -translate-y-1/2" />
-                            <div className="absolute bottom-0 left-0 w-64 h-64 bg-wine-light/30 blur-[60px] rounded-full -translate-x-1/2 translate-y-1/2" />
+                    <div className="relative h-80 overflow-hidden group" style={{ background: "linear-gradient(135deg, #FDF8F3 0%, #F5EAE0 35%, #EDE0D4 65%, #E5D4C4 100%)" }}>
+                        {/* Animated Aura Background (Persistent) */}
+                        <div className="absolute inset-0">
+                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,var(--tw-gradient-stops))] from-gold/30 via-wine/10 to-transparent mix-blend-multiply" />
+                            <motion.div 
+                                className="absolute top-0 right-0 w-64 h-64 bg-gold/30 blur-[60px] rounded-full translate-x-1/2 -translate-y-1/2"
+                                animate={{ scale: [1, 1.25, 1], opacity: [0.6, 0.9, 0.6] }}
+                                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                            />
+                            <motion.div 
+                                className="absolute bottom-0 left-0 w-72 h-72 bg-wine-pale/30 blur-[60px] rounded-full -translate-x-1/3 translate-y-1/3"
+                                animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.8, 0.5] }}
+                                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                            />
                         </div>
                         
                         {member.image ? (
-                            <div className="absolute inset-0 pt-8 pb-4 px-4 flex items-end justify-center">
+                            <div className="absolute inset-0 pt-8 pb-0 px-4 flex items-end justify-center">
                                 <img
                                     src={member.image}
                                     alt={member.name}
@@ -67,16 +75,23 @@ export function TeamMemberCard({ member, index = 0 }: TeamMemberCardProps) {
                         <div className="absolute inset-0 bg-gradient-to-t from-espresso/80 via-espresso/20 to-transparent" />
 
                         {/* Leader badge */}
-                        <div className="absolute top-4 left-1/2 -translate-x-1/2">
+                        <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20">
                             <span className="bg-gold text-cream text-xs font-medium tracking-[0.15em] uppercase px-4 py-1.5 rounded-full shadow-lg">
                                 {t("team.leaderBadge")}
                             </span>
                         </div>
 
                         {/* Name overlay at bottom */}
-                        <div className="absolute bottom-0 left-0 right-0 p-6">
-                            <h3 className="font-heading text-cream text-2xl mb-0.5">{member.name}</h3>
-                            <p className="text-gold-light text-sm tracking-wide">{translatedRole}</p>
+                        <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-wine-dark/90 to-transparent z-20">
+                            <a 
+                                href={member.linkedin}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-gold transition-colors inline-block"
+                            >
+                                <h3 className="font-heading text-cream text-3xl mb-0.5 drop-shadow-lg">{member.name}</h3>
+                            </a>
+                            <p className="text-gold-light text-sm tracking-wide mix-blend-plus-lighter">{translatedRole}</p>
                         </div>
                     </div>
 
@@ -109,34 +124,42 @@ export function TeamMemberCard({ member, index = 0 }: TeamMemberCardProps) {
         >
             <div className="luxury-card overflow-hidden">
                 {/* Photo */}
-                <div className="relative h-56 bg-cream border-b border-gold/10 overflow-hidden group/photo">
-                    {/* Animated Aura Background */}
-                    <div className="absolute inset-0 opacity-0 group-hover/photo:opacity-100 transition-opacity duration-700">
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,var(--tw-gradient-stops))] from-gold/20 via-cream to-transparent" />
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-wine-light/10 blur-[40px] rounded-full animate-pulse" />
+                <div className="relative h-64 border-b border-gold/10 overflow-hidden group/photo" style={{ background: "linear-gradient(135deg, #FDF8F3 0%, #F5EAE0 35%, #EDE0D4 65%, #E5D4C4 100%)" }}>
+                    {/* Animated Aura Background (Persistent) */}
+                    <div className="absolute inset-0">
+                        <motion.div 
+                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-wine-pale/20 blur-[40px] rounded-full"
+                            animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0.9, 0.5] }}
+                            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+                        />
+                        <motion.div 
+                            className="absolute bottom-0 right-0 w-32 h-32 bg-gold/20 blur-[30px] rounded-full translate-x-1/4 translate-y-1/4"
+                            animate={{ scale: [1, 1.4, 1], opacity: [0.4, 0.8, 0.4] }}
+                            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                        />
                     </div>
 
                     {member.image ? (
-                        <div className="absolute inset-0 pt-6 px-4 flex items-end justify-center">
+                        <div className="absolute inset-0 pt-8 pb-0 px-3 flex items-end justify-center">
                             <img
                                 src={member.image}
                                 alt={member.name}
-                                className="w-full h-full object-contain object-bottom group-hover/photo:scale-105 transition-transform duration-700 relative z-10 drop-shadow-xl"
+                                className="w-full h-[95%] object-contain object-bottom group-hover/photo:scale-[1.03] transition-transform duration-700 relative z-10 drop-shadow-xl"
                             />
                         </div>
                     ) : (
                         <PlaceholderAvatar />
                     )}
-                    <div className="absolute inset-0 bg-espresso/0 group-hover:bg-espresso/30 transition-all duration-400" />
+                    <div className="absolute inset-0 bg-espresso/0 group-hover:bg-espresso/10 transition-all duration-400 z-20 pointer-events-none" />
 
                     {/* LinkedIn on hover */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30">
                         <a
                             href={member.linkedin}
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={(e) => e.stopPropagation()}
-                            className="w-11 h-11 bg-white rounded-full flex items-center justify-center text-espresso hover:bg-gold hover:text-cream transition-colors shadow-lg"
+                            className="w-11 h-11 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-espresso hover:bg-wine hover:text-cream transition-colors shadow-xl"
                         >
                             <Linkedin className="w-5 h-5" />
                         </a>
