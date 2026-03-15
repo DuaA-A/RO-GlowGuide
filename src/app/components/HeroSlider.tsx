@@ -153,11 +153,21 @@ export function HeroSlider() {
                 transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             />
 
-            {/* ── Decorative rings — centred on the RIGHT half, not a separate panel ── */}
+            {/* ── Decorative rings — centred on the RIGHT half for desktop, top for mobile ── */}
             <div
-                className="absolute hidden lg:flex items-center justify-center pointer-events-none"
-                style={{ top: 0, bottom: 0, [isAr ? 'left' : 'right']: 0, width: "48%" }}
+                className="absolute flex items-center justify-center pointer-events-none"
+                style={{ 
+                    top: 0, 
+                    bottom: 0, 
+                    [isAr ? 'left' : 'right']: 0, 
+                    width: "var(--visual-area-width, 48%)",
+                    opacity: "var(--visual-area-opacity, 1)"
+                }}
             >
+                <style dangerouslySetInnerHTML={{ __html: `
+                    :root { --visual-area-width: 100%; --visual-area-opacity: 0.4; }
+                    @media (min-width: 1024px) { :root { --visual-area-width: 48%; --visual-area-opacity: 1; } }
+                `}} />
                 <motion.div
                     className="absolute inset-0 flex items-center justify-center"
                     animate={{ x: slide.id === "haircare" ? 0 : (isAr ? 50 : -50) }}
