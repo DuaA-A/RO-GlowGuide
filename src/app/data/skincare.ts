@@ -140,7 +140,7 @@ export const skinConditions: SkinCondition[] = [
             "Hormonal changes",
             "Oily or occlusive cosmetics",
         ],
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThNj8dydbKB0K9Lt8GJHNlX6MMfLc3TBeaMQ&s",
+        image: "https://my.clevelandclinic.org/-/scassets/images/org/health/articles/comedonal-acne",
         color: "sand",
     },
     {
@@ -286,7 +286,7 @@ export const skincareRoutines: Routine[] = [
         description:
             "A minimal, barrier-supporting routine for reactive and sensitive skin, focusing on calming redness and strengthening the skin's natural defenses.",
         targetType: "sensitive",
-        image: "https://www.laroche-posay.me/getmedia/3e87858c-8f3b-4876-857e-07a8ceadeae2/toleriane-sensitive-creme-soothing-moisturiser.aspx",
+        image: "https://depology.com/cdn/shop/articles/unnamed_5fb3bf34-e555-4d20-9407-ea0216c3935d.jpg?v=1764753351&width=2048",
 
         steps: [
             { step: 1, name: "Micellar / Gentle Cleanser", description: "Use a fragrance-free, pH-balanced cleanser like Cetaphil Gentle Skin Cleanser.", timing: "AM & PM" },
@@ -540,7 +540,7 @@ export const skincareProducts: Product[] = [
         usage: "Apply once or twice daily to affected areas. Start with a test patch.",
         mainIngredients: ["Benzoyl Peroxide"],
         benefits: ["Kills 94% of acne bacteria", "Unclogs pores", "Reduces inflammation"],
-        image: "https://images-cdn.ubuy.com.tr/635447671a8792175e58ca64-benzac-ac-5-gel-60g-benzoyl-peroxide.jpg",
+        image: "https://image-cdn.ubuy.com/benzac-ac-2-5-gel-acne-care-30-gm/400_400_100/65a160db49c42c764f3f4aaa.jpg",
         targetTypes: ["oily"],
         concerns: ["inflammatory", "acne-prone"],
         medicalDetails: {

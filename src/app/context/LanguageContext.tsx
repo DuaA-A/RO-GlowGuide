@@ -39,7 +39,7 @@ const translations: Record<string, Record<Lang, string>> = {
 
     // Shared section labels
     "label.characteristics": { en: "Key Characteristics", ar: "الخصائص الأساسية" },
-    "label.tips": { en: "Clinical Tips", ar: "نصائح سريرية" },
+    "label.tips": { en: "Clinical Tips", ar: "نصائح طبية" },
     "label.causes": { en: "Common Causes", ar: "الأسباب الشائعة" },
     "label.severity": { en: "Severity", ar: "الشدة" },
     "label.usage": { en: "How to Use", ar: "طريقة الاستخدام" },
@@ -76,15 +76,15 @@ const translations: Record<string, Record<Lang, string>> = {
     "skincare.conditions.label": { en: "Skin Conditions", ar: "حالات البشرة" },
     "skincare.conditions.title": { en: "Conditions &", ar: "الحالات &" },
     "skincare.conditions.titleHighlight": { en: "Concerns.", ar: "المخاوف." },
-    "skincare.conditions.subtitle": { en: "Clinical guidance for common skin conditions, helping you understand your concerns and find the right solutions.", ar: "إرشادات سريرية للحالات الجلدية الشائعة لمساعدتك في فهم مخاوفك وإيجاد الحلول المناسبة." },
+    "skincare.conditions.subtitle": { en: "Clinical guidance for common skin conditions, helping you understand your concerns and find the right solutions.", ar: "إرشادات طبية للحالات الجلدية الشائعة لمساعدتك في فهم مخاوفك وإيجاد الحلول المناسبة." },
     "skincare.solutions.label": { en: "Evidence-Based Care", ar: "رعاية مبنية على الدليل" },
     "skincare.solutions.title": { en: "Skincare", ar: "روتين" },
     "skincare.solutions.titleHighlight": { en: "Routines.", ar: "العناية." },
-    "skincare.solutions.subtitle": { en: "Clinically informed, step-by-step routines built for your specific skin type and conditions.", ar: "روتينات مدروسة سريرياً، خطوة بخطوة، مبنية لنوع بشرتك وحالتها المحددة." },
+    "skincare.solutions.subtitle": { en: "Clinically informed, step-by-step routines built for your specific skin type and conditions.", ar: "روتينات مدروسة طبياً، خطوة بخطوة، مبنية لنوع بشرتك وحالتها المحددة." },
     "skincare.products.label": { en: "Product Catalogue", ar: "كتالوج المنتجات" },
     "skincare.products.title": { en: "Skincare", ar: "منتجات" },
     "skincare.products.titleHighlight": { en: "Products.", ar: "البشرة." },
-    "skincare.products.subtitle": { en: "A curated library of clinically-vetted skincare formulations, explained with full medical transparency.", ar: "مكتبة منتقاة من تركيبات العناية بالبشرة المُراجَعة سريرياً، مشروحة بشفافية طبية كاملة." },
+    "skincare.products.subtitle": { en: "A curated library of clinically-vetted skincare formulations, explained with full medical transparency.", ar: "مكتبة منتقاة من تركيبات العناية بالبشرة المُراجَعة طبياً، مشروحة بشفافية طبية كاملة." },
 
     // Page headings – Haircare
     "haircare.types.label": { en: "Know Your Hair", ar: "تعرفي على شعرك" },
@@ -94,7 +94,7 @@ const translations: Record<string, Record<Lang, string>> = {
     "haircare.conditions.label": { en: "Scalp Conditions", ar: "حالات فروة الرأس" },
     "haircare.conditions.title": { en: "Scalp", ar: "حالات" },
     "haircare.conditions.titleHighlight": { en: "Conditions.", ar: "الفروة." },
-    "haircare.conditions.subtitle": { en: "Clinical guidance for scalp and hair conditions to help you understand your concerns.", ar: "إرشادات سريرية لحالات الشعر وفروة الرأس لمساعدتك في فهم مخاوفك." },
+    "haircare.conditions.subtitle": { en: "Clinical guidance for scalp and hair conditions to help you understand your concerns.", ar: "إرشادات طبية لحالات الشعر وفروة الرأس لمساعدتك في فهم مخاوفك." },
     "haircare.solutions.label": { en: "Evidence-Based Care", ar: "رعاية مبنية على الدليل" },
     "haircare.solutions.title": { en: "Hair", ar: "روتين" },
     "haircare.solutions.titleHighlight": { en: "Routines.", ar: "الشعر." },
@@ -102,18 +102,18 @@ const translations: Record<string, Record<Lang, string>> = {
     "haircare.products.label": { en: "Hair Product Catalogue", ar: "كتالوج منتجات الشعر" },
     "haircare.products.title": { en: "Haircare", ar: "منتجات" },
     "haircare.products.titleHighlight": { en: "Products.", ar: "الشعر." },
-    "haircare.products.subtitle": { en: "A curated selection of clinically-vetted haircare formulations with full ingredient transparency.", ar: "مجموعة منتقاة من تركيبات العناية بالشعر المُراجَعة سريرياً مع شفافية كاملة في المكونات." },
+    "haircare.products.subtitle": { en: "A curated selection of clinically-vetted haircare formulations with full ingredient transparency.", ar: "مجموعة منتقاة من تركيبات العناية بالشعر المُراجَعة طبياً مع شفافية كاملة في المكونات." },
 
     // About page
     "about.label": { en: "About the Project", ar: "عن المشروع" },
     "about.title": { en: "Faculty of", ar: "كلية" },
     "about.titleHighlight": { en: "Pharmacy.", ar: "الصيدلة." },
-    "about.subtitle": { en: "A professional graduation project by the Pharmacist Team at MTI College, dedicated to clinical precision in beauty and health.", ar: "مشروع تخرج احترافي من فريق الصيادلة في كلية MTI، مكرس للدقة السريرية في الجمال والصحة." },
+    "about.subtitle": { en: "A professional graduation project by the Pharmacist Team at MTI College, dedicated to clinical precision in beauty and health.", ar: "مشروع تخرج احترافي من فريق الصيادلة في كلية MTI، مكرس للدقة الطبية في الجمال والصحة." },
     "about.university": { en: "MTI University", ar: "جامعة MTI" },
     "about.universitySubtitle": { en: "Modern University for Technology & Information", ar: "الجامعة الحديثة للتكنولوجيا والمعلومات" },
     "about.missionLabel": { en: "Research Project", ar: "مشروع بحثي" },
-    "about.missionTitle": { en: "Clinical Intelligence in Cosmetics", ar: "الذكاء السريري في مستحضرات التجميل" },
-    "about.missionP1": { en: "This platform represents the culmination of our research into dermatological and trichological sciences. We identified a critical gap between clinical knowledge and consumer understanding.", ar: "تمثّل هذه المنصة تتويجاً لبحثنا في علوم الجلد والشعر. لقد رصدنا فجوة حرجة بين المعرفة السريرية وفهم المستهلك." },
+    "about.missionTitle": { en: "Clinical Intelligence in Cosmetics", ar: "الذكاء الطبي في مستحضرات التجميل" },
+    "about.missionP1": { en: "This platform represents the culmination of our research into dermatological and trichological sciences. We identified a critical gap between clinical knowledge and consumer understanding.", ar: "تمثّل هذه المنصة تتويجاً لبحثنا في علوم الجلد والشعر. لقد رصدنا فجوة حرجة بين المعرفة الطبية وفهم المستهلك." },
     "about.missionP2": { en: "As a team of pharmacists from MTI College, we built LumeGuide to provide a professional, evidence-based resource that empowers users to make informed decisions about their skin and hair health through pharmacological accuracy.", ar: "بوصفنا فريقاً من الصيادلة من كلية MTI، بنينا LumeGuide لتوفير مرجع مهني مبني على الأدلة يُمكّن المستخدمين من اتخاذ قرارات واعية بشأن صحة بشرتهم وشعرهم بدقة صيدلانية." },
     "about.valuesLabel": { en: "Our Principles", ar: "مبادئنا" },
     "about.valuesTitle": { en: "Pharmacist", ar: "معايير" },
@@ -132,7 +132,7 @@ const translations: Record<string, Record<Lang, string>> = {
     "about.value4Desc": { en: "Expert knowledge presented clearly for everyone — from curious beginners to trained professionals.", ar: "معرفة متخصصة مقدّمة بوضوح للجميع — من المبتدئين الفضوليين إلى المحترفين المدرّبين." },
 
     // Home hero
-    "home.heroLabel": { en: "Clinical Beauty Intelligence", ar: "الذكاء السريري في الجمال" },
+    "home.heroLabel": { en: "Clinical Beauty Intelligence", ar: "الذكاء الطبي في الجمال" },
     "home.heroTitle1": { en: "Science-Led", ar: "عناية" },
     "home.heroTitle2": { en: "Beauty Care", ar: "مبنية على العلم" },
     "home.heroSubtitle": { en: "Evidence-based skincare and haircare guidance — crafted by pharmacists, designed for you.", ar: "إرشادات عناية بالبشرة والشعر مبنية على الأدلة — من صنع صيادلة، مصمّمة لك." },
@@ -143,7 +143,7 @@ const translations: Record<string, Record<Lang, string>> = {
     "home.worlds.label": { en: "Our Expertise", ar: "خبرتنا" },
     "home.worlds.title": { en: "One Platform,", ar: "منصة واحدة،" },
     "home.worlds.titleHighlight": { en: "Two Worlds.", ar: "عالمان." },
-    "home.worlds.subtitle": { en: "Whether you're navigating a complex skincare concern or building a transformative hair routine, RO brings clinical expertise and elegant guidance together in one beautifully structured space.", ar: "سواء كنتِ تبحثين عن حل لمشكلة جلدية معقدة أو تبنين روتيناً متكاملاً لشعرك، تجمع RO بين الخبرة السريرية والتوجيه الأنيق في مساحة واحدة منظمة بجمال." },
+    "home.worlds.subtitle": { en: "Whether you're navigating a complex skincare concern or building a transformative hair routine, RO brings clinical expertise and elegant guidance together in one beautifully structured space.", ar: "سواء كنتِ تبحثين عن حل لمشكلة جلدية معقدة أو تبنين روتيناً متكاملاً لشعرك، تجمع RO بين الخبرة الطبية والتوجيه الأنيق في مساحة واحدة منظمة بجمال." },
     "home.worlds.skinTitle": { en: "Radiant, Healthy Skin", ar: "بشرة نضرة وصحية" },
     "home.worlds.skinDesc": { en: "From skin types and conditions to targeted solutions and product discoveries — your complete skincare companion.", ar: "من أنواع البشرة وحالاتها إلى الحلول المستهدفة واكتشافات المنتجات — رفيقك الكامل للعناية بالبشرة." },
     "home.worlds.hairTitle": { en: "Thriving, Beautiful Hair", ar: "شعر حيوي وجذاب" },
@@ -153,7 +153,7 @@ const translations: Record<string, Record<Lang, string>> = {
     "home.features.label": { en: "Why RO", ar: "لماذا RO" },
     "home.features.title": { en: "The Standard", ar: "المعيار" },
     "home.features.titleHighlight": { en: "of Care.", ar: "في الرعاية." },
-    "home.features.subtitle": { en: "We combine clinical rigour with approachable, beautifully designed guidance — so every user finds what they need, whether casual or professional.", ar: "نجمع بين الدقة السريرية والتوجيه الميسر والمصمم بجمال — ليجد كل مستخدم ما يحتاجه، سواء كان يبحث عن معلومة بسيطة أو متخصصة." },
+    "home.features.subtitle": { en: "We combine clinical rigour with approachable, beautifully designed guidance — so every user finds what they need, whether casual or professional.", ar: "نجمع بين الدقة الطبية والتوجيه الميسر والمصمم بجمال — ليجد كل مستخدم ما يحتاجه، سواء كان يبحث عن معلومة بسيطة أو متخصصة." },
     "home.feat1.title": { en: "Science-Backed", ar: "مدعوم بالعلم" },
     "home.feat1.desc": { en: "Every recommendation is grounded in peer-reviewed dermatological and trichological research — not trends.", ar: "تستند كل توصية إلى أبحاث جلدية وشعرية محكّمة — وليس على الصيحات الرائجة." },
     "home.feat2.title": { en: "Safety First", ar: "الأمان أولاً" },
@@ -181,7 +181,7 @@ const translations: Record<string, Record<Lang, string>> = {
     "home.offer3.title": { en: "Product Catalogue", ar: "كتالوج المنتجات" },
     "home.offer3.desc": { en: "A curated, searchable catalogue of skincare and haircare products with complete ingredient, benefit, and medical detail pages.", ar: "كتالوج منقى وقابل للبحث لمنتجات العناية بالبشرة والشعر مع صفحات كاملة للمكونات والفوائد والتفاصيل الطبية." },
     "home.offer4.title": { en: "Medical Details", ar: "تفاصيل طبية" },
-    "home.offer4.desc": { en: "Every product includes an expandable clinical section with mechanism of action, contraindications, and safety data for professionals.", ar: "يتضمن كل منتج قسماً سريرياً قابلاً للتوسيع مع آلية العمل، وموانع الاستخدام، وبيانات السلامة للمتخصصين." },
+    "home.offer4.desc": { en: "Every product includes an expandable clinical section with mechanism of action, contraindications, and safety data for professionals.", ar: "يتضمن كل منتج قسماً طبياً قابلاً للتوسيع مع آلية العمل، وموانع الاستخدام، وبيانات السلامة للمتخصصين." },
 
     // Home - CTA
     "home.cta.label": { en: "Begin Your Journey", ar: "ابدئي رحلتكِ" },
@@ -219,13 +219,13 @@ const translations: Record<string, Record<Lang, string>> = {
     "about.header.label": { en: "About the Project", ar: "عن المشروع" },
     "about.header.title": { en: "Faculty of", ar: "كلية" },
     "about.header.titleHighlight": { en: "Pharmacy.", ar: "الصيدلة." },
-    "about.header.subtitle": { en: "A professional graduation project by the Pharmacist Team at MTI College, dedicated to clinical precision in beauty and health.", ar: "مشروع تخرج مهني من قبل فريق الصيادلة في كلية MTI، مخصص للدقة السريرية في الجمال والصحة." },
+    "about.header.subtitle": { en: "A professional graduation project by the Pharmacist Team at MTI College, dedicated to clinical precision in beauty and health.", ar: "مشروع تخرج مهني من قبل فريق الصيادلة في كلية MTI، مخصص للدقة الطبية في الجمال والصحة." },
     "about.mti.name": { en: "MTI University", ar: "جامعة MTI" },
     "about.mti.full": { en: "Modern University for Technology & Information", ar: "الجامعة الحديثة للتكنولوجيا والمعلومات" },
 
     "about.mission.label": { en: "Research Project", ar: "مشروع بحثي" },
-    "about.mission.title": { en: "Clinical Intelligence in Cosmetics", ar: "الذكاء السريري في مستحضرات التجميل" },
-    "about.mission.p1": { en: "This platform represents the culmination of our research into dermatological and trichological sciences. We identified a critical gap between clinical knowledge and consumer understanding.", ar: "تمثل هذه المنصة تتويجاً لأبحاثنا في علوم الجلد والشعر. لقد حددنا فجوة حرجة بين المعرفة السريرية وفهم المستهلك." },
+    "about.mission.title": { en: "Clinical Intelligence in Cosmetics", ar: "الذكاء الطبي في مستحضرات التجميل" },
+    "about.mission.p1": { en: "This platform represents the culmination of our research into dermatological and trichological sciences. We identified a critical gap between clinical knowledge and consumer understanding.", ar: "تمثل هذه المنصة تتويجاً لأبحاثنا في علوم الجلد والشعر. لقد حددنا فجوة حرجة بين المعرفة الطبية وفهم المستهلك." },
     "about.mission.p2": { en: "As a team of pharmacists from MTI College, we built LumeGuide to provide a professional, evidence-based resource that empowers users to make informed decisions about their skin and hair health through pharmacological accuracy.", ar: "كفريق من الصيادلة من كلية MTI، قمنا ببناء LumeGuide لتوفير مورد احترافي قائم على الأدلة يمكّن المستخدمين من اتخاذ قرارات مستنيرة بشأن صحة بشرتهم وشعرهم من خلال الدقة الصيدلانية." },
 
     "about.principles.label": { en: "Our Principles", ar: "مبادئنا" },
@@ -245,6 +245,13 @@ const translations: Record<string, Record<Lang, string>> = {
     "about.survey.title": { en: "Share Your Feedback", ar: "شاركينا رأيكِ" },
     "about.survey.desc": { en: "As part of our graduation project, your feedback is vital. Please help us evaluate the impact of this resource by participating in our research survey.", ar: "كجزء من مشروع تخرجنا، فإن ملاحظاتكِ حيوية. يرجى مساعدتنا في تقييم تأثير هذا المورد من خلال المشاركة في مسحنا البحثي." },
     "about.survey.cta": { en: "Take Survey", ar: "المشاركة في المسح" },
+
+    // Team Member Cards
+    "team.leaderBadge": { en: "Team Leader", ar: "قائدة الفريق" },
+    "team.role.coordinator": { en: "Coordinator", ar: "المنسق" },
+    "team.role.member": { en: "Pharmacist Team Member", ar: "عضو فريق صيدلي" },
+    "team.bio": { en: "Pharmacist team member for the MTI College graduation project.", ar: "عضو فريق صيدلي لمشروع تخرج كلية MTI." },
+    "team.linkedin": { en: "LinkedIn Profile", ar: "الملف الشخصي على لينكد إن" },
 
     // Product Detail Page Labels
     "product.howToUse": { en: "How to Use", ar: "كيفية الاستخدام" },

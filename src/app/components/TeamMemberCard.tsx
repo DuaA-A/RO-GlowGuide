@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { Linkedin, User } from "lucide-react";
 import type { TeamMember } from "../data/types";
+import { useLanguage } from "../context/LanguageContext";
 
 interface TeamMemberCardProps {
     member: TeamMember;
@@ -23,6 +24,11 @@ function PlaceholderAvatar({ isLeader }: { isLeader?: boolean }) {
 }
 
 export function TeamMemberCard({ member, index = 0 }: TeamMemberCardProps) {
+    const { t } = useLanguage();
+
+    const translatedRole = member.role === "Coordinator" ? t("team.role.coordinator") : t("team.role.member");
+    const translatedBio = t("team.bio");
+
     if (member.isLeader) {
         // Leader card — large, centred, gold-accented
         return (
@@ -54,20 +60,20 @@ export function TeamMemberCard({ member, index = 0 }: TeamMemberCardProps) {
                         {/* Leader badge */}
                         <div className="absolute top-4 left-1/2 -translate-x-1/2">
                             <span className="bg-gold text-cream text-xs font-medium tracking-[0.15em] uppercase px-4 py-1.5 rounded-full shadow-lg">
-                                Team Leader
+                                {t("team.leaderBadge")}
                             </span>
                         </div>
 
                         {/* Name overlay at bottom */}
                         <div className="absolute bottom-0 left-0 right-0 p-6">
                             <h3 className="font-heading text-cream text-2xl mb-0.5">{member.name}</h3>
-                            <p className="text-gold-light text-sm tracking-wide">{member.role}</p>
+                            <p className="text-gold-light text-sm tracking-wide">{translatedRole}</p>
                         </div>
                     </div>
 
                     {/* Bio + LinkedIn */}
                     <div className="bg-espresso p-6">
-                        <p className="text-cream/80 text-sm leading-relaxed mb-4">{member.bio}</p>
+                        <p className="text-cream/80 text-sm leading-relaxed mb-4">{translatedBio}</p>
                         <a
                             href={member.linkedin}
                             target="_blank"
@@ -75,7 +81,7 @@ export function TeamMemberCard({ member, index = 0 }: TeamMemberCardProps) {
                             className="inline-flex items-center gap-2 text-gold text-xs hover:text-gold-light transition-colors tracking-wider uppercase"
                         >
                             <Linkedin className="w-4 h-4" />
-                            LinkedIn Profile
+                            {t("team.linkedin")}
                         </a>
                     </div>
                 </div>
@@ -123,8 +129,8 @@ export function TeamMemberCard({ member, index = 0 }: TeamMemberCardProps) {
                 {/* Info */}
                 <div className="p-5">
                     <h3 className="font-heading text-espresso text-xl mb-1 leading-tight">{member.name}</h3>
-                    <p className="text-gold text-xs uppercase tracking-[0.1em] mb-3">{member.role}</p>
-                    <p className="text-taupe text-sm leading-relaxed line-clamp-3">{member.bio}</p>
+                    <p className="text-gold text-xs uppercase tracking-[0.1em] mb-3">{translatedRole}</p>
+                    <p className="text-taupe text-sm leading-relaxed line-clamp-3">{translatedBio}</p>
                 </div>
             </div>
         </motion.div>

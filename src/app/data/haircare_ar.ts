@@ -208,7 +208,7 @@ export const scalpConditionsAr: Record<string, ScalpConditionAr> = {
 export const haircareRoutinesAr: Record<string, RoutineAr> = {
     "hair-loss-routine": {
         name: "Hair Loss Routine",
-        description: "بروتوكول سريري مُصمَّم لتحفيز تدفق الدم وحجب DHT وإعادة تنشيط بصيلات الشعر الخاملة.",
+        description: "بروتوكول طبي مُصمَّم لتحفيز تدفق الدم وحجب DHT وإعادة تنشيط بصيلات الشعر الخاملة.",
         steps: [
             { name: "التنظيف العميق", description: "استخدمي شامبو توضيح أو سمّ لإزالة الزهم الذي يسدّ البصيلات." },
             { name: "العلاج الموضعي", description: "ضعي Minoxidil 5% مباشرةً على المناطق المتخلخلة مرتين يومياً." },
@@ -289,7 +289,7 @@ export const haircareRoutinesAr: Record<string, RoutineAr> = {
     },
     "scalp-treatment-routine": {
         name: "Scalp Treatment Routine",
-        description: "روتين علاجي مُستهدف لإدارة القشرة والتهاب الجلد الدهني عبر عناية سريرية بفروة الرأس.",
+        description: "روتين علاجي مُستهدف لإدارة القشرة والتهاب الجلد الدهني عبر عناية طبية بفروة الرأس.",
         steps: [
             { name: "التنظيف الطبي", description: "استخدمي Nizoral أو Selsun Blue. دلّكي في فروة الرأس واتركيه 3-5 دقائق." },
             { name: "حماية الأطراف", description: "ضعي البلسم على الأطراف فقط لمنع جفاف الأطوال خلال العلاج." },
@@ -332,7 +332,7 @@ export const haircareProductsAr: Record<string, ProductAr> = {
         benefits: ["يُحفّز نمو الشعر", "يُقوّي البصيلات", "يُعزّز دوران الدم"],
     },
     "hc-007": {
-        description: "علاج موضعي مثبت سريرياً لإبطاء تساقط الشعر النمطي وتحفيز إنبات الشعر الجديد.",
+        description: "علاج موضعي مثبت طبياً لإبطاء تساقط الشعر النمطي وتحفيز إنبات الشعر الجديد.",
         usage: "ضعي على فروة الرأس الجافة يومياً. دلّكي بلطف لمدة دقيقتين. لا تشطفي.",
         benefits: ["يُحفّز نمو الشعر الجديد", "يُطيل مرحلة النمو", "مُثبَّت إكلينيكياً لإبطاء الصلع"],
     },

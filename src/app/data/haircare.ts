@@ -385,7 +385,7 @@ export const haircareProducts: Product[] = [
         usage: "Apply serum on damp hair focusing on ends. Do not rinse.",
         mainIngredients: ["6 Precious Flower Oils", "Argan Oil", "Vitamin E"],
         benefits: ["Nourishes without weighing down", "Adds remarkable shine", "Prevents split ends"],
-        image: "https://www.amazon.eg/-/en/LOr%C3%A9al-Paris-Elvive-Extraordinary-Serum/dp/B01FN772MS",
+        image: "https://m.media-amazon.com/images/I/61q33UsIgHL._AC_UF894,1000_QL80_.jpg",
         targetTypes: ["dry", "straight", "wavy", "curly", "coily"],
         medicalDetails: {
             mechanismOfAction: "Forms a protective layer over the hair shaft, sealing the cuticle to prevent moisture loss and physical split damage.",
@@ -477,7 +477,7 @@ export const haircareProducts: Product[] = [
         mainIngredients: ["Selenium Sulfide (1%)"],
         benefits: ["Prescription strength flaking relief", "Removes excess oil", "Soothes itching"],
         image: "https://target.scene7.com/is/image/Target/GUEST_01fa7537-c6e9-4bb2-9a3d-9947634d5a66?wid=300&hei=300&fmt=pjpeg",
-        targetTypes: ["all"],
+        targetTypes: ["dandruff", "seborrheic-dermatitis"],
         concerns: ["dandruff", "seborrheic-dermatitis"],
         medicalDetails: {
             mechanismOfAction: "Selenium sulfide is a cytostatic agent that reduces the rate of skin cell turnover on the scalp.",
@@ -493,7 +493,7 @@ export const haircareProducts: Product[] = [
         usage: "Shake well. Wet hair, massage onto scalp, rinse. Repeat if desired.",
         mainIngredients: ["Selenium Sulfide (1%)"],
         benefits: ["Tough on dandruff", "Menthol for cooling sensation", "Relieves scalp itch"],
-        image: "https://www.amazon.eg/-/en/Selsun-Blue-Medicated-Anti-Dandruff-Shampoo/dp/B000052Y0B",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzRdgt6-wiaQKcFs3M_t8M-asE6xNGImYxaQ&s",
         targetTypes: ["dandruff"],
         concerns: ["dandruff"],
         medicalDetails: {
@@ -510,7 +510,7 @@ export const haircareProducts: Product[] = [
         usage: "Apply after shampooing on towel-dried hair. Leave for 1 minute then rinse.",
         mainIngredients: ["Ceramides", "Omega 3-6-9"],
         benefits: ["Repairs hair fiber", "Smooths ends", "Adds shine and soft feel"],
-        image: "https://www.vichy.co.za/Hair-care/NOURISHING-REPARATIVE-CONDITIONER-DERCOS/p18784.aspx",
+        image: "https://m.media-amazon.com/images/I/31U3d6NLGYL._AC_UF1000,1000_QL80_.jpg",
         targetTypes: ["dry", "damaged"],
         medicalDetails: {
             mechanismOfAction: "Ceramides fill in the gaps in the hair cuticle to restore smoothness and strength.",
@@ -526,7 +526,7 @@ export const haircareProducts: Product[] = [
         usage: "Apply a small amount to damp or dry hair, focusing on the ends. Do not rinse.",
         mainIngredients: ["Pro-V Nutrients", "Vitamin E"],
         benefits: ["Instantly repairs damage", "Prevents split ends", "Adds brilliant shine"],
-        image: "https://ph.britishessentials.com/products/pantene-repair-protect-miracle-serum-220ml",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn3uUHijPOAeGtU1rlc_3wYMS5GmeC_ds1BA&s",
         targetTypes: ["damaged", "split-ends"],
         concerns: ["split-ends"],
         medicalDetails: {
@@ -543,7 +543,7 @@ export const haircareProducts: Product[] = [
         usage: "Apply a few drops or as needed once daily, ideally at bedtime, to clean, dry scalp.",
         mainIngredients: ["REDENSYL™", "Procapil™", "Caffeine"],
         benefits: ["Increases hair density", "Supports scalp health", "Lightweight finish"],
-        image: "https://theordinary.com/dw/image/v2/BFJH_PRD/on/demandware.static/-/Sites-deciem-master/default/dwed9e4726/Images/products/The%20Ordinary/rdn-multi-peptide-serum-for-hair-density-60ml.png?sw=1200",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy2EV1QVIbraAWmJM0eSlQi-ReJ-gyeFBsDw&s",
         targetTypes: ["all", "hair-loss", "alopecia"],
         concerns: ["alopecia"],
         medicalDetails: {
