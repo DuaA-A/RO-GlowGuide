@@ -14,10 +14,10 @@ export const teamMembers: TeamMember[] = [
     },
     {
         id: "member-02",
-        name: "Youssef nady",
+        name: "Youssef Nady",
         role: "Pharmacist Team Member",
         bio: "Pharmacist team member for the MTI College graduation project.",
-        image: "/images/team/yousef_Nady.jpeg",
+        image: "/images/team/yousef_Nady.png",
         linkedin: "https://www.linkedin.com/in/youssef",
     },
     {
@@ -25,7 +25,7 @@ export const teamMembers: TeamMember[] = [
         name: "Youssif Rafaat",
         role: "Pharmacist Team Member",
         bio: "Pharmacist team member for the MTI College graduation project.",
-        image: "/images/team/Youssif_Rafaat.jpg",
+        image: "/images/team/Youssif_Refaat.png",
         linkedin: "#",
     },
     {
@@ -33,7 +33,7 @@ export const teamMembers: TeamMember[] = [
         name: "Kerolos younan",
         role: "Pharmacist Team Member",
         bio: "Pharmacist team member for the MTI College graduation project.",
-        image: "/images/team/Kerolos_younan.jpeg",
+        image: "/images/team/kerolos_younan.png",
         linkedin: "https://www.linkedin.com/in/kerolos-younan-4669553b5",
     },
     {
@@ -41,15 +41,15 @@ export const teamMembers: TeamMember[] = [
         name: "Shahd Mohamed",
         role: "Pharmacist Team Member",
         bio: "Pharmacist team member for the MTI College graduation project.",
-        image: "/images/team/Shahd_Mohammed.jpeg",
+        image: "/images/team/Shahd Mohamed.png",
         linkedin: "#",
     },
     {
         id: "member-06",
-        name: "Shahd fathy",
+        name: "Shahd Fathy",
         role: "Pharmacist Team Member",
         bio: "Pharmacist team member for the MTI College graduation project.",
-        image: "",
+        image: "/images/team/Shahd_Fathy.png",
         linkedin: "#",
     },
     {
@@ -65,7 +65,7 @@ export const teamMembers: TeamMember[] = [
         name: "Shreif sharf",
         role: "Pharmacist Team Member",
         bio: "Pharmacist team member for the MTI College graduation project.",
-        image: "",
+        image: "/images/team/Shreif sharf.png",
         linkedin: "#",
     },
     {
@@ -81,7 +81,7 @@ export const teamMembers: TeamMember[] = [
         name: "Youssif ali",
         role: "Pharmacist Team Member",
         bio: "Pharmacist team member for the MTI College graduation project.",
-        image: "/images/team/yousef_Ali.jpeg",
+        image: "/images/team/yousef_Ali.png",
         linkedin: "#",
     },
     {
@@ -89,7 +89,7 @@ export const teamMembers: TeamMember[] = [
         name: "Yossif ismail",
         role: "Pharmacist Team Member",
         bio: "Pharmacist team member for the MTI College graduation project.",
-        image: "/images/team/yousef_Esmail.jpeg",
+        image: "/images/team/yousef_Esmail.png",
         linkedin: "https://www.linkedin.com/in/youssif-ismail-767a543a1",
     },
 ];

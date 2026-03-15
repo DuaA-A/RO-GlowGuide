@@ -43,13 +43,22 @@ export function TeamMemberCard({ member, index = 0 }: TeamMemberCardProps) {
                     style={{ borderColor: "#B8965E" }}
                 >
                     {/* Photo area */}
-                    <div className="relative h-80">
+                    <div className="relative h-80 bg-gradient-to-br from-espresso to-wine-dark overflow-hidden group">
+                        {/* Animated Aura Background */}
+                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,var(--tw-gradient-stops))] from-gold/40 via-wine/20 to-transparent mix-blend-screen" />
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-gold/30 blur-[60px] rounded-full translate-x-1/2 -translate-y-1/2" />
+                            <div className="absolute bottom-0 left-0 w-64 h-64 bg-wine-light/30 blur-[60px] rounded-full -translate-x-1/2 translate-y-1/2" />
+                        </div>
+                        
                         {member.image ? (
-                            <img
-                                src={member.image}
-                                alt={member.name}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                            />
+                            <div className="absolute inset-0 pt-8 pb-4 px-4 flex items-end justify-center">
+                                <img
+                                    src={member.image}
+                                    alt={member.name}
+                                    className="w-full h-[95%] object-contain object-bottom group-hover:scale-[1.03] transition-transform duration-700 relative z-10 drop-shadow-2xl"
+                                />
+                            </div>
                         ) : (
                             <PlaceholderAvatar isLeader />
                         )}
@@ -100,13 +109,21 @@ export function TeamMemberCard({ member, index = 0 }: TeamMemberCardProps) {
         >
             <div className="luxury-card overflow-hidden">
                 {/* Photo */}
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-56 bg-cream border-b border-gold/10 overflow-hidden group/photo">
+                    {/* Animated Aura Background */}
+                    <div className="absolute inset-0 opacity-0 group-hover/photo:opacity-100 transition-opacity duration-700">
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,var(--tw-gradient-stops))] from-gold/20 via-cream to-transparent" />
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-wine-light/10 blur-[40px] rounded-full animate-pulse" />
+                    </div>
+
                     {member.image ? (
-                        <img
-                            src={member.image}
-                            alt={member.name}
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                        />
+                        <div className="absolute inset-0 pt-6 px-4 flex items-end justify-center">
+                            <img
+                                src={member.image}
+                                alt={member.name}
+                                className="w-full h-full object-contain object-bottom group-hover/photo:scale-105 transition-transform duration-700 relative z-10 drop-shadow-xl"
+                            />
+                        </div>
                     ) : (
                         <PlaceholderAvatar />
                     )}
