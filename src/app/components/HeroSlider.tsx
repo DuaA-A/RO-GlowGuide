@@ -55,7 +55,15 @@ export function HeroSlider() {
     const [activeIndex, setActiveIndex] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
     const [direction, setDirection] = useState<1 | -1>(1);
+    const [isMobile, setIsMobile] = useState(false);
     const { t, isAr } = useLanguage();
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     const slides: HeroSlide[] = [
         {
@@ -298,7 +306,7 @@ export function HeroSlider() {
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={`tag-${slide.id}`}
-                            className={`absolute bottom-12 inset-inline-end-10 z-30 flex items-center gap-2 px-5 py-2.5 rounded-full`}
+                            className={`absolute bottom-12 inset-inline-end-10 z-30 hidden lg:flex items-center gap-2 px-5 py-2.5 rounded-full`}
                             style={{
                                 background: "rgba(255,252,248,0.80)",
                                 border: `1px solid ${slide.accentColor}45`,
@@ -335,18 +343,18 @@ export function HeroSlider() {
                                 height: "100%",
                                 objectFit: "contain",
                                 objectPosition: "center",
-                                padding: "5rem 3rem",
+                                padding: isMobile ? "2rem 1rem" : "5rem 3rem",
                                 zIndex: 10,
                                 filter: `drop-shadow(0 32px 60px rgba(0,0,0,0.10)) drop-shadow(0 6px 18px ${slide.accentColor}30)`,
                             }}
                             initial={{ opacity: 0, scale: 0.94, y: 24 }}
                             animate={{
                                 opacity: 1,
-                                scale: 1.1,
-                                y: 0,
-                                x: isAr
+                                scale: isMobile ? 1 : 1.1,
+                                y: isMobile ? -60 : 0,
+                                x: isMobile ? 0 : (isAr
                                     ? (slide.id === "haircare" ? 160 : 50)
-                                    : (slide.id === "haircare" ? -160 : -50)
+                                    : (slide.id === "haircare" ? -160 : -50))
                             }}
                             exit={{ opacity: 0 }}
                             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
@@ -357,9 +365,9 @@ export function HeroSlider() {
             </div>
 
             {/* ── Content: centred within the full-width single background ──────── */}
-            <div className="relative z-10 flex items-center justify-center min-h-screen">
+            <div className="relative z-10 flex items-end lg:items-center justify-center min-h-screen">
                 <div className="w-full max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 xl:px-20">
-                    <div className="flex flex-col lg:flex-row items-center gap-16 pt-24 pb-16">
+                    <div className="flex flex-col lg:flex-row items-center gap-16 pt-32 lg:pt-24 pb-20 lg:pb-16">
 
                         {/* Text block — centred on mobile, left-aligned on desktop */}
                         <div className="flex-1 flex justify-center lg:justify-start">
@@ -379,7 +387,7 @@ export function HeroSlider() {
                                     className={`max-w-lg text-center ${isAr ? 'lg:text-right' : 'lg:text-left'}`}
                                 >
                                     {/* Eyebrow */}
-                                    <div className={`flex items-center justify-center ${isAr ? 'lg:justify-end' : 'lg:justify-start'} gap-3 mb-6`}>
+                                    <div className={`hidden lg:flex items-center justify-center ${isAr ? 'lg:justify-end' : 'lg:justify-start'} gap-3 mb-6`}>
                                         <motion.div
                                             style={{ height: "1px", background: slide.accentColor, width: 32, originX: isAr ? 1 : 0 }}
                                             initial={{ scaleX: 0 }}
@@ -400,7 +408,7 @@ export function HeroSlider() {
                                         {slide.headingItalic}
                                     </h1>
 
-                                    <p className="text-mink text-base leading-relaxed mb-10 max-w-sm mx-auto lg:mx-0">
+                                    <p className="hidden lg:block text-mink text-base leading-relaxed mb-10 max-w-sm mx-auto lg:mx-0">
                                         {slide.description}
                                     </p>
 
@@ -415,7 +423,7 @@ export function HeroSlider() {
                                     </div>
 
                                     {/* Slide controls */}
-                                    <div className={`flex items-center justify-center ${isAr ? 'lg:justify-end' : 'lg:justify-start'} gap-4`}>
+                                    <div className={`hidden lg:flex items-center justify-center ${isAr ? 'lg:justify-end' : 'lg:justify-start'} gap-4`}>
                                         <button onClick={() => goTo((activeIndex - 1 + slides.length) % slides.length, -1)}
                                             className="w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-200 hover:scale-105"
                                             style={{ borderColor: `${slide.accentColor}60`, color: slide.accentColor }} aria-label="Previous">
